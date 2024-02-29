@@ -25,7 +25,7 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Download the disko.nix file with ```curl -fs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/disko.nix >> ~/disko.nix```
 - Find out your disk device name with ```lsblk``` (The first volume, not any subvolumes)
 - Replace "/dev/nvme0n1" with "/dev/yourdevicename" in the next command
-- Format you drive with ```sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko.nix --arg device '"/dev/nvme0n1"'```
+- Format you drive with ```sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ~/disko.nix --arg device '"/dev/nvme0n1"'```
 ### Step 3
 - Create the necessary directories with ```sudo mkdir -p /mnt/etc/nixos```
 - Temporarily download git with ```sudo nix-shell -p git"```
