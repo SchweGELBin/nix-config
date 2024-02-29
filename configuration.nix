@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
 
 imports = [
   ./hardware-configuration.nix
+  inputs.home-manager.nixosModules.default
 ];
 
 system.stateVersion = "23.11";
@@ -108,7 +109,7 @@ services.getty.autologinUser = "michi";
 programs.hyprland = {
   enable = true;
   xwayland.enable = true;
-  #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 };
 
 xdg.portal = {
@@ -146,7 +147,15 @@ programs.neovim = {
   defaultEditor = true;
 };
 
+home-manager = {
+  extraSpecialArgs = { inherit inputs; };
+  users = {
+    "michi" = import ./home.nix;
+  };
+};
+
 environment.systemPackages = with pkgs; [
+  kitty
   wget
 ];
 
