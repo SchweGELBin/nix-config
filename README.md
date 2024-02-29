@@ -28,13 +28,13 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Format you drive with ```sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ~/disko.nix --arg device '"/dev/nvme0n1"'```
 ### Step 3
 - Create the necessary directories with ```sudo mkdir -p /mnt/etc/nixos```
-- Temporarily download git with ```sudo nix-shell -p git"```
+- Temporarily download git with ```sudo nix-shell -p git```
 - Get these config files with ```sudo git clone https://github.com/SchweGELBin/nix-config --depth 1 /mnt/etc/nixos```
 ### Step 4
 - Install NixOS with ```sudo nixos-install --root /mnt --flake /mnt/etc/nixos#default```
 
 ## Tips
-- To sync the config with a newer version run ``sudo git pull``` inside of /etc/nixos
+- To sync the config with a newer version run ```sudo git pull``` inside of /etc/nixos
 - Feel free to contribute to make these configs better
 - Run ```sudo rebuild``` to rebuild the system
 - Run ```sudo rebuild``` in /etc/nixos to update and rebuild your system
