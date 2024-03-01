@@ -30,9 +30,9 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Create the necessary directories with ```sudo mkdir -p /mnt/etc```
 - Download the shell.nix file with ```curl -fs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/shell.nix >> ~/shell.nix```
 - Start ```sudo nix-shell``` to be able to use git
-- Get these config files with ```sudo git clone https://github.com/SchweGELBin/nix-config --depth 1 /mnt/etc/nixos```
+- Get these config files with ```git clone https://github.com/SchweGELBin/nix-config --depth 1 /mnt/etc/nixos```
 ### Step 3
-- Install NixOS with ```sudo nixos-install --root /mnt --flake /mnt/etc/nixos#default```
+- Install NixOS with ```nixos-install --root /mnt --flake /mnt/etc/nixos#default```
 - If you jet an out of space error, rerun last command
 ### Step 4
 - Check if you didn't make any mistakes and didn't pet any errors
