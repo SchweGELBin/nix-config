@@ -155,6 +155,7 @@ home-manager = {
 };
 
 environment.systemPackages = with pkgs; [
+  git
   kitty
   wget
 ];
