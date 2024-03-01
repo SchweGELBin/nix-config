@@ -29,9 +29,9 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Login with default password: 1234
 
 ### Automatic
-- Run following command:
+- Run following command in home (~)
 ```
-cd ~ && curl -fs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh >> ~/install.sh && chmod +x ~/install.sh && ./install.sh
+curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh
 ```
 
 ### Manually
