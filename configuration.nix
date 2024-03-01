@@ -34,6 +34,11 @@ boot = {
 networking = {
   hostName = "nix";
   networkmanager.enable = true;
+  firewall = {
+    enable = false;
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
+  };
 };
 
 nix = {
@@ -138,6 +143,8 @@ services.pipewire = {
 
 programs.zsh.enable = true;
 
+services.openssh.enable = true;
+
 fonts.packages = with pkgs; [
   nerdfonts
 ];
@@ -159,19 +166,4 @@ environment.systemPackages = with pkgs; [
   kitty
   wget
 ];
-
-# Enable the OpenSSH daemon.
-# services.openssh.enable = true;
-
-# Open ports in the firewall.
-# networking.firewall.allowedTCPPorts = [ ... ];
-# networking.firewall.allowedUDPPorts = [ ... ];
-# Or disable the firewall altogether.
-# networking.firewall.enable = false;
-
-# system.copySystemConfiguration = true;
-
-# For more information, see `man configuration.nix`
-
 }
-
