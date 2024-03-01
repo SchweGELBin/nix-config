@@ -162,8 +162,56 @@ home-manager = {
 };
 
 environment.systemPackages = with pkgs; [
+  age
+  android-tools
+  blender
+  catppuccin
+  catppuccin-gtk
+  catppuccin-papirus-folders
+  dolphin
+  firefox
+  fusee-nano
+  gamemode
+  gamescope
+  gcc
+  gimp
   git
+  gparted
+  hello
+  heroic
+  hyprshot
+  inkscape
+  jdk
   kitty
+  krita
+  libnotify
+  mako
+  mangohud
+  mari0
+  minecraft
+  minecraft-server
+  mpv
+  nerdfonts
+  neofetch
+  nodejs
+  obs-studio
+  openrgb
+  papermc
+  papirus-icon-theme
+  pavucontrol
+  rofi
+  rofimoji
+  sops
+  spotify
+  steam
+  superTuxKart
+  swww
+  unzip
+  ventoy
+  waybar
+  webcord-vencord
+  wev
+  weylus
   wget
 ];
 }

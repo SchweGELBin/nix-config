@@ -1,0 +1,100 @@
+@import './colors.css';
+
+* {
+    font-family: FontAwesome, Helvetica, "Fira Sans Semibold";
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    color: @text; 
+    background-color: @bg; 
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @text;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: @bg2;
+    color: @text;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: @bg2;
+    box-shadow: inset 0 -3px @text;
+}
+
+#workspaces button.active {
+    background-color: @bg2;
+    box-shadow: inset 0 -3px @text;
+}
+
+#workspaces button.urgent {
+    background-color: @bg2;
+}
+
+#workspaces {
+    margin: 0 4px;
+    padding: 0;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+label:focus {
+    background-color: @text2;
+}
+
+#clock {
+    background-color: @bg2;
+    margin: 0 8px;
+}
+
+#cpu {
+    background-color: @bg2;
+    color: @text2;
+    margin: 0 8px;
+}
+
+#memory {
+    background-color: @bg2;
+    margin: 0 8px;
+}
+
+#pulseaudio {
+    background-color: @bg2;
+    color: @text2;
+    margin: 0 8px;
+}
+
+#pulseaudio.muted {
+    background-color: @bg2;
+    color: @text2;
+}
+
+#temperature {
+    background-color: @bg2;
+    margin: 0 8px;
+}
+
+#temperature.critical {
+    background-color: @bg2;
+}

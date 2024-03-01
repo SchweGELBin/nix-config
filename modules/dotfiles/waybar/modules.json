@@ -1,0 +1,65 @@
+{
+    // Woskspaces
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+	"format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+
+    // Window
+    "hyprland/window": {
+        "max-length": 200,
+	"separate-outputs": true
+    },
+
+    // Tray
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+    // Clock
+    "clock": {
+        "timezone": "Europe/Berlin",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+
+    // CPU
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+
+    // Memory
+    "memory": {
+        "format": "{}% "
+    },
+
+    // Temperature
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+
+    // Audio
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{volume} {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume} ",
+        "format-source-muted": "",
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol"
+    }
+}
