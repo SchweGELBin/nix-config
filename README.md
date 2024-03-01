@@ -33,19 +33,21 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Get these config files with ```git clone https://github.com/SchweGELBin/nix-config --depth 1 /mnt/etc/nixos```
 ### Step 3
 - Install NixOS with ```nixos-install --root /mnt --flake /mnt/etc/nixos#default```
-- If you jet an out of space error, rerun last command
+- (If you get an out of space error, rerun last command)
+- Type in your preferred root password (twice)
 ### Step 4
-- Check if you didn't make any mistakes and didn't pet any errors
+- Check if you didn't make any mistakes and didn't get any errors
 - Exit nix-shell with ```exit```
-- Reboot to your system ```reboot```
+- Reboot to your system with ```reboot```
 - Remove your USB flash drive at reboot
+- Login with default password: 1234
 
 ## Tips
 - To sync the config with a newer version run ```sudo git pull``` inside of /etc/nixos
 - Feel free to contribute to make these configs better
 - Run ```sudo rebuild``` to rebuild the system
 - Run ```sudo rebuild``` in /etc/nixos to update and rebuild your system
-- You may want to edit the user's initialPassword at configuration.nis (default 1234)
+- You may want to edit the user's initialPassword at configuration.nix
 - Edit the disk device name at flake.nix
 
 ## Credits
