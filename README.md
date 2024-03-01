@@ -29,10 +29,10 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Login with default password: 1234
 
 ### Automatic
-- Get your device name with ```lsblk``` (main name, not subvolume, e.g. nvme0n1)
-- Run following command in home (~), change yourdevicename
+- Get your device name with ```lsblk```
+- Run following command in home (~), change to your device name
 ```
-curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh | bash -c yourdevicename
+curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh | bash -s "/dev/nvme0n1"
 ```
 
 ### Manually
