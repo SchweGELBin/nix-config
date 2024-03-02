@@ -22,7 +22,7 @@ boot = {
     };
     efi.canTouchEfiVariables = false;
   };
-  kernelPackages = pkgs.linuxPackages;
+  kernelPackages = pkgs.linuxPackages_latest;
   extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
@@ -143,6 +143,8 @@ services.pipewire = {
 
 programs.zsh.enable = true;
 
+services.hardware.openrgb.enable = true;
+
 services.openssh.enable = true;
 
 fonts.packages = with pkgs; [
@@ -167,7 +169,6 @@ environment.systemPackages = with pkgs; [
   blender
   catppuccin
   catppuccin-gtk
-  catppuccin-papirus-folders
   fusee-nano
   gamemode
   gamescope
@@ -178,11 +179,13 @@ environment.systemPackages = with pkgs; [
   hello
   heroic
   hyprshot
+  inetutils
   inkscape
   jdk
   kitty
   krita
   libnotify
+  libreoffice-fresh
   librewolf
   mako
   mangohud
