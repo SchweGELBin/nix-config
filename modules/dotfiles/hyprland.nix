@@ -85,7 +85,7 @@
     "$mainMod" = "SUPER";
 
     "$applauncher" = "rofi";
-    "$browser" = "firefox";
+    "$browser" = "librewolf";
     "$filemanager" = "dolphin";
     "$terminal" = "kitty";
 

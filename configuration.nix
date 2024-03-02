@@ -168,8 +168,6 @@ environment.systemPackages = with pkgs; [
   catppuccin
   catppuccin-gtk
   catppuccin-papirus-folders
-  dolphin
-  firefox
   fusee-nano
   gamemode
   gamescope
@@ -185,6 +183,7 @@ environment.systemPackages = with pkgs; [
   kitty
   krita
   libnotify
+  librewolf
   mako
   mangohud
   mari0
@@ -202,7 +201,6 @@ environment.systemPackages = with pkgs; [
   rofi
   rofimoji
   sops
-  spotify
   steam
   superTuxKart
   swww
