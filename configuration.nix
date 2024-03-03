@@ -6,49 +6,85 @@ imports = [
   inputs.home-manager.nixosModules.default
 ];
 
-system.stateVersion = "23.11";
-
-nixpkgs.config.allowUnfree = true;
-
 boot = {
   loader = {
+    efi.canTouchEfiVariables = false; 
     grub = {
       enable = true;
-      useOSProber = true;
+      configurationLimit = 32; 
       device = "nodev";
-      configurationLimit = 32;
-      efiSupport = true;
       efiInstallAsRemovable = true;
-    };
-    efi.canTouchEfiVariables = false;
-  };
-  kernelPackages = pkgs.linuxPackages_latest;
-  extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
+      efiSupport = true; 
+      useOSProber = true;
+    }; 
+  };   
   extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
+  extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
+  kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
 };
 
-networking = {
-  hostName = "nix";
-  networkmanager.enable = true;
-  firewall = {
-    enable = false;
-    allowedTCPPorts = [ ];
-    allowedUDPPorts = [ ];
+console = {
+  font = "Lat2-Terminus16";
+  useXkbConfig = true;
+};
+
+environment = {
+  sessionVariables = {
+    NIXOS_INSTALL_BOOTLOADER = "1";
+    NIXOS_OZONE_WL = "1"; 
+    WLR_NO_HARDWARE_CURSORS = "1"; 
   };
-};
-
-nix = {
-  settings.experimental-features = [
-    "nix-command"
-    "flakes"
+  systemPackages = with pkgs; [
+    age android-tools
+    blender
+    catppuccin catppuccin-gtk
+    fusee-nano
+    gamemode gamescope gcc gimp git gparted
+    heroic hyprshot
+    inetutils inkscape
+    jdk
+    kitty krita
+    libnotify libreoffice-fresh librewolf
+    mako mangohud mari0 mpv
+    neofetch nodejs
+    obs-studio openrgb
+    papermc papirus-icon-theme
+    pavucontrol prismlauncher
+    rofi rofimoji
+    sops steam superTuxKart swww
+    unzip
+    ventoy
+    waybar webcord-vencord wev weylus wget
   ];
 };
 
-time.timeZone = "Europe/Berlin";
+fonts = {
+  packages = with pkgs; [ nerdfonts ];
+};
+
+hardware = { 
+  nvidia = {
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable; # NVidia Version (New -> Old): beta >= stable >= production
+    powerManagement.enable = false;
+  };
+  opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+};
+
+home-manager = {
+  extraSpecialArgs = { inherit inputs; };
+  users = {
+    "michi" = import ./home.nix;
+  };
+};
 
 i18n = {
   defaultLocale = "en_US.UTF-8";
@@ -65,153 +101,96 @@ i18n = {
   };
 };
 
-console = {
-  font = "Lat2-Terminus16";
-  useXkbConfig = true;
+networking = {
+  firewall = {
+    enable = false;
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
+  };
+  hostName = "nix";
+  networkmanager.enable = true; 
 };
 
-services.xserver = {
-  enable = true;
-  xkb = {
-    layout = "us";
-    options = "caps:backspace";
-    variant = "";
-  };
-  videoDrivers = [ "nvidia" ];
-  displayManager.gdm = {
+nix = {
+  settings.experimental-features = [ "flakes" "nix-command" ];
+};
+
+nixpkgs = {
+  config.allowUnfree = true;
+};
+
+programs = {
+  hyprland = {
+    enable = true; 
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    xwayland.enable = true;
+  }; 
+  neovim = {
     enable = true;
-    wayland = true;
+    defaultEditor = true;
+  };
+  zsh.enable = true;
+};
+
+security = {
+  polkit.enable = true;
+  rtkit.enable = true; 
+};
+
+services = {
+  getty.autologinUser = "michi";
+  hardware.openrgb.enable = true;
+  openssh.enable = true;
+  pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    jack.enable = true;
+    pulse.enable = true; 
+  };
+  printing.enable = true;
+  xserver = {
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    videoDrivers = [ "nvidia" ]; 
+    xkb = {
+      layout = "us";
+      options = "caps:backspace";
+      variant = "";
+    }; 
   };
 };
 
-environment.sessionVariables = {
-  WLR_NO_HARDWARE_CURSORS = "1";
-  NIXOS_OZONE_WL = "1";
-  NIXOS_INSTALL_BOOTLOADER = "1";
-};
-
-hardware = {
-  opengl.enable = true;
-  nvidia.modesetting.enable = true;
-};
-
-services.printing.enable = true;
-
-users.users.michi = {
-  isNormalUser = true;
-  initialPassword = "1234";
-  description = "michi";
-  extraGroups = [
-    "networkmanager"
-    "wheel"
-  ];
-  packages = with pkgs; [];
-  shell = pkgs.bash;
-};
-
-services.getty.autologinUser = "michi";
-
-programs.hyprland = {
+sound = {
   enable = true;
-  xwayland.enable = true;
-  package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+};
+
+system = {
+  stateVersion = "23.11";
+};
+
+time = {
+  timeZone = "Europe/Berlin";
+};
+
+users = {
+  users.michi = {
+    description = "michi";
+    extraGroups = [ "networkmanager" "wheel" ];
+    initialPassword = "1234";  
+    isNormalUser = true; 
+    packages = with pkgs; [];
+    shell = pkgs.bash;
+  };
 };
 
 xdg.portal = {
   enable = true;
-  extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-  ];
+  extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 };
-
- sound.enable = true;
-
-security = {
-  rtkit.enable = true;
-  polkit.enable = true;
-};
-
-services.pipewire = {
-  enable = true;
-  alsa = {
-    enable = true;
-    support32Bit = true;
-  };
-  pulse.enable = true;
-  jack.enable = true;
-};
-
-programs.zsh.enable = true;
-
-services.hardware.openrgb.enable = true;
-
-services.openssh.enable = true;
-
-fonts.packages = with pkgs; [
-  nerdfonts
-];
-
-programs.neovim = {
-  enable = true;
-  defaultEditor = true;
-};
-
-home-manager = {
-  extraSpecialArgs = { inherit inputs; };
-  users = {
-    "michi" = import ./home.nix;
-  };
-};
-
-environment.systemPackages = with pkgs; [
-  age
-  android-tools
-  blender
-  catppuccin
-  catppuccin-gtk
-  fusee-nano
-  gamemode
-  gamescope
-  gcc
-  gimp
-  git
-  gparted
-  hello
-  heroic
-  hyprshot
-  inetutils
-  inkscape
-  jdk
-  kitty
-  krita
-  libnotify
-  libreoffice-fresh
-  librewolf
-  mako
-  mangohud
-  mari0
-  mpv
-  nerdfonts
-  neofetch
-  nodejs
-  obs-studio
-  openrgb
-  papermc
-  papirus-icon-theme
-  pavucontrol
-  prismlauncher
-  rofi
-  rofimoji
-  sops
-  steam
-  superTuxKart
-  swww
-  unzip
-  ventoy
-  waybar
-  webcord-vencord
-  wev
-  weylus
-  wget
-];
 }
