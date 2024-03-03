@@ -190,8 +190,6 @@ environment.systemPackages = with pkgs; [
   mako
   mangohud
   mari0
-  minecraft
-  minecraft-server
   mpv
   nerdfonts
   neofetch
@@ -201,6 +199,7 @@ environment.systemPackages = with pkgs; [
   papermc
   papirus-icon-theme
   pavucontrol
+  prismlauncher
   rofi
   rofimoji
   sops
