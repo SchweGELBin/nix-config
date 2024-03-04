@@ -39,7 +39,7 @@ environment = {
   systemPackages = with pkgs; [
     age android-tools
     blender
-    catppuccin catppuccin-gtk
+    catppuccin catppuccin-gtk cmake
     fusee-nano
     gamemode gamescope gcc gimp git gparted
     heroic hyprshot
@@ -50,8 +50,7 @@ environment = {
     mako mangohud mari0 mpv
     neofetch nodejs
     obs-studio openrgb
-    papermc papirus-icon-theme
-    pavucontrol prismlauncher
+    papermc papirus-icon-theme pavucontrol prismlauncher
     rofi rofimoji
     sops steam superTuxKart swww
     unzip
