@@ -3,7 +3,7 @@
 {
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''
-      git add /etc/nixos/HyprNix
+      git add /etc/nixos/
       nix flake update
       nixos-rebuild switch --flake /etc/nixos/#default
     '')

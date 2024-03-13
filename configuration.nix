@@ -21,7 +21,7 @@ boot = {
   };   
   #extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
   #extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
-  kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
+  kernelPackages = pkgs.linuxPackages_testing; # Kernel Version: testing = mainline, latest = stable
 };
 
 console = {
@@ -68,7 +68,7 @@ hardware = {
     modesetting.enable = true;
     nvidiaSettings = true;
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable; # NVidia Version (New -> Old): beta >= stable >= production
+    package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
     powerManagement.enable = false;
   };
   opengl = {
