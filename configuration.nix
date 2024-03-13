@@ -4,6 +4,7 @@
 imports = [
   ./hardware-configuration.nix
   inputs.home-manager.nixosModules.default
+  inputs.sops-nix.nixosModules.default
 ];
 
 boot = {
@@ -18,10 +19,8 @@ boot = {
       useOSProber = true;
     }; 
   };   
-  extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  '';
-  extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
+  #extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
+  #extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
   kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
 };
 
@@ -34,7 +33,7 @@ environment = {
   sessionVariables = {
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1"; 
-    WLR_NO_HARDWARE_CURSORS = "1"; 
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
   systemPackages = with pkgs; [
     age android-tools
@@ -56,6 +55,7 @@ environment = {
     unzip
     ventoy
     waybar webcord-vencord wev weylus wget
+    youtube-dl
   ];
 };
 
@@ -165,6 +165,13 @@ services = {
   };
 };
 
+sops = {
+  age.keyFile = "/home/michi/.config/sops/age/keys.txt";
+  defaultSopsFile = ./secrets/secrets.yaml;
+  defaultSopsFormat = "yaml";
+  secrets.password = { };
+};
+
 sound = {
   enable = true;
 };
@@ -181,15 +188,17 @@ users = {
   users.michi = {
     description = "michi";
     extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "1234";  
+    initialPassword = "${config.sops.secrets.password.path}";
     isNormalUser = true; 
     packages = with pkgs; [];
     shell = pkgs.bash;
   };
 };
 
-xdg.portal = {
-  enable = true;
-  extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+xdg = {
+  portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 };
 }

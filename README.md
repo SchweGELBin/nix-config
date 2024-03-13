@@ -32,7 +32,7 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Get your device name with ```lsblk```
 - Run following command in home (~), change to your device name
 ```
-curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh | bash -s "/dev/nvme0n1"
+curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh | bash
 ```
 
 ### Manually
