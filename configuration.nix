@@ -34,11 +34,14 @@ environment = {
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1"; 
     WLR_NO_HARDWARE_CURSORS = "1";
+    QT_QPA_PLATFORMTHEME = "kvantum";
   };
   systemPackages = with pkgs; [
     age android-tools
-    blender
-    catppuccin catppuccin-gtk cmake
+    bat blender btop
+    (catppuccin.override{accent="mauve";variant="macchiato";})
+    (catppuccin-gtk.override{accents=["mauve"];size="standard";variant="macchiato";})
+    cmake
     fusee-nano
     gamemode gamescope gcc gimp git gparted
     heroic hyprshot
@@ -46,12 +49,13 @@ environment = {
     jdk
     kitty krita
     libnotify libreoffice-fresh librewolf
+    libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mari0 mpv
     neofetch nodejs
     obs-studio openrgb
     papermc papirus-icon-theme pavucontrol prismlauncher
     rofi rofimoji
-    sops steam superTuxKart swww
+    sops spotify-qt steam superTuxKart swww
     unzip
     ventoy
     waybar webcord-vencord wev weylus wget
