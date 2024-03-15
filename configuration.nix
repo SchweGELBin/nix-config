@@ -53,7 +53,7 @@ environment = {
     mako mangohud mari0 mpv
     neofetch nodejs
     obs-studio openrgb
-    papermc papirus-icon-theme pavucontrol prismlauncher
+    papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
     rofi rofimoji
     sops spotify-qt steam superTuxKart swww
     unzip
