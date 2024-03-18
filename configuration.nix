@@ -37,12 +37,12 @@ environment = {
     QT_QPA_PLATFORMTHEME = "kvantum";
   };
   systemPackages = with pkgs; [
-    age android-tools
+    age android-tools audacity
     bat blender btop
     (catppuccin.override{accent="mauve";variant="macchiato";})
     (catppuccin-gtk.override{accents=["mauve"];size="standard";variant="macchiato";})
     cmake
-    fusee-nano
+    ffmpeg fusee-nano
     gamemode gamescope gcc gimp git gparted
     heroic hyprshot
     inetutils inkscape
@@ -59,7 +59,7 @@ environment = {
     unzip
     ventoy
     waybar webcord-vencord wev weylus wget
-    youtube-dl
+    yt-dlp
   ];
 };
 
