@@ -55,7 +55,7 @@ environment = {
     obs-studio openrgb
     papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
     rofi rofimoji
-    sops spotify-qt steam superTuxKart swww
+    sops steam superTuxKart swww
     unzip
     ventoy
     waybar webcord-vencord wev weylus wget
