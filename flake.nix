@@ -3,6 +3,7 @@ description = "SchweGELBin's nix-config flake";
      
 inputs = {
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
   disko = {
     url = "github:nix-community/disko";
@@ -14,13 +15,19 @@ inputs = {
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  hyprland.url = "github:hyprwm/Hyprland";
+  hyprland = {
+    url = "github:hyprwm/Hyprland";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
-  nix-colors.url = "github:misterio77/nix-colors";
+  nix-colors = {
+    url = "github:misterio77/nix-colors";
+  };
 
   sops-nix = {
     url = "github:Mic92/sops-nix";
     inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs-stable.follows = "nixpkgs-stable";
   };
 };
 

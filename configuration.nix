@@ -57,9 +57,7 @@ environment = {
     rofi rofimoji
     sops steam superTuxKart swww
     unzip
-    ventoy
-    #waybar - Broken right now
-    webcord-vencord wev weylus wget
+    ventoy waybar webcord-vencord wev weylus wget
     yt-dlp
   ];
 };
