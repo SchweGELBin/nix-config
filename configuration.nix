@@ -47,7 +47,7 @@ environment = {
     heroic hyprshot
     inetutils inkscape
     jdk
-    kitty krita
+    kdePackages.kdeconnect-kde kitty krita
     libnotify libreoffice-fresh librewolf
     libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mari0 mpv
@@ -191,7 +191,8 @@ users = {
   users.michi = {
     description = "michi";
     extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "${config.sops.secrets.password.path}";
+    #initialPassword = "${config.sops.secrets.password.path}";
+    initialPassword = "1234";
     isNormalUser = true; 
     packages = with pkgs; [];
     shell = pkgs.bash;
