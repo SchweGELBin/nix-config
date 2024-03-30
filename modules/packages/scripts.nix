@@ -33,11 +33,11 @@
     '')
 
     (pkgs.writeShellScriptBin "music" ''
-      echo "Place your Music (YouTube) links to ~/.config/nix/music.txt"
-      input=~/.config/nix/music.txt
+      echo "Place your Music (YouTube) links to ~/.config/nix/music.list"
+      input=~/.config/nix/music.list
       while read -r line
       do
-        mpv $line --no-video
+        mpv $line --no-video --slang=en,eng,de,deu,ger
       done < "$input"
     '')
   ];
