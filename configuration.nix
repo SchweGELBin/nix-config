@@ -49,11 +49,11 @@ environment = {
     jdk
     kdePackages.kdeconnect-kde kitty krita
     libnotify libreoffice-fresh librewolf
-    libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mari0 mpv
     neofetch nodejs
     obs-studio openrgb
     p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
+    qt6.full qutebrowser
     rofi-wayland rofimoji
     sops steam superTuxKart swww
     unrar unzip

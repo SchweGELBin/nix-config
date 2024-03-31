@@ -9,7 +9,7 @@
     };
     theme = {
       name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
-      package = pkgs.catppuccin-gtk;
+      package = (catppuccin-gtk.override{accents=["mauve"];size="standard";variant="macchiato";});
     };
   };
 }
