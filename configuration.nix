@@ -12,7 +12,7 @@ boot = {
     efi.canTouchEfiVariables = false; 
     grub = {
       enable = true;
-      configurationLimit = 32; 
+      configurationLimit = 48; 
       device = "nodev";
       efiInstallAsRemovable = true;
       efiSupport = true; 
@@ -53,10 +53,10 @@ environment = {
     mako mangohud mari0 mpv
     neofetch nodejs
     obs-studio openrgb
-    papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
-    rofi rofimoji
+    p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
+    rofi-wayland rofimoji
     sops steam superTuxKart swww
-    unzip
+    unrar unzip
     ventoy waybar webcord-vencord wev weylus wget
     yt-dlp
   ];
