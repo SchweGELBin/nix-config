@@ -21,7 +21,7 @@ boot = {
   };   
   #extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
   #extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
-  kernelPackages = pkgs.linuxPackages_testing; # Kernel Version: testing = mainline, latest = stable
+  kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
 };
 
 console = {
@@ -50,10 +50,11 @@ environment = {
     jdk
     kdePackages.kdeconnect-kde kitty krita
     libnotify libreoffice-fresh librewolf
+    libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mari0 mpv
     neofetch nodejs
     obs-studio openrgb
-    p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
+    p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher-qt5
     qt6.full qutebrowser
     rofi-wayland rofimoji
     sops steam superTuxKart
@@ -73,7 +74,7 @@ hardware = {
     modesetting.enable = true;
     nvidiaSettings = true;
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
+    package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production 
     powerManagement.enable = false;
   };
   opengl = {
@@ -120,7 +121,10 @@ nix = {
 };
 
 nixpkgs = {
-  config.allowUnfree = true;
+  config = {
+    allowUnfree = true;
+    nvidia.acceptLicense = true;
+  };
 };
 
 programs = {
@@ -167,7 +171,7 @@ services = {
 	wayland.enable = true;
       };
     };
-    videoDrivers = [ "nouveau" ]; 
+    videoDrivers = [ "nvidia" ]; # nvidia / nouveau
     xkb = {
       layout = "us";
       options = "caps:backspace";
