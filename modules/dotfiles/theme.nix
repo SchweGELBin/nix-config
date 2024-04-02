@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+
   gtk = {
     enable = true;
     #cursorTheme = { };

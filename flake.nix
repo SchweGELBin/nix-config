@@ -1,11 +1,11 @@
 {
 description = "SchweGELBin's nix-config flake";
-     
+
 inputs = {
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-  nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
+  nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
   disko = {
     url = "github:nix-community/disko";
@@ -19,6 +19,11 @@ inputs = {
 
   hyprland = {
     url = "github:hyprwm/Hyprland";
+    #inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  hyprlock = {
+    url = "github:hyprwm/hyprlock";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -42,8 +47,6 @@ outputs = { nixpkgs, ... } @inputs:
 
       inputs.disko.nixosModules.default
       (import ./disko.nix { device = "/dev/nvme0n1"; })
-
-      inputs.home-manager.nixosModules.default
     ];
   };
 };

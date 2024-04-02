@@ -12,7 +12,7 @@ boot = {
     efi.canTouchEfiVariables = false; 
     grub = {
       enable = true;
-      configurationLimit = 48; 
+      configurationLimit = 64; 
       device = "nodev";
       efiInstallAsRemovable = true;
       efiSupport = true; 
@@ -42,9 +42,10 @@ environment = {
     (catppuccin.override{accent="mauve";variant="macchiato";})
     (catppuccin-gtk.override{accents=["mauve"];size="standard";variant="macchiato";})
     cmake
+    dolphin
     ffmpeg fusee-nano
     gamemode gamescope gcc gimp git gparted
-    heroic hyprshot
+    heroic hyprpaper hyprshot
     inetutils inkscape
     jdk
     kdePackages.kdeconnect-kde kitty krita
@@ -55,9 +56,10 @@ environment = {
     p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher
     qt6.full qutebrowser
     rofi-wayland rofimoji
-    sops steam superTuxKart swww
-    unrar unzip
-    ventoy waybar webcord-vencord wev weylus wget
+    sops steam superTuxKart
+    unrar unzip usbutils
+    ventoy
+    waybar webcord-vencord wev weylus wget
     yt-dlp
   ];
 };
@@ -124,9 +126,9 @@ nixpkgs = {
 programs = {
   hyprland = {
     enable = true; 
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
-  }; 
+  };
   neovim = {
     enable = true;
     defaultEditor = true;
@@ -155,11 +157,17 @@ services = {
   printing.enable = true;
   xserver = {
     enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+    displayManager = {
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
+      sddm = {
+        enable = false;
+	wayland.enable = true;
+      };
     };
-    videoDrivers = [ "nvidia" ]; 
+    videoDrivers = [ "nouveau" ]; 
     xkb = {
       layout = "us";
       options = "caps:backspace";
@@ -202,7 +210,7 @@ users = {
 xdg = {
   portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [];
   };
 };
 }
