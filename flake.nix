@@ -2,10 +2,16 @@
 description = "SchweGELBin's nix-config flake";
 
 inputs = {
-  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
   nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
   nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+  nixpkgs.follows = "nixpkgs-unstable"; 
+
+  hyprlang = {
+    url = "github:hyprwm/hyprlang";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.systems.url = "github:nix-systems/default-linux";
+  };
 
   disko = {
     url = "github:nix-community/disko";
@@ -20,11 +26,13 @@ inputs = {
   hyprland = {
     url = "github:hyprwm/Hyprland";
     inputs.nixpkgs.follows = "nixpkgs";
+    inputs.hyprlang.follows = "hyprlang";
   };
 
   hyprlock = {
     url = "github:hyprwm/hyprlock";
     inputs.nixpkgs.follows = "nixpkgs";
+    inputs.hyprlang.follows = "hyprlang";
   };
 
   nix-colors = {
