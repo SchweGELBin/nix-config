@@ -19,8 +19,8 @@ boot = {
       useOSProber = true;
     }; 
   };   
-  #extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
-  #extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
+  extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
+  extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; 
   kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
 };
 
@@ -41,12 +41,12 @@ environment = {
     bat blender btop
     (catppuccin.override{accent="mauve";variant="macchiato";})
     (catppuccin-gtk.override{accents=["mauve"];size="standard";variant="macchiato";})
-    cmake
+    cliphist cmake
     dolphin
     ffmpeg fusee-nano
-    gamemode gamescope gcc gimp git gparted
+    gamemode gamescope gcc gimp git gparted grim
     heroic hyprpaper hyprshot
-    inetutils inkscape
+    imv inetutils inkscape
     jdk
     kdePackages.kdeconnect-kde kitty krita
     libnotify libreoffice-fresh librewolf
@@ -57,10 +57,10 @@ environment = {
     p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher-qt5
     qt6.full qutebrowser
     rofi-wayland rofimoji
-    sops steam superTuxKart
-    unrar unzip usbutils
+    slurp sops steam superTuxKart
+    ulauncher unrar unzip usbutils
     ventoy
-    waybar webcord-vencord wev weylus wget
+    waybar webcord-vencord wev weylus wget wl-clipboard wlogout
     yt-dlp
   ];
 };
@@ -108,7 +108,7 @@ i18n = {
 
 networking = {
   firewall = {
-    enable = false;
+    enable = true;
     allowedTCPPorts = [ ];
     allowedUDPPorts = [ ];
   };
@@ -214,7 +214,9 @@ users = {
 xdg = {
   portal = {
     enable = true;
-    extraPortals = [];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
   };
 };
 }
