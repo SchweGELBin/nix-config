@@ -142,7 +142,7 @@
       # Screenshots
       ", Print, exec, screenshot d" # Display
       "$mainMod, Print, exec, screenshot w" # Window
-      "SHIFT, Print, exec, screenshot s" # Selection
+      "SHIFT, Print, exec, screenshot r" # Region
 
       # Reset
       "$mainMod, W, exec, pkill waybar && waybar"

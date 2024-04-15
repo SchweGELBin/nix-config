@@ -47,8 +47,6 @@
     scrDir="$HOME/Pictures/Screenshots"
     scrPath="$scrDir/$filename"
 
-    activeWindow="$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')"
-
     mkdir -p $scrDir
 
     case $1 in
@@ -56,10 +54,10 @@
       grim $scrPath | wl-copy
     ;;
     w) # Window
-      grim -o $activeWindow $scrPath | wl-copy
+      echo "Window mode not working yet"
     ;;
-    s) # Selection
-      grim -g $(slurp) $scrPath | wl-copy
+    r) # Region
+      grim -g "$(slurp)" $scrPath | wl-copy
     ;;
     esac
     '')
