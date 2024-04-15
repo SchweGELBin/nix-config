@@ -1,9 +1,9 @@
 {
   imports = [
-    ./hyprland.nix
+    ./hyprland/default.nix
     ./kitty.nix
     ./rofi.nix
-    ./waybar.nix
+    ./waybar/default.nix
     ./theme.nix
   ];
 }

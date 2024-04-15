@@ -89,8 +89,6 @@
     "$filemanager" = "dolphin";
     "$terminal" = "kitty";
 
-    "$screenshotdir" = "~/Pictures/Screenshots/";
-
     bind = [
       # General
       "$mainMod, Q, exec, $terminal"
@@ -144,9 +142,9 @@
       "$mainMod, mouse_up, workspace, e-1"
 
       # Screenshots
-      ", Print, exec, hyprshot  -c -o $screenshotdir -m output"
-      "$mainMod, Print, exec, hyprshot -c -o $screenshotdir -m window"
-      "SHIFT, Print, exec, hyprshot -o $screenshotdir -m region"
+      ", Print, exec, ./screenshot d" # Display
+      "$mainMod, Print, exec, ./screenshot w" # Window
+      "SHIFT, Print, exec, ./screenshot s" # Selection
 
       # Reset
       "$mainMod, W, exec, pkill waybar && waybar"

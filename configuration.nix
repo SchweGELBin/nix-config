@@ -4,7 +4,6 @@
 imports = [
   ./hardware-configuration.nix
   inputs.home-manager.nixosModules.default
-  inputs.sops-nix.nixosModules.default
 ];
 
 boot = {
@@ -37,30 +36,26 @@ environment = {
     QT_QPA_PLATFORMTHEME = "kvantum";
   };
   systemPackages = with pkgs; [
-    age android-tools audacity
-    bat blender btop
-    (catppuccin.override{accent="mauve";variant="macchiato";})
-    (catppuccin-gtk.override{accents=["mauve"];size="standard";variant="macchiato";})
-    cliphist cmake
+    android-tools audacity
+    bat blender btop 
+    cmake
     dolphin
     ffmpeg fusee-nano
-    gamemode gamescope gcc gimp git gparted grim
-    heroic hyprpaper hyprshot
-    imv inetutils inkscape
+    gamemode gcc gimp git grim
+    heroic hyprpaper
+    imv inetutils
     jdk
-    kdePackages.kdeconnect-kde kitty krita
-    libnotify libreoffice-fresh librewolf
+    kitty krita
+    libnotify librewolf
     libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
-    mako mangohud mari0 mpv
+    mako mangohud mpv
     neofetch nodejs
-    obs-studio openrgb
-    p7zip papermc papirus-icon-theme pavucontrol pmbootstrap prismlauncher-qt5
-    qt6.full qutebrowser
-    rofi-wayland rofimoji
-    slurp sops steam superTuxKart
-    ulauncher unrar unzip usbutils
-    ventoy
-    waybar webcord-vencord wev weylus wget wl-clipboard wlogout
+    obs-studio
+    p7zip papirus-icon-theme pavucontrol prismlauncher-qt5
+    qt6.full
+    slurp steam
+    unrar unzip
+    walker waybar webcord-vencord weylus wget wl-clipboard
     yt-dlp
   ];
 };
@@ -72,7 +67,7 @@ fonts = {
 hardware = { 
   nvidia = {
     modesetting.enable = true;
-    nvidiaSettings = true;
+    nvidiaSettings = false;
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production 
     powerManagement.enable = false;
@@ -146,9 +141,15 @@ security = {
 };
 
 services = {
+  displayManager = { 
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+  };
   getty.autologinUser = "michi";
   hardware.openrgb.enable = true;
-  openssh.enable = true;
+  openssh.enable = false;
   pipewire = {
     enable = true;
     alsa = {
@@ -161,16 +162,6 @@ services = {
   printing.enable = true;
   xserver = {
     enable = true;
-    displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
-      sddm = {
-        enable = false;
-	wayland.enable = true;
-      };
-    };
     videoDrivers = [ "nvidia" ]; # nvidia / nouveau
     xkb = {
       layout = "us";
@@ -178,13 +169,6 @@ services = {
       variant = "";
     }; 
   };
-};
-
-sops = {
-  age.keyFile = "/home/michi/.config/sops/age/keys.txt";
-  defaultSopsFile = ./secrets/secrets.yaml;
-  defaultSopsFormat = "yaml";
-  secrets.password = { };
 };
 
 sound = {
@@ -203,7 +187,6 @@ users = {
   users.michi = {
     description = "michi";
     extraGroups = [ "networkmanager" "wheel" ];
-    #initialPassword = "${config.sops.secrets.password.path}";
     initialPassword = "1234";
     isNormalUser = true; 
     packages = with pkgs; [];
@@ -211,12 +194,5 @@ users = {
   };
 };
 
-xdg = {
-  portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-    ];
-  };
-};
+xdg.portal.enable = true;
 }

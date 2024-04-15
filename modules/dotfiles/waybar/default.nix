@@ -1,13 +1,13 @@
 {config, pkgs, ...}:
 {
   home.file.".config/waybar/config" = {
-    source = ./waybar/config;
+    source = ./config;
   };
   home.file.".config/waybar/style.css" = {
-    source = ./waybar/style.css;
+    source = ./style.css;
   };
   home.file.".config/waybar/modules.json" = {
-    source = ./waybar/modules.json;
+    source = ./modules.json;
   };
 
   home.file.".config/waybar/colors.css" = {
