@@ -5,7 +5,7 @@ inputs = {
   nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
   nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  nixpkgs.follows = "nixpkgs-unstable"; 
+  nixpkgs.follows = "nixpkgs-unstable";
 
   hyprlang = {
     url = "github:hyprwm/hyprlang";
@@ -37,7 +37,7 @@ inputs = {
 
   nix-colors = {
     url = "github:misterio77/nix-colors";
-  }; 
+  };
 };
 
 outputs = { nixpkgs, ... } @inputs:

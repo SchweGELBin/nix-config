@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland.settings = {
     monitor = ",preferred,auto,auto";
 
-    exec-once = "waybar";
+    exec-once = "waybar && walker --gapplication-service";
 
     env = "XCURSOR_SIZE,24";
 
@@ -18,7 +18,7 @@
       touchpad = {
         natural_scroll = "no";
       };
-      
+
       sensitivity = 0;
       force_no_accel = 1;
     };
@@ -37,7 +37,7 @@
 
     decoration = {
       rounding = 10;
-    
+
       blur = {
         enabled = true;
         size = 3;
@@ -80,11 +80,11 @@
 
     misc = {
       force_default_wallpaper = -1;
-    }; 
+    };
 
     "$mainMod" = "SUPER";
 
-    "$applauncher" = "rofi";
+    "$applauncher" = "walker";
     "$browser" = "librewolf";
     "$filemanager" = "dolphin";
     "$terminal" = "kitty";
@@ -95,10 +95,8 @@
       "$mainMod, C, killactive, "
       "$mainMod, M, exit, "
       "$mainMod, E, exec, $filemanager"
-      "$mainMod, V, togglefloating, "
-      #"$mainMod, exec, $applauncher -cheatsheet"
-      "$mainMod, L, exec, rofimoji"
-      "$mainMod, R, exec, $applauncher -show drun -show-icons"
+      "$mainMod, V, togglefloating, " 
+      "$mainMod, R, exec, $applauncher"
       "$mainMod, P, pseudo, "
       "$mainMod, J, togglesplit, "
       "$mainMod, O, exec, $browser"
@@ -142,9 +140,9 @@
       "$mainMod, mouse_up, workspace, e-1"
 
       # Screenshots
-      ", Print, exec, ./screenshot d" # Display
-      "$mainMod, Print, exec, ./screenshot w" # Window
-      "SHIFT, Print, exec, ./screenshot s" # Selection
+      ", Print, exec, screenshot d" # Display
+      "$mainMod, Print, exec, screenshot w" # Window
+      "SHIFT, Print, exec, screenshot s" # Selection
 
       # Reset
       "$mainMod, W, exec, pkill waybar && waybar"
@@ -162,7 +160,7 @@
     bindel = [
       # Volume
       ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-" 
+      ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
     ];
 
     bindl = [

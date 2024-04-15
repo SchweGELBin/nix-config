@@ -41,5 +41,27 @@
         mpv $line --no-video --slang=en,eng,de,deu,ger
       done < "$input"
     '')
+
+    (pkgs.writeShellScriptBin "screenshot" ''
+    filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
+    scrDir="$HOME/Pictures/Screenshots"
+    scrPath="$scrDir/$filename"
+
+    activeWindow="$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')"
+
+    mkdir -p $scrDir
+
+    case $1 in
+    d) # Display
+      grim $scrPath | wl-copy
+    ;;
+    w) # Window
+      grim -o $activeWindow $scrPath | wl-copy
+    ;;
+    s) # Selection
+      grim -g $(slurp) $scrPath | wl-copy
+    ;;
+    esac
+    '')
   ];
 }

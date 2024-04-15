@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hyprland/default.nix
+    ./hyprland.nix
     ./kitty.nix
     ./rofi.nix
     ./waybar/default.nix
