@@ -33,7 +33,7 @@ environment = {
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
-    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
   systemPackages = with pkgs; [
     android-tools audacity
