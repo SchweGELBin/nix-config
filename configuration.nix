@@ -38,7 +38,7 @@ environment = {
   systemPackages = with pkgs; [
     android-tools audacity
     bat blender btop
-    cmake
+    cargo cmake
     dolphin
     ffmpeg fusee-nano
     gamemode gcc gimp git grim
@@ -53,6 +53,7 @@ environment = {
     obs-studio
     p7zip papirus-icon-theme pavucontrol prismlauncher-qt5
     qt6.full
+    rustc
     slurp steam
     unrar unzip
     walker waybar webcord-vencord weylus wget wl-clipboard
