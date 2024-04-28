@@ -51,7 +51,7 @@ environment = {
     mako mangohud mpv
     neofetch nodejs
     obs-studio
-    p7zip papirus-icon-theme pavucontrol prismlauncher-qt5
+    p7zip papirus-icon-theme pavucontrol prismlauncher
     qt6.full
     rustc
     slurp steam
