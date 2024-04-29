@@ -44,23 +44,23 @@
     '')
 
     (pkgs.writeShellScriptBin "screenshot" ''
-    filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
-    scrDir="$HOME/Pictures/Screenshots"
-    scrPath="$scrDir/$filename"
+      filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
+      scrDir="$HOME/Pictures/Screenshots"
+      scrPath="$scrDir/$filename"
 
-    mkdir -p $scrDir
+      mkdir -p $scrDir
 
-    case $1 in
-    d) # Display
-      grim $scrPath | wl-copy
-    ;;
-    w) # Window
-      echo "Window mode not working yet"
-    ;;
-    r) # Region
-      grim -g "$(slurp)" $scrPath | wl-copy
-    ;;
-    esac
+      case $1 in
+      d) # Display
+        grim $scrPath | wl-copy
+      ;;
+      w) # Window
+        echo "Window mode not working yet"
+      ;;
+      r) # Region
+        grim -g "$(slurp)" $scrPath | wl-copy
+      ;;
+      esac
     '')
   ];
 }
