@@ -46,7 +46,7 @@ environment = {
     imv inetutils
     jdk jq
     kitty krita
-    libnotify librewolf
+    libnotify libreoffice-qt-fresh librewolf
     libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mpv
     neofetch nodejs
