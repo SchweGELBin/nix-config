@@ -5,10 +5,10 @@ My Nix configs
 ```
 Window Manager       - HyprLand
 Terminal             - Kitty
-Browser              - FireFox
-Application Launcher - Rofi
+Browser              - Librewolf
+Explorer             - Dolphin
+Application Launcher - Walker
 Bar                  - Waybar
-Wallpaper Engine     - SWWW
 Audio                - Pipewire
 Boot Manager         - Grub
 Editor               - Neovim
