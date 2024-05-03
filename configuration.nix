@@ -32,16 +32,17 @@ environment = {
   sessionVariables = {
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
     QT_QPA_PLATFORMTHEME = "qt6ct";
+    STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
   systemPackages = with pkgs; [
     android-tools audacity
     bat blender btop
     cargo cmake
     dolphin
-    ffmpeg fusee-nano
-    gamemode gcc gimp git grim
+    fastfetch ffmpeg fusee-nano
+    gcc gimp git grim
     heroic hyprpaper
     imv inetutils
     jdk jq
@@ -49,7 +50,7 @@ environment = {
     libnotify libreoffice-qt-fresh librewolf
     libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mpv
-    neofetch nodejs
+    nodejs
     obs-studio
     p7zip papirus-icon-theme pavucontrol prismlauncher
     qt6.full
@@ -125,6 +126,7 @@ nixpkgs = {
 };
 
 programs = {
+  gamemode.enable = true;
   hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -133,6 +135,10 @@ programs = {
   neovim = {
     enable = true;
     defaultEditor = true;
+  };
+  steam = {
+    enable = true;
+    gamescopeSession.enable = true;
   };
   zsh.enable = true;
 };

@@ -5,5 +5,6 @@
     ./mpv.nix
     ./music.nix
     ./scripts.nix
+    ./shell.nix
   ];
 }
