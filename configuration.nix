@@ -42,7 +42,7 @@ environment = {
     cargo cmake
     dolphin
     fastfetch ffmpeg fusee-nano
-    gcc gimp git grim
+    gcc gimp git godot_4 grim
     heroic hyprpaper
     imv inetutils
     jdk jq
