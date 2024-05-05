@@ -44,7 +44,7 @@ environment = {
     fastfetch ffmpeg fusee-nano
     gcc gimp git godot_4 grim
     heroic hyprpaper
-    imv inetutils
+    imv
     jdk jq
     kitty krita
     libnotify libreoffice-qt-fresh librewolf
@@ -52,11 +52,11 @@ environment = {
     mako mangohud mpv
     nodejs
     obs-studio
-    p7zip papirus-icon-theme pavucontrol prismlauncher
+    papirus-icon-theme pavucontrol prismlauncher
     qt6.full
     rustc
     slurp steam
-    unrar unzip
+    unzip
     walker waybar webcord-vencord weylus wget wl-clipboard
     yt-dlp
   ];
