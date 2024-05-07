@@ -6,11 +6,12 @@ inputs = {
   nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
   nixpkgs.follows = "nixpkgs-unstable";
+  systems.url = "github:nix-systems/default-linux";
 
   hyprlang = {
     url = "github:hyprwm/hyprlang";
     inputs.nixpkgs.follows = "nixpkgs";
-    inputs.systems.url = "github:nix-systems/default-linux";
+    inputs.systems.follows = "systems";
   };
 
   disko = {
@@ -24,16 +25,10 @@ inputs = {
   };
 
   hyprland = {
-    url = "github:hyprwm/Hyprland";
+    url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.hyprlang.follows = "hyprlang";
-  };
-
-  hyprlock = {
-    url = "github:hyprwm/hyprlock";
-    inputs.nixpkgs.follows = "nixpkgs";
-    inputs.hyprlang.follows = "hyprlang";
-  };
+  }; 
 
   nix-colors = {
     url = "github:misterio77/nix-colors";
