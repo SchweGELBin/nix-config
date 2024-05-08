@@ -1,4 +1,12 @@
 { config, inputs, pkgs, ... }:
+
+let
+  androidComposition = pkgs.androidenv.composeAndroidPackages {
+    platformVersions = [ "34" ];
+  };
+  androidSdk = androidComposition.androidsdk;
+in
+
 {
 
 imports = [
@@ -30,6 +38,7 @@ console = {
 
 environment = {
   sessionVariables = {
+    ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORMTHEME = "qt6ct";
@@ -37,7 +46,8 @@ environment = {
     WLR_NO_HARDWARE_CURSORS = "1";
   };
   systemPackages = with pkgs; [
-    android-tools audacity
+    androidSdk
+    audacity
     bat blender btop
     cargo cmake
     dolphin
@@ -45,7 +55,7 @@ environment = {
     gcc gimp git godot_4 grim
     heroic hyprpaper
     imv
-    jdk jq
+    jq
     kitty krita
     libnotify libreoffice-qt-fresh librewolf
     libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
@@ -121,6 +131,7 @@ nix = {
 nixpkgs = {
   config = {
     allowUnfree = true;
+    android_sdk.accept_license = true;
     nvidia.acceptLicense = true;
   };
 };
@@ -135,6 +146,10 @@ programs = {
   neovim = {
     enable = true;
     defaultEditor = true;
+  };
+  java = {
+    enable = true;
+    package = pkgs.jdk;
   };
   steam = {
     enable = true;
