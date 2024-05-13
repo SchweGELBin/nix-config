@@ -25,9 +25,7 @@ boot = {
       efiSupport = true;
       useOSProber = true;
     };
-  };
-  extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
-  extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  }; 
   kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
 };
 
@@ -46,8 +44,7 @@ environment = {
     WLR_NO_HARDWARE_CURSORS = "1";
   };
   systemPackages = with pkgs; [
-    androidSdk
-    audacity
+    androidSdk audacity
     bat blender btop
     cargo cmake
     dolphin
@@ -80,7 +77,7 @@ hardware = {
   nvidia = {
     modesetting.enable = true;
     nvidiaSettings = false;
-    open = false;
+    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
     powerManagement.enable = false;
   };

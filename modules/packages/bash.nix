@@ -5,9 +5,4 @@
       fastfetch
     '';
   };
-  home.file.".zshrc" = {
-    text = ''
-      fastfetch
-    '';
-  };
 }
