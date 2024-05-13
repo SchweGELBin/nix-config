@@ -2,111 +2,45 @@
 {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    monitor = ",preferred,auto,auto";
-
-    exec-once = "waybar && walker --gapplication-service";
-
-    env = "XCURSOR_SIZE,24";
-
-    input = {
-      kb_layout = "us,us";
-      kb_variant = ",colemak";
-      kb_options = "caps:backspace, grp:win_space_toggle";
-
-      follow_mouse = 1;
-
-      touchpad = {
-        natural_scroll = "no";
-      };
-
-      sensitivity = 0;
-      force_no_accel = 1;
-    };
-
-    general = {
-      gaps_in = 5;
-      gaps_out = 20;
-      border_size = 2;
-      "col.active_border" = "rgba(${config.colorScheme.palette.base07}ee) rgba(${config.colorScheme.palette.base0F}ee) 45deg";
-      "col.inactive_border" = "rgba(${config.colorScheme.palette.base01}aa)";
-
-      layout = "dwindle";
-
-      allow_tearing = false;
-    };
-
-    decoration = {
-      rounding = 10;
-
-      blur = {
-        enabled = true;
-        size = 3;
-        passes = 1;
-      };
-
-      drop_shadow = "yes";
-      shadow_range = 4;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(${config.colorScheme.palette.base01}ee)";
-    };
-
-    animations = {
-      enabled = "yes";
-
-      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-
-      animation = [
-        "windows, 1, 7, myBezier"
-        "windowsOut, 1, 7, default, popin 80%"
-        "border, 1, 10, default"
-        "borderangle, 1, 8, default"
-        "fade, 1, 7, default"
-        "workspaces, 1, 6, default"
-      ];
-    };
-
-    dwindle = {
-      pseudotile = "yes";
-      preserve_split = "yes";
-    };
-
-    master = {
-      new_is_master = true;
-    };
-
-    gestures = {
-      workspace_swipe = "off";
-    };
-
-    misc = {
-      force_default_wallpaper = -1;
-    };
-
-    "$mainMod" = "SUPER";
 
     "$applauncher" = "walker";
     "$browser" = "librewolf";
     "$filemanager" = "dolphin";
+    "$mainMod" = "SUPER";
     "$terminal" = "kitty";
+
+    animations = {
+      enabled = "yes";
+      animation = [
+        "border, 1, 10, default"
+        "borderangle, 1, 8, default"
+        "fade, 1, 7, default"
+        "windows, 1, 7, myBezier"
+        "windowsOut, 1, 7, default, popin 80%"
+        "workspaces, 1, 6, default"
+      ];
+      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+    };
 
     bind = [
       # General
-      "$mainMod, Q, exec, $terminal"
       "$mainMod, C, killactive, "
-      "$mainMod, M, exit, "
       "$mainMod, E, exec, $filemanager"
-      "$mainMod, V, togglefloating, " 
-      "$mainMod, R, exec, $applauncher"
-      "$mainMod, P, pseudo, "
+      "$mainMod, F, fullscreen"
       "$mainMod, J, togglesplit, "
+      "$mainMod, M, exit, "
       "$mainMod, O, exec, $browser"
+      "$mainMod, P, pseudo, "
+      "$mainMod, Q, exec, $terminal"
+      "$mainMod, R, exec, $applauncher"
+      "$mainMod, V, togglefloating, "
+      "$mainMod, W, exec, pkill waybar && waybar"
 
       # Focus
+      "$mainMod, down, movefocus, d"
       "$mainMod, left, movefocus, l"
       "$mainMod, right, movefocus, r"
       "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
-
       "$mainMod, Tab, focusmonitor, +1"
       "$mainMod SHIFT, Tab, focusmonitor, -1"
 
@@ -141,14 +75,19 @@
 
       # Screenshots
       ", Print, exec, screenshot d" # Display
-      "$mainMod, Print, exec, screenshot w" # Window
       "SHIFT, Print, exec, screenshot r" # Region
+      "$mainMod, Print, exec, screenshot w" # Window
+    ];
 
-      # Reset
-      "$mainMod, W, exec, pkill waybar && waybar"
+    bindel = [
+      # Volume
+      ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+    ];
 
-      # FullScreen
-      "$mainMod, F, fullscreen"
+    bindl = [
+      # Audio Mute
+      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     ];
 
     bindm = [
@@ -157,15 +96,66 @@
       "$mainMod, mouse:273, resizewindow"
     ];
 
-    bindel = [
-      # Volume
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
+    decoration = {
+      "col.shadow" = "rgba(${config.colorScheme.palette.base01}ee)";
+      blur = {
+        enabled = true;
+        passes = 1;
+        size = 3;
+      };
+      drop_shadow = "yes";
+      rounding = 10;
+      shadow_range = 4;
+      shadow_render_power = 3;
+    };
+
+    dwindle = {
+      preserve_split = "yes";
+      pseudotile = "yes";
+    };
+
+    env = "XCURSOR_SIZE,24";
+
+    exec-once = [
+      "openrgb -c FF0000"
+      "walker --gapplication-service"
+      "waybar"
     ];
 
-    bindl = [
-      # Audio Mute
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    ];
+    general = {
+      "col.active_border" = "rgba(${config.colorScheme.palette.base07}ee) rgba(${config.colorScheme.palette.base0F}ee) 45deg";
+      "col.inactive_border" = "rgba(${config.colorScheme.palette.base01}aa)";
+      allow_tearing = false;
+      border_size = 2;
+      gaps_in = 5;
+      gaps_out = 20;
+      layout = "dwindle";
+    };
+
+    gestures = {
+      workspace_swipe = "off";
+    };
+
+    input = {
+      follow_mouse = 1;
+      force_no_accel = 1;
+      kb_layout = "us,us";
+      kb_options = "caps:backspace, grp:win_space_toggle";
+      kb_variant = ",colemak";
+      sensitivity = 0;
+      touchpad = {
+        natural_scroll = "no";
+      };
+    };
+
+    master = {
+      new_is_master = true;
+    };
+
+    misc = {
+      force_default_wallpaper = -1;
+    };
+
+    monitor = ",preferred,auto,auto";
   };
 }
