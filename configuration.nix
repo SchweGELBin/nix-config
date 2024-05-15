@@ -59,7 +59,7 @@ environment = {
     mako mangohud mpv
     nodejs
     obs-studio
-    papirus-icon-theme pavucontrol prismlauncher
+    papermc papirus-icon-theme pavucontrol prismlauncher
     qt6.full
     rustc
     slurp steam
