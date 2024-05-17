@@ -26,7 +26,7 @@ boot = {
       useOSProber = true;
     };
   }; 
-  kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
+  kernelPackages = pkgs.linuxPackages_6_8; # Kernel Version: testing = mainline, latest = stable
 };
 
 console = {
