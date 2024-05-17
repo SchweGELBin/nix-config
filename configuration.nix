@@ -58,6 +58,7 @@ environment = {
     libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mpv
     nodejs
+    nodePackages_latest.conventional-changelog-cli
     obs-studio
     papermc papirus-icon-theme pavucontrol prismlauncher
     qt6.full
