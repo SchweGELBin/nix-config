@@ -64,5 +64,5 @@
         "format-source-muted": "",
         "format-icons": ["", "", ""],
         "on-click": "pavucontrol"
-    }
+    } 
 }

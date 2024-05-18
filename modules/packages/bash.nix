@@ -2,7 +2,8 @@
 {
   home.file.".bashrc" = {
     text = ''
-      fastfetch
+      alias ff="fastfetch"
+      alias changelog="conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
     '';
   };
 }

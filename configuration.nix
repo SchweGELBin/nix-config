@@ -26,7 +26,7 @@ boot = {
       useOSProber = true;
     };
   }; 
-  kernelPackages = pkgs.linuxPackages_6_8; # Kernel Version: testing = mainline, latest = stable
+  kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel Version: testing = mainline, latest = stable
 };
 
 console = {
@@ -65,7 +65,7 @@ environment = {
     rustc
     slurp steam
     unzip
-    walker waybar webcord-vencord weylus wget wl-clipboard
+    walker waybar weylus wget wl-clipboard
     yt-dlp
   ];
 };
