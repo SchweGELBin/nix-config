@@ -12,7 +12,7 @@ Bar                  - Waybar
 Audio                - Pipewire
 Boot Manager         - Grub
 Editor               - Neovim
-Theme                - Catppuccin Machiatto (Mauve)
+Theme                - Catppuccin Machiatto
 ```
 
 ## Apply
@@ -21,6 +21,7 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Flash this ISO image onto a USB flash drive (via: cp / dd / balena-etcher)
 - Boot from your bootable USB flash drive
 - Choose the standard live option
+
 ### After
 - Check if you didn't make any mistakes and didn't get any errors
 - Exit nix-shell with ```exit```
@@ -28,21 +29,7 @@ Theme                - Catppuccin Machiatto (Mauve)
 - Remove your USB flash drive at reboot
 - Login with default password: 1234
 
-### Automatic
-- Get your device name with ```lsblk```
-- Run following command in home (~), change to your device name
-```
-curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/install.sh | bash
-```
-
-### Manually
-- Download the disko.nix file with ```curl -fs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/disko.nix >> ~/disko.nix```
-- Find out your disk device name with ```lsblk``` (The first volume, not any subvolumes)
-- Replace "/dev/nvme0n1" with "/dev/yourdevicename" in the next command
-- Format you drive with ```sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ~/disko.nix --arg device '"/dev/nvme0n1"'```
-
-<br>
-
+### Install
 - Create the necessary directories with ```sudo mkdir -p /mnt/etc```
 - Download the shell.nix file with ```curl -fs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/shell.nix >> ~/shell.nix```
 - Start ```sudo nix-shell``` to be able to use git
@@ -58,9 +45,7 @@ curl -LSs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/instal
 - To sync the config with a newer version run ```sudo git pull``` inside of /etc/nixos
 - Feel free to contribute to make these configs better
 - Run ```sudo rebuild``` to rebuild the system
-- Run ```sudo rebuild``` in /etc/nixos to update and rebuild your system
-- You may want to edit the user's initialPassword at configuration.nix
-- Edit the disk device name at flake.nix
+- You may want to edit your password
 
 ## Credits
 - Thank you **[vimjoyer](https://github.com/vimjoyer)** for your help!
