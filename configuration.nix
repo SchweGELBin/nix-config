@@ -11,7 +11,6 @@ in
 
 imports = [
   ./hardware-configuration.nix
-  inputs.home-manager.nixosModules.default
 ];
 
 boot = {
@@ -39,7 +38,6 @@ environment = {
     ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
@@ -55,13 +53,11 @@ environment = {
     jq
     kitty krita
     libnotify libreoffice-qt-fresh librewolf
-    libsForQt5.qt5ct libsForQt5.qtstyleplugin-kvantum
     mako mangohud mpv
     nodejs
     nodePackages_latest.conventional-changelog-cli
     obs-studio
     papermc papirus-icon-theme pavucontrol prismlauncher
-    qt6.full
     rustc
     slurp steam
     unzip
@@ -90,7 +86,7 @@ hardware = {
 };
 
 home-manager = {
-  extraSpecialArgs = { inherit inputs; };
+  extraSpecialArgs = { inherit inputs; }; 
   useGlobalPkgs = true;
   users = {
     "michi" = import ./home.nix;
@@ -156,6 +152,12 @@ programs = {
   zsh.enable = true;
 };
 
+qt = {
+  enable = true;
+  platformTheme = "kde";
+  style = "gtk2";
+};
+
 security = {
   polkit.enable = true;
   rtkit.enable = true;
@@ -194,6 +196,13 @@ services = {
 
 sound = {
   enable = true;
+};
+
+stylix = {
+  autoEnable = true;
+  #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-light.yaml";
+  image = ./res/wallpapers/wallpaper.png;
+  polarity = "dark";
 };
 
 system = {

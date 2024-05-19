@@ -1,4 +1,5 @@
-{config, pkgs, ...}:
+{config, lib, pkgs, ...}:
+with config.lib.stylix.colors.withHashtag;
 {
   home.file.".config/waybar/config" = {
     source = ./config;
@@ -12,8 +13,8 @@
 
   home.file.".config/waybar/colors.css" = {
     text = ''
-      @define-color text #${config.colorScheme.palette.base05};
-      @define-color text2 #${config.colorScheme.palette.base05};
+      @define-color text #${base06};
+      @define-color text2 #${base06};
       @define-color bg transparent;
       @define-color bg2 transparent;
     '';

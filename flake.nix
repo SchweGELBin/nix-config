@@ -14,11 +14,6 @@ inputs = {
     inputs.systems.follows = "systems";
   };
 
-  disko = {
-    url = "github:nix-community/disko";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   home-manager = {
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -30,8 +25,8 @@ inputs = {
     inputs.hyprlang.follows = "hyprlang";
   }; 
 
-  nix-colors = {
-    url = "github:misterio77/nix-colors";
+  stylix = {
+    url = "github:danth/stylix";
   };
 };
 
@@ -42,8 +37,8 @@ outputs = { nixpkgs, ... } @inputs:
     modules = [
       ./configuration.nix
 
-      inputs.disko.nixosModules.default
-      (import ./disko.nix { device = "/dev/nvme0n1"; })
+      inputs.home-manager.nixosModules.default
+      inputs.stylix.nixosModules.stylix
     ];
   };
 };

@@ -97,7 +97,6 @@
     ];
 
     decoration = {
-      "col.shadow" = "rgba(${config.colorScheme.palette.base01}ee)";
       blur = {
         enabled = true;
         passes = 1;
@@ -123,8 +122,6 @@
     ];
 
     general = {
-      "col.active_border" = "rgba(${config.colorScheme.palette.base07}ee) rgba(${config.colorScheme.palette.base0F}ee) 45deg";
-      "col.inactive_border" = "rgba(${config.colorScheme.palette.base01}aa)";
       allow_tearing = false;
       border_size = 2;
       gaps_in = 5;

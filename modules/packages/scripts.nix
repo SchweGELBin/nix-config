@@ -61,6 +61,8 @@
         grim -g "$(slurp)" $scrPath | wl-copy
       ;;
       esac
+
+      notify-send "Screenshot taken"
     '')
   ];
 }

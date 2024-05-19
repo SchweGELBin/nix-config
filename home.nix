@@ -9,6 +9,5 @@
  
   imports = [
    ./modules/default.nix 
-   inputs.nix-colors.homeManagerModules.default
   ];
 }
