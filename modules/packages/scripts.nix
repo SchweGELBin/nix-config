@@ -52,13 +52,20 @@
 
       case $1 in
       d) # Display
-        grim $scrPath | wl-copy
+        #grim $scrPath | wl-copy
+	grim -o "$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')" $scrPath | wl-copy
       ;;
       w) # Window
         echo "Window mode not working yet"
       ;;
       r) # Region
         grim -g "$(slurp)" $scrPath | wl-copy
+      ;;
+      h) # Help
+        echo "Use: screenshot <option>"
+	echo "d - Display"
+	echo "w - Window"
+	echo "r - Region"
       ;;
       esac
 

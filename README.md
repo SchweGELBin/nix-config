@@ -12,7 +12,7 @@ Bar                  - Waybar
 Audio                - Pipewire
 Boot Manager         - Grub
 Editor               - Neovim
-Theme                - Catppuccin Machiatto
+Theme                - Catppuccin
 ```
 
 ## Apply

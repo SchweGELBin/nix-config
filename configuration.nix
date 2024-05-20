@@ -36,11 +36,11 @@ console = {
 
 environment = {
   sessionVariables = {
-    ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk"; 
+    ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
-    WLR_NO_HARDWARE_CURSORS = "1"; 
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
   systemPackages = with pkgs; [
     androidSdk audacity
@@ -212,11 +212,7 @@ stylix = {
     sansSerif = {
       name = "DejaVu Sans";
       package = systemFonts;
-    };
-    serif = {
-      name = "DejaVu Serif";
-      package = systemFonts;
-    };
+    }; 
   };
   image = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/Gingeh/wallpapers/main/waves/cat-waves.png";
