@@ -199,7 +199,10 @@ sound = {
 
 stylix = {
   autoEnable = true;
-  image = /home/michi/Pictures/Wallpapers/wallpaper.png;
+  image = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/Gingeh/wallpapers/main/waves/cat-waves.png";
+    hash = "sha256-aiG7debgjOCWRBp2xUOMOVGvIDWtd4NirsktxL19De4=";
+  };
   polarity = "dark";
 };
 
@@ -222,5 +225,7 @@ users = {
   };
 };
 
-xdg.portal.enable = true;
+xdg = { 
+  portal.enable = true;
+};
 }
