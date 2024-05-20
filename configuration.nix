@@ -5,6 +5,7 @@ let
     platformVersions = [ "34" ];
   };
   androidSdk = androidComposition.androidsdk;
+  systemFonts = pkgs.nerdfonts;
 in
 
 {
@@ -35,15 +36,15 @@ console = {
 
 environment = {
   sessionVariables = {
-    ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+    ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk"; 
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_NO_HARDWARE_CURSORS = "1"; 
   };
   systemPackages = with pkgs; [
     androidSdk audacity
-    bat blender btop
+    bat bibata-cursors blender btop
     cargo cmake
     dolphin
     fastfetch ffmpeg fusee-nano
@@ -68,7 +69,7 @@ environment = {
 };
 
 fonts = {
-  packages = with pkgs; [ nerdfonts ];
+  packages = [ systemFonts ];
 };
 
 hardware = {
@@ -199,9 +200,31 @@ sound = {
 
 stylix = {
   autoEnable = true;
+  cursor = {
+    name = "Bibata-Modern-Ice";
+    size = 24;
+  };
+  fonts = {
+    monospace = {
+      name = "JetBrainsMono Nerd Font Mono";
+      package = systemFonts;
+    };
+    sansSerif = {
+      name = "DejaVu Sans";
+      package = systemFonts;
+    };
+    serif = {
+      name = "DejaVu Serif";
+      package = systemFonts;
+    };
+  };
   image = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/Gingeh/wallpapers/main/waves/cat-waves.png";
     hash = "sha256-aiG7debgjOCWRBp2xUOMOVGvIDWtd4NirsktxL19De4=";
+  };
+  opacity = {
+    popups = 0.7;
+    terminal = 0.7; 
   };
   polarity = "dark";
 };

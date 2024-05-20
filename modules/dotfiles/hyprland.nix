@@ -113,7 +113,10 @@
       pseudotile = "yes";
     };
 
-    env = "XCURSOR_SIZE,24";
+    env = [
+      "HYPRCURSOR_THEME,Bibata-Modern-Ice"
+      "HYPRCURSOR_SIZE,24"
+    ];
 
     exec-once = [
       "hyprpaper"
