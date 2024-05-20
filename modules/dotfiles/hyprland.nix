@@ -116,6 +116,7 @@
     env = "XCURSOR_SIZE,24";
 
     exec-once = [
+      "hyprpaper"
       "openrgb -c FF0000"
       "walker --gapplication-service"
       "waybar"

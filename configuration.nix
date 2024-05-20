@@ -48,8 +48,9 @@ environment = {
     dolphin
     fastfetch ffmpeg fusee-nano
     gcc gimp git godot_4 grim
-    heroic hyprpaper
+    heroic
     imv
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     jq
     kitty krita
     libnotify libreoffice-qt-fresh librewolf
@@ -154,8 +155,6 @@ programs = {
 
 qt = {
   enable = true;
-  platformTheme = "kde";
-  style = "gtk2";
 };
 
 security = {
@@ -164,12 +163,6 @@ security = {
 };
 
 services = {
-  displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-  };
   getty.autologinUser = "michi";
   hardware.openrgb.enable = true;
   openssh.enable = false;
@@ -185,6 +178,12 @@ services = {
   printing.enable = true;
   xserver = {
     enable = true;
+    displayManager = {
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
+    };
     videoDrivers = [ "nvidia" ]; # nvidia / nouveau
     xkb = {
       layout = "us";
@@ -200,8 +199,7 @@ sound = {
 
 stylix = {
   autoEnable = true;
-  #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-light.yaml";
-  image = ./res/wallpapers/wallpaper.png;
+  image = /home/michi/Pictures/Wallpapers/wallpaper.png;
   polarity = "dark";
 };
 
