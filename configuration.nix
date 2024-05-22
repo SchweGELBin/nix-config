@@ -45,12 +45,12 @@ environment = {
   systemPackages = with pkgs; [
     androidSdk audacity
     bat bibata-cursors blender btop
-    cargo cava cmake
-    dolphin
+    cargo cava cmake cmatrix
+    discord dolphin
     fastfetch ffmpeg fusee-nano
     gcc gimp git godot_4 grim
     heroic
-    imv
+    imagemagick imv
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
@@ -59,12 +59,13 @@ environment = {
     kitty krita
     libnotify libreoffice-qt-fresh librewolf
     mako mangohud mpv
-    nodejs
+    neo-cowsay nodejs
     nodePackages_latest.conventional-changelog-cli
     obs-studio
     papermc papirus-icon-theme pavucontrol prismlauncher
     rustc
     slurp steam
+    toilet
     unzip
     walker waybar weylus wget wl-clipboard wlogout
     yt-dlp
@@ -159,6 +160,7 @@ programs = {
 
 qt = {
   enable = true;
+  platformTheme = "kde";
 };
 
 security = {

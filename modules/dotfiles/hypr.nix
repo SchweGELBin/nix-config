@@ -178,7 +178,7 @@ listener {
       "hyprpaper"
       "openrgb -c FF0000"
       "walker --gapplication-service"
-      "waybar" 
+      "waybar"
     ];
 
     general = {

@@ -35,12 +35,12 @@ with config.lib.stylix.colors.withHashtag;
     # Marks
     # Light Steel Blue
     mark1_foreground = "black";
-    mark1_background = "${base07}";
+    mark1_background = "#98d3cb";
     # Beige
     mark2_foreground = "black";
-    mark2_background = "${base0F}";
+    mark2_background = "#f2dcd3";
     # Violet
     mark3_foreground = "black";
-    mark3_background = "${base09}";
+    mark3_background = "#f274bc";
   };
 }
