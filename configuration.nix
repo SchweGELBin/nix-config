@@ -45,8 +45,7 @@ environment = {
   systemPackages = with pkgs; [
     androidSdk audacity
     bat bibata-cursors blender btop
-    cargo cava cmake cmatrix
-    dolphin
+    cargo cava cinnamon.nemo cmake cmatrix
     fastfetch ffmpeg fusee-nano fuzzel
     gcc gedit gimp git glfw godot_4 grim
     heroic
