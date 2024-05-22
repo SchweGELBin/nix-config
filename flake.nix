@@ -19,6 +19,13 @@ inputs = {
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  hypridle = {
+    url = "github:hyprwm/hypridle";
+    inputs.hyprlang.follows = "hyprlang";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.systems.follows = "systems";
+  };
+
   hyprpicker = {
     url = "github:hyprwm/hyprpicker";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -26,22 +33,22 @@ inputs = {
 
   hyprland = {
     url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    inputs.nixpkgs.follows = "nixpkgs";
     inputs.hyprlang.follows = "hyprlang";
+    inputs.nixpkgs.follows = "nixpkgs";
     inputs.systems.follows = "systems";
   };
 
   hyprlock = {
-    url = "github:hyprwm/Hyprlock";
-    inputs.nixpkgs.follows = "nixpkgs"; 
+    url = "github:hyprwm/hyprlock";
     inputs.hyprlang.follows = "hyprlang";
+    inputs.nixpkgs.follows = "nixpkgs";
     inputs.systems.follows = "systems";
   };
 
   hyprpaper = {
     url = "github:hyprwm/hyprpaper";
-    inputs.nixpkgs.follows = "nixpkgs";
     inputs.hyprlang.follows = "hyprlang";
+    inputs.nixpkgs.follows = "nixpkgs";
     inputs.systems.follows = "systems";
   };
 

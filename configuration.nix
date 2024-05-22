@@ -51,6 +51,7 @@ environment = {
     gcc gimp git godot_4 grim
     heroic
     imv
+    inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     jq
@@ -161,6 +162,9 @@ qt = {
 };
 
 security = {
+  pam.services = {
+    hyprlock = { };
+  };
   polkit.enable = true;
   rtkit.enable = true;
 };

@@ -50,4 +50,3 @@ Theme                - Catppuccin
 ## Credits
 - Thank you **[vimjoyer](https://github.com/vimjoyer)** for your help!
 - Please check out his [Youtube Channel](https://youtube.com/@vimjoyer)
-- Previously used repo: [HyprNix](https://github.com/SchweGELBin/HyprNix)
