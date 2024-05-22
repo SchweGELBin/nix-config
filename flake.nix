@@ -17,12 +17,7 @@ inputs = {
   home-manager = {
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  anyrun = {
-    url = "github:Kirottu/anyrun";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+  }; 
 
   hypridle = {
     url = "github:hyprwm/hypridle";
