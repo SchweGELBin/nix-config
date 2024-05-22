@@ -57,7 +57,7 @@ listener {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
 
-    "$applauncher" = "walker";
+    "$applauncher" = "fuzzel";
     "$browser" = "librewolf";
     "$filemanager" = "dolphin";
     "$mainMod" = "SUPER";
@@ -177,7 +177,6 @@ listener {
      #"hypridle" 
       "hyprpaper"
       "openrgb -c FF0000"
-      "walker --gapplication-service"
       "waybar"
     ];
 

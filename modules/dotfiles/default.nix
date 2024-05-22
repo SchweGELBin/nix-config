@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fuzzel.nix
     ./hypr.nix
     ./kitty.nix
     ./mako.nix

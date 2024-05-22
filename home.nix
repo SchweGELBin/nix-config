@@ -8,6 +8,6 @@
   home.stateVersion = "23.11"; 
  
   imports = [
-   ./modules/default.nix
+   ./modules/default.nix 
   ];
 }

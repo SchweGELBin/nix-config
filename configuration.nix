@@ -47,10 +47,10 @@ environment = {
     bat bibata-cursors blender btop
     cargo cava cmake cmatrix
     discord dolphin
-    fastfetch ffmpeg fusee-nano
+    fastfetch ffmpeg fusee-nano fuzzel
     gcc gimp git godot_4 grim
     heroic
-    imagemagick imv
+    imagemagick imv 
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
@@ -67,7 +67,7 @@ environment = {
     slurp steam
     toilet
     unzip
-    walker waybar weylus wget wl-clipboard wlogout
+    waybar weylus wget wl-clipboard wlogout
     yt-dlp
   ];
 };
