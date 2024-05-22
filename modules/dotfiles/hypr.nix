@@ -83,7 +83,7 @@ listener {
       "$mainMod, F, fullscreen"
       "$mainMod, J, togglesplit, "
       "$mainMod, K, exec, hyprpicker -f hex -a"
-      "$mainMod, M, exit, "
+      "$mainMod, M, exec, music"
       "$mainMod, O, exec, $browser"
       "$mainMod, P, pseudo, "
       "$mainMod, Q, exec, $terminal"

@@ -22,17 +22,7 @@
       rm -r ~/.config/nvim
       rm -r ~/.local/share/nvim
       git clone --depth 1 https://github.com/NvChad/starter.git ~/.config/nvim
-    '')
-
-    (pkgs.writeShellScriptBin "minecraft-wayland" '' # Remove, when glfw 3.4 is out
-      echo "Downloads newest glfw with minecraft wayland patch"
-      echo "In prismlaucher open [ Settings - Minecraft - Tweaks - Native library workarounds ]"
-      echo "Enable \"Use system installation of GLFW\" and paste this path: /home/michi/glfw/libglfw.so.3.5"
-      rm -r ~/glfw
-      mkdir ~/glfw
-      cd ~/glfw
-      wget https://github.com/BoyOrigin/glfw-wayland/releases/latest/download/libglfw.so.3.5
-    '')
+    '') 
 
     (pkgs.writeShellScriptBin "music" ''
       echo "Place your Music (YouTube) links to ~/.config/nix/music.list"

@@ -54,6 +54,13 @@ inputs = {
 
   stylix = {
     url = "github:danth/stylix";
+    inputs.home-manager.follows = "home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  waybar = {
+    url = "github:Alexays/Waybar";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 };
 

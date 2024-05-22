@@ -48,12 +48,13 @@ environment = {
     cargo cava cmake cmatrix
     dolphin
     fastfetch ffmpeg fusee-nano fuzzel
-    gcc gedit gimp git godot_4 grim
+    gcc gedit gimp git glfw godot_4 grim
     heroic
     imagemagick imv 
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    inputs.waybar.packages.${pkgs.system}.waybar
     jq
     kdePackages.kdenlive
     kitty krita
@@ -68,7 +69,7 @@ environment = {
     toilet
     unzip
     vesktop
-    waybar weylus wget wl-clipboard wlogout
+    weylus wineWowPackages.stagingFull wget wl-clipboard wlogout
     yt-dlp
   ];
 };

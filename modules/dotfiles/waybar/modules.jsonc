@@ -76,7 +76,6 @@
     "custom/mpv": {
         "exec": "pactl list sink-inputs | grep \"media.name.*mpv\" | cut -c17- | rev | cut -c8- | rev",
 	"format": "{}",
-	"interval": 10,
-	"on-click": "cava"
+	"interval": 10
     } 
 }
