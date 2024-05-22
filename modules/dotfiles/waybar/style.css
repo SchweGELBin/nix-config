@@ -98,3 +98,8 @@ label:focus {
 #temperature.critical {
     background-color: @bg2;
 }
+
+#custom-logout {
+    background-color: @bg2;
+    margin: 4 8px;
+}

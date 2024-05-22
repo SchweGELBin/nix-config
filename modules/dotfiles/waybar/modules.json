@@ -64,5 +64,11 @@
         "format-source-muted": "",
         "format-icons": ["", "", ""],
         "on-click": "pavucontrol"
+    },
+
+    // Logout
+    "custom/logout": {
+        "format": "⏻",
+        "on-click": "wlogout"
     } 
 }
