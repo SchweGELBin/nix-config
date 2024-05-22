@@ -7,8 +7,8 @@ with config.lib.stylix.colors.withHashtag;
   home.file.".config/waybar/style.css" = {
     source = ./style.css;
   };
-  home.file.".config/waybar/modules.json" = {
-    source = ./modules.json;
+  home.file.".config/waybar/modules.jsonc" = {
+    source = ./modules.jsonc;
   };
 
   home.file.".config/waybar/colors.css" = {

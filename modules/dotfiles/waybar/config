@@ -11,7 +11,7 @@
     "height": 30,
 
     // Import Modules
-    "include": ["~/.config/waybar/modules.json"],
+    "include": ["~/.config/waybar/modules.jsonc"],
 
     // Modules left
     "modules-left": [
@@ -29,7 +29,7 @@
 	"cpu",
 	"memory",
 	"temperature",
-	"pulseaudio",	
+	"pulseaudio",
 	"clock"
     ]
 }
