@@ -1,7 +1,6 @@
 {
   imports = [
-    ./hyprland.nix
-    ./hyprpaper.nix
+    ./hypr.nix
     ./kitty.nix
     ./mako.nix
     ./wallpaper.nix

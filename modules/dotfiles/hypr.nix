@@ -1,5 +1,19 @@
-{config, pkgs, ...}:
+{config, inputs, lib, pkgs, ...}:
 {
+  home.file.".config/hypr/hyprpaper.conf" = {
+    text = ''
+      preload = ~/Pictures/Wallpapers/wallpaper.png
+      wallpaper = ,~/Pictures/Wallpapers/wallpaper.png
+    '';
+  };
+
+  programs = {
+    hyprlock = {
+      enable = false;
+      package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+    };
+  };
+
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
 
@@ -157,6 +171,9 @@
       force_default_wallpaper = -1;
     };
 
-    monitor = ",preferred,auto,auto";
+    monitor = [
+      ",preferred,auto,auto"
+      "Unknown-1,disable"
+    ];
   };
 }

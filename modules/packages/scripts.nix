@@ -36,6 +36,7 @@
 
     (pkgs.writeShellScriptBin "music" ''
       echo "Place your Music (YouTube) links to ~/.config/nix/music.list"
+      echo "Tip: Run cava in another window"
       input=~/.config/nix/music.list
       while read -r line
       do
@@ -66,6 +67,7 @@
 	echo "d - Display"
 	echo "w - Window"
 	echo "r - Region"
+	echo "h - Help"
       ;;
       esac
 

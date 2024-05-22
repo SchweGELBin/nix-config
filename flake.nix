@@ -23,12 +23,21 @@ inputs = {
     url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.hyprlang.follows = "hyprlang";
+    inputs.systems.follows = "systems";
+  };
+
+  hyprlock = {
+    url = "github:hyprwm/Hyprlock";
+    inputs.nixpkgs.follows = "nixpkgs"; 
+    inputs.hyprlang.follows = "hyprlang";
+    inputs.systems.follows = "systems";
   };
 
   hyprpaper = {
     url = "github:hyprwm/hyprpaper";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.hyprlang.follows = "hyprlang";
+    inputs.systems.follows = "systems";
   };
 
   stylix = {

@@ -45,7 +45,7 @@ environment = {
   systemPackages = with pkgs; [
     androidSdk audacity
     bat bibata-cursors blender btop
-    cargo cmake
+    cargo cava cmake
     dolphin
     fastfetch ffmpeg fusee-nano
     gcc gimp git godot_4 grim
@@ -53,6 +53,7 @@ environment = {
     imv
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     jq
+    kdePackages.kdenlive
     kitty krita
     libnotify libreoffice-qt-fresh librewolf
     mako mangohud mpv
@@ -63,7 +64,7 @@ environment = {
     rustc
     slurp steam
     unzip
-    walker waybar weylus wget wl-clipboard
+    walker waybar weylus wget wl-clipboard wlogout
     yt-dlp
   ];
 };
