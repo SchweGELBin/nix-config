@@ -42,6 +42,7 @@
       "$mainMod, E, exec, $filemanager"
       "$mainMod, F, fullscreen"
       "$mainMod, J, togglesplit, "
+      "$mainMod, K, exec, hyprpicker -f hex -a"
       "$mainMod, M, exit, "
       "$mainMod, O, exec, $browser"
       "$mainMod, P, pseudo, "

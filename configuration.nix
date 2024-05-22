@@ -52,6 +52,7 @@ environment = {
     heroic
     imv
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     jq
     kdePackages.kdenlive
     kitty krita
