@@ -46,9 +46,9 @@ environment = {
     androidSdk audacity
     bat bibata-cursors blender btop
     cargo cava cmake cmatrix
-    discord dolphin
+    dolphin
     fastfetch ffmpeg fusee-nano fuzzel
-    gcc gimp git godot_4 grim
+    gcc gedit gimp git godot_4 grim
     heroic
     imagemagick imv 
     inputs.hypridle.packages.${pkgs.system}.hypridle
@@ -62,11 +62,12 @@ environment = {
     neo-cowsay nodejs
     nodePackages_latest.conventional-changelog-cli
     obs-studio
-    papermc papirus-icon-theme pavucontrol prismlauncher
+    papermc papirus-icon-theme pavucontrol prismlauncher pulseaudio
     rustc
     slurp steam
     toilet
     unzip
+    vesktop
     waybar weylus wget wl-clipboard wlogout
     yt-dlp
   ];

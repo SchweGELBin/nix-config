@@ -16,7 +16,8 @@
     // Modules left
     "modules-left": [
         "custom/logout",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+	"custom/mpv"
     ],
 
     // Modules Center
