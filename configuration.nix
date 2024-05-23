@@ -160,7 +160,6 @@ programs = {
 
 qt = {
   enable = true;
-  platformTheme = "kde";
 };
 
 security = {

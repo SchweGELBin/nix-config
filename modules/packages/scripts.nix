@@ -26,9 +26,11 @@
 
     (pkgs.writeShellScriptBin "music" ''
       if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
-        exit 1
+        pkill music-instance
+	pkill mpv
+      else
+        music-instance
       fi
-      music-instance
     '')
 
     (pkgs.writeShellScriptBin "music-instance" '' 

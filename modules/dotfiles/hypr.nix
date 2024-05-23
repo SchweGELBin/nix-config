@@ -83,7 +83,7 @@ listener {
       "$mainMod, F, fullscreen"
       "$mainMod, J, togglesplit, "
       "$mainMod, K, exec, hyprpicker -f hex -a"
-      "$mainMod, L, exec, legendary launch Sugar"
+      "$mainMod, L, exec, mangohud legendary launch Sugar"
       "$mainMod, M, exec, music"
       "$mainMod, O, exec, $browser"
       "$mainMod, P, pseudo, "
