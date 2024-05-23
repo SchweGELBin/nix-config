@@ -28,7 +28,7 @@
       if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
         exit 1
       fi
-      music
+      music-instance
     '')
 
     (pkgs.writeShellScriptBin "music-instance" '' 
@@ -72,7 +72,7 @@
     '')
 
     (pkgs.writeShellScriptBin "proton-ge" ''
-      echo "Downloads newest proton-ge-cutsom"
+      echo "Downloads newest proton-ge-custom"
       repo="GloriousEggroll/proton-ge-custom"
       steam_cpath="/home/michi/.steam/root/compatibilitytools.d/"
       tmp_path="/home/michi/tmp/proton-ge/"
