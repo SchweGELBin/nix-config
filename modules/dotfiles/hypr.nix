@@ -59,7 +59,7 @@ listener {
 
     "$applauncher" = "fuzzel";
     "$browser" = "librewolf";
-    "$filemanager" = "dolphin";
+    "$filemanager" = "nemo";
     "$mainMod" = "SUPER";
     "$terminal" = "kitty";
 

@@ -48,7 +48,7 @@ environment = {
     cargo cava cinnamon.nemo cmake cmatrix
     fastfetch ffmpeg fusee-nano fuzzel
     gcc gedit gimp git glfw godot_4 grim
-    heroic
+    hmcl
     imagemagick imv 
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
@@ -57,12 +57,12 @@ environment = {
     jq
     kdePackages.kdenlive
     kitty krita
-    libnotify libreoffice-qt-fresh librewolf
+    legendary-gl libnotify libreoffice-qt-fresh librewolf
     mako mangohud mpv
     neo-cowsay nodejs
     nodePackages_latest.conventional-changelog-cli
     obs-studio
-    papermc papirus-icon-theme pavucontrol prismlauncher pulseaudio
+    papermc papirus-icon-theme pavucontrol pulseaudio
     rustc
     slurp steam
     toilet
