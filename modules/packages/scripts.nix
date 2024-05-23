@@ -69,21 +69,6 @@
       esac
 
       notify-send "Screenshot taken"
-    '')
-
-    (pkgs.writeShellScriptBin "proton-ge" ''
-      echo "Downloads newest proton-ge-custom"
-      repo="GloriousEggroll/proton-ge-custom"
-      steam_cpath="/home/michi/.steam/root/compatibilitytools.d/"
-      tmp_path="/home/michi/tmp/proton-ge/"
-      name=$(curl -s https://api.github.com/repos/$repo/releases/latest | grep "tag_name" | cut -d '"' -f 4)
-      rm -r $tmp_path
-      mkdir -p $tmp_path
-      cd $tmp_path
-      wget https://github.com/$repo/releases/latest/download/$name.tar.gz 
-      rm -r $steam_cpath
-      mkdir -p $steam_cpath
-      tar -xf $name.tar.gz -C $steam_cpath
-    '')
+    '') 
   ];
 }
