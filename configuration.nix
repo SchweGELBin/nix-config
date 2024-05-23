@@ -44,31 +44,27 @@ environment = {
   };
   systemPackages = with pkgs; [
     androidSdk audacity
-    bat bibata-cursors blender btop
-    cargo cava cinnamon.nemo cmake cmatrix
-    fastfetch ffmpeg fusee-nano fuzzel
-    gcc gedit gimp git glfw godot_4 grim
-    imagemagick imv 
+    bibata-cursors blender
+    cargo cinnamon.nemo cmake cmatrix
+    ffmpeg fusee-nano
+    gcc gedit gimp glfw godot_4 grim
+    imagemagick
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    inputs.waybar.packages.${pkgs.system}.waybar
-    jq
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker 
     kdePackages.kdenlive
-    kitty krita
-    legendary-gl libnotify libreoffice-qt-fresh librewolf
-    mako mangohud mpv
+    krita
+    legendary-gl libnotify libreoffice-qt-fresh
+    mako
     neo-cowsay nodejs
     nodePackages_latest.conventional-changelog-cli
-    obs-studio
     papermc papirus-icon-theme pavucontrol pulseaudio
     rustc
-    slurp steam
+    slurp
     toilet
     unzip
     vesktop
-    weylus wineWowPackages.stagingFull wget wl-clipboard wlogout
-    yt-dlp
+    wineWowPackages.stagingFull wget wl-clipboard
   ];
 };
 
@@ -155,6 +151,7 @@ programs = {
     enable = true;
     gamescopeSession.enable = true;
   };
+  weylus.enable = true;
   zsh.enable = true;
 };
 
@@ -230,6 +227,18 @@ stylix = {
     terminal = 0.7; 
   };
   polarity = "dark";
+  targets = {
+    gnome.enable = true;
+    grub = {
+      useImage = false;
+    };
+    nixvim = {
+      transparent_bg = {
+        main = false;
+        sign_column = false;
+      };
+    };
+  };
 };
 
 system = {
