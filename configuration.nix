@@ -48,7 +48,6 @@ environment = {
     cargo cava cinnamon.nemo cmake cmatrix
     fastfetch ffmpeg fusee-nano fuzzel
     gcc gedit gimp git glfw godot_4 grim
-    hmcl
     imagemagick imv 
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
