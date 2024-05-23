@@ -25,6 +25,13 @@
     '') 
 
     (pkgs.writeShellScriptBin "music" ''
+      if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
+        exit 1
+      fi
+      music
+    '')
+
+    (pkgs.writeShellScriptBin "music-instance" '' 
       echo "Place your Music (YouTube) links to ~/.config/nix/music.list"
       echo "Tip: Run cava in another window"
       input=~/.config/nix/music.list
@@ -62,6 +69,21 @@
       esac
 
       notify-send "Screenshot taken"
+    '')
+
+    (pkgs.writeShellScriptBin "proton-ge" ''
+      echo "Downloads newest proton-ge-cutsom"
+      repo="GloriousEggroll/proton-ge-custom"
+      steam_cpath="/home/michi/.steam/root/compatibilitytools.d/"
+      tmp_path="/home/michi/tmp/proton-ge/"
+      name=$(curl -s https://api.github.com/repos/$repo/releases/latest | grep "tag_name" | cut -d '"' -f 4)
+      rm -r $tmp_path
+      mkdir -p $tmp_path
+      cd $tmp_path
+      wget https://github.com/$repo/releases/latest/download/$name.tar.gz 
+      rm -r $steam_cpath
+      mkdir -p $steam_cpath
+      tar -xf $name.tar.gz -C $steam_cpath
     '')
   ];
 }
