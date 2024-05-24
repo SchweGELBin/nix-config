@@ -2,8 +2,8 @@
 {
   home.file.".config/hypr/hyprpaper.conf" = {
     text = ''
-      preload = ~/Pictures/Wallpapers/wallpaper.png
-      wallpaper = ,~/Pictures/Wallpapers/wallpaper.png
+      preload = ~/Pictures/Wallpapers/wallpaper.jpg
+      wallpaper = ,~/Pictures/Wallpapers/wallpaper.jpg
     '';
   };
 

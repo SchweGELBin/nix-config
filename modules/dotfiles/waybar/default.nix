@@ -15,7 +15,7 @@ with config.lib.stylix.colors.withHashtag;
     text = ''
       @define-color text ${base05};
       @define-color text2 ${base05};
-      @define-color bg ${base00};
+      @define-color bg transparent;
       @define-color bg2 transparent;
     '';
   };

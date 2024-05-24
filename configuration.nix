@@ -225,8 +225,8 @@ stylix = {
     }; 
   };
   image = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/Gingeh/wallpapers/main/waves/cat-waves.png";
-    hash = "sha256-aiG7debgjOCWRBp2xUOMOVGvIDWtd4NirsktxL19De4=";
+    url = "https://w.wallhaven.cc/full/3l/wallhaven-3l828y.jpg";
+    hash = "sha256-hLlEBpwcjKQ6l846hU4OJFIa6uEeH2Zf5ouiZg8rn8A=";
   };
   opacity = {
     popups = 0.7;
