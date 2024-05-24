@@ -151,12 +151,18 @@ programs = {
     enable = true;
     gamescopeSession.enable = true;
   };
+  waybar = {
+    enable = false;
+    package = inputs.waybar.packages.${pkgs.system}.waybar;
+  };
   weylus.enable = true;
   zsh.enable = true;
 };
 
 qt = {
-  enable = true;
+  enable = false;
+  platformTheme = "kde";
+  style = "breeze";
 };
 
 security = {

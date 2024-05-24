@@ -27,7 +27,7 @@
     obs-studio.enable = true;
     waybar = {
       enable = true;
-      #package = inputs.waybar.packages.${pkgs.system}.waybar;
+      package = inputs.waybar.packages.${pkgs.system}.waybar;
     };
     wlogout.enable = true;
     yt-dlp.enable = true;

@@ -39,7 +39,7 @@
     // CPU
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": true
     },
 
     // Memory

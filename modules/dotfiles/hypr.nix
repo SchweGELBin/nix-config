@@ -50,11 +50,13 @@ listener {
     hyprlock = {
       enable = false;
       package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
-      #settings = example;
     };
   };
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
   wayland.windowManager.hyprland.settings = {
 
     "$applauncher" = "fuzzel";
@@ -175,7 +177,6 @@ listener {
     ];
 
     exec-once = [
-     #"hypridle" 
       "hyprpaper"
       "openrgb -c FF0000"
       "waybar"
