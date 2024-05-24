@@ -5,5 +5,5 @@
     targets = {
       waybar.enable = false;
     };
-  };
+  }; 
 }

@@ -39,7 +39,7 @@ environment = {
     ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
     NIXOS_INSTALL_BOOTLOADER = "1";
     NIXOS_OZONE_WL = "1";
-    STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d"; 
     WLR_NO_HARDWARE_CURSORS = "1";
   };
   systemPackages = with pkgs; [
@@ -58,7 +58,7 @@ environment = {
     mako
     neo-cowsay nodejs
     nodePackages_latest.conventional-changelog-cli
-    papermc papirus-icon-theme pavucontrol pulseaudio
+    papermc papirus-icon-theme pavucontrol prismlauncher pulseaudio
     rustc
     slurp
     toilet
@@ -76,7 +76,7 @@ hardware = {
   nvidia = {
     modesetting.enable = true;
     nvidiaSettings = false;
-    open = true;
+    open = false;
     package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
     powerManagement.enable = false;
   };
