@@ -3,16 +3,16 @@ My Nix configs
 
 ## Configuration
 ```
-Window Manager       - HyprLand
+Window Manager       - Hyprland
 Terminal             - Kitty
 Browser              - Librewolf
-Explorer             - Dolphin
-Application Launcher - Walker
+Explorer             - Nemo
+Application Launcher - Fuzzel
 Bar                  - Waybar
 Audio                - Pipewire
 Boot Manager         - Grub
 Editor               - Neovim
-Theme                - Catppuccin
+Theme                - Stylix
 ```
 
 ## Apply
