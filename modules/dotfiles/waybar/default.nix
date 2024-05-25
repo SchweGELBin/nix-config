@@ -13,10 +13,9 @@ with config.lib.stylix.colors.withHashtag;
 
   home.file.".config/waybar/colors.css" = {
     text = ''
-      @define-color text ${base05};
-      @define-color text2 ${base05};
-      @define-color bg transparent;
-      @define-color bg2 transparent;
+      @define-color bd ${base0A}; /* Border     */
+      @define-color bg ${base00}; /* Background */
+      @define-color fg ${base05}; /* Foreground */
     '';
   };
 }
