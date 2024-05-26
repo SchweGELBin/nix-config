@@ -58,7 +58,7 @@ environment = {
     mako
     neo-cowsay nodejs
     nodePackages_latest.conventional-changelog-cli
-    papermc papirus-icon-theme pavucontrol prismlauncher pulseaudio
+    papermc papirus-icon-theme pavucontrol pipes-rs prismlauncher pulseaudio
     rustc
     slurp
     toilet
