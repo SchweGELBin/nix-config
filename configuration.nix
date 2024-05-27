@@ -51,8 +51,7 @@ environment = {
     imagemagick
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker 
-    kdePackages.kdenlive
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     krita
     legendary-gl libnotify libreoffice-qt-fresh
     mako
