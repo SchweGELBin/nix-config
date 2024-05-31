@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 with config.lib.stylix.colors.withHashtag;
 {
   home.file.".config/waybar/config" = {

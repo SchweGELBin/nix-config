@@ -1,9 +1,9 @@
-{ pkgs, config, ...}:
+{ pkgs, config, ... }:
 {
-    services.mako = {
-      enable = true;
-      borderRadius = 5;
-      borderSize = 2;
-      layer = "overlay";
+  services.mako = {
+    enable = true;
+    borderRadius = 5;
+    borderSize = 2;
+    layer = "overlay";
   };
 }

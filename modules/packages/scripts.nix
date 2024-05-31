@@ -22,15 +22,15 @@
       rm -r ~/.config/nvim
       rm -r ~/.local/share/nvim
       git clone --depth 1 https://github.com/NvChad/starter.git ~/.config/nvim
-    '') 
+    '')
 
     (pkgs.writeShellScriptBin "music" ''
-      if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
-        pkill music-instance
-	pkill mpv
-      else
-        music-instance
-      fi
+            if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
+              pkill music-instance
+      	pkill mpv
+            else
+              music-instance
+            fi
     '')
 
     (pkgs.writeShellScriptBin "music-instance" '' 
@@ -44,33 +44,33 @@
     '')
 
     (pkgs.writeShellScriptBin "screenshot" ''
-      filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
-      scrDir="$HOME/Pictures/Screenshots"
-      scrPath="$scrDir/$filename"
+            filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
+            scrDir="$HOME/Pictures/Screenshots"
+            scrPath="$scrDir/$filename"
 
-      mkdir -p $scrDir
+            mkdir -p $scrDir
 
-      case $1 in
-      d) # Display
-        #grim $scrPath | wl-copy
-	grim -o "$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')" $scrPath | wl-copy
-      ;;
-      w) # Window
-        echo "Window mode not working yet"
-      ;;
-      r) # Region
-        grim -g "$(slurp)" $scrPath | wl-copy
-      ;;
-      h) # Help
-        echo "Use: screenshot <option>"
-	echo "d - Display"
-	echo "w - Window"
-	echo "r - Region"
-	echo "h - Help"
-      ;;
-      esac
+            case $1 in
+            d) # Display
+              #grim $scrPath | wl-copy
+      	grim -o "$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')" $scrPath | wl-copy
+            ;;
+            w) # Window
+              echo "Window mode not working yet"
+            ;;
+            r) # Region
+              grim -g "$(slurp)" $scrPath | wl-copy
+            ;;
+            h) # Help
+              echo "Use: screenshot <option>"
+      	echo "d - Display"
+      	echo "w - Window"
+      	echo "r - Region"
+      	echo "h - Help"
+            ;;
+            esac
 
-      notify-send "Screenshot taken"
-    '') 
+            notify-send "Screenshot taken"
+    '')
   ];
 }
