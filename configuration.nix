@@ -26,7 +26,10 @@ boot = {
       useOSProber = true;
     };
   }; 
-  kernelPackages = pkgs.linuxPackages_6_8; # Kernel Version: testing = mainline, latest = stable
+  kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
+  kernelParams = [
+    "nvidia-drm.fbdev=1"
+  ];
 };
 
 console = {
@@ -75,7 +78,7 @@ hardware = {
   nvidia = {
     modesetting.enable = true;
     nvidiaSettings = false;
-    open = false;
+    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
     powerManagement.enable = false;
   };
