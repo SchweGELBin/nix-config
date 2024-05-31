@@ -42,8 +42,6 @@ in
       ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
       NIXOS_INSTALL_BOOTLOADER = "1";
       NIXOS_OZONE_WL = "1";
-      PRETTIERD_DEFAULT_CONFIG = "/home/michi/.config/prettier/.prettierrc.json";
-      PRETTIERD_LOCAL_PRETTIER_ONLY = "1";
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
@@ -82,7 +80,6 @@ in
       papirus-icon-theme
       pavucontrol
       pipes-rs
-      prettierd
       prismlauncher
       pulseaudio
       rustc
