@@ -6,6 +6,7 @@
       cd /etc/nixos
       git add /etc/nixos/
       nix flake update
+      nixpkgs-fmt /etc/nixos/
       nixos-rebuild switch --flake /etc/nixos/#default
     '')
 
