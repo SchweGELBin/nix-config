@@ -1,4 +1,4 @@
-{config, inputs, lib, pkgs, ...}:
+{ config, inputs, lib, pkgs, ... }:
 {
   home.file.".config/hypr/hyprpaper.conf" = {
     text = ''
@@ -61,6 +61,7 @@ listener {
 
     "$applauncher" = "fuzzel";
     "$browser" = "librewolf";
+    "$discord" = "vesktop";
     "$filemanager" = "nemo";
     "$mainMod" = "SUPER";
     "$terminal" = "kitty";
@@ -81,6 +82,7 @@ listener {
     bind = [
       # General
       "$mainMod, C, killactive, "
+      "$mainMod, D, exec, $discord"
       "$mainMod, E, exec, $filemanager"
       "$mainMod, F, fullscreen"
       "$mainMod, J, togglesplit, "
