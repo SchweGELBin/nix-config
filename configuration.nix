@@ -83,6 +83,7 @@ in
       prismlauncher
       pulseaudio
       rustc
+      rustfmt
       slurp
       toilet
       unzip
