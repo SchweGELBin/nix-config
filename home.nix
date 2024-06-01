@@ -17,6 +17,7 @@
     blender
     cargo
     cinnamon.nemo
+    clippy
     cmatrix
     fusee-nano
     gedit

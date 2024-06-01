@@ -19,6 +19,12 @@
     };
 
     plugins = {
+      alpha = {
+        enable = true;
+        iconsEnabled = true;
+        layout = [ ];
+        theme = "dashboard";
+      };
       bufferline.enable = true;
       cmp = {
         enable = true;
@@ -30,13 +36,17 @@
           { name = "path"; }
         ];
       };
+      lint = {
+        enable = true;
+        linters = { };
+      };
       lualine.enable = true;
       luasnip.enable = true;
       lsp = {
         enable = true;
         servers = {
           rust-analyzer = {
-            enable = true;
+            enable = false;
             installCargo = true;
             installRustc = true;
             cargoPackage = pkgs.cargo;
@@ -50,6 +60,10 @@
         lspServersToEnable = "all";
       };
       oil.enable = true;
+      rustaceanvim = {
+        enable = true;
+        rustAnalyzerPackage = pkgs.rust-analyzer;
+      };
       telescope.enable = true;
       treesitter.enable = true;
     };
