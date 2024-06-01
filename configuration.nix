@@ -47,47 +47,27 @@ in
     };
     systemPackages = with pkgs; [
       androidSdk
-      audacity
       bibata-cursors
-      blender
       cargo
-      cinnamon.nemo
       cmake
-      cmatrix
       ffmpeg
-      fusee-nano
       gcc
-      gedit
-      gimp
-      glfw
-      godot_4
       grim
       imagemagick
-      inputs.hypridle.packages.${pkgs.system}.hypridle
-      inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-      inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-      krita
       legendary-gl
       libnotify
-      libreoffice-qt-fresh
       mako
-      neo-cowsay
       nixpkgs-fmt
       nodejs
       nodePackages_latest.conventional-changelog-cli
       nodePackages_latest.prettier
-      papermc
       papirus-icon-theme
       pavucontrol
-      pipes-rs
-      prismlauncher
       pulseaudio
       rustc
       rustfmt
       slurp
-      toilet
       unzip
-      vesktop
       wineWowPackages.stagingFull
       wget
       wl-clipboard
@@ -177,12 +157,14 @@ in
       enable = true;
       gamescopeSession.enable = true;
     };
-    waybar = {
-      enable = false;
-      package = inputs.waybar.packages.${pkgs.system}.waybar;
-    };
     weylus.enable = true;
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      ohMyZsh = {
+        enable = true;
+        theme = "simple";
+      };
+    };
   };
 
   qt = {
@@ -288,7 +270,7 @@ in
       initialPassword = "1234";
       isNormalUser = true;
       packages = with pkgs; [ ];
-      shell = pkgs.bash;
+      shell = pkgs.zsh;
     };
   };
 

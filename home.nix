@@ -11,6 +11,29 @@
     ./modules/default.nix
   ];
 
+  home.packages = with pkgs; [
+    audacity
+    blender
+    cinnamon.nemo
+    cmatrix
+    fusee-nano
+    gedit
+    gimp
+    glfw
+    godot_4
+    inputs.hypridle.packages.${pkgs.system}.hypridle
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    krita
+    libreoffice-qt-fresh
+    neo-cowsay
+    papermc
+    pipes-rs
+    prismlauncher
+    toilet
+    vesktop
+  ];
+
   programs = {
     bat.enable = true;
     btop.enable = true;
