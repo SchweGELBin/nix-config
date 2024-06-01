@@ -3,6 +3,6 @@
     ./mpv.nix
     ./music.nix
     ./scripts.nix
-    ./bash.nix
+    ./zsh.nix
   ];
 }
