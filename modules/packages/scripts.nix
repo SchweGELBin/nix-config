@@ -19,12 +19,6 @@
       wget https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin && fusee-nano ~/fusee.bin && rm ~/fusee.bin
     '')
 
-    (pkgs.writeShellScriptBin "nvchad" ''
-      rm -r ~/.config/nvim
-      rm -r ~/.local/share/nvim
-      git clone --depth 1 https://github.com/NvChad/starter.git ~/.config/nvim
-    '')
-
     (pkgs.writeShellScriptBin "music" ''
             if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
               pkill music-instance

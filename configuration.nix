@@ -145,10 +145,6 @@ in
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
     };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
     java = {
       enable = true;
       package = pkgs.jdk;

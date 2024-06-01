@@ -9,6 +9,7 @@
 
   imports = [
     ./modules/default.nix
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   home.packages = with pkgs; [
