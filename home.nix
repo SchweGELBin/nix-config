@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     audacity
     blender
+    cargo
     cinnamon.nemo
     cmatrix
     fusee-nano
@@ -31,6 +32,8 @@
     papermc
     pipes-rs
     prismlauncher
+    rustc
+    rustfmt
     toilet
     vesktop
   ];

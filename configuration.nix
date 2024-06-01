@@ -48,7 +48,6 @@ in
     systemPackages = with pkgs; [
       androidSdk
       bibata-cursors
-      cargo
       cmake
       ffmpeg
       gcc
@@ -64,8 +63,6 @@ in
       papirus-icon-theme
       pavucontrol
       pulseaudio
-      rustc
-      rustfmt
       slurp
       unzip
       wineWowPackages.stagingFull
