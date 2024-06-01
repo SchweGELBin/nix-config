@@ -26,7 +26,6 @@
     glfw
     godot_4
     graphviz
-    inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     krita

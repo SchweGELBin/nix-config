@@ -142,6 +142,10 @@ in
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
     };
+    hyprlock = {
+      enable = true;
+      package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+    };
     java = {
       enable = true;
       package = pkgs.jdk;
@@ -167,16 +171,21 @@ in
   };
 
   security = {
-    pam.services = {
-      hyprlock = { };
-    };
     polkit.enable = true;
     rtkit.enable = true;
   };
 
   services = {
-    getty.autologinUser = "michi";
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+        };
+      };
+    };
     hardware.openrgb.enable = true;
+    hypridle.package = inputs.hypridle.packages.${pkgs.system}.hypridle;
     openssh.enable = false;
     pipewire = {
       enable = true;
@@ -190,12 +199,6 @@ in
     printing.enable = true;
     xserver = {
       enable = true;
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
-      };
       videoDrivers = [ "nvidia" ]; # nvidia / nouveau
       xkb = {
         layout = "us";
