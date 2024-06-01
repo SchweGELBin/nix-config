@@ -17,6 +17,7 @@
     blender
     cargo
     cinnamon.nemo
+    clang-tools
     clippy
     cmatrix
     fusee-nano
@@ -24,12 +25,15 @@
     gimp
     glfw
     godot_4
+    graphviz
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     krita
     libreoffice-qt-fresh
+    lldb
     neo-cowsay
+    ninja
     papermc
     pipes-rs
     prismlauncher

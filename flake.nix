@@ -9,6 +9,10 @@
     nixpkgs.follows = "nixpkgs-unstable";
     systems.url = "github:nix-systems/default-linux";
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+
     hyprlang = {
       url = "github:hyprwm/hyprlang";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,7 +59,14 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    rustaceanvim = {
+      url = "github:mrcjkb/rustaceanvim";
+      inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

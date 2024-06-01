@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   programs.nixvim = {
     enable = true;
@@ -36,6 +36,7 @@
           { name = "path"; }
         ];
       };
+      dap.enable = true;
       lint = {
         enable = true;
         linters = { };
@@ -59,9 +60,11 @@
         enable = true;
         lspServersToEnable = "all";
       };
+      nvim-tree.enable = true;
       oil.enable = true;
       rustaceanvim = {
         enable = true;
+        package = inputs.rustaceanvim.packages.${pkgs.system}.rustaceanvim;
         rustAnalyzerPackage = pkgs.rust-analyzer;
       };
       telescope.enable = true;
