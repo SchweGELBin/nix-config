@@ -3,7 +3,7 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs.follows = "nixpkgs-unstable";
@@ -51,6 +51,12 @@
       inputs.hyprlang.follows = "hyprlang";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {

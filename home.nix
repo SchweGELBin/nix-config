@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/michi";
   programs.home-manager.enable = true;
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   imports = [
     ./modules/default.nix
