@@ -47,7 +47,7 @@
         enable = true;
         servers = {
           rust-analyzer = {
-            enable = false;
+            enable = true;
             installCargo = true;
             installRustc = true;
             cargoPackage = pkgs.cargo;
@@ -62,11 +62,6 @@
       };
       nvim-tree.enable = true;
       oil.enable = true;
-      rustaceanvim = {
-        enable = true;
-        package = inputs.rustaceanvim.packages.${pkgs.system}.rustaceanvim;
-        rustAnalyzerPackage = pkgs.rust-analyzer;
-      };
       telescope.enable = true;
       treesitter.enable = true;
     };
