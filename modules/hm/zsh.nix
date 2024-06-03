@@ -15,8 +15,7 @@
     # End of lines added by compinstall
 
     # The following lines are custom added aliases
-    alias ff="fastfetch"
-    alias changelog="conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    alias ff="fastfetch" 
     # End of custom added lines
   '';
 }

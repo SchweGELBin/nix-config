@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "michi";
@@ -8,7 +13,7 @@
   home.stateVersion = "24.11";
 
   imports = [
-    ./modules/default.nix
+    ./modules/hm/default.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
 

@@ -1,18 +1,19 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
-  androidComposition = pkgs.androidenv.composeAndroidPackages {
-    platformVersions = [ "34" ];
-  };
+  androidComposition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "34" ]; };
   androidSdk = androidComposition.androidsdk;
   systemFonts = pkgs.nerdfonts;
 in
 
 {
 
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     loader = {
@@ -27,9 +28,7 @@ in
       };
     };
     kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
-    kernelParams = [
-      "nvidia-drm.fbdev=1"
-    ];
+    kernelParams = [ "nvidia-drm.fbdev=1" ];
   };
 
   console = {
@@ -56,10 +55,7 @@ in
       legendary-gl
       libnotify
       mako
-      nixpkgs-fmt
-      nodejs
-      nodePackages_latest.conventional-changelog-cli
-      nodePackages_latest.prettier
+      nixfmt-rfc-style
       papirus-icon-theme
       pavucontrol
       pulseaudio
@@ -91,7 +87,9 @@ in
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     useGlobalPkgs = true;
     users = {
       "michi" = import ./home.nix;
@@ -124,7 +122,10 @@ in
   };
 
   nix = {
-    settings.experimental-features = [ "flakes" "nix-command" ];
+    settings.experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
   };
 
   nixpkgs = {
@@ -262,7 +263,10 @@ in
   users = {
     users.michi = {
       description = "michi";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       initialPassword = "1234";
       isNormalUser = true;
       packages = with pkgs; [ ];
@@ -273,5 +277,4 @@ in
   xdg = {
     portal.enable = true;
   };
-
 }

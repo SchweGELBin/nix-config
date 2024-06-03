@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.packages = [
@@ -6,7 +11,7 @@
       cd /etc/nixos
       git add /etc/nixos/
       nix flake update
-      nixpkgs-fmt /etc/nixos/
+      nixfmt /etc/nixos/
       nixos-rebuild switch --flake /etc/nixos/#default
     '')
 
@@ -28,7 +33,7 @@
             fi
     '')
 
-    (pkgs.writeShellScriptBin "music-instance" '' 
+    (pkgs.writeShellScriptBin "music-instance" ''
       echo "Place your Music (YouTube) links to ~/.config/nix/music.list"
       echo "Tip: Run cava in another window"
       input=~/.config/nix/music.list

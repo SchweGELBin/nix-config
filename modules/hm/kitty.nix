@@ -1,4 +1,9 @@
-{ config, lib, inputs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 with config.lib.stylix.colors.withHashtag;
 {
   programs.kitty.enable = true;

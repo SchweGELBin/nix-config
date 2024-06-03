@@ -71,10 +71,13 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @inputs:
+  outputs =
+    { nixpkgs, ... }@inputs:
     {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
           ./configuration.nix
           inputs.home-manager.nixosModules.default
@@ -82,5 +85,4 @@
         ];
       };
     };
-
 }

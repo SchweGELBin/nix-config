@@ -1,9 +1,13 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
-    defaultEditor = true;
     enableMan = true;
 
     globals = {

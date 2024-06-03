@@ -1,11 +1,16 @@
 {
   imports = [
+    ./helix.nix
     ./hypr.nix
     ./kitty.nix
     ./mako.nix
+    ./mpv.nix
+    ./music.nix
     ./nixvim.nix
+    ./scripts.nix
     ./stylix.nix
     ./wallpaper.nix
     ./waybar/default.nix
+    ./zsh.nix
   ];
 }
