@@ -21,6 +21,7 @@
     audacity
     blender
     cargo
+    cargo-tauri
     cinnamon.nemo
     clippy
     cmatrix
