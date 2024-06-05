@@ -41,6 +41,7 @@ in
       ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
       NIXOS_INSTALL_BOOTLOADER = "1";
       NIXOS_OZONE_WL = "1";
+      PKG_CONFIG_PATH = "${pkgs.at-spi2-atk.dev}/lib/pkgconfig:${pkgs.cairo.dev}/lib/pkgconfig:${pkgs.dbus.dev}/lib/pkgconfig:${pkgs.glib.dev}/lib/pkgconfig:${pkgs.gdk-pixbuf.dev}/lib/pkgconfig:${pkgs.gtk3.dev}/lib/pkgconfig:${pkgs.librsvg.dev}/lib/pkgconfig:${pkgs.libsoup_3.dev}/lib/pkgconfig:${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.pango.dev}/lib/pkgconfig:${pkgs.webkitgtk_4_1.dev}/lib/pkgconfig";
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
@@ -56,9 +57,8 @@ in
       libnotify
       mako
       nixfmt-rfc-style
-      papirus-icon-theme
       pavucontrol
-      pulseaudio
+      pkg-config
       slurp
       unzip
       wineWowPackages.stagingFull

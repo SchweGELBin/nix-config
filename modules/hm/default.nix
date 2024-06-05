@@ -2,6 +2,7 @@
   imports = [
     ./helix.nix
     ./hypr.nix
+    ./gtk.nix
     ./kitty.nix
     ./mako.nix
     ./mpv.nix
