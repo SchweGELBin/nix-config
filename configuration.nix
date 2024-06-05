@@ -58,7 +58,6 @@ in
       mako
       nixfmt-rfc-style
       pavucontrol
-      pkg-config
       slurp
       unzip
       wineWowPackages.stagingFull
