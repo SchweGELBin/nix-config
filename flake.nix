@@ -53,6 +53,11 @@
       inputs.systems.follows = "systems";
     };
 
+    nix-direnv = {
+      url = "github:nix-community/nix-direnv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.home-manager.follows = "home-manager";

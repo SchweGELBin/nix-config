@@ -21,7 +21,6 @@
     audacity
     blender
     cargo
-    cargo-tauri
     cinnamon.nemo
     clippy
     cmatrix
@@ -34,21 +33,16 @@
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     krita
     libreoffice-qt-fresh
-    lld
     neo-cowsay
-    nodePackages_latest.pnpm
     papermc
     papirus-icon-theme
     pipes-rs
     prismlauncher
-    pkg-config
     pulseaudio
     rustc
     rustfmt
     toilet
-    trunk
     vesktop
-    wasm-pack
   ];
 
   programs = {

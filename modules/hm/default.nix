@@ -1,5 +1,6 @@
 {
   imports = [
+    ./direnv.nix
     ./helix.nix
     ./hypr.nix
     ./gtk.nix
