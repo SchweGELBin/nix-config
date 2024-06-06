@@ -34,6 +34,7 @@
     krita
     libreoffice-qt-fresh
     neo-cowsay
+    nodePackages_latest.pnpm
     papermc
     papirus-icon-theme
     pipes-rs
@@ -47,6 +48,7 @@
 
   programs = {
     bat.enable = true;
+    bash.enable = true;
     btop.enable = true;
     cava.enable = true;
     fuzzel.enable = true;
@@ -65,5 +67,6 @@
     };
     wlogout.enable = true;
     yt-dlp.enable = true;
+    zsh.enable = true;
   };
 }

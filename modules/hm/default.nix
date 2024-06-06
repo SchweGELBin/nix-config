@@ -1,5 +1,6 @@
 {
   imports = [
+    ./devshells/default.nix
     ./direnv.nix
     ./helix.nix
     ./hypr.nix
