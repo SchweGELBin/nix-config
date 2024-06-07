@@ -35,7 +35,6 @@
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
-      OfferToSaveLoginsDefault = false;
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
       PasswordManagerEnabled = false;
