@@ -4,6 +4,7 @@
     ./direnv.nix
     ./helix.nix
     ./hypr.nix
+    ./firefox.nix
     ./gtk.nix
     ./kitty.nix
     ./mako.nix

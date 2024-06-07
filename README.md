@@ -5,7 +5,7 @@ My Nix configs
 ```
 Window Manager       - Hyprland
 Terminal             - Kitty
-Browser              - Librewolf
+Browser              - Firefox
 Explorer             - Nemo
 Application Launcher - Fuzzel
 Bar                  - Waybar

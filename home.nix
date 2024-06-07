@@ -57,7 +57,6 @@
     kitty.enable = true;
     fastfetch.enable = true;
     jq.enable = true;
-    librewolf.enable = true;
     mangohud.enable = true;
     mpv.enable = true;
     obs-studio.enable = true;

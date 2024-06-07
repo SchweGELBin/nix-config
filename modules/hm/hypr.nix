@@ -55,7 +55,7 @@
   wayland.windowManager.hyprland.settings = {
 
     "$applauncher" = "fuzzel";
-    "$browser" = "librewolf";
+    "$browser" = "firefox";
     "$discord" = "vesktop";
     "$filemanager" = "nemo";
     "$mainMod" = "SUPER";
