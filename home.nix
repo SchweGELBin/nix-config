@@ -33,6 +33,7 @@
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     krita
     libreoffice-qt-fresh
+    minetestclient
     neo-cowsay
     nodePackages_latest.pnpm
     papermc
