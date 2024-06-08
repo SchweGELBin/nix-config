@@ -15,6 +15,9 @@ Editor               - Neovim
 Theme                - Stylix
 ```
 
+### Preview
+![Desktop](./res/desktop.png)
+
 ## Apply
 ### Before
 - Download the minimal NixOS [ISO image](https://nixos.org/download) (NixOS -> ISO image -> Minimal ISO image -> Download (64-bit Intel/AMD)

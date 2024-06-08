@@ -56,7 +56,6 @@
     git.enable = true;
     imv.enable = true;
     kitty.enable = true;
-    fastfetch.enable = true;
     jq.enable = true;
     mangohud.enable = true;
     mpv.enable = true;
