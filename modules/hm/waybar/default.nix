@@ -11,7 +11,7 @@ with config.lib.stylix.colors.withHashtag;
   home.file.".config/waybar/modules.jsonc".source = ./modules.jsonc;
 
   home.file.".config/waybar/colors.css".text = ''
-    @define-color bd ${base0A}; /* Border     */
+    @define-color bd ${base0D}; /* Border     */
     @define-color bg ${base00}; /* Background */
     @define-color fg ${base05}; /* Foreground */
   '';

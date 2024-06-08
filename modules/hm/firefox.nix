@@ -59,6 +59,10 @@
         engines = {
           "Bing".metaData.hidden = true;
           "DuckDuckGo".metaData.hidden = true;
+          "Crates" = {
+            definedAliases = [ "@cr" ];
+            urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
+          };
           "Icons" = {
             definedAliases = [ "@ic" ];
             urls = [ { template = "https://www.nerdfonts.com/cheat-sheet?q={searchTerms}"; } ];
