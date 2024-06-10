@@ -32,7 +32,6 @@
     godot_4
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    #kdePackages.qtstyleplugin-kvantum
     krita
     libreoffice-qt-fresh
     minetestclient

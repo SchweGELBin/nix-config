@@ -85,10 +85,6 @@
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          cat = {
-            accent = "mauve";
-            flavor = "mocha";
-          };
         };
         modules = [
           ./configuration.nix

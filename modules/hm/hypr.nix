@@ -175,7 +175,7 @@
 
     exec-once = [
       "hyprpaper"
-      #"openrgb -c ${base0D}"
+      "openrgb -c $accent"
       "waybar"
     ];
 

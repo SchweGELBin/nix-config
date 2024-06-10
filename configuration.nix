@@ -24,7 +24,7 @@ in
         enable = true;
         catppuccin = {
           enable = true;
-          flavor = "mocha";
+          flavor = vars.cat.flavor;
         };
         configurationLimit = 64;
         device = "nodev";
