@@ -30,6 +30,7 @@ window#waybar {
 
 /* Workspaces */
 #workspaces button {
+    color: @fg;
     padding: 0 6px;
 }
 #workspaces button.active {

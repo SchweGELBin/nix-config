@@ -212,6 +212,7 @@ in
   };
 
   stylix = {
+    enable = true;
     autoEnable = true;
     cursor = {
       name = "Bibata-Modern-Ice";

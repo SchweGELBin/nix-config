@@ -5,6 +5,7 @@
   pkgs,
   ...
 }:
+with config.lib.stylix.colors;
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
     preload = ~/Pictures/Wallpapers/wallpaper.jpg
@@ -175,7 +176,7 @@
 
     exec-once = [
       "hyprpaper"
-      "openrgb -c FF0000"
+      "openrgb -c ${base0D}"
       "waybar"
     ];
 
