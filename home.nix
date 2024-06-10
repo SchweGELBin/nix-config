@@ -13,8 +13,9 @@
   home.stateVersion = "24.11";
 
   imports = [
-    ./modules/hm/default.nix
+    ./modules/hm
     inputs.nixvim.homeManagerModules.nixvim
+    inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
   home.packages = with pkgs; [
@@ -31,13 +32,13 @@
     godot_4
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    #kdePackages.qtstyleplugin-kvantum
     krita
     libreoffice-qt-fresh
     minetestclient
     neo-cowsay
     nodePackages_latest.pnpm
     papermc
-    papirus-icon-theme
     pipes-rs
     prismlauncher
     pulseaudio
@@ -55,15 +56,10 @@
     fuzzel.enable = true;
     git.enable = true;
     imv.enable = true;
-    kitty.enable = true;
     jq.enable = true;
     mangohud.enable = true;
     mpv.enable = true;
     obs-studio.enable = true;
-    waybar = {
-      enable = true;
-      package = inputs.waybar.packages.${pkgs.system}.waybar;
-    };
     wlogout.enable = true;
     yt-dlp.enable = true;
     zsh.enable = true;

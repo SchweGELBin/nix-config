@@ -5,11 +5,10 @@
   pkgs,
   ...
 }:
-with config.lib.stylix.colors;
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ~/Pictures/Wallpapers/wallpaper.jpg
-    wallpaper = ,~/Pictures/Wallpapers/wallpaper.jpg
+    preload = ~/Pictures/Wallpapers/wallpaper.png
+    wallpaper = ,~/Pictures/Wallpapers/wallpaper.png
   '';
 
   home.file.".config/hypr/hypridle.conf".text = ''
@@ -176,11 +175,12 @@ with config.lib.stylix.colors;
 
     exec-once = [
       "hyprpaper"
-      "openrgb -c ${base0D}"
+      #"openrgb -c ${base0D}"
       "waybar"
     ];
 
     general = {
+      "col.active_border" = "$accent";
       allow_tearing = false;
       border_size = 2;
       gaps_in = 5;

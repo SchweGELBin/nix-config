@@ -118,7 +118,7 @@
           };
           "Piped" = {
             definedAliases = [ "@pd" ];
-            urls = [ { template = "https://piped.lunar.icu/results?search_query={searchTerms}"; } ];
+            urls = [ { template = "https://piped.yt/results?search_query={searchTerms}"; } ];
           };
           "Searx" = {
             definedAliases = [ "@sx" ];

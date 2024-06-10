@@ -4,10 +4,20 @@
   pkgs,
   ...
 }:
+let
+  vars = import ../nix/vars.nix;
+in
 {
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
+    colorschemes.catppuccin = {
+      enable = true;
+      settings = {
+        flavour = vars.cat.flavor;
+        transparent_background = true;
+      };
+    };
     enableMan = true;
 
     globals = {

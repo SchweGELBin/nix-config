@@ -6,9 +6,11 @@
 }:
 
 let
-  androidComposition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "34" ]; };
-  androidSdk = androidComposition.androidsdk;
-  systemFonts = pkgs.nerdfonts;
+  android = {
+    composition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "34" ]; };
+    sdk = android.composition.androidsdk;
+  };
+  vars = import ./modules/nix/vars.nix;
 in
 
 {
@@ -20,6 +22,10 @@ in
       efi.canTouchEfiVariables = false;
       grub = {
         enable = true;
+        catppuccin = {
+          enable = true;
+          flavor = "mocha";
+        };
         configurationLimit = 64;
         device = "nodev";
         efiInstallAsRemovable = true;
@@ -27,25 +33,41 @@ in
         useOSProber = true;
       };
     };
+    plymouth = {
+      catppuccin = {
+        enable = true;
+        flavor = vars.cat.flavor;
+      };
+    };
     kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
     kernelParams = [ "nvidia-drm.fbdev=1" ];
   };
 
+  catppuccin = {
+    enable = true;
+    accent = vars.cat.accent;
+    flavor = vars.cat.flavor;
+  };
+
   console = {
+    catppuccin = {
+      enable = true;
+      flavor = vars.cat.flavor;
+    };
     font = "Lat2-Terminus16";
     useXkbConfig = true;
   };
 
   environment = {
     sessionVariables = {
-      ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+      ANDROID_SDK_ROOT = "${android.sdk}/libexec/android-sdk";
       NIXOS_INSTALL_BOOTLOADER = "1";
       NIXOS_OZONE_WL = "1";
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     systemPackages = with pkgs; [
-      androidSdk
+      android.sdk
       bibata-cursors
       cmake
       ffmpeg
@@ -66,7 +88,15 @@ in
   };
 
   fonts = {
-    packages = [ systemFonts ];
+    enableDefaultPackages = true;
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Liberation Serif" ];
+        sansSerif = [ "DejaVu Sans" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+      };
+    };
+    packages = [ pkgs.nerdfonts ];
   };
 
   hardware = {
@@ -209,46 +239,6 @@ in
 
   sound = {
     enable = true;
-  };
-
-  stylix = {
-    enable = true;
-    autoEnable = true;
-    cursor = {
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
-    fonts = {
-      monospace = {
-        name = "JetBrainsMono Nerd Font Mono";
-        package = systemFonts;
-      };
-      sansSerif = {
-        name = "DejaVu Sans";
-        package = systemFonts;
-      };
-    };
-    image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/2y/wallhaven-2yx5og.jpg";
-      hash = "sha256-BfxglbS7JoJyvtvwFETLWo9mcDjylLmcMpk0vW1AdKI=";
-    };
-    opacity = {
-      popups = 0.7;
-      terminal = 0.7;
-    };
-    polarity = "dark";
-    targets = {
-      gnome.enable = true;
-      grub = {
-        useImage = false;
-      };
-      nixvim = {
-        transparent_bg = {
-          main = false;
-          sign_column = false;
-        };
-      };
-    };
   };
 
   system = {

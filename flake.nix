@@ -15,6 +15,10 @@
       inputs.systems.follows = "systems";
     };
 
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,12 +73,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     waybar = {
       url = "github:Alexays/Waybar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,11 +85,15 @@
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
+          cat = {
+            accent = "mauve";
+            flavor = "mocha";
+          };
         };
         modules = [
           ./configuration.nix
           inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
+          inputs.catppuccin.nixosModules.catppuccin
         ];
       };
     };

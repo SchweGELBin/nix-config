@@ -1,21 +1,20 @@
 {
   imports = [
-    ./devshells/default.nix
+    ./catppuccin.nix
+    ./devshells
     ./direnv.nix
     ./helix.nix
     ./hypr.nix
     ./fastfetch.nix
     ./firefox.nix
-    ./gtk.nix
+    ./fuzzel.nix
     ./kitty.nix
     ./mako.nix
-    ./mpv.nix
     ./music.nix
     ./nixvim.nix
     ./scripts.nix
-    ./stylix.nix
     ./wallpaper.nix
-    ./waybar/default.nix
+    ./waybar
     ./zsh.nix
   ];
 }
