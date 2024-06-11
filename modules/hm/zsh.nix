@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
   home.file.".zshrc".text = ''
     # Lines configured by zsh-newuser-install

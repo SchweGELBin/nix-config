@@ -1,4 +1,3 @@
-{ pkgs, config, ... }:
 {
   home.file.".config/nix/music.list".text = ''
     https://piped.video/playlist?list=PLHi2T2b45lpg_X7uHlNkk8kzycLvc1AAd 

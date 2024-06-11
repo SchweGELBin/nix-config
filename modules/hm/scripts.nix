@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-
+{ pkgs, ... }:
 {
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''

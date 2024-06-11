@@ -1,4 +1,3 @@
-{ pkgs, config, ... }:
 {
   # Check out https://tauri.app/ 
   # Check out https://tauri.app/v1/guides/getting-started/prerequisites/

@@ -1,4 +1,3 @@
-{ pkgs, config, ... }:
 {
   home.file.".config/fuzzel/fuzzel.ini".text = ''
     [colors]

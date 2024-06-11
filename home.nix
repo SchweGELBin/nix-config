@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 
 {
   home.username = "michi";

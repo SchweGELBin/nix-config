@@ -1,4 +1,3 @@
-{ pkgs, config, ... }:
 let
   vars = import ../nix/vars.nix;
 in

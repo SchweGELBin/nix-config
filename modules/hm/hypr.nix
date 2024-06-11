@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
     preload = ~/Pictures/Wallpapers/wallpaper.png
