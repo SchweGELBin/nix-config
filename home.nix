@@ -20,6 +20,7 @@
 
   home.packages = with pkgs; [
     audacity
+    bibata-cursors
     blender
     cargo
     cinnamon.nemo

@@ -31,10 +31,6 @@ in
     };
   };
 
-  programs = {
-    waybar.catppuccin.mode = "createLink";
-  };
-
   qt = {
     enable = true;
     style = {

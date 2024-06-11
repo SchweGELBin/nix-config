@@ -14,7 +14,7 @@
     ./nixvim.nix
     ./scripts.nix
     ./wallpaper.nix
-    ./waybar
+    ./waybar.nix
     ./zsh.nix
   ];
 }

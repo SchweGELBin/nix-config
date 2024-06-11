@@ -68,7 +68,6 @@ in
     };
     systemPackages = with pkgs; [
       android.sdk
-      bibata-cursors
       cmake
       ffmpeg
       gcc
