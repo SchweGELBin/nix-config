@@ -11,20 +11,8 @@ in
   gtk = {
     enable = true;
     catppuccin = {
-      enable = true;
-      accent = vars.cat.accent;
-      cursor = {
-        enable = true;
-        accent = vars.cat.accent;
-        flavor = vars.cat.flavor;
-      };
-      flavor = vars.cat.flavor;
-      gnomeShellTheme = true;
-      icon = {
-        enable = true;
-        accent = vars.cat.accent;
-        flavor = vars.cat.flavor;
-      };
+      cursor.enable = true;
+      icon.enable = true;
       size = "standard";
       tweaks = [ "normal" ];
     };
@@ -32,14 +20,6 @@ in
 
   qt = {
     enable = true;
-    style = {
-      catppuccin = {
-        enable = true;
-        accent = vars.cat.accent;
-        apply = true;
-        flavor = vars.cat.flavor;
-      };
-      name = "kvantum";
-    };
+    style.name = "kvantum";
   };
 }

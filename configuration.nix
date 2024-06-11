@@ -22,21 +22,11 @@ in
       efi.canTouchEfiVariables = false;
       grub = {
         enable = true;
-        catppuccin = {
-          enable = true;
-          flavor = vars.cat.flavor;
-        };
         configurationLimit = 64;
         device = "nodev";
         efiInstallAsRemovable = true;
         efiSupport = true;
         useOSProber = true;
-      };
-    };
-    plymouth = {
-      catppuccin = {
-        enable = true;
-        flavor = vars.cat.flavor;
       };
     };
     kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
@@ -50,10 +40,6 @@ in
   };
 
   console = {
-    catppuccin = {
-      enable = true;
-      flavor = vars.cat.flavor;
-    };
     font = "Lat2-Terminus16";
     useXkbConfig = true;
   };
