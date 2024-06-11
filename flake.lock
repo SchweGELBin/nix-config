@@ -2,11 +2,11 @@
   "nodes": {
     "catppuccin": {
       "locked": {
-        "lastModified": 1718119402,
-        "narHash": "sha256-ycMAwzod0309ViBQ6uhOG6+RsPWZXSjhq9jANzdvvSQ=",
+        "lastModified": 1718125167,
+        "narHash": "sha256-u8BVhg0aMFwHVjoIZc6r7tGT3PF4uvgLGYD0HzOJvSw=",
         "owner": "SchweGELBin",
         "repo": "catppuccin-nix",
-        "rev": "1d21254695675a2c62f8c3979eeb7e97da9a6c36",
+        "rev": "e27bb0f5e456a55976d289a8603ec67d1457fe2b",
         "type": "github"
       },
       "original": {
@@ -366,7 +366,9 @@
     },
     "hyprlang": {
       "inputs": {
-        "hyprutils": "hyprutils_2",
+        "hyprutils": [
+          "hyprutils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -393,7 +395,7 @@
         "hyprlang": [
           "hyprlang"
         ],
-        "hyprutils": "hyprutils_3",
+        "hyprutils": "hyprutils_2",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -489,11 +491,11 @@
     "hyprutils_2": {
       "inputs": {
         "nixpkgs": [
-          "hyprlang",
+          "hyprlock",
           "nixpkgs"
         ],
         "systems": [
-          "hyprlang",
+          "hyprlock",
           "systems"
         ]
       },
@@ -514,11 +516,9 @@
     "hyprutils_3": {
       "inputs": {
         "nixpkgs": [
-          "hyprlock",
           "nixpkgs"
         ],
         "systems": [
-          "hyprlock",
           "systems"
         ]
       },
@@ -690,6 +690,7 @@
         "hyprlock": "hyprlock",
         "hyprpaper": "hyprpaper",
         "hyprpicker": "hyprpicker",
+        "hyprutils": "hyprutils_3",
         "nix-direnv": "nix-direnv",
         "nixpkgs": [
           "nixpkgs-unstable"
