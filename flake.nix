@@ -70,7 +70,7 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
 
     waybar = {
