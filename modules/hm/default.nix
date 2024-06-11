@@ -7,7 +7,6 @@
     ./hypr.nix
     ./fastfetch.nix
     ./firefox.nix
-    ./fuzzel.nix
     ./kitty.nix
     ./mako.nix
     ./music.nix

@@ -14,7 +14,8 @@
     # End of lines added by compinstall
 
     # The following lines are custom added aliases
-    alias ff="fastfetch" 
+    alias ff="fastfetch"
+    alias prefetch="nix-prefetch-url --unpack"
     # End of custom added lines
   '';
 }
