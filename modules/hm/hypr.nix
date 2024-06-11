@@ -169,12 +169,13 @@
 
     exec-once = [
       "hyprpaper"
-      "openrgb -c $accent"
+      "openrgb -c $accentAlpha"
       "waybar"
     ];
 
     general = {
       "col.active_border" = "$accent";
+      "col.inactive_border" = "$lavender";
       allow_tearing = false;
       border_size = 2;
       gaps_in = 5;
