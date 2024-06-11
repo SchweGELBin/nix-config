@@ -7,7 +7,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs.follows = "nixpkgs-unstable";
-    systems.url = "github:nix-systems/default-linux"; 
+    systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
       #url = "github:catppuccin/nix";
@@ -26,7 +26,6 @@
 
     hypridle = {
       url = "github:hyprwm/hypridle";
-      inputs.hyprlang.follows = "hyprlang";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
@@ -38,21 +37,18 @@
 
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.hyprlang.follows = "hyprlang";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
 
     hyprlock = {
       url = "github:hyprwm/hyprlock";
-      inputs.hyprlang.follows = "hyprlang";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
 
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
-      inputs.hyprlang.follows = "hyprlang";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
