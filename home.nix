@@ -60,7 +60,6 @@
     bash.enable = true;
     btop.enable = true;
     cava.enable = true;
-    fuzzel.enable = true;
     git.enable = true;
     imv.enable = true;
     jq.enable = true;
