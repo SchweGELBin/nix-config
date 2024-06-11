@@ -6,7 +6,7 @@
   ...
 }:
 let
-  vars = import ../../nix/vars.nix;
+  vars = import ../nix/vars.nix;
 in
 {
   programs.waybar = {

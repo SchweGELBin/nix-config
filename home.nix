@@ -26,26 +26,38 @@
     cinnamon.nemo
     clippy
     cmatrix
+    ffmpeg
     fusee-nano
     gedit
     gimp
     glfw
     godot_4
+    grim
+    imagemagick
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     krita
+    legendary-gl
+    libnotify
     libreoffice-qt-fresh
+    mako
     minetestclient
     neo-cowsay
+    nixfmt-rfc-style
     nodePackages_latest.pnpm
     papermc
+    pavucontrol
     pipes-rs
     prismlauncher
     pulseaudio
     rustc
     rustfmt
+    slurp
     toilet
+    unzip
     vesktop
+    wineWowPackages.stagingFull
+    wl-clipboard
   ];
 
   programs = {

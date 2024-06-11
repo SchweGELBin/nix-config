@@ -69,20 +69,8 @@ in
     systemPackages = with pkgs; [
       android.sdk
       cmake
-      ffmpeg
       gcc
-      grim
-      imagemagick
-      legendary-gl
-      libnotify
-      mako
-      nixfmt-rfc-style
-      pavucontrol
-      slurp
-      unzip
-      wineWowPackages.stagingFull
       wget
-      wl-clipboard
     ];
   };
 
@@ -90,9 +78,18 @@ in
     enableDefaultPackages = true;
     fontconfig = {
       defaultFonts = {
-        serif = [ "Liberation Serif" ];
-        sansSerif = [ "DejaVu Sans" ];
-        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+        serif = [
+          "DejaVu Serif"
+          "Liberation Serif"
+        ];
+        sansSerif = [
+          "DejaVu Sans"
+          "FiraCode Nerd Font"
+        ];
+        monospace = [
+          "FiraCode Nerd Font Mono"
+          "JetBrainsMono Nerd Font Mono"
+        ];
       };
     };
     packages = [ pkgs.nerdfonts ];
@@ -101,7 +98,7 @@ in
   hardware = {
     nvidia = {
       modesetting.enable = true;
-      nvidiaSettings = false;
+      nvidiaSettings = true;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
       powerManagement.enable = false;
