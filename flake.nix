@@ -7,20 +7,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs.follows = "nixpkgs-unstable";
-    systems.url = "github:nix-systems/default-linux";
-
-    hyprutils = {
-      url = "github:hyprwm/hyprutils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-    };
-
-    hyprlang = {
-      url = "github:hyprwm/hyprlang";
-      inputs.hyprutils.follows = "hyprutils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-    };
+    systems.url = "github:nix-systems/default-linux"; 
 
     catppuccin = {
       #url = "github:catppuccin/nix";
