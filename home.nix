@@ -17,9 +17,7 @@
     audacity
     bibata-cursors
     blender
-    cargo
     cinnamon.nemo
-    clippy
     cmatrix
     ffmpeg
     fusee-nano
@@ -45,8 +43,6 @@
     pipes-rs
     prismlauncher
     pulseaudio
-    rustc
-    rustfmt
     slurp
     toilet
     unzip

@@ -56,7 +56,9 @@ in
       android.sdk
       cmake
       gcc
+      inputs.fenix.packages.${pkgs.system}.default.toolchain
       wget
+      rust-analyzer-nightly
     ];
   };
 
@@ -144,6 +146,7 @@ in
       android_sdk.accept_license = true;
       nvidia.acceptLicense = true;
     };
+    overlays = [ inputs.fenix.overlays.default ];
   };
 
   programs = {
