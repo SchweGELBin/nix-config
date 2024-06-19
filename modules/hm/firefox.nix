@@ -44,10 +44,10 @@
     };
     profiles.michi = {
       bookmarks = [ ];
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-        darkreader
-        ublock-origin
-      ];
+      #extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      #  darkreader
+      #  ublock-origin
+      #];
       extraConfig = "";
       id = 0;
       search = {
