@@ -17,7 +17,6 @@
     audacity
     bibata-cursors
     blender
-    cinnamon.nemo
     cmatrix
     ffmpeg
     fusee-nano

@@ -44,10 +44,10 @@
     };
     profiles.michi = {
       bookmarks = [ ];
-      #extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-      #  darkreader
-      #  ublock-origin
-      #];
+      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        darkreader
+        ublock-origin
+      ];
       extraConfig = "";
       id = 0;
       search = {
@@ -135,8 +135,11 @@
       };
       settings = {
         "browser.startup.homepage" = "https://searx.be";
+        "browser.theme.content-theme" = 0;
+        "browser.theme.toolbar-theme" = 0;
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
         "extensions.autoDisableScopes" = 0;
         "font.name.serif.x-western" = "DejaVu Sans";
         "permissions.default.camera" = 2;
