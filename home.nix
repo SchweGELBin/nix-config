@@ -28,6 +28,7 @@
     imagemagick
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    lxqt.pcmanfm-qt
     krita
     legendary-gl
     libnotify
@@ -40,6 +41,7 @@
     papermc
     pavucontrol
     pipes-rs
+    pmbootstrap
     prismlauncher
     pulseaudio
     slurp
