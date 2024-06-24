@@ -17,6 +17,7 @@
     audacity
     bibata-cursors
     blender
+    cinnamon.nemo
     cmatrix
     ffmpeg
     fusee-nano
@@ -28,7 +29,6 @@
     imagemagick
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    lxqt.pcmanfm-qt
     krita
     legendary-gl
     libnotify

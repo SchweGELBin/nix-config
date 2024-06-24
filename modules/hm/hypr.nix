@@ -51,7 +51,7 @@
     "$applauncher" = "fuzzel";
     "$browser" = "firefox";
     "$discord" = "vesktop";
-    "$filemanager" = "pcmanfm-qt";
+    "$filemanager" = "nemo";
     "$mainMod" = "SUPER";
     "$terminal" = "kitty";
 
