@@ -54,6 +54,7 @@ in
     };
     systemPackages = with pkgs; [
       android.sdk
+      cachix
       cmake
       gcc
       inputs.fenix.packages.${pkgs.system}.default.toolchain
@@ -130,10 +131,14 @@ in
   };
 
   nix = {
-    settings.experimental-features = [
-      "flakes"
-      "nix-command"
-    ];
+    settings = {
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
   };
 
   nixpkgs = {
