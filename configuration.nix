@@ -84,17 +84,13 @@ in
   };
 
   hardware = {
+    graphics.enable = true;
     nvidia = {
       modesetting.enable = true;
       nvidiaSettings = true;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
       powerManagement.enable = false;
-    };
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
     };
   };
 

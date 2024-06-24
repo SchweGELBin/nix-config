@@ -37,11 +37,9 @@
     minetestclient
     neo-cowsay
     nixfmt-rfc-style
-    nodePackages_latest.pnpm
     papermc
     pavucontrol
     pipes-rs
-    pmbootstrap
     prismlauncher
     pulseaudio
     slurp
