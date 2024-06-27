@@ -207,7 +207,7 @@ in
     };
     hardware.openrgb.enable = true;
     hypridle.package = inputs.hypridle.packages.${pkgs.system}.hypridle;
-    openssh.enable = false;
+    openssh.enable = true;
     pipewire = {
       enable = true;
       alsa = {
