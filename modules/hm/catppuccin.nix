@@ -6,21 +6,20 @@ in
     enable = true;
     accent = vars.cat.accent;
     flavor = vars.cat.flavor;
+    pointerCursor.enable = true;
   };
 
   gtk = {
     enable = true;
     catppuccin = {
       enable = true;
-      cursor.enable = true;
       icon.enable = true;
-      size = "standard";
-      tweaks = [ "normal" ];
     };
   };
 
   qt = {
     enable = true;
+    platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
 }
