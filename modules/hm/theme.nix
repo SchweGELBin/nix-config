@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   vars = import ../nix/vars.nix;
 in
@@ -6,14 +7,18 @@ in
     enable = true;
     accent = vars.cat.accent;
     flavor = vars.cat.flavor;
-    pointerCursor.enable = true;
   };
 
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      icon.enable = true;
+    catppuccin.icon.enable = false;
+    iconTheme = {
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
+    };
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
     };
   };
 

@@ -1,6 +1,5 @@
 {
   imports = [
-    ./catppuccin.nix
     ./devshells
     ./direnv.nix
     ./helix.nix
@@ -12,6 +11,7 @@
     ./music.nix
     ./nixvim.nix
     ./scripts.nix
+    ./theme.nix
     ./wallpaper.nix
     ./waybar.nix
     ./zsh.nix

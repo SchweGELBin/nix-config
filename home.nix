@@ -38,6 +38,7 @@
     neo-cowsay
     nixfmt-rfc-style
     papermc
+    papirus-icon-theme
     pavucontrol
     pipes-rs
     prismlauncher
