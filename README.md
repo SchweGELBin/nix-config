@@ -45,7 +45,7 @@ Theme                - Catppuccin Mocha Mauve
 - Type in your preferred root password (twice)
 
 ## Tips
-- To sync the config with a newer version run ```sudo git fetch && git pull``` inside of /etc/nixos
+- To sync the config with a newer version run ```sudo git fetch && sudo git pull``` inside of /etc/nixos
 - Feel free to contribute to make these configs better
 - Run ```sudo rebuild``` to rebuild the system
 - You may want to edit your password
