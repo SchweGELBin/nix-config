@@ -10,8 +10,8 @@
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
-      #url = "github:catppuccin/nix";
-      url = "github:SchweGELBin/catppuccin-nix";
+      url = "github:catppuccin/nix";
+      #url = "github:SchweGELBin/catppuccin-nix";
     };
 
     firefox-addons = {

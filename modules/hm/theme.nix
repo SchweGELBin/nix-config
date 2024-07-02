@@ -7,6 +7,7 @@ in
     enable = true;
     accent = vars.cat.accent;
     flavor = vars.cat.flavor;
+    pointerCursor.enable = true;
   };
 
   gtk = {
