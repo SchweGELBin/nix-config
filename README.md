@@ -11,8 +11,8 @@ Application Launcher - Fuzzel
 Bar                  - Waybar
 Audio                - Pipewire
 Boot Manager         - Grub
-Editor               - Neovim
-Theme                - Catppuccin Mocha
+Editor               - Helix
+Theme                - Catppuccin Mocha Mauve
 ```
 
 ### Preview
@@ -35,8 +35,7 @@ Theme                - Catppuccin Mocha
 
 ### Install
 - Create the necessary directories with ```sudo mkdir -p /mnt/etc```
-- Download the shell.nix file with ```curl -fs https://raw.githubusercontent.com/SchweGELBin/nix-config/master/shell.nix >> ~/shell.nix```
-- Start ```sudo nix-shell``` to be able to use git
+- Start ```sudo nix-shell -p git``` to be able to use git
 - Get these config files with ```git clone https://github.com/SchweGELBin/nix-config --depth 1 /mnt/etc/nixos```
 
 <br>
@@ -46,11 +45,10 @@ Theme                - Catppuccin Mocha
 - Type in your preferred root password (twice)
 
 ## Tips
-- To sync the config with a newer version run ```sudo git pull``` inside of /etc/nixos
+- To sync the config with a newer version run ```sudo git fetch && git pull``` inside of /etc/nixos
 - Feel free to contribute to make these configs better
 - Run ```sudo rebuild``` to rebuild the system
 - You may want to edit your password
 
 ## Credits
-- Thank you **[vimjoyer](https://github.com/vimjoyer)** for your help!
-- Please check out his [Youtube Channel](https://youtube.com/@vimjoyer)
+- Thank you ```vimjoyer``` for your help! | [GitHub](https://github.com/vimjoyer) - [Youtube](https://youtube.com/@vimjoyer)
