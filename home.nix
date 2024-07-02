@@ -1,8 +1,10 @@
 { inputs, pkgs, ... }:
-
+let
+  vars = import ./modules/nix/vars.nix;
+in
 {
-  home.username = "michi";
-  home.homeDirectory = "/home/michi";
+  home.username = "${vars.user.name}";
+  home.homeDirectory = "${vars.user.home}";
   programs.home-manager.enable = true;
 
   home.stateVersion = "24.11";

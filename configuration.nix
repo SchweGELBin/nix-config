@@ -49,7 +49,7 @@ in
       ANDROID_SDK_ROOT = "${android.sdk}/libexec/android-sdk";
       NIXOS_INSTALL_BOOTLOADER = "1";
       NIXOS_OZONE_WL = "1";
-      STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/michi/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATH = "${vars.user.home}/.steam/root/compatibilitytools.d";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     systemPackages = with pkgs; [
@@ -99,7 +99,7 @@ in
     };
     useGlobalPkgs = true;
     users = {
-      "michi" = import ./home.nix;
+      ${vars.user.name} = import ./home.nix;
     };
   };
 
@@ -239,8 +239,8 @@ in
   };
 
   users = {
-    users.michi = {
-      description = "michi";
+    users.${vars.user.name} = {
+      description = "${vars.user.name}";
       extraGroups = [
         "networkmanager"
         "wheel"

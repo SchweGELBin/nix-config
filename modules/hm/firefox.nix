@@ -1,4 +1,7 @@
 { inputs, pkgs, ... }:
+let
+  vars = import ../nix/vars.nix;
+in
 {
   programs.firefox = {
     enable = true;
@@ -42,7 +45,7 @@
       UseSystemPrintDialog = true;
       WindowsSSO = false;
     };
-    profiles.michi = {
+    profiles.${vars.user.name} = {
       bookmarks = [ ];
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         darkreader

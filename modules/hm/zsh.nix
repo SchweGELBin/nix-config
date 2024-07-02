@@ -1,3 +1,6 @@
+let
+  vars = import ../nix/vars.nix;
+in
 {
   home.file.".zshrc".text = ''
     # Lines configured by zsh-newuser-install
@@ -7,7 +10,7 @@
     bindkey -v
     # End of lines configured by zsh-newuser-install
     # The following lines were added by compinstall
-    zstyle :compinstall filename '/home/michi/.zshrc'
+    zstyle :compinstall filename '${vars.user.home}/.zshrc'
 
     autoload -Uz compinit
     compinit
@@ -22,6 +25,8 @@
     alias ff="fastfetch"
     alias prefetch="nix-prefetch-url --unpack"
     alias svi="sudoedit"
+    alias search-file="find . -name"
+    alias search-text="grep -Rnwe"
     alias vi="$EDITOR"
     # End of Custom aliases
   '';
