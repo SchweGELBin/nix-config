@@ -13,9 +13,16 @@
     compinit
     # End of lines added by compinstall
 
-    # The following lines are custom added aliases
+    # Custom variables
+    export EDITOR="hx"
+    export SUDO_EDITOR="hx"
+    # End of Custom variables
+
+    # Custom aliases
     alias ff="fastfetch"
     alias prefetch="nix-prefetch-url --unpack"
-    # End of custom added lines
+    alias svi="sudoedit"
+    alias vi="$EDITOR"
+    # End of Custom aliases
   '';
 }

@@ -1,3 +1,6 @@
+let
+  vars = import ../nix/vars.nix;
+in
 {
   programs.helix = {
     enable = true;
@@ -21,17 +24,8 @@
           select = "underline";
         };
         line-number = "relative";
-        lsp.display-messages = true;
       };
-      keys.normal = {
-        space.space = "file_picker";
-        space.w = ":w";
-        space.q = ":q";
-        esc = [
-          "collapse_selection"
-          "keep_primary_selection"
-        ];
-      };
+      theme = "catppuccin-${vars.cat.flavor}";
     };
   };
 }
