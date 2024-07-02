@@ -2,6 +2,9 @@
 {
   programs.direnv = {
     enable = true;
+    config = {
+      whitelist.prefix = [ "/home/michi" ];
+    };
     package = pkgs.direnv;
     enableBashIntegration = false;
     enableZshIntegration = true;
