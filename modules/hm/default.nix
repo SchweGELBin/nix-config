@@ -9,7 +9,6 @@
     ./kitty.nix
     ./mako.nix
     ./music.nix
-    ./nixvim.nix
     ./scripts.nix
     ./theme.nix
     ./wallpaper.nix
