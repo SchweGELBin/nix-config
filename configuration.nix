@@ -6,10 +6,6 @@
 }:
 
 let
-  android = {
-    composition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "34" ]; };
-    sdk = android.composition.androidsdk;
-  };
   vars = import ./modules/nix/vars.nix;
 in
 
@@ -46,14 +42,12 @@ in
 
   environment = {
     sessionVariables = {
-      ANDROID_SDK_ROOT = "${android.sdk}/libexec/android-sdk";
       NIXOS_INSTALL_BOOTLOADER = "1";
       NIXOS_OZONE_WL = "1";
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "${vars.user.home}/.steam/root/compatibilitytools.d";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     systemPackages = with pkgs; [
-      android.sdk
       cachix
       cmake
       gcc
@@ -148,7 +142,6 @@ in
   nixpkgs = {
     config = {
       allowUnfree = true;
-      android_sdk.accept_license = true;
       nvidia.acceptLicense = true;
     };
   };
