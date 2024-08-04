@@ -20,6 +20,7 @@ in
     bibata-cursors
     blender
     cmatrix
+    exfat
     ffmpeg
     fusee-nano
     gedit
