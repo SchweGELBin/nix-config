@@ -22,6 +22,7 @@ in
     cmatrix
     exfat
     ffmpeg
+    file
     fusee-nano
     gedit
     gimp
