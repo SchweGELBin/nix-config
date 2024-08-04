@@ -140,6 +140,7 @@ in
         "browser.startup.homepage" = "https://searx.be";
         "browser.theme.content-theme" = 0;
         "browser.theme.toolbar-theme" = 0;
+        "dom.private-attribution.submission.enabled" = false;
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
