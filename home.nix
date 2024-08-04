@@ -37,6 +37,7 @@ in
     libnotify
     libreoffice-qt-fresh
     mako
+    mdcat
     minetestclient
     nemo
     neo-cowsay
