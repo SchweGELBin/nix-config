@@ -12,7 +12,7 @@
     (pkgs.writeShellScriptBin "inject-payload" ''
       echo "Injects the newest Switch payload"
       echo "Make sure, you have an unpatched switch with the jig inserted"
-      echo "Connect your switch to your pc via a charging cable, power off your switch, hold Volume up + down for a second"
+      echo "Connect your switch to your pc via a charging cable, power off your switch, hold Power + Volume up for a second"
       echo "Now, you can run \"inject-payload\""
       cd ~
       wget https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin && fusee-nano ~/fusee.bin && rm ~/fusee.bin
