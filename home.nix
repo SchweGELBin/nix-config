@@ -19,7 +19,6 @@ in
     audacity
     bibata-cursors
     blender
-    cinnamon.nemo
     cmatrix
     ffmpeg
     fusee-nano
@@ -37,6 +36,7 @@ in
     libreoffice-qt-fresh
     mako
     minetestclient
+    nemo
     neo-cowsay
     nixfmt-rfc-style
     papermc
