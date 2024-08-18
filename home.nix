@@ -26,6 +26,7 @@ in
     fusee-nano
     gedit
     gimp
+    git-cliff
     glfw
     godot_4
     grim
