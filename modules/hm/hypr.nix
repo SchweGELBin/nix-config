@@ -192,7 +192,7 @@
       force_no_accel = 1;
       kb_layout = "us,us";
       kb_options = "caps:backspace, grp:win_space_toggle";
-      kb_variant = ",colemak";
+      kb_variant = ",workman";
       sensitivity = 0;
       touchpad = {
         natural_scroll = "no";

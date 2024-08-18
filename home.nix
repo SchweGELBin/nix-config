@@ -7,7 +7,9 @@ in
   home.homeDirectory = "${vars.user.home}";
   programs.home-manager.enable = true;
 
-  home.stateVersion = "24.11";
+  home = {
+    stateVersion = "24.11";
+  };
 
   imports = [
     ./modules/hm
