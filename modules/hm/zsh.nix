@@ -24,10 +24,11 @@ in
     # Custom aliases
     alias ff="fastfetch"
     alias prefetch="nix-prefetch-url --unpack"
-    alias svi="sudoedit"
     alias search-file="find . -name"
     alias search-text="grep -Rnwe"
+    alias svi="sudoedit"
     alias vi="$EDITOR"
+    alias vps="kitten ssh"
     # End of Custom aliases
   '';
 }
