@@ -1,12 +1,15 @@
 { pkgs, ... }:
+let
+  vars = import ../nix/vars.nix;
+in
 {
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''
-      cd /etc/nixos
-      git add /etc/nixos/
+      cd ${vars.user.config}
+      git add ${vars.user.config}
       nix flake update
-      nixfmt /etc/nixos/
-      nixos-rebuild switch --flake /etc/nixos/#default
+      nixfmt ${vars.user.config}
+      nixos-rebuild switch --flake ${vars.user.config}/#default
     '')
 
     (pkgs.writeShellScriptBin "music" ''

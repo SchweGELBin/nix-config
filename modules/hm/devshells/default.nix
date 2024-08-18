@@ -1,12 +1,16 @@
+let
+  vars = import ../../nix/vars.nix;
+  nixp = "use nix ${vars.user.config}/modules/hm/devshells";
+in
 {
-  home.file."android/.envrc".text = "use nix /etc/nixos/modules/hm/devshells/android.nix";
-  home.file."rust/cli/.envrc".text = "use nix /etc/nixos/modules/hm/devshells/rust.nix";
+  home.file."android/.envrc".text = "${nixp}/android.nix";
+  home.file."rust/cli/.envrc".text = "${nixp}/rust.nix";
   home.file."rust/egui/.envrc".text = ''
-    use nix /etc/nixos/modules/hm/devshells/egui.nix
-    use nix /etc/nixos/modules/hm/devshells/rust.nix
+    ${nixp}/egui.nix
+    ${nixp}/rust.nix
   '';
   home.file."rust/tauri/.envrc".text = ''
-    use nix /etc/nixos/modules/hm/devshells/rust.nix
-    use nix /etc/nixos/modules/hm/devshells/tauri.nix
+    ${nixp}/rust.nix
+    ${nixp}/tauri.nix
   '';
 }

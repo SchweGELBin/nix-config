@@ -5,6 +5,7 @@
   };
 
   user = {
+    config = "/etc/nixos";
     home = "/home/michi";
     name = "michi";
   };
