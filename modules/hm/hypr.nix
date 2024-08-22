@@ -44,6 +44,7 @@ in
         on-timeout = systemctl suspend                # suspend pc
     }
   '';
+  home.file.".config/hypr/binds.sh".source = ./scripts/binds.sh;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -76,6 +77,7 @@ in
 
       bindd = [
         # General
+        "$mainMod, SUPER_L, Show Keybinds, exec, kitty \"${vars.user.home}/.config/hypr/binds.sh\""
         "$mainMod, C, Kill active window, killactive, "
         "$mainMod, D, Launch Discord client ($discord), exec, $discord"
         "$mainMod, E, Launch File Manager ($filemanager), exec, $filemanager"

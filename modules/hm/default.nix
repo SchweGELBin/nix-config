@@ -9,7 +9,7 @@
     ./kitty.nix
     ./mako.nix
     ./music.nix
-    ./scripts.nix
+    ./scripts
     ./theme.nix
     ./wallpaper.nix
     ./waybar.nix

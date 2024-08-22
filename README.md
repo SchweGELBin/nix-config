@@ -49,6 +49,7 @@ Theme                - Catppuccin Mocha Mauve
 - Feel free to contribute to make these configs better
 - Run ```sudo rebuild``` to rebuild the system
 - You may want to edit your password
+- View the keybinds with "SUPER"
 
 ## Credits
 - Thank you ```vimjoyer``` for your help! | [GitHub](https://github.com/vimjoyer) - [Youtube](https://youtube.com/@vimjoyer)
