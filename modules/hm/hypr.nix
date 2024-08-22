@@ -54,6 +54,7 @@ in
     settings = {
 
       "$applauncher" = "fuzzel";
+      "$bar" = "waybar";
       "$browser" = "firefox";
       "$discord" = "vesktop";
       "$filemanager" = "nemo";
@@ -73,81 +74,81 @@ in
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
       };
 
-      bind = [
+      bindd = [
         # General
-        "$mainMod, C, killactive, "
-        "$mainMod, D, exec, $discord"
-        "$mainMod, E, exec, $filemanager"
-        "$mainMod, F, fullscreen"
-        "$mainMod, J, togglesplit, "
-        "$mainMod, K, exec, hyprpicker -f hex -a"
-        "$mainMod, L, exec, mangohud legendary launch Sugar"
-        "$mainMod, M, exec, music"
-        "$mainMod, O, exec, $browser"
-        "$mainMod, P, pseudo, "
-        "$mainMod, Q, exec, $terminal"
-        "$mainMod, R, exec, $applauncher"
-        "$mainMod, V, togglefloating, "
-        "$mainMod, W, exec, pkill waybar && waybar"
+        "$mainMod, C, Kill active window, killactive, "
+        "$mainMod, D, Launch Discord client ($discord), exec, $discord"
+        "$mainMod, E, Launch File Manager ($filemanager), exec, $filemanager"
+        "$mainMod, F, Toggle Fullscreen, fullscreen"
+        "$mainMod, J, Toggle h/w window split, togglesplit, "
+        "$mainMod, K, Launch Color Picker, exec, hyprpicker -f hex -a"
+        "$mainMod, L, Launch Rocket League (Sugar), exec, mangohud legendary launch Sugar"
+        "$mainMod, M, Play Music, exec, music"
+        "$mainMod, O, Launch Browser ($browser), exec, $browser"
+        "$mainMod, P, Toggle Pseudo (Keep aspect ratio), pseudo, "
+        "$mainMod, Q, Launch Terminal ($terminal), exec, $terminal"
+        "$mainMod, R, Launch App Launcher ($applauncher), exec, $applauncher"
+        "$mainMod, V, Toggle floating window, togglefloating, "
+        "$mainMod, W, Restart Bar ($bar), exec, pkill $bar && $bar"
 
         # Focus
-        "$mainMod, down, movefocus, d"
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, Tab, focusmonitor, +1"
-        "$mainMod SHIFT, Tab, focusmonitor, -1"
+        "$mainMod, down, Move focus down, movefocus, d"
+        "$mainMod, left, Move focus left, movefocus, l"
+        "$mainMod, right, Move focus right, movefocus, r"
+        "$mainMod, up, Move focus up, movefocus, u"
+        "$mainMod, Tab, Move focus to next monitor, focusmonitor, +1"
+        "$mainMod SHIFT, Tab, Move focus to previous monitor, focusmonitor, -1"
 
         # Workspaces
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+        "$mainMod, 1, Go to workspace 1, workspace, 1"
+        "$mainMod, 2, Go to workspace 2, workspace, 2"
+        "$mainMod, 3, Go to workspace 3, workspace, 3"
+        "$mainMod, 4, Go to workspace 4, workspace, 4"
+        "$mainMod, 5, Go to workspace 5, workspace, 5"
+        "$mainMod, 6, Go to workspace 6, workspace, 6"
+        "$mainMod, 7, Go to workspace 7, workspace, 7"
+        "$mainMod, 8, Go to workspace 8, workspace, 8"
+        "$mainMod, 9, Go to workspace 9, workspace, 9"
+        "$mainMod, 0, Go to workspace 10, workspace, 10"
 
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
+        "$mainMod SHIFT, 1, Move focused window and go to workspace 1, movetoworkspace, 1"
+        "$mainMod SHIFT, 2, Move focused window and go to workspace 2, movetoworkspace, 2"
+        "$mainMod SHIFT, 3, Move focused window and go to workspace 3, movetoworkspace, 3"
+        "$mainMod SHIFT, 4, Move focused window and go to workspace 4, movetoworkspace, 4"
+        "$mainMod SHIFT, 5, Move focused window and go to workspace 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, Move focused window and go to workspace 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, Move focused window and go to workspace 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, Move focused window and go to workspace 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, Move focused window and go to workspace 9, movetoworkspace, 9"
+        "$mainMod SHIFT, 0, Move focused window and go to workspace 10, movetoworkspace, 10"
 
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod, S, Toggle special workspace, togglespecialworkspace, magic"
+        "$mainMod SHIFT, S, Move current workspace to special workspace, movetoworkspace, special:magic"
 
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        "$mainMod, mouse_down, Go to next workspace, workspace, e+1"
+        "$mainMod, mouse_up, Go to previous workspace, workspace, e-1"
 
         # Screenshots
-        ", Print, exec, screenshot d" # Display
-        "SHIFT, Print, exec, screenshot r" # Region
-        "$mainMod, Print, exec, screenshot w" # Window
+        ", Print, Take Screenshot of current Display, exec, screenshot d"
+        "SHIFT, Print, Take Screenshot of selected Region, exec, screenshot r"
+        "$mainMod, Print, Take Screenshot of focused Window, exec, screenshot w"
       ];
 
-      bindel = [
+      binddel = [
         # Volume
-        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, Increase Volume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume, Decrease Volume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
       ];
 
-      bindl = [
+      binddl = [
         # Audio Mute
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMute, Mute Audio, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
-      bindm = [
+      binddm = [
         # Window Resize / Move
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "$mainMod, mouse:272, Move Window, movewindow"
+        "$mainMod, mouse:273, Resize Window, resizewindow"
       ];
 
       decoration = {
