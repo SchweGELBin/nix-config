@@ -17,7 +17,6 @@ Theme                - Catppuccin Mocha Mauve
 
 ### Preview
 ![Desktop](./res/desktop.png)
-[Wallpaper](https://wallhaven.cc/w/2yx5og)
 
 ## Apply
 ### Before

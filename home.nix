@@ -29,6 +29,7 @@ in
     gedit
     gimp
     git-cliff
+    glava
     glfw
     godot_4
     grim
