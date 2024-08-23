@@ -64,16 +64,19 @@ in
       "$terminal" = "kitty";
 
       animations = {
-        enabled = "yes";
+        enabled = true;
         animation = [
           "border, 1, 10, default"
-          "borderangle, 1, 8, default"
+          "borderangle, 1, 60, linear, loop"
           "fade, 1, 7, default"
-          "windows, 1, 7, myBezier"
+          "windows, 1, 7, window"
           "windowsOut, 1, 7, default, popin 80%"
           "workspaces, 1, 6, default"
         ];
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = [
+          "linear, 0.0, 0.0, 1.0, 1.0"
+          "window, 0.05, 0.9, 0.1, 1.05"
+        ];
       };
 
       bindd = [
@@ -91,7 +94,7 @@ in
         "$mainMod, 8,           Go to workspace 8,                              workspace, 8"
         "$mainMod, 9,           Go to workspace 9,                              workspace, 9"
         "$mainMod, C,           Kill active window,                             killactive, "
-        "$mainMod, Enter,       Launch App Launcher ($applauncher),             exec, $applauncher"
+        "$mainMod, RETURN,      Launch App Launcher ($applauncher),             exec, $applauncher"
         "$mainMod, A,           Launch Browser ($browser),                      exec, $browser"
         "$mainMod, K,           Launch Color Picker,                            exec, hyprpicker -f hex -a"
         "$mainMod, O,           Launch Discord client ($discord),               exec, $discord"
@@ -121,7 +124,7 @@ in
         "$mainMod, L,           Play Music,                                     exec, music"
         "$altMod   SHIFT, down, Remove window from master,                      layoutmsg, removemaster"
         "$mainMod, D,           Restart Bar ($bar),                             exec, pkill $bar && $bar"
-        "SUPER,    SUPER_L,     Show Keybinds,                                  exec, kitty \"${vars.user.home}/.config/hypr/binds.sh\""
+        "SUPER,    ALT_L,       Show Keybinds,                                  exec, kitty \"${vars.user.home}/.config/hypr/binds.sh\""
         "$altMod,  Tab,         Swap focused window with master or first child, layoutmsg, swapwithmaster"
         "$altMod,  up,          Swap focused window with next one,              layoutmsg,   swapnext"
         "$altMod,  down,        Swap focused window with previous one,          layoutmsg, swapprev"
@@ -149,20 +152,24 @@ in
       ];
 
       decoration = {
+        "col.shadow" = "$surface0";
+        active_opacity = 0.75;
         blur = {
           enabled = true;
           passes = 1;
           size = 3;
+          vibrancy = 0.17;
         };
-        drop_shadow = "yes";
-        rounding = 10;
+        drop_shadow = true;
+        inactive_opacity = 0.9;
+        rounding = 12;
         shadow_range = 4;
         shadow_render_power = 3;
       };
 
       dwindle = {
-        preserve_split = "yes";
-        pseudotile = "yes";
+        preserve_split = true;
+        pseudotile = true;
       };
 
       env = [
@@ -178,17 +185,18 @@ in
       ];
 
       general = {
-        "col.active_border" = "$accent";
+        "col.active_border" = "$accent $blue 45deg";
         "col.inactive_border" = "$lavender";
         allow_tearing = false;
         border_size = 2;
-        gaps_in = 5;
-        gaps_out = 20;
+        gaps_in = 4;
+        gaps_out = 12;
         layout = "master";
+        resize_on_border = false;
       };
 
       gestures = {
-        workspace_swipe = "off";
+        workspace_swipe = false;
       };
 
       input = {
@@ -199,7 +207,7 @@ in
         kb_variant = "workman,";
         sensitivity = 0;
         touchpad = {
-          natural_scroll = "no";
+          natural_scroll = false;
         };
       };
 
@@ -210,6 +218,7 @@ in
       };
 
       misc = {
+        disable_hyprland_logo = false;
         force_default_wallpaper = -1;
       };
 
