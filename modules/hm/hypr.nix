@@ -50,17 +50,19 @@ in
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      #(inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap.overrideAttrs { class = "kitty-bg"; })
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
     ];
     settings = {
 
       "$altMod" = "ALT";
-      "$mainMod" = "SUPER";
       "$applauncher" = "fuzzel";
       "$bar" = "waybar";
       "$browser" = "firefox";
       "$discord" = "vesktop";
       "$filemanager" = "nemo";
+      "$mainMod" = "SUPER";
       "$terminal" = "kitty";
 
       animations = {
@@ -125,6 +127,7 @@ in
         "$altMod   SHIFT, down, Remove window from master,                      layoutmsg, removemaster"
         "$mainMod, D,           Restart Bar ($bar),                             exec, pkill $bar && $bar"
         "SUPER,    ALT_L,       Show Keybinds,                                  exec, kitty \"${vars.user.home}/.config/hypr/binds.sh\""
+        "$mainMod, grave,       Show Workspaces,                                hyprexpo:expo, toggle"
         "$altMod,  Tab,         Swap focused window with master or first child, layoutmsg, swapwithmaster"
         "$altMod,  up,          Swap focused window with next one,              layoutmsg,   swapnext"
         "$altMod,  down,        Swap focused window with previous one,          layoutmsg, swapprev"
@@ -179,7 +182,7 @@ in
 
       exec-once = [
         "hyprpaper"
-        "kitty -c \"~/.config/kitty/kittybg.conf\" --class=\"kitty-bg\" \"${vars.user.home}/.config/kitty/cavabg.sh\""
+        #"kitty -c \"~/.config/kitty/kittybg.conf\" --class=\"kitty-bg\" \"${vars.user.home}/.config/kitty/cavabg.sh\""
         "openrgb -c $accentAlpha"
         "waybar"
       ];
@@ -227,6 +230,17 @@ in
         "Unknown-1,disable" # Ghost Monitor
         "DP-2,2560x1440@180,0x0,1,bitdepth,8,vrr,1,transform,0" # Main
       ];
+
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "$accent";
+          workspace_method = "first 1";
+        };
+        hyprtrails.color = "$accent";
+        hyprwinwrap.class = "kitty-bg";
+      };
     };
   };
 }
