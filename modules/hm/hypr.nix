@@ -175,11 +175,6 @@ in
         pseudotile = true;
       };
 
-      env = [
-        "HYPRCURSOR_THEME,Bibata-Modern-Ice"
-        "HYPRCURSOR_SIZE,24"
-      ];
-
       exec-once = [
         "hyprpaper"
         #"kitty -c \"~/.config/kitty/kittybg.conf\" --class=\"kitty-bg\" \"${vars.user.home}/.config/kitty/cavabg.sh\""
