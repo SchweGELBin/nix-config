@@ -183,7 +183,7 @@ in
       ];
 
       general = {
-        "col.active_border" = "$accent $blue 45deg";
+        "col.active_border" = "$accent $lavender 45deg";
         "col.inactive_border" = "$lavender";
         allow_tearing = false;
         border_size = 2;

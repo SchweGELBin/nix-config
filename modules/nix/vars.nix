@@ -1,6 +1,7 @@
 {
   cat = {
     accent = "mauve";
+    alt = "lavender";
     flavor = "mocha";
   };
 
