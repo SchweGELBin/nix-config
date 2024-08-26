@@ -56,6 +56,7 @@ in
     ];
     settings = {
 
+      "$alt" = "${vars.cat.alt}"
       "$altMod" = "ALT";
       "$applauncher" = "fuzzel";
       "$bar" = "waybar";
@@ -183,8 +184,8 @@ in
       ];
 
       general = {
-        "col.active_border" = "$accent $lavender 45deg";
-        "col.inactive_border" = "$lavender";
+        "col.active_border" = "$accent $alt 45deg";
+        "col.inactive_border" = "$alt";
         allow_tearing = false;
         border_size = 2;
         gaps_in = 4;
