@@ -56,7 +56,7 @@ in
     ];
     settings = {
 
-      "$alt" = "${vars.cat.alt}"
+      "$alt" = "\$${vars.cat.alt}";
       "$altMod" = "ALT";
       "$applauncher" = "fuzzel";
       "$bar" = "waybar";
