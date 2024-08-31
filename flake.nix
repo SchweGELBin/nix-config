@@ -11,7 +11,7 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
-      #url = "github:SchweGELBin/catppuccin-nix";
+      url = "github:SchweGELBin/catppuccin-nix/mako";
     };
 
     firefox-addons = {
