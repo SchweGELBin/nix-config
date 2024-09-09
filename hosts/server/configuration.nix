@@ -64,7 +64,7 @@ in
   };
 
   users = {
-    users.root = {
+    users.${vars.user.name} = {
       openssh.authorizedKeys.keys = [ vars.user.ssh ];
     };
   };
