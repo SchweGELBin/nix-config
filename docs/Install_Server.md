@@ -18,4 +18,4 @@
 - Start `nix-shell -p git` to be able to use git
 - Get these config files with `git clone https://github.com/SchweGELBin/nix-config --depth 1 /etc/nixos`
 - Move back the generated files `mv ~/{hardware-configuration.nix,networking.nix} /etc/nixos/hosts/server`
-- Rebuild NixOS with `rebuild-server`
+- Rebuild NixOS with `nixos-rebuild switch --flake /etc/nixos/#server`
