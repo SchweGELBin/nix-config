@@ -50,6 +50,7 @@ in
     papirus-icon-theme
     pavucontrol
     pipes-rs
+    playerctl
     prismlauncher
     pulseaudio
     slurp

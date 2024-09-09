@@ -143,11 +143,19 @@ in
       ];
 
       binddel = [
-        ", XF86AudioLowerVolume, Decrease Volume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioRaiseVolume, Increase Volume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86MonBrightnessDown, Decrease Brightness, exec, brightnessctl s 10%-"
+        ", XF86AudioLowerVolume,  Decrease Volume,     exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86MonBrightnessUp,   Increase Brightness, exec, brightnessctl s 10%+"
+        ", XF86AudioRaiseVolume,  Increase Volume,     exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
       ];
 
-      binddl = [ ", XF86AudioMute, Mute Audio, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" ];
+      binddl = [
+        ", XF86AudioNext,    Media Next,     exec, playerctl next"
+        ", XF86AudioPlay,    Media Play,     exec, playerctl play-pause"
+        ", XF86AudioPrev,    Media Previous, exec, playerctl previous"
+        ", XF86AudioMute,    Mute Audio,     exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, Mute Mice,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ];
 
       binddm = [
         # Window Resize / Move
