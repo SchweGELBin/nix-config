@@ -9,7 +9,15 @@ in
       git add ${vars.user.config}
       nix flake update
       nixfmt ${vars.user.config}
-      nixos-rebuild switch --flake ${vars.user.config}/#default
+      nixos-rebuild switch --flake ${vars.user.config}/#home
+    '')
+
+    (pkgs.writeShellScriptBin "rebuild-server" ''
+      cd ${vars.user.config}
+      git add ${vars.user.config}
+      nix flake update
+      nixfmt ${vars.user.config}
+      nixos-rebuild switch --flake ${vars.user.config}/#server
     '')
 
     (pkgs.writeShellScriptBin "music" ''

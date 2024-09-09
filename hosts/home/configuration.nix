@@ -6,7 +6,7 @@
 }:
 
 let
-  vars = import ./modules/nix/vars.nix;
+  vars = import ../../modules/nix/vars.nix;
 in
 
 {

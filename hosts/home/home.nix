@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  vars = import ./modules/nix/vars.nix;
+  vars = import ../../modules/nix/vars.nix;
 in
 {
   home.username = "${vars.user.name}";
@@ -12,7 +12,7 @@ in
   };
 
   imports = [
-    ./modules/hm
+    ../../modules/hm
     inputs.nixvim.homeManagerModules.nixvim
     inputs.catppuccin.homeManagerModules.catppuccin
   ];

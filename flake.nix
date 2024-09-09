@@ -78,14 +78,23 @@
   outputs =
     { nixpkgs, ... }@inputs:
     {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.home = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
         };
         modules = [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.default
+          ./hosts/home/configuration.nix
           inputs.catppuccin.nixosModules.catppuccin
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/server/configuration.nix
+          inputs.home-manager.nixosModules.default
         ];
       };
     };
