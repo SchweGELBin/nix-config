@@ -27,6 +27,27 @@ in
     };
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    fontconfig = {
+      defaultFonts = {
+        serif = [
+          "DejaVu Serif"
+          "Liberation Serif"
+        ];
+        sansSerif = [
+          "DejaVu Sans"
+          "FiraCode Nerd Font"
+        ];
+        monospace = [
+          "FiraCode Nerd Font"
+          "JetBrainsMono Nerd Font"
+        ];
+      };
+    };
+    packages = [ pkgs.nerdfonts ];
+  };
+
   hardware = {
     graphics.enable = true;
     nvidia = {
