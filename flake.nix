@@ -75,6 +75,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
