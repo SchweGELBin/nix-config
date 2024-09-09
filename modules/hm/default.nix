@@ -26,6 +26,6 @@
   mako.enable = lib.mkDefault false;
   nixvim.enable = lib.mkDefault false;
   scripts.enable = lib.mkDefault true;
-  theme.enable = lib.mkDefault true;
+  theme.enable = lib.mkDefault false;
   waybar.enable = lib.mkDefault false;
 }
