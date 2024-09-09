@@ -23,11 +23,11 @@ Theme                - Catppuccin Mocha Mauve
 - [Server Configuration](./docs/Install_Server.md)
 
 ## Tips
-- To sync the config with a newer version run ```sudo git fetch && sudo git pull``` inside of /etc/nixos
+- To sync the config with a newer version run `sudo git fetch && sudo git pull` inside of */etc/nixos*
 - Feel free to contribute to make these configs better
-- Run ```sudo rebuild``` to rebuild the system
-- You may want to edit your password
-- View the keybinds with "SUPER + ALT"
+- Run `sudo rebuild` *(home)* or `sudo rebuild-server` *(server)* to rebuild the system
+- You should change the initial password with `passwd`
+- View the keybinds with *"SUPER + ALT"*
 
 ## Credits
 - Thank you ```vimjoyer``` for your help! | [GitHub](https://github.com/vimjoyer) - [Youtube](https://youtube.com/@vimjoyer)
