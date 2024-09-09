@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 let
   vars = import ../../modules/nix/vars.nix;
 in
@@ -77,4 +82,12 @@ in
     yt-dlp.enable = true;
     zsh.enable = true;
   };
+
+  # Custom modules
+  direnv.enable = true;
+  firefox.enable = true;
+  hypr.enable = true;
+  kitty.enable = true;
+  mako.enable = true;
+  waybar.enable = true;
 }
