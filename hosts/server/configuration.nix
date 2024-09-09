@@ -13,17 +13,20 @@ in
   imports = [
     ./hardware-configuration.nix
     ./networking.nix
+    ../../modules/nix/default.nix
   ];
 
-  boot.tmp.cleanOnBoot = true;
+  home-manager = {
+    users = {
+      ${vars.user.name} = import ./home.nix;
+    };
+  };
 
-  networking.hostName = "nix";
+  networking = {
+    firewall.enable = false;
+  };
 
-  services.openssh.enable = true;
-
-  system.stateVersion = "24.05";
-
-  users.users.root.openssh.authorizedKeys.keys = [ vars.user.ssh ];
-
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+  };
 }
