@@ -96,11 +96,17 @@
         specialArgs = {
           inherit inputs;
         };
+        modules = [
+          ./hosts/home/configuration.nix
+        ];
       };
       nixosConfigurations.server = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
         };
+        modules = [
+          ./hosts/server/configuration.nix
+        ];
       };
     };
 }
