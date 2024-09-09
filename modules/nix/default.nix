@@ -67,8 +67,8 @@ in
           "FiraCode Nerd Font"
         ];
         monospace = [
-          "FiraCode Nerd Font Mono"
-          "JetBrainsMono Nerd Font Mono"
+          "FiraCode Nerd Font"
+          "JetBrainsMono Nerd Font"
         ];
       };
     };
