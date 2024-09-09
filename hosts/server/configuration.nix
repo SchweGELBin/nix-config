@@ -63,6 +63,12 @@ in
     nginx.enable = true;
   };
 
+  users = {
+    users.root = {
+      openssh.authorizedKeys.keys = [ vars.user.ssh ];
+    };
+  };
+
   zramSwap = {
     enable = true;
   };
