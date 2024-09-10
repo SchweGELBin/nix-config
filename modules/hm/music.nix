@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 {
   config = lib.mkIf config.music.enable {
     home.file.".config/nix/music.list".text = ''
