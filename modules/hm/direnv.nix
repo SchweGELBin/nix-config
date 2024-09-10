@@ -9,6 +9,8 @@ let
   vars = import ../nix/vars.nix;
 in
 {
+  imports = [ ./devshells ];
+
   config = lib.mkIf config.direnv.enable {
     programs.direnv = {
       enable = true;

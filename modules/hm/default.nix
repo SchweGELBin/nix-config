@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./devshells
     ./direnv.nix
     ./fastfetch.nix
     ./firefox.nix
@@ -24,8 +23,10 @@
   hypr.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
+  music.enable = lib.mkDefault true;
   nixvim.enable = lib.mkDefault false;
   scripts.enable = lib.mkDefault true;
   theme.enable = lib.mkDefault false;
   waybar.enable = lib.mkDefault false;
+  zsh.enable = lib.mkDefault true;
 }
