@@ -11,11 +11,11 @@
 ## Apply Dotfiles
 - Go to config dir `cd /etc/nixos`
 - Regenerate the hardware config file `rm hardware-configuration.nix && nixos-generate-config`
-- Move the important files `mv ./{hardware-configuration.nix,networking.nix} ~/`
+- Move the important files `mkdir ~/bak && mv ./{hardware-configuration.nix,networking.nix} ~/bak`
 - Remove the other generated files `rm ./*`
 - Start `nix-shell -p git` to be able to use git
 - Get these config files with `git clone https://github.com/SchweGELBin/nix-config --depth 1 /etc/nixos`
-- Move back the networking file `mv ~/{hardware-configuration.nix,networking.nix} ./hosts/server/`
+- Move back the networking file `cp ~/bak/{hardware-configuration.nix,networking.nix} ./hosts/server/`
 - Sync config with `git add .`
 - Rebuild NixOS with `nixos-rebuild switch --flake ./#server`
 - `exit` the nix-shell
