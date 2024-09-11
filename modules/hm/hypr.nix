@@ -7,53 +7,139 @@
 }:
 let
   vars = import ../nix/vars.nix;
+  wall = ".config/background.png";
+  wallp = "~/${wall}";
 in
 {
   config = lib.mkIf config.hypr.enable {
-    home.file."Pictures/Wallpapers/wallpaper.png".source = ../../res/wallpaper.png;
 
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-      preload = ~/Pictures/Wallpapers/wallpaper.png
-      wallpaper = ,~/Pictures/Wallpapers/wallpaper.png
-    '';
+    home.file = {
+      ".config/hypr/binds.sh".source = ./scripts/binds.sh;
+      "${wall}".source = ../../res/wallpaper.png;
+    };
 
-    home.file.".config/hypr/hypridle.conf".text = ''
-      general {
-          lock_cmd = pidof hyprlock || hyprlock       # avoid starting multiple hyprlock instances.
-          before_sleep_cmd = loginctl lock-session    # lock before suspend.
-          after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
-      }
+    programs = {
+      hyprlock = {
+        enable = true;
+        package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+        settings = {
+          "$accent" = "#cba6f7";
+          "$font" = "FiraCode Nerd Font";
+          "$red" = "#f38ba8";
+          "$surface0" = "#313244";
+          "$text" = "#cdd6f4";
+          background = [
+            {
+              blur_passes = 0;
+              color = "#1e1e2e";
+              monitor = "";
+              path = "${wallp}";
+            }
+          ];
+          general = {
+            disable_loading_bar = true;
+            hide_cursor = true;
+          };
+          image = {
+            border_color = "$accent";
+            halign = "center";
+            monitor = "";
+            path = "~/.face";
+            position = "0, 75";
+            size = 100;
+            valign = "center";
+          };
+          input-field = [
+            {
+              capslock_color = "$yellow";
+              check_color = "$accent";
+              dots_center = true;
+              dots_size = 0.2;
+              dots_spacing = 0.2;
+              fade_on_empty = false;
+              fail_color = "$red";
+              fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
+              font_color = "$text";
+              halign = "center";
+              hide_input = false;
+              inner_color = "$surface0";
+              monitor = "";
+              outer_color = "$accent";
+              outline_thickness = 4;
+              placeholder_text = "󰌾 Logged in as | $USER  ";
+              position = "0, -47";
+              size = "300, 60";
+              valign = "center";
+            }
+          ];
+          label = [
+            {
+              color = "$text";
+              font_family = "$font";
+              font_size = 25;
+              halign = "left";
+              monitor = "";
+              position = "30, -30";
+              text = "Layout: $LAYOUT";
+              valign = "top";
+            }
+            {
+              color = "$text";
+              font_family = "$font";
+              font_size = 90;
+              halign = "right";
+              monitor = "";
+              position = "-30, 0";
+              text = "$TIME";
+              valign = "top";
+            }
+            {
+              color = "$text";
+              font_family = "$font";
+              font_size = 25;
+              halign = "right";
+              monitor = "";
+              position = "-30, -150";
+              text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
+              valign = "top";
+            }
+          ];
+        };
+      };
+    };
 
-      listener {
-          timeout = 150                                # 2.5min.
-          on-timeout = brightnessctl -s set 10         # set monitor backlight to minimum, avoid 0 on OLED monitor.
-          on-resume = brightnessctl -r                 # monitor backlight restore.
-      }
-
-      # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
-      listener { 
-          timeout = 150                                          # 2.5min.
-          on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 # turn off keyboard backlight.
-          on-resume = brightnessctl -rd rgb:kbd_backlight        # turn on keyboard backlight.
-      }
-
-      listener {
-          timeout = 300                                 # 5min
-          on-timeout = loginctl lock-session            # lock screen when timeout has passed
-      }
-
-      listener {
-          timeout = 330                                 # 5.5min
-          on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
-          on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
-      }
-
-      listener {
-          timeout = 1800                                # 30min
-          on-timeout = systemctl suspend                # suspend pc
-      }
-    '';
-    home.file.".config/hypr/binds.sh".source = ./scripts/binds.sh;
+    services = {
+      hypridle = {
+        enable = true;
+        package = inputs.hypridle.packages.${pkgs.system}.hypridle;
+        settings = {
+          general = {
+            after_sleep_cmd = "hyprctl dispatch dpms on";
+            before_sleep_cmd = "loginctl lock-session";
+            lock_cmd = "pidof hyprlock || hyprlock";
+          };
+          listener = [
+            {
+              on-timeout = "loginctl lock-session";
+              timeout = 300;
+            }
+            {
+              on-resume = "hyprctl dispatch dpms on";
+              on-timeout = "hyprctl dispatch dpms off";
+              timeout = 330;
+            }
+          ];
+        };
+      };
+      hyprpaper = {
+        enable = true;
+        package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
+        settings = {
+          preload = [ "${wallp}" ];
+          wallpaper = [ ",${wallp}" ];
+        };
+      };
+    };
 
     wayland.windowManager.hyprland = {
       enable = true;

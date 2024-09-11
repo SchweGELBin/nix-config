@@ -39,8 +39,8 @@ in
     godot_4
     grim
     imagemagick
-    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     krita
     legendary-gl
     libnotify
