@@ -153,6 +153,7 @@ in
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
           "extensions.autoDisableScopes" = 0;
           "font.name.serif.x-western" = "DejaVu Sans";
+          "layout.css.devPixelsPerPx" = 1.2;
           "permissions.default.camera" = 2;
           "permissions.default.geo" = 2;
           "permissions.default.microphone" = 2;
