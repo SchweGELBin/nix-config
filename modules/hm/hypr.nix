@@ -179,6 +179,7 @@ in
 
         bindd = [
           "$altMod   SHIFT, up,   Add window to master,                           layoutmsg, addmaster"
+          "$mainMod, C,           Close active window,                            killactive, "
           "$mainMod, mouse_down,  Go to next workspace,                           workspace, e+1"
           "$mainMod, mouse_up,    Go to previous workspace,                       workspace, e-1"
           "$mainMod, 0,           Go to workspace 0,                              workspace, 0"
@@ -191,7 +192,7 @@ in
           "$mainMod, 7,           Go to workspace 7,                              workspace, 7"
           "$mainMod, 8,           Go to workspace 8,                              workspace, 8"
           "$mainMod, 9,           Go to workspace 9,                              workspace, 9"
-          "$mainMod, C,           Kill active window,                             killactive, "
+          "$mainMod, M,           Kill a window (select or exit with [esc]),      exec, hyprctl kill"
           "$mainMod, RETURN,      Launch App Launcher ($applauncher),             exec, $applauncher"
           "$mainMod, A,           Launch Browser ($browser),                      exec, $browser"
           "$mainMod, K,           Launch Color Picker,                            exec, hyprpicker -f hex -a"
