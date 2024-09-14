@@ -66,7 +66,7 @@ in
               monitor = "";
               outer_color = "$accent";
               outline_thickness = 4;
-              placeholder_text = "󰌾 Logged in as | $USER  ";
+              placeholder_text = "󰌾 Logged in as  $USER";
               position = "0, -47";
               size = "300, 60";
               valign = "center";
@@ -280,6 +280,7 @@ in
         };
 
         exec-once = [
+          "hypridle"
           "hyprpaper"
           #"kitty -c \"~/.config/kitty/kittybg.conf\" --class=\"kitty-bg\" \"${vars.user.home}/.config/kitty/cavabg.sh\""
           "openrgb -c $accentAlpha"
