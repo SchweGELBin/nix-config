@@ -19,6 +19,16 @@ in
     loader.grub.configurationLimit = 2;
   };
 
+  environment = {
+    systemPackages = with pkgs; [
+      arion
+      cachix
+      cmake
+      gcc
+      wget
+    ];
+  };
+
   home-manager = {
     users = {
       ${vars.user.name} = import ./home.nix;
@@ -64,6 +74,11 @@ in
 
   virtualisation = {
     docker.enable = true;
+    podman = {
+      enable = true;
+      defaultNetwork.dnsname.enable = true;
+      dockerSocket.enable = true;
+    };
   };
 
   zramSwap = {

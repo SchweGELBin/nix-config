@@ -26,6 +26,12 @@ in
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "${vars.user.home}/.steam/root/compatibilitytools.d";
       WLR_NO_HARDWARE_CURSORS = "1";
     };
+    systemPackages = with pkgs; [
+      cachix
+      cmake
+      gcc
+      wget
+    ];
   };
 
   fonts = {
