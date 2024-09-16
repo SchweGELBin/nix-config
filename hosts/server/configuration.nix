@@ -15,6 +15,8 @@ in
     ../../modules/nix/default.nix
   ];
 
+  boot.loader.grub.configurationLimit = 2;
+
   home-manager = {
     users = {
       ${vars.user.name} = import ./home.nix;

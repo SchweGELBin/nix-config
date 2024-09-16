@@ -17,6 +17,7 @@ in
 
   boot = {
     kernelParams = [ "nvidia-drm.fbdev=1" ];
+    loader.grub.configurationLimit = 32;
   };
 
   environment = {

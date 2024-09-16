@@ -20,7 +20,6 @@ in
       efi.canTouchEfiVariables = false;
       grub = {
         enable = true;
-        configurationLimit = 64;
         device = "nodev";
         efiInstallAsRemovable = true;
         efiSupport = true;
