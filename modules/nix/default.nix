@@ -45,6 +45,12 @@ in
     sessionVariables = {
       NIXOS_INSTALL_BOOTLOADER = "1";
     };
+    systemPackages = with pkgs; [
+      cachix
+      cmake
+      gcc
+      wget
+    ];
   };
 
   home-manager = {
@@ -131,8 +137,8 @@ in
     users.${vars.user.name} = {
       description = "${vars.user.name}";
       extraGroups = [
+        "docker"
         "networkmanager"
-        "podman"
         "wheel"
       ];
       initialPassword = "1234";
