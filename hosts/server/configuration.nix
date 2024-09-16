@@ -34,6 +34,7 @@ in
   services = {
     minecraft-server = {
       enable = true;
+      dataDir = "/var/lib/minecraft";
       declarative = true;
       eula = true;
       jvmOpts = "-Xms2G -Xmx2G";
@@ -68,16 +69,16 @@ in
     arion = {
       backend = "docker";
       projects = {
-        "smoo".settings.services."smoo".service = {
-          image = "ghcr.io/sanae6/smo-online-server";
-          ports = [ "1027:1027" ];
-          restart = "unless-stopped";
-          stdin_open = true;
-          volumes = [ "./data/:/data/" ];
+        smoo = {
+          settings.services.server.service = {
+            image = "ghcr.io/sanae6/smo-online-server";
+            ports = [ "1027:1027" ];
+            restart = "unless-stopped";
+            volumes = [ "data:/var/lib/smoo" ];
+          };
         };
       };
     };
-    docker.enable = true;
   };
 
   zramSwap = {
