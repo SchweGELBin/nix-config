@@ -137,6 +137,7 @@ in
     users.${vars.user.name} = {
       description = "${vars.user.name}";
       extraGroups = [
+        "docker"
         "networkmanager"
         "wheel"
       ];

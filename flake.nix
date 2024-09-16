@@ -14,6 +14,11 @@
       url = "github:SchweGELBin/catppuccin-nix/mako";
     };
 
+    compose2nix = {
+      url = "github:aksiksi/compose2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";

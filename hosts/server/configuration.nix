@@ -15,7 +15,9 @@ in
     ../../modules/nix/default.nix
   ];
 
-  boot.loader.grub.configurationLimit = 2;
+  boot = {
+    loader.grub.configurationLimit = 2;
+  };
 
   home-manager = {
     users = {
@@ -58,6 +60,10 @@ in
     users.${vars.user.name} = {
       openssh.authorizedKeys.keys = [ vars.user.ssh ];
     };
+  };
+
+  virtualisation = {
+    docker.enable = true;
   };
 
   zramSwap = {
