@@ -89,6 +89,6 @@ in
   hypr.enable = true;
   kitty.enable = true;
   mako.enable = true;
-  theme.enable = true;
+  theme.gtk.enable = true;
   waybar.enable = true;
 }

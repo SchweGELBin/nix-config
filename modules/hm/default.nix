@@ -26,7 +26,10 @@
   music.enable = lib.mkDefault true;
   nixvim.enable = lib.mkDefault false;
   scripts.enable = lib.mkDefault true;
-  theme.enable = lib.mkDefault false;
+  theme = {
+    enable = lib.mkDefault true;
+    gtk.enable = lib.mkDefault false;
+  };
   waybar.enable = lib.mkDefault false;
   zsh.enable = lib.mkDefault true;
 }

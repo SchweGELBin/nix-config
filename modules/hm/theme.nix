@@ -16,7 +16,7 @@ in
       pointerCursor.enable = true;
     };
 
-    gtk = {
+    gtk = lib.mkIf config.theme.gtk.enable {
       enable = true;
       catppuccin.icon.enable = false;
       iconTheme = {
@@ -37,6 +37,9 @@ in
   };
 
   options = {
-    theme.enable = lib.mkEnableOption "Enable Theme";
+    theme = {
+      enable = lib.mkEnableOption "Enable Theme";
+      gtk.enable = lib.mkEnableOption "Enable GTK Theme";
+    };
   };
 }

@@ -23,7 +23,6 @@ in
   ];
 
   home.packages = with pkgs; [
-    inputs.compose2nix.packages.x86_64-linux.default
     nixfmt-rfc-style
   ];
 
