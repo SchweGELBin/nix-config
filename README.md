@@ -28,6 +28,3 @@ Theme                - Catppuccin Mocha Mauve
 - Run `sudo rebuild` *(home)* or `sudo rebuild-server` *(server)* to rebuild the system
 - You should change the initial password with `passwd`
 - View the keybinds with *"SUPER + ALT"*
-
-## Credits
-- Thank you ```vimjoyer``` for your help! | [GitHub](https://github.com/vimjoyer) - [Youtube](https://youtube.com/@vimjoyer)
