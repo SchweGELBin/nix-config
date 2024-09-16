@@ -70,11 +70,16 @@ in
       backend = "docker";
       projects = {
         smoo = {
-          settings.services.server.service = {
-            image = "ghcr.io/sanae6/smo-online-server";
-            ports = [ "1027:1027" ];
-            restart = "unless-stopped";
-            volumes = [ "data:/var/lib/smoo" ];
+          settings = {
+            services.server.service = {
+              image = "ghcr.io/sanae6/smo-online-server";
+              ports = [ "1027:1027" ];
+              restart = "unless-stopped";
+              volumes = [ "data:/var/lib/smoo" ];
+            };
+            docker-compose.volumes = {
+              data = { };
+            };
           };
         };
       };
