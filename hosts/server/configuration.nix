@@ -13,6 +13,7 @@ in
     ./hardware-configuration.nix
     ./networking.nix
     ../../modules/nix/default.nix
+    arion.nixosModules.arion
   ];
 
   boot = {
@@ -63,6 +64,18 @@ in
   };
 
   virtualisation = {
+    arion = {
+      backend = "docker";
+      projects = {
+        "smoo".settings.services."smoo".service = {
+          image = "ghcr.io/sanae6/smo-online-server";
+          ports = [ "1027:1027" ];
+          restart = "unless-stopped";
+          stdin_open = true;
+          volumes = [ "./data/:/data/" ];
+        };
+      };
+    };
     docker.enable = true;
   };
 
