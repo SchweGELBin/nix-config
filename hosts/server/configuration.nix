@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }:
@@ -13,7 +14,7 @@ in
     ./hardware-configuration.nix
     ./networking.nix
     ../../modules/nix/default.nix
-    arion.nixosModules.arion
+    inputs.arion.nixosModules.arion
   ];
 
   boot = {

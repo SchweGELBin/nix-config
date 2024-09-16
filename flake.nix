@@ -9,6 +9,11 @@
     nixpkgs.follows = "nixpkgs-unstable";
     systems.url = "github:nix-systems/default-linux";
 
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     catppuccin = {
       #url = "github:catppuccin/nix";
       url = "github:SchweGELBin/catppuccin-nix/mako";
