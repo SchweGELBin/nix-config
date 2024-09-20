@@ -6,7 +6,7 @@ let
     };
   };
   android = {
-    composition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "34" ]; };
+    composition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "35" ]; };
     sdk = android.composition.androidsdk;
   };
 in
