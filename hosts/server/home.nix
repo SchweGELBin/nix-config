@@ -18,7 +18,6 @@ in
 
   imports = [
     ../../modules/hm
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 

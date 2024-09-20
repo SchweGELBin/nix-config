@@ -9,7 +9,6 @@
     ./kitty.nix
     ./mako.nix
     ./music.nix
-    ./nixvim.nix
     ./scripts
     ./theme.nix
     ./waybar.nix
@@ -24,7 +23,6 @@
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
   music.enable = lib.mkDefault true;
-  nixvim.enable = lib.mkDefault false;
   scripts.enable = lib.mkDefault true;
   theme = {
     enable = lib.mkDefault true;

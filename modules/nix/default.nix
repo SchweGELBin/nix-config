@@ -26,7 +26,7 @@ in
         useOSProber = true;
       };
     };
-    kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
+    kernelPackages = pkgs.linuxPackages_6_10; # Kernel Version: testing = mainline, latest = stable
     tmp.cleanOnBoot = true;
   };
 
