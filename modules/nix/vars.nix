@@ -5,6 +5,12 @@
     flavor = "mocha";
   };
 
+  theme = {
+    cursor = {
+      size = 32;
+    };
+  };
+
   user = {
     config = "/etc/nixos";
     home = "/home/michi";
