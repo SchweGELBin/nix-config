@@ -13,9 +13,7 @@ in
       enable = true;
       accent = vars.cat.accent;
       flavor = vars.cat.flavor;
-      pointerCursor = {
-        enable = true;
-      };
+      pointerCursor.enable = true;
     };
 
     gtk = lib.mkIf config.theme.gtk.enable {
