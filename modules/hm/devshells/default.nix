@@ -10,6 +10,7 @@ in
     ${nixp}/rust.nix
   '';
   home.file."rust/tauri/.envrc".text = ''
+    ${nixp}/android.nix
     ${nixp}/rust.nix
     ${nixp}/tauri.nix
   '';
