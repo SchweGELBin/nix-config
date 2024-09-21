@@ -23,15 +23,10 @@ in
         enable = true;
         package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
         settings = {
-          "$accent" = "#cba6f7";
-          "$font" = "FiraCode Nerd Font";
-          "$red" = "#f38ba8";
-          "$surface0" = "#313244";
-          "$text" = "#cdd6f4";
           background = [
             {
               blur_passes = 0;
-              color = "#1e1e2e";
+              color = "$base";
               monitor = "";
               path = "${wallp}";
             }
@@ -66,7 +61,7 @@ in
               monitor = "";
               outer_color = "$accent";
               outline_thickness = 4;
-              placeholder_text = "󰌾 Logged in as  $USER";
+              placeholder_text = "<span foreground=\"##$textAlpha\"><i>󰌾 Logged in as </i><span foreground=\"##$accentAlpha\">$USER</span></span>";
               position = "0, -47";
               size = "300, 60";
               valign = "center";
