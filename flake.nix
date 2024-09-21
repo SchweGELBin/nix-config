@@ -78,6 +78,11 @@
       url = "github:nix-community/nix-direnv";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    waybar = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
