@@ -111,7 +111,7 @@ in
           general = {
             after_sleep_cmd = "hyprctl dispatch dpms on";
             before_sleep_cmd = "loginctl lock-session";
-            lock_cmd = "pidof hyprlock || hyprlock";
+            lock_cmd = "pgrep hyprlock || hyprlock";
           };
           listener = [
             {
@@ -277,8 +277,9 @@ in
 
         exec-once = [
           "hypridle"
+          #"pgrep hyprlock || hyprlock --immediate --immediate-render --no-fade-in"
           "hyprpaper"
-          #"kitty -c \"~/.config/kitty/kittybg.conf\" --class=\"kitty-bg\" \"${vars.user.home}/.config/kitty/cavabg.sh\""
+          #"kitty -c '~/.config/kitty/kittybg.conf' --class='kitty-bg' '${vars.user.home}/.config/kitty/cavabg.sh'"
           "openrgb -c $accentAlpha"
           "waybar"
         ];

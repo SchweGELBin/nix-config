@@ -124,7 +124,14 @@ in
       settings = {
         default_session = {
           command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+          user = "${vars.user.name}";
         };
+        /*
+          initial_session = {
+            command = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+            user = "${vars.user.name}";
+          };
+        */
       };
     };
     hardware.openrgb.enable = true;
