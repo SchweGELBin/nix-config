@@ -6,11 +6,17 @@ let
     };
   };
   android = {
-    composition = pkgs.androidenv.composeAndroidPackages { platformVersions = [ "34" ]; };
+    composition = pkgs.androidenv.composeAndroidPackages {
+      includeNDK = true;
+      platformVersions = [ "34" ];
+    };
     sdk = android.composition.androidsdk;
   };
 in
 pkgs.mkShell {
   buildInputs = [ android.sdk ];
-  shellHook = "export ANDROID_SDK_ROOT=${android.sdk}/libexec/android-sdk";
+  shellHook = ''
+    export ANDROID_HOME=${android.sdk}/libexec/android-sdk
+    export NDK_HOME=$ANDROID_HOME/ndk-bundle
+  '';
 }
