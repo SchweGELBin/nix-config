@@ -8,12 +8,12 @@ in
     "rust/cli/.envrc".text = "${nixp}/rust.nix";
     "rust/dioxus/.envrc".text = ''
       ${nixp}/android.nix
-      ${nixp}/dioxus.nix
       ${nixp}/rust.nix
+      ${nixp}/dioxus.nix
     '';
     "rust/egui/.envrc".text = ''
-      ${nixp}/egui.nix
       ${nixp}/rust.nix
+      ${nixp}/egui.nix
     '';
     "rust/tauri/.envrc".text = ''
       ${nixp}/android.nix
