@@ -5,6 +5,7 @@ let
       android_sdk.accept_license = true;
     };
   };
+
   android = {
     composition = pkgs.androidenv.composeAndroidPackages {
       includeNDK = true;

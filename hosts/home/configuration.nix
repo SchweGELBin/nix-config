@@ -125,9 +125,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${
-            inputs.hyprland.packages.${pkgs.system}.hyprland
-          }/bin/Hyprland";
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
           user = "${vars.user.name}";
         };
       };
