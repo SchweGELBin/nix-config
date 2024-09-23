@@ -7,6 +7,8 @@
 }:
 let
   vars = import ../nix/vars.nix;
+  logo = ".config/logo.png";
+  logop = "~/${logo}";
   wall = ".config/background.png";
   wallp = "~/${wall}";
 in
@@ -15,6 +17,10 @@ in
 
     home.file = {
       ".config/hypr/binds.sh".source = ./scripts/binds.sh;
+      "${logo}".source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
+        hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
+      };
       "${wall}".source = ../../res/wallpaper.png;
     };
 
@@ -39,7 +45,7 @@ in
             border_color = "$accent";
             halign = "center";
             monitor = "";
-            path = "~/.face";
+            path = "${logop}";
             position = "0, 75";
             size = 100;
             valign = "center";
@@ -277,7 +283,6 @@ in
 
         exec-once = [
           "hypridle"
-          #"pgrep hyprlock || hyprlock --immediate --immediate-render --no-fade-in"
           "hyprpaper"
           #"kitty -c '~/.config/kitty/kittybg.conf' --class='kitty-bg' '${vars.user.home}/.config/kitty/cavabg.sh'"
           "openrgb -c $accentAlpha"
