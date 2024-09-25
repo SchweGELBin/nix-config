@@ -15,7 +15,17 @@
     ./zsh.nix
   ];
 
-  direnv.enable = lib.mkDefault false;
+  devshells = {
+    enable = lib.mkDefault true;
+    android.enable = lib.mkDefault true;
+    rust = {
+      enable = lib.mkDefault true;
+      dioxus.enable = lib.mkDefault false;
+      egui.enable = lib.mkDefault false;
+      tauri.enable = lib.mkDefault false;
+    };
+  };
+  direnv.enable = lib.mkDefault true;
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
