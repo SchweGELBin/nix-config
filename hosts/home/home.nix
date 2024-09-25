@@ -82,6 +82,7 @@ in
   };
 
   # Custom modules
+  devshells.enable = true;
   direnv.enable = true;
   firefox.enable = true;
   hypr.enable = true;

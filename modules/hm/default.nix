@@ -16,7 +16,7 @@
   ];
 
   devshells = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
     android.enable = lib.mkDefault true;
     rust = {
       enable = lib.mkDefault true;
@@ -25,7 +25,7 @@
       tauri.enable = lib.mkDefault false;
     };
   };
-  direnv.enable = lib.mkDefault true;
+  direnv.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
