@@ -11,6 +11,7 @@ let
 
   dioxus = rust && cfg.rust.dioxus.enable;
   egui = rust && cfg.rust.egui.enable;
+  slint = rust && cfg.rust.slint.enable;
   tauri = rust && cfg.rust.tauri.enable;
 in
 {
@@ -31,6 +32,13 @@ in
           ${nixp}/egui.nix
         '';
       };
+      "rust/slint/.envrc" = lib.mkIf slint {
+        text = ''
+          ${nixp}/android.nix
+          ${nixp}/rust.nix
+          ${nixp}/slint.nix
+        '';
+      };
       "rust/tauri/.envrc" = lib.mkIf tauri {
         text = ''
           ${nixp}/android.nix
@@ -49,6 +57,7 @@ in
         enable = lib.mkEnableOption "Enable Rust Devshell";
         dioxus.enable = lib.mkEnableOption "Enable Rust dioxus Devshell";
         egui.enable = lib.mkEnableOption "Enable Rust egui Devshell";
+        slint.enable = lib.mkEnableOption "Enable Rust slint Devshell";
         tauri.enable = lib.mkEnableOption "Enable Rust tauri Devshell";
       };
     };

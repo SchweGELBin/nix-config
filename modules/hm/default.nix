@@ -22,6 +22,7 @@
       enable = lib.mkDefault true;
       dioxus.enable = lib.mkDefault false;
       egui.enable = lib.mkDefault false;
+      slint.enable = lib.mkDefault true;
       tauri.enable = lib.mkDefault false;
     };
   };
