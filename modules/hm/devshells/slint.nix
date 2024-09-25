@@ -1,13 +1,13 @@
 let
   pkgs = import <nixpkgs> { };
 
-  libraries = with pkgs; [
-    openssl_3
-  ];
+  libraries =
+    with pkgs;
+    [
+    ];
 
   packages = with pkgs; [
     jdk17
-    openssl_3
   ];
 in
 pkgs.mkShell {
