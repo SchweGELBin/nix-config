@@ -2,7 +2,7 @@ let
   pkgs = import <nixpkgs> { };
 in
 pkgs.mkShell {
-  buildInputs = with pkgs; [ jdk17 ];
+  buildInputs = with pkgs; [ slint-lsp ];
 
   nativeBuildInputs = with pkgs; [ pkg-config ];
 
