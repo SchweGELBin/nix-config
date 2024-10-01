@@ -343,6 +343,10 @@ in
           hyprtrails.color = "$accent";
           hyprwinwrap.class = "kitty-bg";
         };
+
+        windowrulev2 = [
+          "idleinhibit focus, title:^(Rocket League)(.*)$"
+        ];
       };
     };
   };
