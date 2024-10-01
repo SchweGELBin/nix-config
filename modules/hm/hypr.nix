@@ -199,7 +199,7 @@ in
           "$mainMod, K,           Launch Color Picker,                            exec, hyprpicker -f hex -a"
           "$mainMod, O,           Launch Discord client ($discord),               exec, $discord"
           "$mainMod, E,           Launch File Manager ($filemanager),             exec, $filemanager"
-          "$mainMod, K,           Launch Rocket League,                           exec, mangohud legendary launch Sugar"
+          "$mainMod, V,           Launch Rocket League,                           exec, mangohud legendary launch Sugar"
           "$mainMod, Q,           Launch Terminal ($terminal),                    exec, $terminal"
           "$mainMod  SHIFT, S,    Move current workspace to special workspace,    movetoworkspace, special:magic"
           "$mainMod, down,        Move focus down,                                movefocus, d"
