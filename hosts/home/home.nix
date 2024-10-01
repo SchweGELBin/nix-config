@@ -82,7 +82,11 @@ in
   };
 
   # Custom modules
-  devshells.enable = true;
+  devshells = {
+    enable = true;
+    android.flutter.enable = true;
+    rust.slint.enable = true;
+  };
   direnv.enable = true;
   firefox.enable = true;
   hypr.enable = true;

@@ -17,12 +17,15 @@
 
   devshells = {
     enable = lib.mkDefault false;
-    android.enable = lib.mkDefault true;
+    android = {
+      enable = lib.mkDefault true;
+      flutter.enable = lib.mkDefault false;
+    };
     rust = {
       enable = lib.mkDefault true;
       dioxus.enable = lib.mkDefault false;
       egui.enable = lib.mkDefault false;
-      slint.enable = lib.mkDefault true;
+      slint.enable = lib.mkDefault false;
       tauri.enable = lib.mkDefault false;
     };
   };
