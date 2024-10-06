@@ -23,6 +23,7 @@ in
 
   home.packages = with pkgs; [
     audacity
+    bash-language-server
     bibata-cursors
     blender
     cmatrix
@@ -39,15 +40,21 @@ in
     imagemagick
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    jdt-language-server
+    kotlin-language-server
     krita
     legendary-gl
     libnotify
     libreoffice-qt-fresh
+    lldb
     mako
+    markdown-oxide
+    marksman
     mdcat
     minetestclient
     nemo
     neo-cowsay
+    nil
     nixfmt-rfc-style
     papermc
     papirus-icon-theme
@@ -57,6 +64,7 @@ in
     prismlauncher
     pulseaudio
     slurp
+    taplo
     toilet
     unzip
     vesktop
@@ -84,8 +92,6 @@ in
   # Custom modules
   devshells = {
     enable = true;
-    android.flutter.enable = true;
-    rust.slint.enable = true;
   };
   direnv.enable = true;
   firefox.enable = true;
