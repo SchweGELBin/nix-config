@@ -40,6 +40,14 @@ in
         done < "$input"
       '')
 
+      (pkgs.writeShellScriptBin "loopback" ''
+        if [[ $(pactl list | grep module-loopback) ]]; then
+          pactl unload-module module-loopback
+        else
+          pactl load-module module-loopback
+        fi
+      '')
+
       (pkgs.writeShellScriptBin "screenshot" ''
         filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
         scrDir="$HOME/Pictures/Screenshots"
