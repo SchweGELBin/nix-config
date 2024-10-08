@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }:
@@ -22,6 +21,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    android-studio
     audacity
     bash-language-server
     bibata-cursors
@@ -38,6 +38,7 @@ in
     godot_4
     grim
     imagemagick
+    inkscape
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     jdt-language-server
