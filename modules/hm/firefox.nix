@@ -127,7 +127,7 @@ in
             };
             "Searx" = {
               definedAliases = [ "@sx" ];
-              urls = [ { template = "https://searx.be/search?q={searchTerms}"; } ];
+              urls = [ { template = "https://paulgo.io/search?q={searchTerms}"; } ];
             };
             "Searxng" = {
               definedAliases = [ "@sn" ];
