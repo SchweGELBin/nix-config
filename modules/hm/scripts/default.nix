@@ -13,15 +13,25 @@ in
       (pkgs.writeShellScriptBin "rebuild" ''
         cd ${vars.user.config}
         git add ${vars.user.config}
-        nix flake update
         nixfmt ${vars.user.config}
         nixos-rebuild switch --flake ${vars.user.config}/#home
       '')
 
-      (pkgs.writeShellScriptBin "rebuild-server" ''
+      (pkgs.writeShellScriptBin "update" ''
+        cd ${vars.user.config}
+        nix flake update
+      '')
+
+      (pkgs.writeShellScriptBin "server-rebuild" ''
         cd ${vars.user.config}
         git add ${vars.user.config}
         nixos-rebuild switch --flake ${vars.user.config}/#server
+      '')
+
+      (pkgs.writeShellScriptBin "server-reset" ''
+        rm -rf /etc/nixos
+        sudo git clone ${vars.git.repo} --depth 1 /etc/nixos
+        sudo cp /root/bak/{hardware-configuration.nix,networking.nix} /etc/nixos/hosts/server/
       '')
 
       (pkgs.writeShellScriptBin "music" ''

@@ -5,6 +5,10 @@
     flavor = "mocha";
   };
 
+  git = {
+    repo = "https://github.com/SchweGELBin/nix-config";
+  };
+
   theme = {
     cursor = {
       size = 32;
