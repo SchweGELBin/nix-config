@@ -32,11 +32,13 @@ Theme                - Catppuccin Mocha Mauve
 - View the keybinds with *"SUPER + ALT"*
 
 ### Scripts
-- `sudo rebuild`:         Rebuild Home system
-- `sudo update`:          Update Home config
-- `sudo server-rebuild`: Rebuild Server system
-- `sudo server-reset`:    Reset Server config
-- `music`:                Toogle music-instance
-- `music-instance`:       Play music
-- `loopback`:             Toggle mic loopback
-- `screenshot [d/w/r/h]`: Take screenshot (Display/Window/Region/Help)
+```
+sudo rebuild         | Rebuild Home system
+sudo update          | Update Home config
+sudo server-rebuild  | Rebuild Server system
+sudo server-reset    | Reset Server config
+music                | Toogle music-instance
+music-instance       | Play music
+loopback             | Toggle mic loopback
+screenshot [d/w/r/h] | Take screenshot (Display/Window/Region/Help)
+```
