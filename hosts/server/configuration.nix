@@ -49,7 +49,7 @@ in
         op-permission-level = 2;
         simulation-distance = 6;
         view-distance = 8;
-        white-list = true;
+        white-list = false;
       };
       whitelist = {
         schwegelbin = "bc3a1c45-03cb-43c6-b860-1def6fddcdb9";

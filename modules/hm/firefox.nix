@@ -7,6 +7,9 @@
 }:
 let
   vars = import ../nix/vars.nix;
+  searx = "https://opnxng.com";
+  piped = "https://piped.yt";
+  invidious = "https://yewtu.be";
 in
 {
   config = lib.mkIf config.firefox.enable {
@@ -64,7 +67,7 @@ in
           default = "Searx";
           engines = {
             "Bing".metaData.hidden = true;
-            "DuckDuckGo".metaData.hidden = true;
+            "DuckDuckGo".metaData.hidden = false;
             "Crates" = {
               definedAliases = [ "@cr" ];
               urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
@@ -123,20 +126,16 @@ in
             };
             "Piped" = {
               definedAliases = [ "@pd" ];
-              urls = [ { template = "https://piped.yt/results?search_query={searchTerms}"; } ];
+              urls = [ { template = "${piped}/results?search_query={searchTerms}"; } ];
             };
             "Searx" = {
               definedAliases = [ "@sx" ];
-              urls = [ { template = "https://paulgo.io/search?q={searchTerms}"; } ];
-            };
-            "Searxng" = {
-              definedAliases = [ "@sn" ];
-              urls = [ { template = "https://searxng.site/searxng/search?q={searchTerms}"; } ];
+              urls = [ { template = "${searx}/search?q={searchTerms}"; } ];
             };
             "Wikipedia (en)".metaData.hidden = true;
             "Yewtube" = {
               definedAliases = [ "@yt" ];
-              urls = [ { template = "https://yewtu.be/search?q={searchTerms}"; } ];
+              urls = [ { template = "${invidious}/search?q={searchTerms}"; } ];
             };
           };
           force = true;
@@ -144,7 +143,7 @@ in
           privateDefault = "Searx";
         };
         settings = {
-          "browser.startup.homepage" = "https://searx.be";
+          "browser.startup.homepage" = "${searx}";
           "browser.theme.content-theme" = 0;
           "browser.theme.toolbar-theme" = 0;
           "dom.private-attribution.submission.enabled" = false;
