@@ -55,7 +55,13 @@ in
         schwegelbin = "bc3a1c45-03cb-43c6-b860-1def6fddcdb9";
       };
     };
-    nginx.enable = true;
+    nginx = {
+      enable = true;
+      virtualHosts."mix" = {
+        default = true;
+        root = "/var/www/mix";
+      };
+    };
   };
 
   users = {
