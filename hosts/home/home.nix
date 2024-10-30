@@ -83,7 +83,6 @@ in
     imv.enable = true;
     jq.enable = true;
     mangohud.enable = true;
-    mpv.enable = true;
     obs-studio.enable = true;
     wlogout.enable = true;
     yt-dlp.enable = true;

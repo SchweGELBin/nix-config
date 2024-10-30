@@ -8,6 +8,7 @@
     ./hypr.nix
     ./kitty.nix
     ./mako.nix
+    ./mpv.nix
     ./music.nix
     ./scripts
     ./theme.nix
@@ -36,6 +37,7 @@
   hypr.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
+  mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault true;
   scripts.enable = lib.mkDefault true;
   theme = {

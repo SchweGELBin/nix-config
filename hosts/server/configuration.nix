@@ -62,6 +62,20 @@ in
         root = "/var/www/mix";
       };
     };
+    openvpn.servers.server.config = ''
+      ca /root/ovpn/ca.crt
+      cert /root/ovpn/server.crt
+      dev tun
+      dh /root/ovpn/dh.pem
+      ifconfig 10.8.0.1 10.8.0.2
+      keepalive 10 60
+      key /root/ovpn/server.key
+      max-clients 3
+      port 1997
+      proto udp
+      tls-auth /root/ovpn/ta.key 0
+      tls-server
+    '';
   };
 
   users = {
