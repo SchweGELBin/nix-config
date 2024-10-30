@@ -71,7 +71,7 @@ in
       keepalive 10 60
       key /root/ovpn/server.key
       max-clients 3
-      port 1997
+      port 1096
       proto udp
       tls-auth /root/ovpn/ta.key 0
       tls-server
