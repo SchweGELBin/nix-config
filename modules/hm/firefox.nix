@@ -59,6 +59,7 @@ in
         bookmarks = [ ];
         extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           darkreader
+          firefox-color
           ublock-origin
         ];
         extraConfig = "";
