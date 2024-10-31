@@ -41,7 +41,6 @@ in
     inkscape
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent
     inputs.hyprsysteminfo.packages.${pkgs.system}.hyprsysteminfo
     jdt-language-server
     kotlin-language-server

@@ -77,14 +77,6 @@
       };
     };
 
-    hyprpolkitagent = {
-      url = "github:hyprwm/hyprpolkitagent";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     hyprsysteminfo = {
       url = "github:hyprwm/hyprsysteminfo";
       inputs = {
