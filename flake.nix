@@ -36,11 +36,6 @@
       };
     };
 
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs = {
@@ -74,8 +69,37 @@
       };
     };
 
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
+    hyprpolkitagent = {
+      url = "github:hyprwm/hyprpolkitagent";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
+    hyprsysteminfo = {
+      url = "github:hyprwm/hyprsysteminfo";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
     nix-direnv = {
       url = "github:nix-community/nix-direnv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    waybar = {
+      url = "github:Alexays/Waybar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

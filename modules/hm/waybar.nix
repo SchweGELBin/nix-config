@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -11,7 +12,7 @@ in
   config = lib.mkIf config.waybar.enable {
     programs.waybar = {
       enable = true;
-      package = pkgs.waybar;
+      package = inputs.waybar.packages.${pkgs.system}.waybar;
       settings = {
         mainBar = {
           layer = "top";
