@@ -80,6 +80,7 @@ in
   };
 
   nix = {
+    optimise.automatic = true;
     settings = {
       experimental-features = [
         "flakes"
