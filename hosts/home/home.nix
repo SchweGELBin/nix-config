@@ -69,7 +69,6 @@ in
     taplo
     toilet
     unzip
-    vesktop
     wineWowPackages.stagingFull
     wl-clipboard
   ];
@@ -100,5 +99,6 @@ in
   kitty.enable = true;
   mako.enable = true;
   theme.gtk.enable = true;
+  vesktop.enable = true;
   waybar.enable = true;
 }

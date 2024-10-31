@@ -12,6 +12,7 @@
     ./music.nix
     ./scripts
     ./theme.nix
+    ./vesktop.nix
     ./waybar.nix
     ./zsh.nix
   ];
@@ -44,6 +45,7 @@
     enable = lib.mkDefault true;
     gtk.enable = lib.mkDefault false;
   };
+  vesktop.enable = lib.mkDefault false;
   waybar.enable = lib.mkDefault false;
   zsh.enable = lib.mkDefault true;
 }
