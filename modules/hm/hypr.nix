@@ -147,7 +147,7 @@ in
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
       settings = {
@@ -261,7 +261,6 @@ in
         ];
 
         decoration = {
-          "col.shadow" = "$surface0";
           active_opacity = 0.75;
           blur = {
             enabled = true;
@@ -269,11 +268,14 @@ in
             size = 3;
             vibrancy = 0.17;
           };
-          drop_shadow = true;
           inactive_opacity = 0.9;
           rounding = 12;
-          shadow_range = 4;
-          shadow_render_power = 3;
+          shadow = {
+            enabled = true;
+            color = "$surface0";
+            range = 4;
+            render_power = 3;
+          };
         };
 
         dwindle = {
