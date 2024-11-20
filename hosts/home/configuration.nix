@@ -17,7 +17,7 @@ in
 
   boot = {
     kernelParams = [
-      "nvidia-drm.fbdev=1"
+      #"nvidia-drm.fbdev=1"
     ];
     loader.grub.configurationLimit = 32;
   };
@@ -54,7 +54,7 @@ in
   hardware = {
     graphics.enable = true;
     nvidia = {
-      modesetting.enable = true;
+      #modesetting.enable = true;
       nvidiaSettings = false;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
