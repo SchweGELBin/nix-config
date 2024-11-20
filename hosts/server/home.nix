@@ -12,7 +12,7 @@ in
   programs.home-manager.enable = true;
 
   home = {
-    stateVersion = "24.11";
+    stateVersion = "${vars.user.stateVersion}";
   };
 
   imports = [

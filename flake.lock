@@ -887,11 +887,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1732120437,
-        "narHash": "sha256-r0PeePwcqofEUJBSx9FWfTOcWjFmQQm8KxdyQHbICOU=",
+        "lastModified": 1732131284,
+        "narHash": "sha256-8kH7MepnUF8czgDvBZAHpBObWCrA+wwR0PDZEiIpYwo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c3f9d32635e9a96570619922ed6e9cfa3417e668",
+        "rev": "f34edcd249cb27c5e9df7bf6c8be03ab2924cad2",
         "type": "github"
       },
       "original": {
@@ -917,45 +917,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-stable_2": {
-      "locked": {
-        "lastModified": 1731797254,
-        "narHash": "sha256-df3dJApLPhd11AlueuoN0Q4fHo/hagP75LlM5K1sz9g=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e8c38b73aeb218e27163376a2d617e61a2ad9b59",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-staging": {
-      "locked": {
-        "lastModified": 1732120303,
-        "narHash": "sha256-aQa29GKkxUQNfkW2aA4yW63MOfihhD+dL0WBsQ4nga8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "561a54f356164a8ce076fbae0b75ecc837070853",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "staging",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1731676054,
-        "narHash": "sha256-OZiZ3m8SCMfh3B6bfGC/Bm4x3qc1m2SVEAlkV6iY7Yg=",
+        "lastModified": 1732014248,
+        "narHash": "sha256-y/MEyuJ5oBWrWAic/14LaIr/u5E0wRVzyYsouYY3W6w=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5e4fbfb6b3de1aa2872b76d49fafc942626e2add",
+        "rev": "23e89b7da85c3640bbc2173fe04f4bd114342367",
         "type": "github"
       },
       "original": {
@@ -1004,11 +972,9 @@
         "hyprsysteminfo": "hyprsysteminfo",
         "nix-direnv": "nix-direnv",
         "nixpkgs": [
-          "nixpkgs-master"
+          "nixpkgs-unstable"
         ],
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-stable": "nixpkgs-stable_2",
-        "nixpkgs-staging": "nixpkgs-staging",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "systems": "systems",
         "waybar": "waybar"

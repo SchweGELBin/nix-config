@@ -126,7 +126,7 @@ in
   };
 
   system = {
-    stateVersion = "24.05";
+    stateVersion = "${vars.user.stateVersion}";
   };
 
   time = {
@@ -143,7 +143,6 @@ in
       ];
       initialPassword = "1234";
       isNormalUser = true;
-      packages = with pkgs; [ ];
       shell = pkgs.zsh;
     };
   };

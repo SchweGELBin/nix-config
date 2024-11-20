@@ -12,7 +12,7 @@ in
   programs.home-manager.enable = true;
 
   home = {
-    stateVersion = "24.11";
+    stateVersion = "${vars.user.stateVersion}";
   };
 
   imports = [
@@ -77,7 +77,7 @@ in
     bat.enable = true;
     bash.enable = true;
     btop.enable = true;
-    cava.enable = false;
+    cava.enable = false; # Fixed in nixos/staging
     fuzzel.enable = true;
     git.enable = true;
     imv.enable = true;
