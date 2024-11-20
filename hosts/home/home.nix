@@ -77,7 +77,7 @@ in
     bat.enable = true;
     bash.enable = true;
     btop.enable = true;
-    cava.enable = true;
+    cava.enable = false;
     fuzzel.enable = true;
     git.enable = true;
     imv.enable = true;

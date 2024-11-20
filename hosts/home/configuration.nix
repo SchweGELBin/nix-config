@@ -55,7 +55,7 @@ in
     graphics.enable = true;
     nvidia = {
       modesetting.enable = true;
-      nvidiaSettings = true;
+      nvidiaSettings = false;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta; # NVidia Version (New -> Old): beta >= stable >= production
       powerManagement.enable = false;

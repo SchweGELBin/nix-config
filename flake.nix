@@ -3,10 +3,12 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-staging.url = "github:nixos/nixpkgs/staging";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs.follows = "nixpkgs-master";
     systems.url = "github:nix-systems/default-linux";
 
     arion = {
