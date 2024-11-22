@@ -38,7 +38,7 @@ in
       eula = true;
       jvmOpts = "-Xms2G -Xmx2G";
       openFirewall = false;
-      package = pkgs.papermc;
+      package = pkgs.minecraft-server;
       serverProperties = {
         difficulty = "hard";
         enable-command-block = false;
