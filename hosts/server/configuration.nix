@@ -45,7 +45,7 @@ in
         enforce-whitelist = true;
         force-gamemode = true;
         max-players = 7;
-        motd = "MiX Paper";
+        motd = "MiX MC";
         op-permission-level = 2;
         simulation-distance = 6;
         view-distance = 8;
