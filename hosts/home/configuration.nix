@@ -45,7 +45,12 @@ in
         ];
       };
     };
-    packages = [ pkgs.nerdfonts ];
+    packages = with pkgs; [
+      nerd-fonts.dejavu-sans-mono
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.liberation
+    ];
   };
 
   hardware = {
