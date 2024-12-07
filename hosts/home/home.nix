@@ -7,12 +7,10 @@ let
   vars = import ../../modules/nix/vars.nix;
 in
 {
-  home.username = "${vars.user.name}";
-  home.homeDirectory = "${vars.user.home}";
-  programs.home-manager.enable = true;
-
   home = {
+    homeDirectory = "${vars.user.home}";
     stateVersion = "${vars.user.stateVersion}";
+    username = "${vars.user.name}";
   };
 
   imports = [
@@ -77,9 +75,10 @@ in
     bat.enable = true;
     bash.enable = true;
     btop.enable = true;
-    cava.enable = false; # Fixed in nixos/staging
+    cava.enable = true;
     fuzzel.enable = true;
     git.enable = true;
+    home-manager.enable = true;
     imv.enable = true;
     jq.enable = true;
     mangohud.enable = true;
@@ -90,9 +89,7 @@ in
   };
 
   # Custom modules
-  devshells = {
-    enable = true;
-  };
+  devshells.enable = true;
   direnv.enable = true;
   firefox.enable = true;
   hypr.enable = true;
