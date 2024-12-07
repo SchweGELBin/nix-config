@@ -19,14 +19,6 @@ in
     loader.grub.configurationLimit = 32;
   };
 
-  environment = {
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      STEAM_EXTRA_COMPAT_TOOLS_PATH = "${vars.user.home}/.steam/root/compatibilitytools.d";
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
-  };
-
   fonts = {
     enableDefaultPackages = true;
     fontconfig = {

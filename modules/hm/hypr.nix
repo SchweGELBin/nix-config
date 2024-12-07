@@ -260,6 +260,10 @@ in
           "$mainMod, mouse:273, Resize Window, resizewindow"
         ];
 
+        cursor = {
+          no_hardware_cursors = true;
+        };
+
         decoration = {
           active_opacity = 0.75;
           blur = {
