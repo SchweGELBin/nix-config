@@ -28,6 +28,21 @@ in
 
   networking = {
     firewall.enable = false;
+    wireguard = {
+      enable = true;
+      interfaces.mix = {
+        generatePrivateKeyFile = true;
+        ips = [ "10.100.0.1/24" ];
+        listenPort = 1096;
+        peers = [
+          {
+            allowedIPs = [ "10.100.0.2/32" ];
+            publicKey = vars.user.wg;
+          }
+        ];
+        privateKeyFile = "/root/wg/mix";
+      };
+    };
   };
 
   services = {
@@ -57,28 +72,10 @@ in
     };
     nginx = {
       enable = true;
-      virtualHosts."mix" = {
+      virtualHosts.mix = {
         default = true;
         root = "/var/www/mix";
       };
-    };
-    openvpn.servers.server = {
-      autoStart = false;
-      config = ''
-        ca /root/ovpn/ca.crt
-        cert /root/ovpn/server.crt
-        dev tun
-        dh /root/ovpn/dh.pem
-        ifconfig 10.8.0.1 10.8.0.2
-        keepalive 10 60
-        key /root/ovpn/server.key
-        max-clients 3
-        port 1096
-        proto udp
-        server 10.8.0.0 255.255.255.0
-        tls-auth /root/ovpn/ta.key 0
-        tls-server
-      '';
     };
   };
 
