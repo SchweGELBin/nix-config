@@ -28,18 +28,29 @@ in
 
   networking = {
     firewall.enable = false;
+    nat = {
+      enable = true;
+      externalInterface = "eth0";
+      internalInterfaces = [ "mix" ];
+    };
     wireguard = {
       enable = true;
       interfaces.mix = {
         generatePrivateKeyFile = true;
-        ips = [ "10.100.0.1/24" ];
+        ips = [ "10.0.0.1/24" ];
         listenPort = 1096;
         peers = [
           {
-            allowedIPs = [ "10.100.0.2/32" ];
-            publicKey = vars.keys.wg;
+            allowedIPs = [ "10.0.0.2/32" ];
+            publicKey = vars.keys.wg0;
+          }
+          {
+            allowedIPs = [ "10.0.0.3/32 ];
+            publicKey = vars.keys.wg1;
           }
         ];
+        postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE";
+        postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE";
         privateKeyFile = "/root/wg/mix";
       };
     };
