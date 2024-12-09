@@ -49,8 +49,8 @@ in
             publicKey = vars.keys.wg1;
           }
         ];
-        postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE";
-        postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE";
+        postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE";
+        postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE";
         privateKeyFile = "/root/wg/mix";
       };
     };
