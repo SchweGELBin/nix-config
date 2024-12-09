@@ -37,7 +37,7 @@ in
         peers = [
           {
             allowedIPs = [ "10.100.0.2/32" ];
-            publicKey = vars.user.wg;
+            publicKey = vars.keys.wg;
           }
         ];
         privateKeyFile = "/root/wg/mix";
@@ -81,7 +81,7 @@ in
 
   users = {
     users.${vars.user.name} = {
-      openssh.authorizedKeys.keys = [ vars.user.ssh ];
+      openssh.authorizedKeys.keys = [ vars.keys.ssh ];
     };
   };
 
