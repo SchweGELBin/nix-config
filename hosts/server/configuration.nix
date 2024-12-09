@@ -45,7 +45,7 @@ in
             publicKey = vars.keys.wg0;
           }
           {
-            allowedIPs = [ "10.0.0.3/32 ];
+            allowedIPs = [ "10.0.0.3/32" ];
             publicKey = vars.keys.wg1;
           }
         ];
