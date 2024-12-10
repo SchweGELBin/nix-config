@@ -17,7 +17,7 @@
 
   theme = {
     cursor = {
-      size = 26;
+      size = 24;
     };
   };
 

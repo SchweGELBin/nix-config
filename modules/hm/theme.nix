@@ -13,16 +13,10 @@ in
       enable = true;
       accent = vars.cat.accent;
       flavor = vars.cat.flavor;
-      pointerCursor.enable = true;
     };
 
     gtk = lib.mkIf config.theme.gtk.enable {
       enable = true;
-      catppuccin.icon.enable = false;
-      cursorTheme = {
-        name = "catppuccin-${vars.cat.flavor}-${vars.cat.accent}-cursors";
-        size = vars.theme.cursor.size;
-      };
       iconTheme = {
         name = "Dracula";
         package = pkgs.dracula-icon-theme;
@@ -34,6 +28,8 @@ in
     };
 
     home.pointerCursor = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
       size = vars.theme.cursor.size;
     };
 
