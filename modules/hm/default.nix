@@ -19,10 +19,7 @@
 
   devshells = {
     enable = lib.mkDefault false;
-    android = {
-      enable = lib.mkDefault true;
-      flutter.enable = lib.mkDefault false;
-    };
+    android.enable = lib.mkDefault true;
     rust = {
       enable = lib.mkDefault true;
       dioxus.enable = lib.mkDefault false;

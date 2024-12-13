@@ -9,8 +9,6 @@ let
   android = cfg.android.enable;
   rust = cfg.rust.enable;
 
-  flutter = android && cfg.android.flutter.enable;
-
   dioxus = rust && cfg.rust.dioxus.enable;
   egui = rust && cfg.rust.egui.enable;
   slint = rust && cfg.rust.slint.enable;
@@ -19,13 +17,7 @@ in
 {
   config = lib.mkIf enable {
     home.file = {
-      "android/base/.envrc" = lib.mkIf android { text = "${nixp}/android.nix"; };
-      "android/flutter/.envrc" = lib.mkIf flutter {
-        text = ''
-          ${nixp}/android.nix
-          ${nixp}/flutter.nix
-        '';
-      };
+      "android/.envrc" = lib.mkIf android { text = "${nixp}/android.nix"; };
       "rust/cli/.envrc" = lib.mkIf rust { text = "${nixp}/rust.nix"; };
       "rust/dioxus/.envrc" = lib.mkIf dioxus {
         text = ''
@@ -60,10 +52,7 @@ in
   options = {
     devshells = {
       enable = lib.mkEnableOption "Enable Devshells";
-      android = {
-        enable = lib.mkEnableOption "Enable Android Devshell";
-        flutter.enable = lib.mkEnableOption "Enable Android flutter Devshell";
-      };
+      android.enable = lib.mkEnableOption "Enable Android Devshell";
       rust = {
         enable = lib.mkEnableOption "Enable Rust Devshell";
         dioxus.enable = lib.mkEnableOption "Enable Rust dioxus Devshell";
