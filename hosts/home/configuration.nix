@@ -62,19 +62,7 @@ in
   };
 
   networking = {
-    defaultGateway = "192.168.0.1";
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-    };
-    interfaces.eth0.ipv4.addresses = [
-      {
-        address = "192.168.0.123";
-        prefixLength = 24;
-      }
-    ];
-    nameservers = [ "1.1.1.1" ];
+    firewall.enable = true;
   };
 
   nix = {
