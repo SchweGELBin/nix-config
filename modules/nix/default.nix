@@ -80,6 +80,14 @@ in
   networking = {
     hostName = "nix";
     networkmanager.enable = true;
+    stevenblack = {
+      enable = true;
+      block = [
+        "fakenews"
+        "gambling"
+        "porn"
+      ];
+    };
   };
 
   nix = {
