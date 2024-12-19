@@ -20,6 +20,7 @@ in
 
   home.packages = with pkgs; [
     nixfmt-rfc-style
+    wireguard-tools
   ];
 
   programs = {
