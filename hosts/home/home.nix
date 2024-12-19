@@ -20,6 +20,7 @@ in
 
   home.packages = with pkgs; [
     android-studio
+    apksigner
     audacity
     bash-language-server
     bibata-cursors
