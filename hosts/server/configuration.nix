@@ -48,6 +48,10 @@ in
             allowedIPs = [ "10.0.0.3/32" ];
             publicKey = vars.keys.wg1;
           }
+          {
+            allowedIPs = [ "10.0.0.4/32" ];
+            publicKey = vars.keys.wg2;
+          }
         ];
         postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE";
         postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE";

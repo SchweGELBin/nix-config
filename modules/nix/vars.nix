@@ -13,6 +13,7 @@
     ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMtipw/kY5vjH1jeuXWXbmiAxPSSxpqjFx78AlVZ3/Tn";
     wg0 = "DuwZGh9pQ0ES/H/U8BGwTWDEE8hrI/gKuM3cjH6y7T8=";
     wg1 = "Lft8o+wiz7ECT/3sNUX/fNbU2sVdowQEr9mgSJnHghA=";
+    wg2 = "i08NC8TyYYNSiFC8v3aeBKs/joVQ5nZnyBSSdYNZqnY=";
   };
 
   theme = {
