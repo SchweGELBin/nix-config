@@ -78,7 +78,6 @@ in
   };
 
   networking = {
-    defaultGateway = "192.168.0.1";
     hostName = "nix";
     interfaces.eth0.ipv4.addresses = [
       {
