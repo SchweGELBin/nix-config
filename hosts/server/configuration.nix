@@ -138,6 +138,22 @@ in
             };
           };
         };
+        dcbot = {
+          settings = {
+            services.redbot.service = {
+              container_name = "redbot";
+              image = "ghcr.io/phasecorex/red-discordbot:full";
+              restart = "unless-stopped";
+              volumes = [ "redbot:/var/lib/data" ];
+              environment = [
+                "TOKEN=token"
+                "PREFIX=."
+                "TZ=Europe/Berlin"
+                "PUID=1000"
+              ];
+            };
+          };
+        };
       };
     };
   };
