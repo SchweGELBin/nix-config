@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   ...
@@ -14,6 +15,7 @@ in
     ./networking.nix
     ../../modules/nix/default.nix
     inputs.arion.nixosModules.arion
+    inputs.sops-nix.nixosModules.sops
   ];
 
   boot = {
@@ -36,7 +38,6 @@ in
     wireguard = {
       enable = true;
       interfaces.mix = {
-        generatePrivateKeyFile = true;
         ips = [ "10.0.0.1/24" ];
         listenPort = 1096;
         peers = [
@@ -61,7 +62,7 @@ in
           ${pkgs.iptables}/bin/iptables -D FORWARD -i mix -j ACCEPT
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.1/24 -o eth0 -j MASQUERADE
         '';
-        privateKeyFile = "/root/wg/mix";
+        privateKeyFile = config.sops.secrets.wireguard.path;
       };
     };
   };
@@ -103,6 +104,14 @@ in
         default = true;
         root = "/var/www/mix";
       };
+    };
+  };
+
+  sops = {
+    defaultSopsFile = ../../secrets/mix.yaml;
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    secrets = {
+      wireguard = { };
     };
   };
 

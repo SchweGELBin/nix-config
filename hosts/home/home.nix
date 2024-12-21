@@ -65,6 +65,7 @@ in
     prismlauncher
     pulseaudio
     slurp
+    sops
     taplo
     toilet
     unzip
