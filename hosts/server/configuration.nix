@@ -112,6 +112,7 @@ in
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
       wireguard = { };
+      dcbot = { };
     };
   };
 
@@ -127,7 +128,7 @@ in
       projects = {
         smoo = {
           settings = {
-            services.server.service = {
+            services.smoo.service = {
               image = "ghcr.io/sanae6/smo-online-server";
               ports = [ "1027:1027" ];
               restart = "unless-stopped";
@@ -140,18 +141,20 @@ in
         };
         dcbot = {
           settings = {
-            services.redbot.service = {
-              container_name = "redbot";
+            services.dcbot.service = {
               image = "ghcr.io/phasecorex/red-discordbot:full";
               restart = "unless-stopped";
-              volumes = [ "redbot:/var/lib/data" ];
-              environment = [
-                "TOKEN=token"
-                "PREFIX=."
-                "TZ=Europe/Berlin"
-                "PUID=1000"
-              ];
+              volumes = [ "data:/var/lib/dcbot" ];
+              environment = {
+                TOKEN = config.sops.secrets.dcbot;
+                PREFIX = ".";
+                TZ = "Europe/Berlin";
+                PUID = "1000";
+              };
             };
+          };
+          docker-compose.volumes = {
+            data = { };
           };
         };
       };
