@@ -146,15 +146,15 @@ in
               restart = "unless-stopped";
               volumes = [ "data:/var/lib/dcbot" ];
               environment = {
-                TOKEN = config.sops.secrets.dcbot;
+                TOKEN = config.sops.secrets.dcbot.path;
                 PREFIX = ".";
                 TZ = "Europe/Berlin";
                 PUID = "1000";
               };
             };
-          };
-          docker-compose.volumes = {
-            data = { };
+            docker-compose.volumes = {
+              data = { };
+            };
           };
         };
       };
