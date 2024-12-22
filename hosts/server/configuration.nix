@@ -14,7 +14,6 @@ in
     ./hardware-configuration.nix
     ./networking.nix
     ../../modules/nix/default.nix
-    inputs.arion.nixosModules.arion
     inputs.sops-nix.nixosModules.sops
   ];
 
@@ -67,6 +66,10 @@ in
     };
   };
 
+  programs = {
+    nix-ld.enable = true;
+  };
+
   services = {
     dnsmasq = {
       enable = true;
@@ -112,51 +115,44 @@ in
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
       wireguard = { };
-      dcbot = { };
+      dcbot = {
+        owner = "smoo";
+      };
     };
   };
 
   users = {
-    users.${vars.user.name} = {
-      openssh.authorizedKeys.keys = [ vars.keys.ssh ];
+    groups = {
+      systemd = { };
+    };
+    users = {
+      ${vars.user.name} = {
+        openssh.authorizedKeys.keys = [ vars.keys.ssh ];
+      };
+      smoo = {
+        createHome = true;
+        group = "systemd";
+        home = "/var/lib/smoo";
+        isSystemUser = true;
+      };
     };
   };
 
-  virtualisation = {
-    arion = {
-      backend = "docker";
-      projects = {
-        smoo = {
-          settings = {
-            services.smoo.service = {
-              image = "ghcr.io/sanae6/smo-online-server";
-              ports = [ "1027:1027" ];
-              restart = "unless-stopped";
-              volumes = [ "data:/var/lib/smoo" ];
-            };
-            docker-compose.volumes = {
-              data = { };
-            };
-          };
-        };
-        dcbot = {
-          settings = {
-            services.dcbot.service = {
-              image = "ghcr.io/phasecorex/red-discordbot:full";
-              restart = "unless-stopped";
-              volumes = [ "data:/var/lib/dcbot" ];
-              environment = {
-                TOKEN = config.sops.secrets.dcbot.path;
-                PREFIX = ".";
-                TZ = "Europe/Berlin";
-                PUID = "1000";
-              };
-            };
-            docker-compose.volumes = {
-              data = { };
-            };
-          };
-        };
+  systemd.services = {
+    smoo = {
+      enable = true;
+      preStart = ''
+        if [[ ! -d SmoOnlineServer ]]; then
+          ${pkgs.git}/bin/git clone https://github.com/Sanae6/SmoOnlineServer.git
+          sed -i -e "s/net6.0/net8.0/g" ./SmoOnlineServer/Server/Server.csproj
+        fi
+      '';
+      script = ''
+        ${pkgs.dotnet-sdk_8}/bin/dotnet run --project ./SmoOnlineServer/Server/Server.csproj -c Release
+      '';
+      serviceConfig = {
+        User = "smoo";
+        WorkingDirectory = "/var/lib/smoo";
       };
     };
   };
