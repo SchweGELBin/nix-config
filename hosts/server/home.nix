@@ -29,6 +29,7 @@ in
     btop.enable = true;
     git.enable = true;
     home-manager.enable = true;
+    htop.enable = true;
     zsh.enable = true;
   };
 }
