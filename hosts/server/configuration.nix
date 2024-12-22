@@ -61,7 +61,7 @@ in
           ${pkgs.iptables}/bin/iptables -D FORWARD -i mix -j ACCEPT
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.1/24 -o eth0 -j MASQUERADE
         '';
-        privateKeyFile = config.sops.secrets.wireguard.path;
+        privateKeyFile = config.sops.secrets.wg.path;
       };
     };
   };
@@ -114,10 +114,10 @@ in
     defaultSopsFile = ../../secrets/mix.yaml;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
-      wireguard = { };
-      dcbot = {
-        owner = "smoo";
-      };
+      dcbot.owner = "smoo";
+      dcch1.owner = "smoo";
+      dcch2.owner = "smoo";
+      wg = { };
     };
   };
 
@@ -142,9 +142,15 @@ in
     smoo = {
       enable = true;
       preStart = ''
+        if [[ -f settings.json ]]; then
+          rm settings.json
+        fi
         if [[ ! -d SmoOnlineServer ]]; then
           ${pkgs.git}/bin/git clone https://github.com/Sanae6/SmoOnlineServer.git
           sed -i -e "s/net6.0/net8.0/g" ./SmoOnlineServer/Server/Server.csproj
+          sed -i -e "s/Token { get; set; }/Token { get; set; } = \"$(cat ${config.sops.secrets.dcbot.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
+          sed -i -e "s/LogChannel { get; set; }/LogChannel { get; set; } = \"$(cat ${config.sops.secrets.dcch1.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
+          sed -i -e "s/CommandChannel { get; set; }/CommandChannel { get; set; } = \"$(cat ${config.sops.secrets.dcch2.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
         fi
       '';
       script = ''

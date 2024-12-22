@@ -71,6 +71,7 @@ in
     unzip
     wineWowPackages.stagingFull
     wl-clipboard
+    zip
   ];
 
   programs = {
