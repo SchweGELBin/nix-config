@@ -161,6 +161,7 @@ in
         User = "smoo";
         WorkingDirectory = "/var/lib/smoo";
       };
+      wantedBy = [ "multi-user.target" ];
     };
   };
 
