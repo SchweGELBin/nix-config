@@ -148,7 +148,7 @@ in
         if [[ ! -d SmoOnlineServer ]]; then
           ${pkgs.git}/bin/git clone https://github.com/Sanae6/SmoOnlineServer.git
           sed -i -e "s/net6.0/net8.0/g" ./SmoOnlineServer/Server/Server.csproj
-          sed -i -e "s/Prefix { get; set; } = "$";/Prefix { get; set; } = ".";/g" ./SmoOnlineServer/Server/Settings.cs
+          sed -i -e "s/Prefix { get; set; } = \"\$\";/Prefix { get; set; } = \".\";/g" ./SmoOnlineServer/Server/Settings.cs
           sed -i -e "s/Token { get; set; }/Token { get; set; } = \"$(cat ${config.sops.secrets.dcbot.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
           sed -i -e "s/LogChannel { get; set; }/LogChannel { get; set; } = \"$(cat ${config.sops.secrets.dcch1.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
           sed -i -e "s/CommandChannel { get; set; }/CommandChannel { get; set; } = \"$(cat ${config.sops.secrets.dcch2.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
