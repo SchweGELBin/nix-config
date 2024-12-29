@@ -142,20 +142,18 @@ in
     smoo = {
       enable = true;
       preStart = ''
-        if [[ -f settings.json ]]; then
-          rm settings.json
-        fi
-        if [[ ! -d SmoOnlineServer ]]; then
-          ${pkgs.git}/bin/git clone https://github.com/Sanae6/SmoOnlineServer.git
-          sed -i -e "s/net6.0/net8.0/g" ./SmoOnlineServer/Server/Server.csproj
-          sed -i -e "s/Prefix { get; set; } = \"\$\";/Prefix { get; set; } = \".\";/g" ./SmoOnlineServer/Server/Settings.cs
-          sed -i -e "s/Token { get; set; }/Token { get; set; } = \"$(cat ${config.sops.secrets.dcbot.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
-          sed -i -e "s/LogChannel { get; set; }/LogChannel { get; set; } = \"$(cat ${config.sops.secrets.dcch1.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
-          sed -i -e "s/CommandChannel { get; set; }/CommandChannel { get; set; } = \"$(cat ${config.sops.secrets.dcch2.path})\";/g" ./SmoOnlineServer/Server/Settings.cs
+        repo="SMOOS-CS"
+        if [[ ! -d ./$repo ]]; then
+          ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git -b main
+          cp ./$repo/settings.json .
+          sed -i -e "s/\"Token\": null/\"Token\": \"$(cat ${config.sops.secrets.dcbot.path})\"/g" ./settings.json
+          sed -i -e "s/\"Prefix\": \"\$\"/\"Prefix\": \".\"/g" ./settings.json
+          sed -i -e "s/\"CommandChannel\": null/\"CommandChannel\": \"$(cat ${config.sops.secrets.dcch2.path})\"/g" ./settings.json
+          sed -i -e "s/\"LogChannel\": null/\"LogChannel\": \"$(cat ${config.sops.secrets.dcch1.path})\"/g" ./settings.json
         fi
       '';
       script = ''
-        ${pkgs.dotnet-sdk_8}/bin/dotnet run --project ./SmoOnlineServer/Server/Server.csproj -c Release
+        ${pkgs.dotnet-sdk_8}/bin/dotnet run --project ./SMOOS-CS/Server/Server.csproj -c Release
       '';
       serviceConfig = {
         User = "smoo";
