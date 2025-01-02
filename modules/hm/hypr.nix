@@ -324,8 +324,9 @@ in
 
         master = {
           allow_small_split = true;
-          new_on_top = true;
-          new_status = "master";
+          new_status = "inherit";
+          orientation = "center";
+          slave_count_for_center_master = 3;
         };
 
         misc = {
