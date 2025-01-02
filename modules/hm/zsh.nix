@@ -24,6 +24,7 @@ in
       # End of Custom variables
 
       # Custom aliases
+      alias icat="kitten icat"
       alias ff="fastfetch"
       alias prefetch="nix-prefetch-url --unpack"
       alias search-file="find . -name"

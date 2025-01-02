@@ -95,6 +95,7 @@ in
   devshells.enable = true;
   direnv.enable = true;
   firefox.enable = true;
+  gtk.enable = true;
   hypr.enable = true;
   kitty.enable = true;
   mako.enable = true;

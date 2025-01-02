@@ -19,6 +19,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    file
     nixfmt-rfc-style
     wireguard-tools
   ];

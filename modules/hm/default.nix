@@ -11,6 +11,7 @@
     ./mpv.nix
     ./music.nix
     ./scripts
+    ./tealdeer.nix
     ./theme.nix
     ./vesktop.nix
     ./waybar.nix
@@ -38,6 +39,7 @@
   mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault true;
   scripts.enable = lib.mkDefault true;
+  tealdeer.enable = lib.mkDefault true;
   theme = {
     enable = lib.mkDefault true;
     gtk.enable = lib.mkDefault false;
