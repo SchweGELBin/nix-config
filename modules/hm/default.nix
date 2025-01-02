@@ -10,6 +10,7 @@
     ./mako.nix
     ./mpv.nix
     ./music.nix
+    ./packages
     ./scripts
     ./tealdeer.nix
     ./theme.nix
