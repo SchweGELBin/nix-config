@@ -145,7 +145,8 @@ in
         repo="SMOOS-CS"
         if [[ -d ./$repo ]]; then
           cd ./$repo
-          git fetch && git pull
+          ${pkgs.git}/bin/git fetch
+          ${pkgs.git}/bin/git pull
         else
           ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
           cp ./$repo/settings.json .
