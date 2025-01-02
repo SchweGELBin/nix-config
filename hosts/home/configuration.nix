@@ -93,7 +93,6 @@ in
       enable = true;
       gamescopeSession.enable = true;
     };
-    weylus.enable = true;
   };
 
   qt = {
