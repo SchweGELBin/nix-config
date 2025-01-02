@@ -96,6 +96,7 @@ in
   direnv.enable = true;
   firefox.enable = true;
   gtk.enable = true;
+  hm-pkgs.home.enable = true;
   hypr.enable = true;
   kitty.enable = true;
   mako.enable = true;

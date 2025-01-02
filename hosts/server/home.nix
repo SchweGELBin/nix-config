@@ -33,4 +33,7 @@ in
     htop.enable = true;
     zsh.enable = true;
   };
+
+  # Custom modules
+  hm-pkgs.server.enable = true;
 }

@@ -137,4 +137,7 @@ in
   xdg = {
     portal.enable = true;
   };
+
+  # Custom modules
+  sys-pkgs.home.enable = true;
 }

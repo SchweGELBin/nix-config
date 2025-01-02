@@ -170,4 +170,7 @@ in
   zramSwap = {
     enable = true;
   };
+
+  # Custom modules
+  sys-pkgs.server.enable = true;
 }
