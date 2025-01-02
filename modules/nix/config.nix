@@ -47,12 +47,6 @@ in
       NIXOS_INSTALL_BOOTLOADER = 1;
       NIXOS_OZONE_WL = 1;
     };
-    systemPackages = with pkgs; [
-      cachix
-      cmake
-      gcc
-      wget
-    ];
   };
 
   home-manager = {

@@ -22,6 +22,7 @@
     taplo
     toilet
     unzip
+    wget
     zip
   ];
 
