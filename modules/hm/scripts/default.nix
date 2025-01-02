@@ -12,9 +12,8 @@ in
     home.packages = [
       (pkgs.writeShellScriptBin "rebuild" ''
         cd ${vars.user.config}
-        git add ${vars.user.config}
-        nixfmt ${vars.user.config}
-        nixos-rebuild switch --flake ${vars.user.config}/#home
+        git add .
+        nixos-rebuild switch --flake ./#home
       '')
 
       (pkgs.writeShellScriptBin "update" ''
@@ -24,8 +23,8 @@ in
 
       (pkgs.writeShellScriptBin "server-rebuild" ''
         cd ${vars.user.config}
-        git add ${vars.user.config}
-        nixos-rebuild switch --flake ${vars.user.config}/#server
+        git add .
+        nixos-rebuild switch --flake ./#server
       '')
 
       (pkgs.writeShellScriptBin "server-reset" ''
