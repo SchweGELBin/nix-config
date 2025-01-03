@@ -1,11 +1,6 @@
 { config, lib, ... }:
 {
   config = lib.mkIf config.kitty.enable {
-    home.file = {
-      ".config/kitty/cavabg.sh".text = "sleep 1 && cava";
-      ".config/kitty/kittybg.conf".text = "background_opacity 0";
-    };
-
     programs.kitty = {
       enable = true;
       settings = {

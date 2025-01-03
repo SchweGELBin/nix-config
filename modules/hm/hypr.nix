@@ -255,7 +255,6 @@ in
         ];
 
         binddm = [
-          # Window Resize / Move
           "$mainMod, mouse:272, Move Window, movewindow"
           "$mainMod, mouse:273, Resize Window, resizewindow"
         ];
@@ -266,12 +265,7 @@ in
 
         decoration = {
           active_opacity = 0.75;
-          blur = {
-            enabled = true;
-            passes = 1;
-            size = 3;
-            vibrancy = 0.17;
-          };
+          blur.enabled = false;
           inactive_opacity = 0.9;
           rounding = 12;
           shadow = {
@@ -288,9 +282,9 @@ in
         };
 
         exec-once = [
+          "alacritty --class 'cava' --config-file '${vars.user.home}/.config/alacritty/cava.toml' -e 'cava'"
           "hypridle"
           "hyprpaper"
-          #"kitty -c '~/.config/kitty/kittybg.conf' --class='kitty-bg' '${vars.user.home}/.config/kitty/cavabg.sh'"
           "openrgb -c $accentAlpha"
           "waybar"
         ];
@@ -348,7 +342,7 @@ in
             workspace_method = "first 1";
           };
           hyprtrails.color = "$accent";
-          hyprwinwrap.class = "kitty-bg";
+          hyprwinwrap.class = "cava";
         };
 
         windowrulev2 = [

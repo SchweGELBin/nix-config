@@ -12,6 +12,7 @@ in
     catppuccin = {
       enable = true;
       accent = vars.cat.accent;
+      cava.transparent = true;
       flavor = vars.cat.flavor;
     };
 

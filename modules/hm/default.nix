@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./alacritty.nix
     ./direnv.nix
     ./fastfetch.nix
     ./firefox.nix
@@ -19,6 +20,7 @@
     ./zsh.nix
   ];
 
+  alacritty.enable = lib.mkDefault false;
   devshells = {
     enable = lib.mkDefault false;
     android.enable = lib.mkDefault true;
