@@ -268,12 +268,7 @@ in
           blur.enabled = false;
           inactive_opacity = 0.9;
           rounding = 12;
-          shadow = {
-            enabled = true;
-            color = "$surface0";
-            range = 4;
-            render_power = 3;
-          };
+          shadow.color = "$surface0";
         };
 
         dwindle = {
@@ -292,28 +287,17 @@ in
         general = {
           "col.active_border" = "$accent $alt 45deg";
           "col.inactive_border" = "$alt";
-          allow_tearing = false;
           border_size = 2;
           gaps_in = 4;
           gaps_out = 12;
           layout = "master";
-          resize_on_border = false;
-        };
-
-        gestures = {
-          workspace_swipe = false;
         };
 
         input = {
-          follow_mouse = 1;
-          force_no_accel = 1;
+          force_no_accel = true;
           kb_layout = "us,us";
           kb_options = "caps:backspace, grp:win_space_toggle";
           kb_variant = ", workman";
-          sensitivity = 0;
-          touchpad = {
-            natural_scroll = false;
-          };
         };
 
         master = {
@@ -323,15 +307,10 @@ in
           slave_count_for_center_master = 3;
         };
 
-        misc = {
-          disable_hyprland_logo = false;
-          force_default_wallpaper = -1;
-        };
-
         monitor = [
           ",preferred,auto,1" # Default
           "Unknown-1,disable" # Ghost Monitor
-          "DP-2,2560x1440@180,0x0,1,bitdepth,8,vrr,1,transform,0" # Main
+          "DP-2,2560x1440@180,0x0,1,bitdepth,10,vrr,1,transform,0" # Main
         ];
 
         plugin = {
