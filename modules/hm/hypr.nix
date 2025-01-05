@@ -265,7 +265,7 @@ in
 
         decoration = {
           active_opacity = 0.75;
-          blur.enabled = false;
+          blur.new_optimizations = false;
           inactive_opacity = 0.9;
           rounding = 12;
           shadow.color = "$surface0";

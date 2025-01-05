@@ -139,10 +139,15 @@ in
             margin: 0 2px;
             padding: 2px 12px;
         }
-        #waybar.empty #window {
+        window#waybar.empty #window {
             background: none;
             border: none;
         }
+        window#waybar.cava {
+            background: none;
+            border: none;
+        }
+
 
         /* Workspaces */
         #workspaces button {

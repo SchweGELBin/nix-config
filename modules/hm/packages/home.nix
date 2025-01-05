@@ -30,7 +30,6 @@
       mako
       minetestclient
       nemo
-      papermc
       pavucontrol
       playerctl
       prismlauncher

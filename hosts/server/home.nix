@@ -18,22 +18,6 @@ in
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-  home.packages = with pkgs; [
-    file
-    nixfmt-rfc-style
-    wireguard-tools
-  ];
-
-  programs = {
-    bat.enable = true;
-    bash.enable = true;
-    btop.enable = true;
-    git.enable = true;
-    home-manager.enable = true;
-    htop.enable = true;
-    zsh.enable = true;
-  };
-
   # Custom modules
   hm-pkgs.server.enable = true;
 }

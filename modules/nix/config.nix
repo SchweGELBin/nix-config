@@ -32,6 +32,7 @@ in
   catppuccin = {
     enable = true;
     accent = vars.cat.accent;
+    cache.enable = true;
     flavor = vars.cat.flavor;
   };
 
