@@ -4,7 +4,11 @@
     programs.cava = {
       enable = true;
       settings = {
-        smoothing.noise_reduction = 100;
+        smoothing = {
+          monstercat = true;
+          noise_reduction = 90;
+          waves = true;
+        };
       };
     };
   };

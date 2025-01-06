@@ -95,12 +95,6 @@ in
     };
   };
 
-  qt = {
-    enable = false;
-    platformTheme = "kde";
-    style = "breeze";
-  };
-
   services = {
     greetd = {
       enable = true;
