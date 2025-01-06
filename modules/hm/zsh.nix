@@ -12,7 +12,7 @@
           "sudo"
           "tldr"
         ];
-        theme = "simple";
+        theme = "ys";
       };
       sessionVariables = {
         EDITOR = "hx";
