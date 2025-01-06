@@ -124,13 +124,7 @@ in
       enable = true;
       package = pkgs.jdk;
     };
-    zsh = {
-      enable = true;
-      ohMyZsh = {
-        enable = true;
-        theme = "simple";
-      };
-    };
+    zsh.enable = true;
   };
 
   security = {

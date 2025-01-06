@@ -26,7 +26,7 @@ in
           modules-left = [
             "custom/logout"
             "hyprland/workspaces"
-            "custom/mpv"
+            "tray"
           ];
           modules-center = [ "hyprland/window" ];
           modules-right = [
@@ -57,6 +57,11 @@ in
 
           "hyprland/window" = {
             max-length = 200;
+            rewrite = {
+              "" = " I use Nix btw";
+              "(.*) - Mozilla Firefox" = "󰈹 $1";
+              "~" = "";
+            };
             separate-outputs = true;
           };
 
@@ -132,7 +137,7 @@ in
         }
 
         /* Modules */
-        #clock, #cpu, #custom-logout, #custom-mpv, #memory, #pulseaudio, #temperature, #window, #workspaces {
+        #clock, #cpu, #custom-logout, #custom-mpv, #memory, #pulseaudio, #temperature, #tray, #window, #workspaces {
             background: alpha(@base, 0.7);
             border: 2px solid @${vars.cat.accent};
             border-radius: 40px 25px;
@@ -143,11 +148,6 @@ in
             background: none;
             border: none;
         }
-        window#waybar.cava {
-            background: none;
-            border: none;
-        }
-
 
         /* Workspaces */
         #workspaces button {

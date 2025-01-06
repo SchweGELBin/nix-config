@@ -1,39 +1,35 @@
 { config, lib, ... }:
-let
-  vars = import ../nix/vars.nix;
-in
 {
   config = lib.mkIf config.zsh.enable {
-    home.file.".zshrc".text = ''
-      # Lines configured by zsh-newuser-install
-      HISTFILE=~/.histfile
-      HISTSIZE=1000
-      SAVEHIST=1000
-      bindkey -v
-      # End of lines configured by zsh-newuser-install
-      # The following lines were added by compinstall
-      zstyle :compinstall filename '${vars.user.home}/.zshrc'
-
-      autoload -Uz compinit
-      compinit
-      # End of lines added by compinstall
-
-      # Custom variables
-      export EDITOR="hx"
-      export SUDO_EDITOR="hx"
-      # End of Custom variables
-
-      # Custom aliases
-      alias icat="kitten icat"
-      alias ff="fastfetch"
-      alias prefetch="nix-prefetch-url --unpack"
-      alias search-file="find . -name"
-      alias search-text="grep -Rnwe" 
-      alias svi="sudoedit"
-      alias vi="$EDITOR"
-      alias vps="kitten ssh"
-      # End of Custom aliases
-    '';
+    programs.zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "git"
+          "man"
+          "sudo"
+          "tldr"
+        ];
+        theme = "simple";
+      };
+      sessionVariables = {
+        EDITOR = "hx";
+        SUDO_EDITOR = "hx";
+      };
+      shellAliases = {
+        icat = "kitten icat";
+        ff = "fastfetch";
+        prefetch = "nix-prefetch-url --unpack";
+        search-file = "find . -name";
+        search-text = "grep -Rnwe";
+        svi = "sudoedit";
+        vi = "$EDITOR";
+        vps = "kitten ssh";
+      };
+      syntaxHighlighting.enable = true;
+    };
   };
 
   options = {

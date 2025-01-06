@@ -40,7 +40,6 @@
     ];
 
     programs = {
-      cava.enable = true;
       fuzzel.enable = true;
       imv.enable = true;
       jq.enable = true;

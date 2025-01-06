@@ -20,6 +20,7 @@ in
 
   # Custom modules
   alacritty.enable = true;
+  cava.enable = true;
   devshells.enable = true;
   direnv.enable = true;
   firefox.enable = true;

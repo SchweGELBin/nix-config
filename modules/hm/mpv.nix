@@ -8,7 +8,10 @@
   config = lib.mkIf config.mpv.enable {
     programs.mpv = {
       enable = true;
-      scripts = with pkgs; [ mpvScripts.mpris ];
+      scripts = with pkgs; [
+        mpvScripts.mpris
+        mpvScripts.sponsorblock-minimal
+      ];
     };
   };
 

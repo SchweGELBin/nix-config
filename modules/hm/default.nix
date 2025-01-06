@@ -2,6 +2,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./cava.nix
     ./direnv.nix
     ./fastfetch.nix
     ./firefox.nix
@@ -21,6 +22,7 @@
   ];
 
   alacritty.enable = lib.mkDefault false;
+  cava.enable = lib.mkDefault false;
   devshells = {
     enable = lib.mkDefault false;
     android.enable = lib.mkDefault true;
