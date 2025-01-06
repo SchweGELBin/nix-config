@@ -16,7 +16,6 @@ in
   config = lib.mkIf config.hypr.enable {
 
     home.file = {
-      ".config/hypr/binds.sh".source = ./scripts/binds.sh;
       "${logo}".source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
         hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
@@ -179,7 +178,7 @@ in
         };
 
         bindd = [
-          "$altMod  SHIFT ,  up        ,  Add window to master                          ,  layoutmsg             , addmaster"
+          "$altMod   SHIFT,  up        ,  Add window to master                          ,  layoutmsg             , addmaster"
           "$mainMod       ,  C         ,  Close active window                           ,  killactive            , "
           "$mainMod       ,  mouse_down,  Go to next workspace                          ,  workspace             , e+1"
           "$mainMod       ,  mouse_up  ,  Go to previous workspace                      ,  workspace             , e-1"
@@ -224,7 +223,7 @@ in
           "$mainMod       ,  M         ,  Play Music                                    ,  exec                  , music"
           "$altMod   SHIFT,  down      ,  Remove window from master                     ,  layoutmsg             , removemaster"
           "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill $bar && $bar"
-          "          SUPER,  ALT_L     ,  Show Keybinds                                 ,  exec                  , kitty \"${vars.user.home}/.config/hypr/binds.sh\""
+          "          SUPER,  ALT_L     ,  Show Keybinds                                 ,  exec                  , kitty --hold binds"
           "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
           "$altMod        ,  Tab       ,  Swap focused window with master or first child,  layoutmsg             , swapwithmaster"
           "$altMod        ,  up        ,  Swap focused window with next one             ,  layoutmsg             , swapnext"

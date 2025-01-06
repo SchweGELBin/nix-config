@@ -5,7 +5,7 @@
   ...
 }:
 let
-  vars = import ../../nix/vars.nix;
+  vars = import ../nix/vars.nix;
 in
 {
   config = lib.mkIf config.scripts.enable {
@@ -84,6 +84,12 @@ in
         esac
 
         notify-send "Screenshot taken"
+      '')
+
+      (pkgs.writeShellScriptBin "binds" ''
+        main=$(printf "%-8s" "$(cat .config/hypr/hyprland.conf | grep "\$mainMod=" | cut -c 10-)")
+        alt=$(printf "%-7s" "$(cat .config/hypr/hyprland.conf | grep "\$altMod=" | cut -c 9-)")
+        cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," | sed "s|\$mainMod|$main|g" | sed "s|\$altMod|$alt|g"
       '')
     ];
   };

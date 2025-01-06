@@ -13,7 +13,7 @@
     ./mpv.nix
     ./music.nix
     ./packages
-    ./scripts
+    ./scripts.nix
     ./tealdeer.nix
     ./theme.nix
     ./vesktop.nix
