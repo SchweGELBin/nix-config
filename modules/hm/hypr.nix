@@ -247,12 +247,12 @@ in
         ];
 
         binddl = [
+          "SHIFT,  XF86AudioPlay,     Kill MPV,        exec,  pkill -x mpv"
           "     ,  XF86AudioNext,     Media Next,      exec,  playerctl next"
           "     ,  XF86AudioPlay,     Media Play,      exec,  playerctl play-pause"
           "     ,  XF86AudioPrev,     Media Previous,  exec,  playerctl previous"
           "     ,  XF86AudioMute,     Mute Audio,      exec,  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           "     ,  XF86AudioMicMute,  Mute Mic,        exec,  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-          "SHIFT,  XF86AudioPlay,     Kill MPV,        exec,  pkill -x mpv"
         ];
 
         binddm = [
