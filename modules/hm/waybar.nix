@@ -60,6 +60,7 @@ in
             max-length = 200;
             rewrite = {
               "" = "  I use Nix btw";
+              "cava" = "  I use Nix btw";
               "(.*) — Mozilla Firefox" = "󰈹  $1";
               "(.*) - mpv" = "  $1";
               "(3) Discord | (.*)" = "󰙯  $1";
@@ -149,6 +150,7 @@ in
         window#waybar.empty #window {
             background: none;
             border: none;
+            color: transparent;
         }
 
         /* Workspaces */

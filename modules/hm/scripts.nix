@@ -34,8 +34,9 @@ in
       '')
 
       (pkgs.writeShellScriptBin "music" ''
-        if [[ ! -z $(pgrep music-instance) ]] || [[ ! -z $(pgrep mpv) ]]; then
-          pkill music-instance && pkill mpv
+        pkill -x mpv
+        if [[ ! -z $(pgrep music-instance) ]]; then
+          pkill music-instance
         else
           music-instance
         fi
@@ -90,6 +91,19 @@ in
         main=$(printf "%-8s" "$(cat .config/hypr/hyprland.conf | grep "\$mainMod=" | cut -c 10-)")
         alt=$(printf "%-7s" "$(cat .config/hypr/hyprland.conf | grep "\$altMod=" | cut -c 9-)")
         cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," | sed "s|\$mainMod|$main|g" | sed "s|\$altMod|$alt|g"
+      '')
+
+      (pkgs.writeShellScriptBin "cavabg" ''
+        pkill -x cava
+        if [[ ! -z $(pgrep cavabg-instance) ]]; then
+          pkill cavabg-instance
+        else
+          cavabg-instance
+        fi
+      '')
+
+      (pkgs.writeShellScriptBin "cavabg-instance" ''
+        alacritty --class 'hyprbg' --config-file '${vars.user.home}/.config/alacritty/cava.toml' -e 'cava'
       '')
     ];
   };

@@ -231,6 +231,7 @@ in
           "               ,  Print     ,  Take Screenshot of current Display            ,  exec                  , screenshot d"
           "$mainMod       ,  Print     ,  Take Screenshot of focused Window             ,  exec                  , screenshot w"
           "          SHIFT,  Print     ,  Take Screenshot of selected Region            ,  exec                  , screenshot r"
+          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , cavabg t"
           "$mainMod       ,  G         ,  Toggle floating window                        ,  togglefloating        , "
           "$mainMod       ,  F         ,  Toggle fullscreen                             ,  fullscreen            , "
           "$mainMod       ,  O         ,  Toggle h/w window split                       ,  togglesplit           , "
@@ -276,7 +277,7 @@ in
         };
 
         exec-once = [
-          "alacritty --class 'cava' --config-file '${vars.user.home}/.config/alacritty/cava.toml' -e 'cava'"
+          "cavabg"
           "hypridle"
           "hyprpaper"
           "openrgb -c $accentAlpha"
@@ -320,7 +321,7 @@ in
             workspace_method = "first 1";
           };
           hyprtrails.color = "$accent";
-          hyprwinwrap.class = "cava";
+          hyprwinwrap.class = "hyprbg";
         };
 
         windowrulev2 = [

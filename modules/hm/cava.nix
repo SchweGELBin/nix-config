@@ -10,6 +10,9 @@
       enable = true;
       package = (pkgs.cava.override { withSDL2 = true; });
       settings = {
+        general = {
+          sensitivity = 60;
+        };
         output = {
           show_idle_bar_heads = 0;
         };
