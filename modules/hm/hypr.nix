@@ -222,7 +222,7 @@ in
           "$mainMod  SHIFT,  9         ,  Move focused window and go to workspace 9     ,  movetoworkspace       , 9"
           "$mainMod       ,  M         ,  Play Music                                    ,  exec                  , music"
           "$altMod   SHIFT,  down      ,  Remove window from master                     ,  layoutmsg             , removemaster"
-          "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill $bar && $bar"
+          "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill -x $bar && $bar"
           "          SUPER,  ALT_L     ,  Show Keybinds                                 ,  exec                  , kitty --hold binds"
           "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
           "$altMod        ,  Tab       ,  Swap focused window with master or first child,  layoutmsg             , swapwithmaster"
@@ -247,11 +247,12 @@ in
         ];
 
         binddl = [
-          ", XF86AudioNext,    Media Next,     exec, playerctl next"
-          ", XF86AudioPlay,    Media Play,     exec, playerctl play-pause"
-          ", XF86AudioPrev,    Media Previous, exec, playerctl previous"
-          ", XF86AudioMute,    Mute Audio,     exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ", XF86AudioMicMute, Mute Mic,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          "     ,  XF86AudioNext,     Media Next,      exec,  playerctl next"
+          "     ,  XF86AudioPlay,     Media Play,      exec,  playerctl play-pause"
+          "     ,  XF86AudioPrev,     Media Previous,  exec,  playerctl previous"
+          "     ,  XF86AudioMute,     Mute Audio,      exec,  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          "     ,  XF86AudioMicMute,  Mute Mic,        exec,  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          "SHIFT,  XF86AudioPlay,     Kill MPV,        exec,  pkill -x mpv"
         ];
 
         binddm = [

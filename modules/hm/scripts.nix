@@ -34,9 +34,8 @@ in
       '')
 
       (pkgs.writeShellScriptBin "music" ''
-        pkill -x mpv
-        if [[ ! -z $(pgrep music-instance) ]]; then
-          pkill music-instance
+        if [[ ! -z $(pgrep music-instance) || ! -z $(pgrep mpv) ]]; then
+          pkill music-instance && pkill mpv
         else
           music-instance
         fi
@@ -95,7 +94,7 @@ in
 
       (pkgs.writeShellScriptBin "cavabg" ''
         pkill -x cava
-        if [[ ! -z $(pgrep cavabg-instance) ]]; then
+        if [[ $1 = "t" && ! -z $(pgrep cavabg-instance) ]]; then
           pkill cavabg-instance
         else
           cavabg-instance
