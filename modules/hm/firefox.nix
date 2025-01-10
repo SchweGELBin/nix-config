@@ -195,6 +195,7 @@ in
           "browser.tabs.searchclipboardfor.middleclick" = false;
           "browser.uitour.enabled" = false;
           "browser.urlbar.addons.featureGate" = false;
+          "browser.urlbar.fakespot.featureGate" = false;
           "browser.urlbar.mdn.featureGate" = false;
           "browser.urlbar.pocket.featureGate" = false;
           "browser.urlbar.quicksuggest.enabled" = false;
@@ -208,6 +209,7 @@ in
           "browser.urlbar.yelp.featureGate" = false;
           "browser.xul.error_pages.expert_bad_cert" = true;
           "captivedetect.canonicalURL" = "";
+          "clipboard.autocopy" = false;
           "datareporting.healthreport.uploadEnabled" = false;
           "datareporting.policy.dataSubmissionEnabled" = false;
           "devtools.debugger.remote-enabled" = false;
@@ -230,6 +232,7 @@ in
           "media.memory_cache_max_size" = 65536;
           "media.peerconnection.ice.default_address_only" = true;
           "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
+          "middlemouse.paste" = false;
           "network.auth.subresource-http-auth-allow" = 1;
           "network.captive-portal-service.enabled" = false;
           "network.connectivity-service.enabled" = false;
@@ -308,6 +311,7 @@ in
           "toolkit.winRegisterApplicationRestart" = false;
           "webchannel.allowObject.urlWhitelist" = "";
           "widget.non-native-theme.enabled" = true;
+          "widget.non-native-theme.use-theme-accent" = false;
         };
         userChrome = "";
         userContent = "";
