@@ -260,8 +260,8 @@ in
           "$mainMod, mouse:273, Resize Window, resizewindow"
         ];
 
-        cursor = {
-          no_hardware_cursors = true;
+        debug = {
+          error_position = 1;
         };
 
         decoration = {
@@ -275,6 +275,11 @@ in
         dwindle = {
           preserve_split = true;
           pseudotile = true;
+        };
+
+        ecosystem = {
+          no_donation_nag = true;
+          no_update_news = true;
         };
 
         exec-once = [
@@ -306,6 +311,11 @@ in
           new_status = "inherit";
           orientation = "center";
           slave_count_for_center_master = 3;
+        };
+
+        misc = {
+          middle_click_paste = false;
+          vrr = 1;
         };
 
         monitor = [
