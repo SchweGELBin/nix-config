@@ -35,11 +35,7 @@
       prismlauncher
       pulseaudio
       slurp
-      (wine.override {
-        waylandSupport = true;
-        wineBuild = "wine64";
-        wineRelease = "staging";
-      })
+      wineWowPackages.stagingFull
       winetricks
       wl-clipboard
     ];
