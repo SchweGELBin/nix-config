@@ -336,8 +336,8 @@ in
         };
 
         windowrulev2 = [
-          "idleinhibit focus, title:^(Rocket League)(.*)"
-          "fullscreen, class:^(.*)(.exe)$"
+          "idleinhibit focus, title:^(Rocket League)"
+          "fullscreen, class:(.exe)$"
         ];
       };
     };
