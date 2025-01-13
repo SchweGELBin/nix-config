@@ -8,7 +8,7 @@
 {
   config = lib.mkIf config.hm-pkgs.home.enable {
     home.packages = with pkgs; [
-      android-studio
+      androidStudioPackages.dev
       audacity
       bibata-cursors
       blender
