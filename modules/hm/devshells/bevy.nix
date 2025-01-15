@@ -7,19 +7,13 @@ let
     udev
     vulkan-loader
     wayland
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXrandr
   ];
 
-  packages = with pkgs; [
-    pkg-config
-  ];
+  packages = [ ];
 in
 
 pkgs.mkShell {
-  buildInputs = packages;
-
+  nativeBuildInputs = [ pkgs.pkg-config ];
+  buildInputs = libraries ++ packages;
   shellHook = "export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath libraries}:$LD_LIBRARY_PATH";
 }
