@@ -29,6 +29,7 @@ in
 
   networking = {
     firewall.enable = false;
+    hostName = vars.user.hostname.server;
     nat = {
       enable = true;
       externalInterface = "eth0";

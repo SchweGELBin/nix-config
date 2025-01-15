@@ -25,6 +25,10 @@
   user = {
     config = "/etc/nixos";
     home = "/home/michi";
+    hostname = {
+      home = "nix";
+      server = "mix";
+    };
     name = "michi";
     stateVersion = "25.05";
   };

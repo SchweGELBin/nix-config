@@ -73,7 +73,6 @@ in
   };
 
   networking = {
-    hostName = "nix";
     interfaces.eth0.ipv4.addresses = [
       {
         address = "192.168.0.123";
