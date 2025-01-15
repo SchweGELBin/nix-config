@@ -21,7 +21,10 @@ in
   # Custom modules
   alacritty.enable = true;
   cava.enable = true;
-  devshells.enable = true;
+  devshells = {
+    enable = true;
+    bevy.enable = true;
+  };
   direnv.enable = true;
   firefox.enable = true;
   gtk.enable = true;

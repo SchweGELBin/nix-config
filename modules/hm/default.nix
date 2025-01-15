@@ -25,14 +25,7 @@
   cava.enable = lib.mkDefault false;
   devshells = {
     enable = lib.mkDefault false;
-    android.enable = lib.mkDefault true;
-    rust = {
-      enable = lib.mkDefault true;
-      dioxus.enable = lib.mkDefault false;
-      egui.enable = lib.mkDefault false;
-      slint.enable = lib.mkDefault false;
-      tauri.enable = lib.mkDefault false;
-    };
+    bevy.enable = lib.mkDefault false;
   };
   direnv.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;

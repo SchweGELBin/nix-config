@@ -3,7 +3,6 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs.follows = "nixpkgs-unstable";
@@ -11,6 +10,11 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
+    };
+
+    fenix = {
+      url = "github:nix-community/fenix/monthly";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     firefox-addons = {
