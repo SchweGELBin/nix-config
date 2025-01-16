@@ -7,6 +7,10 @@
 
 let
   vars = import ../../modules/nix/vars.nix;
+  wg = {
+    v4 = "10.0.0";
+    v6 = "fdc9:281f:04d7:9ee9";
+  };
 in
 
 {
@@ -38,29 +42,45 @@ in
     wireguard = {
       enable = true;
       interfaces.mix = {
-        ips = [ "10.0.0.1/24" ];
+        ips = [
+          "${wg.v4}.1/24"
+          "${wg.v6}::1/64"
+        ];
         listenPort = 1096;
         peers = [
           {
-            allowedIPs = [ "10.0.0.2/32" ];
+            allowedIPs = [
+              "${wg.v4}.2/32"
+              "${wg.v6}::2/128"
+            ];
             publicKey = vars.keys.wg0;
           }
           {
-            allowedIPs = [ "10.0.0.3/32" ];
+            allowedIPs = [
+              "${wg.v4}.3/32"
+              "${wg.v6}::3/128"
+            ];
             publicKey = vars.keys.wg1;
           }
           {
-            allowedIPs = [ "10.0.0.4/32" ];
+            allowedIPs = [
+              "${wg.v4}.4/32"
+              "${wg.v6}::4/128"
+            ];
             publicKey = vars.keys.wg2;
           }
         ];
         postSetup = ''
           ${pkgs.iptables}/bin/iptables -A FORWARD -i mix -j ACCEPT
-          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.1/24 -o eth0 -j MASQUERADE
+          ${pkgs.iptables}/bin/ip6tables -A FORWARD -i mix -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${wg.v4}.1/24 -o eth0 -j MASQUERADE
+          ${pkgs.iptables}/bin/ip6tables -t nat -A POSTROUTING -s ${wg.v6}::1/64 -o eth0 -j MASQUERADE
         '';
         postShutdown = ''
           ${pkgs.iptables}/bin/iptables -D FORWARD -i mix -j ACCEPT
-          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.1/24 -o eth0 -j MASQUERADE
+          ${pkgs.iptables}/bin/ip6tables -D FORWARD -i mix -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${wg.v4}.1/24 -o eth0 -j MASQUERADE
+          ${pkgs.iptables}/bin/ip6tables -t nat -D POSTROUTING -s ${wg.v6}::1/64 -o eth0 -j MASQUERADE
         '';
         privateKeyFile = config.sops.secrets.wg.path;
       };
@@ -110,6 +130,8 @@ in
       enable = true;
       virtualHosts.mix = {
         default = true;
+        enableACME = true;
+        forceSSL = true;
         root = "/var/www/mix";
       };
     };
