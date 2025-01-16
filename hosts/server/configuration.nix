@@ -95,6 +95,13 @@ in
     nix-ld.enable = true;
   };
 
+  security = {
+    acme = {
+      acceptTerms = true;
+      defaults.email = "acme@${vars.my.domain}";
+    };
+  };
+
   services = {
     dnsmasq = {
       enable = true;
@@ -128,11 +135,11 @@ in
     };
     nginx = {
       enable = true;
-      virtualHosts.mix = {
+      virtualHosts.${vars.my.domain} = {
         default = true;
         enableACME = true;
         forceSSL = true;
-        root = "/var/www/mix";
+        root = "/var/www";
       };
     };
   };
@@ -144,6 +151,7 @@ in
       dcbot.owner = "smoo";
       dcch1.owner = "smoo";
       dcch2.owner = "smoo";
+      domain = { };
       wg = { };
     };
   };

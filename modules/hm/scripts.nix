@@ -29,7 +29,7 @@ in
 
       (pkgs.writeShellScriptBin "server-reset" ''
         rm -rf /etc/nixos
-        sudo git clone ${vars.git.repo} --depth 1 /etc/nixos
+        sudo git clone ${vars.my.repo} --depth 1 /etc/nixos
         sudo cp /root/bak/{hardware-configuration.nix,networking.nix} /etc/nixos/hosts/server/
       '')
 

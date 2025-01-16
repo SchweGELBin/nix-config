@@ -5,7 +5,8 @@
     flavor = "mocha";
   };
 
-  git = {
+  my = {
+    domain = "milchi.site";
     repo = "https://github.com/SchweGELBin/nix-config";
   };
 
