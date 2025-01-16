@@ -151,7 +151,6 @@ in
       dcbot.owner = "smoo";
       dcch1.owner = "smoo";
       dcch2.owner = "smoo";
-      domain = { };
       wg = { };
     };
   };
