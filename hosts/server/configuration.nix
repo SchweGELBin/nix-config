@@ -109,6 +109,7 @@ in
         interface = "mix";
       };
     };
+    jellyfin.enable = true;
     minecraft-server = {
       enable = true;
       dataDir = "/var/lib/minecraft";
@@ -135,11 +136,24 @@ in
     };
     nginx = {
       enable = true;
-      virtualHosts.${vars.my.domain} = {
-        default = true;
-        enableACME = true;
-        forceSSL = true;
-        root = "/var/www";
+      recommendedBrotliSettings = true;
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
+      recommendedZstdSettings = true;
+      virtualHosts = {
+        ${vars.my.domain} = {
+          default = true;
+          enableACME = true;
+          forceSSL = true;
+          root = "/var/www";
+        };
+        "jelly.${vars.my.domain}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:8096";
+        };
       };
     };
   };
