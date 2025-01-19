@@ -63,7 +63,6 @@ in
 
   networking = {
     defaultGateway = "192.168.0.1";
-    firewall.enable = true;
     hostName = vars.user.hostname.home;
   };
 

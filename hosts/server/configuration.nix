@@ -32,7 +32,19 @@ in
   };
 
   networking = {
-    firewall.enable = false;
+    firewall = {
+      allowedTCPPorts = [
+        80
+        443
+        1027
+        1436
+        25565
+      ];
+      allowedUDPPorts = [
+        53
+        1096
+      ];
+    };
     hostName = vars.user.hostname.server;
     nat = {
       enable = true;
