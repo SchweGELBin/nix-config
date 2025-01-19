@@ -109,6 +109,7 @@ in
         interface = "mix";
       };
     };
+    fail2ban.enable = true;
     jellyfin.enable = true;
     minecraft-server = {
       enable = true;
