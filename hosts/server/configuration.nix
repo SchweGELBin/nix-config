@@ -169,6 +169,16 @@ in
         };
       };
     };
+    openssh = {
+      enable = true;
+      ports = [ 1436 ];
+      settings = {
+        AllowUsers = [ "${vars.user.name}" ];
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        UseDns = true;
+      };
+    };
   };
 
   sops = {
