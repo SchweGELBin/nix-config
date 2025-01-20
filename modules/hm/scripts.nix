@@ -45,7 +45,7 @@ in
         input=~/.config/nix/music.list
         while read -r line
         do
-          mpv $line --no-video --slang=en,eng,de,deu,ger
+          mpv $line --no-video --slang=en
         done < "$input"
       '')
 
