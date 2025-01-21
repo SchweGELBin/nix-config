@@ -116,11 +116,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1737345819,
-        "narHash": "sha256-1lMv2u4kQ+YloYXKhZoe9tFnwnWAGVPm1yXBtpSO7xw=",
+        "lastModified": 1737462887,
+        "narHash": "sha256-Zk6uEVkITFnBd+HFGa1hRzfcpEOer2h8GW9RmuwK1aM=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "12f2f8d9744c29ac622d723ef173a54223de39af",
+        "rev": "acdea85582887f189e7fb80e2f80e424a39f779f",
         "type": "gitlab"
       },
       "original": {
@@ -288,11 +288,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737299337,
-        "narHash": "sha256-0NBrY2A7buujKmeCbieopOMSbLxTu8TFcTLqAbTnQDw=",
+        "lastModified": 1737461688,
+        "narHash": "sha256-zQCFe5FcSSGzY3qauAAHZcPt7Ej4WSGo78ShSTCSBvU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f8ef4541bb8a54a8b52f19b52912119e689529b3",
+        "rev": "bb14224f51ae4caed12a7b26f245d042c8cf8553",
         "type": "github"
       },
       "original": {
@@ -462,11 +462,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1737391684,
-        "narHash": "sha256-NZVjY6ylGENXBYXVIGNvxYTsB+auqHRya5PiDAOeH3E=",
+        "lastModified": 1737469027,
+        "narHash": "sha256-SakmbY1PAuX+EBL5tIxeCoIypcycBEUhNTHDbXdtJ1k=",
         "ref": "refs/heads/main",
-        "rev": "2d82a923241c0d7cb6209ee035bbac581d4dc555",
-        "revCount": 5691,
+        "rev": "da6e9663135aa492252fe8684747ff734730a323",
+        "revCount": 5694,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -741,11 +741,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736953751,
-        "narHash": "sha256-hoc21ZMxcabYWGz4nB/jd6TdFqDY4KZoPLs/qNn0g0Q=",
+        "lastModified": 1737466931,
+        "narHash": "sha256-++iV4eKP6RSrKX241b67/Dx2vYvAoY6qqaOctHO3TTU=",
         "owner": "hyprwm",
         "repo": "hyprlock",
-        "rev": "02639c27599b03c81dc1d0e031628224f5ad8d50",
+        "rev": "d547d1d4e3b0912f71c4a4952e2a5935689e45a1",
         "type": "github"
       },
       "original": {
@@ -1301,11 +1301,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737107480,
-        "narHash": "sha256-GXUE9+FgxoZU8v0p6ilBJ8NH7k8nKmZjp/7dmMrCv3o=",
+        "lastModified": 1737411508,
+        "narHash": "sha256-j9IdflJwRtqo9WpM0OfAZml47eBblUHGNQTe62OUqTw=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "4c4fb93f18b9072c6fa1986221f9a3d7bf1fe4b6",
+        "rev": "015d461c16678fc02a2f405eb453abb509d4e1d4",
         "type": "github"
       },
       "original": {
