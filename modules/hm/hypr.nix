@@ -147,7 +147,7 @@ in
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
       settings = {
 

@@ -3,7 +3,7 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     nixpkgs.follows = "nixpkgs-unstable";
     systems.url = "github:nix-systems/default-linux";
