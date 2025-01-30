@@ -3,9 +3,10 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
-    nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs.follows = "nixos-unstable";
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
