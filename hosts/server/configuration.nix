@@ -204,11 +204,7 @@ in
       enable = true;
       preStart = ''
         repo="SMOOS-CS"
-        if [[ -d ./$repo ]]; then
-          cd ./$repo
-          ${pkgs.git}/bin/git fetch
-          ${pkgs.git}/bin/git pull
-        else
+        if [[ ! -d ./$repo ]]; then
           ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
           cp ./$repo/settings.json .
           sed -i -e "s/\"Token\": null/\"Token\": \"$(cat ${config.sops.secrets.dcbot.path})\"/g" ./settings.json
