@@ -1,14 +1,12 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 {
   config = lib.mkIf config.cava.enable {
     programs.cava = {
       enable = true;
-      package = (pkgs.cava.override { withSDL2 = true; });
       settings = {
         general = {
           sensitivity = 60;
