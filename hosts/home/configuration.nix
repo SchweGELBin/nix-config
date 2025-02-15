@@ -117,12 +117,8 @@ in
     printing.enable = true;
     xserver = {
       enable = true;
+      exportConfiguration = true;
       videoDrivers = [ "nvidia" ]; # nvidia / nouveau
-      xkb = {
-        layout = "us";
-        options = "caps:backspace";
-        variant = "";
-      };
     };
   };
 
