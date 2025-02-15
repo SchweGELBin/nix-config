@@ -198,6 +198,8 @@ in
           "$mainMod       ,  K         ,  Launch Color Picker                           ,  exec                  , hyprpicker -f hex -a"
           "$mainMod       ,  D         ,  Launch Discord client ($discord)              ,  exec                  , $discord"
           "$mainMod       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
+          "$mainMod       ,  escape    ,  Launch Logout Menu                            ,  exec                  , wlogout"
+          "$mainMod       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
           "$mainMod       ,  R         ,  Launch Rocket League                          ,  exec                  , mangohud legendary launch Sugar"
           "$mainMod       ,  Q         ,  Launch Terminal ($terminal)                   ,  exec                  , $terminal"
           "$mainMod  SHIFT,  S         ,  Move current workspace to special workspace   ,  movetoworkspace       , special:magic"
@@ -223,7 +225,7 @@ in
           "$mainMod       ,  M         ,  Play Music                                    ,  exec                  , music"
           "$altMod   SHIFT,  down      ,  Remove window from master                     ,  layoutmsg             , removemaster"
           "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill -x $bar && $bar"
-          "          SUPER,  ALT_L     ,  Show Keybinds                                 ,  exec                  , kitty --hold binds"
+          "          SUPER,  ALT_R     ,  Show Keybinds                                 ,  exec                  , kitty --hold binds"
           "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
           "$altMod        ,  Tab       ,  Swap focused window with master or first child,  layoutmsg             , swapwithmaster"
           "$altMod        ,  up        ,  Swap focused window with next one             ,  layoutmsg             , swapnext"
@@ -302,7 +304,7 @@ in
         input = {
           force_no_accel = true;
           kb_layout = "us,us";
-          kb_options = "caps:backspace, grp:win_space_toggle";
+          kb_options = "caps:backspace, backspace:caps, grp:win_space_toggle";
           kb_variant = ", workman";
         };
 

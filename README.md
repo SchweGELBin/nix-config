@@ -29,7 +29,7 @@ Theme                - Catppuccin Mocha Mauve
 - Feel free to contribute to make these configs better
 
 ### Keybinds
-- View the keybinds with *"SUPER + ALT"*
+- View the keybinds with *"SUPER + ALT_R"*
 
 ### Scripts
 ```
