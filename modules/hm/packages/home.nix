@@ -5,20 +5,10 @@
   pkgs,
   ...
 }:
-let
-  android = {
-    composition = pkgs.androidenv.composeAndroidPackages {
-      includeNDK = true;
-      platformVersions = [ "35" ];
-    };
-    sdk = android.composition.androidsdk;
-  };
-in
 {
   config = lib.mkIf config.hm-pkgs.home.enable {
     home = {
       packages = with pkgs; [
-        android.sdk
         androidStudioPackages.dev
         audacity
         bibata-cursors
@@ -56,11 +46,6 @@ in
         winetricks
         wl-clipboard
       ];
-
-      sessionVariables = {
-        ANDROID_HOME = "${android.sdk}/libexec/android-sdk";
-        NDK_HOME = "$ANDROID_HOME/ndk-bundle";
-      };
     };
 
     programs = {

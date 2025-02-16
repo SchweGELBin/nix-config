@@ -30,7 +30,6 @@
     bash.enable = true;
     bat.enable = true;
     btop.enable = true;
-    git.enable = true;
     home-manager.enable = true;
     zsh.enable = true;
   };

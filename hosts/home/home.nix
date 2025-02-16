@@ -20,6 +20,7 @@ in
 
   # Custom modules
   alacritty.enable = true;
+  android-sdk.enable = false;
   cava.enable = true;
   devshells = {
     enable = true;

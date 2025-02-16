@@ -2,10 +2,12 @@
 {
   imports = [
     ./alacritty.nix
+    ./android-sdk.nix
     ./cava.nix
     ./direnv.nix
     ./fastfetch.nix
     ./firefox.nix
+    ./git.nix
     ./helix.nix
     ./hypr.nix
     ./kitty.nix
@@ -22,6 +24,7 @@
   ];
 
   alacritty.enable = lib.mkDefault false;
+  android-sdk.enable = lib.mkDefault false;
   cava.enable = lib.mkDefault false;
   devshells = {
     enable = lib.mkDefault false;
@@ -30,6 +33,7 @@
   direnv.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault false;
+  git.enable = lib.mkDefault true;
   helix.enable = lib.mkDefault true;
   hypr.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;
