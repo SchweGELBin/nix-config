@@ -218,7 +218,7 @@ in
       '';
       serviceConfig = {
         User = "smoo";
-        WorkingDirectory = "/var/lib/smoos";
+        WorkingDirectory = "/var/lib/smoo";
       };
       wantedBy = [ "multi-user.target" ];
     };
@@ -234,11 +234,14 @@ in
         export DISCORD_TOKEN="$(cat ${config.sops.secrets.dctoken.path})"
         export DISCORD_ID="$(cat ${config.sops.secrets.dcid.path})"
         export API_TOKEN="$(cat ${config.sops.secrets.smtoken2.path})"
-        ${pkgs.cargo}/bin/cargo run -r ./SMOOS-Bot
+        export CC="${pkgs.gcc}/bin/gcc"
+        export AR="${pkgs.gcc}/bin/ar"
+        cd SMOOS-Bot
+        RUSTFLAGS="-C linker=${pkgs.gcc}/bin/gcc" ${pkgs.cargo}/bin/cargo run -r
       '';
       serviceConfig = {
         User = "smoo";
-        WorkingDirectory = "/var/lib/smoos-bot";
+        WorkingDirectory = "/var/lib/smoo";
       };
       wantedBy = [ "multi-user.target" ];
     };
