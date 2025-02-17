@@ -236,8 +236,10 @@ in
         export API_TOKEN="$(cat ${config.sops.secrets.smtoken2.path})"
         export CC="${pkgs.gcc}/bin/gcc"
         export AR="${pkgs.gcc}/bin/ar"
+        export RUSTFLAGS="-C linker=$CC"
+        export RUSTC="${pkgs.fenix.minimal.rustc}/bin/rustc"
         cd SMOOS-Bot
-        RUSTFLAGS="-C linker=${pkgs.gcc}/bin/gcc" ${pkgs.cargo}/bin/cargo run -r
+        ${pkgs.fenix.minimal.cargo}/bin/cargo run -r
       '';
       serviceConfig = {
         User = "smoo";
