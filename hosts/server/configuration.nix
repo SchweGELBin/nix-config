@@ -175,9 +175,10 @@ in
     defaultSopsFile = ../../secrets/mix.yaml;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
-      dcbot.owner = "smoo";
-      dcch1.owner = "smoo";
-      dcch2.owner = "smoo";
+      dcid.owner = "smoo";
+      dctoken.owner = "smoo";
+      smtoken1.owner = "smoo";
+      smtoken2.owner = "smoo";
       wg = { };
     };
   };
@@ -200,17 +201,16 @@ in
   };
 
   systemd.services = {
-    smoo = {
+    smoos = {
       enable = true;
       preStart = ''
         repo="SMOOS-CS"
         if [[ ! -d ./$repo ]]; then
           ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
           cp ./$repo/settings.json .
-          sed -i -e "s/\"Token\": null/\"Token\": \"$(cat ${config.sops.secrets.dcbot.path})\"/g" ./settings.json
-          sed -i -e "s/\"Prefix\": \"\$\"/\"Prefix\": \".\"/g" ./settings.json
-          sed -i -e "s/\"CommandChannel\": null/\"CommandChannel\": \"$(cat ${config.sops.secrets.dcch2.path})\"/g" ./settings.json
-          sed -i -e "s/\"LogChannel\": null/\"LogChannel\": \"$(cat ${config.sops.secrets.dcch1.path})\"/g" ./settings.json
+          sed -i '/JsonApi/{n;s/false/true/}' ./settings.json
+          sed -i -e "s/\"SECRET_TOKEN_1\"/\"$(cat ${config.sops.secrets.smtoken1.path})\"/g" ./settings.json
+          sed -i -e "s/\"SECRET_TOKEN_2\"/\"$(cat ${config.sops.secrets.smtoken2.path})\"/g" ./settings.json
         fi
       '';
       script = ''
@@ -218,7 +218,27 @@ in
       '';
       serviceConfig = {
         User = "smoo";
-        WorkingDirectory = "/var/lib/smoo";
+        WorkingDirectory = "/var/lib/smoos";
+      };
+      wantedBy = [ "multi-user.target" ];
+    };
+    smoos-bot = {
+      enable = true;
+      preStart = ''
+        repo="SMOOS-Bot"
+        if [[ ! -d ./$repo ]]; then
+          ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
+        fi
+      '';
+      script = ''
+        export DISCORD_TOKEN="$(cat ${config.sops.secrets.dctoken.path})"
+        export DISCORD_ID="$(cat ${config.sops.secrets.dcid.path})"
+        export API_TOKEN="$(cat ${config.sops.secrets.smtoken2.path})"
+        ${pkgs.cargo}/bin/cargo run -r ./SMOOS-Bot
+      '';
+      serviceConfig = {
+        User = "smoo";
+        WorkingDirectory = "/var/lib/smoos-bot";
       };
       wantedBy = [ "multi-user.target" ];
     };
