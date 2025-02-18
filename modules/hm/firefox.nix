@@ -57,7 +57,7 @@ in
       };
       profiles.${vars.user.name} = {
         bookmarks = [ ];
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
           behave
           darkreader
           firefox-color
