@@ -12,7 +12,7 @@ in
   config = lib.mkIf config.waybar.enable {
     programs.waybar = {
       enable = true;
-      package = inputs.waybar.packages.${pkgs.system}.waybar;
+      #package = inputs.waybar.packages.${pkgs.system}.waybar;
       settings = {
         mainBar = {
           layer = "top";
