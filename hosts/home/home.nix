@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   ...
 }:
 let
@@ -20,7 +19,7 @@ in
 
   # Custom modules
   alacritty.enable = true;
-  android-sdk.enable = false;
+  android-sdk.enable = true;
   cava.enable = true;
   devshells = {
     enable = true;
