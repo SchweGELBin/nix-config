@@ -19,7 +19,7 @@ in
 
   # Custom modules
   alacritty.enable = true;
-  android-sdk.enable = true;
+  #android-sdk.enable = true; # Broken right now
   cava.enable = true;
   devshells = {
     enable = true;
