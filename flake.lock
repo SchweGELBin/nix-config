@@ -1216,7 +1216,7 @@
         "nixos-small": "nixos-small",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": [
-          "nixos-unstable"
+          "nixos-small"
         ],
         "sops-nix": "sops-nix",
         "systems": "systems",

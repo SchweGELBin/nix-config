@@ -6,7 +6,7 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
-    nixpkgs.follows = "nixos-unstable";
+    nixpkgs.follows = "nixos-small";
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
