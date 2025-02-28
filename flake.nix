@@ -6,7 +6,7 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
-    nixpkgs.follows = "nixos-small";
+    nixpkgs.follows = "nixos-unstable";
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
@@ -92,11 +92,6 @@
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    waybar = {
-      url = "github:Alexays/Waybar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
