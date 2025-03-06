@@ -233,7 +233,8 @@ in
           "               ,  Print     ,  Take Screenshot of current Display            ,  exec                  , screenshot d"
           "$mainMod       ,  Print     ,  Take Screenshot of focused Window             ,  exec                  , screenshot w"
           "          SHIFT,  Print     ,  Take Screenshot of selected Region            ,  exec                  , screenshot r"
-          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , cavabg t"
+          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
+          "$mainMod  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
           "$mainMod       ,  G         ,  Toggle floating window                        ,  togglefloating        , "
           "$mainMod       ,  F         ,  Toggle fullscreen                             ,  fullscreen            , "
           "$mainMod       ,  O         ,  Toggle h/w window split                       ,  togglesplit           , "
@@ -285,7 +286,7 @@ in
         };
 
         exec-once = [
-          "cavabg"
+          "avabg c"
           "hypridle"
           "hyprpaper"
           "openrgb -c $accentAlpha"

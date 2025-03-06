@@ -8,6 +8,7 @@
     ./fastfetch.nix
     ./firefox.nix
     ./git.nix
+    ./glava.nix
     ./helix.nix
     ./hypr.nix
     ./kitty.nix
@@ -34,6 +35,7 @@
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault false;
   git.enable = lib.mkDefault true;
+  glava.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
   hypr.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;

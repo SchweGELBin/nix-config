@@ -75,7 +75,7 @@ in
           grim -g "$(slurp)" $scrPath | wl-copy
         ;;
         h) # Help
-          echo "Use: screenshot <option>"
+          echo "Usage: $0 <option>"
         	echo "d - Display"
         	echo "w - Window"
         	echo "r - Region"
@@ -92,17 +92,25 @@ in
         cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," | sed "s|\$mainMod|$main|g" | sed "s|\$altMod|$alt|g"
       '')
 
-      (pkgs.writeShellScriptBin "cavabg" ''
+      (pkgs.writeShellScriptBin "avabg" ''
         pkill -x cava
-        if [[ $1 = "t" && ! -z $(pgrep cavabg-instance) ]]; then
-          pkill cavabg-instance
+        pkill glava
+        if [[ $2 == "t" && ! -z $(pgrep avabg-instance) ]]; then
+          pkill avabg-instance
         else
-          cavabg-instance
+          avabg-instance $1
         fi
       '')
 
-      (pkgs.writeShellScriptBin "cavabg-instance" ''
-        alacritty --class 'hyprbg' --config-file '${vars.user.home}/.config/alacritty/cava.toml' -e 'cava'
+      (pkgs.writeShellScriptBin "avabg-instance" ''
+        case $1 in
+        c) # Cava
+          alacritty --class 'hyprbg' --config-file '${vars.user.home}/.config/alacritty/cava.toml' -e 'cava'
+        ;;
+        gl) # GLava
+          echo "I don't know how to set the class for GLava"
+        ;;
+        esac
       '')
     ];
   };
