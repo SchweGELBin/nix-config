@@ -41,7 +41,6 @@
         prismlauncher
         pulseaudio
         slurp
-        torzu
         wineWowPackages.stagingFull
         winetricks
         wl-clipboard
