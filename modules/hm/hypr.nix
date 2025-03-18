@@ -152,7 +152,7 @@ in
       settings = {
 
         "$alt" = "\$${vars.cat.alt}";
-        "$altMod" = "ALT";
+        "$altMod" = "ALT_L";
         "$applauncher" = "fuzzel";
         "$bar" = "waybar";
         "$browser" = "firefox";
@@ -179,8 +179,8 @@ in
 
         bindd = [
           "$altMod   SHIFT,  up        ,  Add window to master                          ,  layoutmsg             , addmaster"
-          "          CTRL ,  mouse:276 ,  Auto Clicker Left                             , exec                   , ac l"
-          "          CTRL ,  mouse:275 ,  Auto Clicker Right                            , exec                   , ac r"
+          "          ALT_R,  left      ,  Auto Clicker Left                             , exec                   , ac l"
+          "          ALT_R,  right     ,  Auto Clicker Right                            , exec                   , ac r"
           "$mainMod       ,  C         ,  Close active window                           ,  killactive            , "
           "$mainMod       ,  mouse_down,  Go to next workspace                          ,  workspace             , e+1"
           "$mainMod       ,  mouse_up  ,  Go to previous workspace                      ,  workspace             , e-1"
