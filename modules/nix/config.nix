@@ -152,6 +152,7 @@ in
         "docker"
         "networkmanager"
         "wheel"
+        "ydotool"
       ];
       initialPassword = "1234";
       isNormalUser = true;

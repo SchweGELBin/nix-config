@@ -91,6 +91,7 @@ in
       enable = true;
       gamescopeSession.enable = true;
     };
+    ydotool.enable = true;
   };
 
   services = {

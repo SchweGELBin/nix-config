@@ -93,7 +93,7 @@ in
       '')
 
       (pkgs.writeShellScriptBin "avabg" ''
-        pkill -x cava
+        pkill cava
         pkill glava
         if [[ $2 == "t" && ! -z $(pgrep avabg-instance) ]]; then
           pkill avabg-instance
@@ -109,6 +109,20 @@ in
         ;;
         gl) # GLava
           echo "I don't know how to set the class for GLava"
+        ;;
+        esac
+      '')
+
+      (pkgs.writeShellScriptBin "ac" ''
+        pkill -x ydotool
+        ydotool click 0x80
+        ydotool click 0x81
+        case $1 in
+        l) # Left
+          ydotool click -r 50 -D 50 0xC0
+        ;;
+        r) # Right
+          ydotool click -r 100 -D 25 0xC1
         ;;
         esac
       '')
