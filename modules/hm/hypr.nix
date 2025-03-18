@@ -146,7 +146,7 @@ in
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
       settings = {
@@ -339,7 +339,7 @@ in
           hyprwinwrap.class = "hyprbg";
         };
 
-        windowrulev2 = [
+        windowrule = [
           "idleinhibit focus, title:^(Rocket League)"
           "fullscreen, class:(.exe)$"
         ];
