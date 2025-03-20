@@ -56,7 +56,10 @@ in
         WindowsSSO = false;
       };
       profiles.${vars.user.name} = {
-        bookmarks = [ ];
+        bookmarks = {
+          force = true;
+          settings = [ ];
+        };
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
           behave
           darkreader
@@ -68,10 +71,10 @@ in
         extraConfig = "";
         id = 0;
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           engines = {
-            "Bing".metaData.hidden = true;
-            "DuckDuckGo".metaData.hidden = false;
+            "bing".metaData.hidden = true;
+            "ddg".metaData.hidden = false;
             "Crates" = {
               definedAliases = [ "@cr" ];
               urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
@@ -84,7 +87,7 @@ in
               definedAliases = [ "@gh" ];
               urls = [ { template = "https://github.com/search?q={searchTerms}"; } ];
             };
-            "Google".metaData.hidden = true;
+            "google".metaData.hidden = true;
             "Nix Packages" = {
               definedAliases = [ "@np" ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
@@ -136,7 +139,7 @@ in
               definedAliases = [ "@sx" ];
               urls = [ { template = "${searx}/search?q={searchTerms}"; } ];
             };
-            "Wikipedia (en)".metaData.hidden = true;
+            "wikipedia".metaData.hidden = true;
             "Yewtube" = {
               definedAliases = [ "@yt" ];
               urls = [ { template = "${invidious}/search?q={searchTerms}"; } ];
@@ -144,7 +147,7 @@ in
           };
           force = true;
           order = [ ];
-          privateDefault = "DuckDuckGo";
+          privateDefault = "ddg";
         };
         settings = {
           "app.normandy.api_url" = "";
