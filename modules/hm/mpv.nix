@@ -6,6 +6,7 @@
 }:
 {
   config = lib.mkIf config.mpv.enable {
+    home.packages = with pkgs; [ libcaca ];
     programs.mpv = {
       enable = true;
       scripts = with pkgs; [

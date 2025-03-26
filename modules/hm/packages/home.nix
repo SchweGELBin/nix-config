@@ -40,6 +40,7 @@
         playerctl
         prismlauncher
         pulseaudio
+        sl
         slurp
         wev
         wineWowPackages.stagingFull
