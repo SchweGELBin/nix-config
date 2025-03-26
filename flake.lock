@@ -1112,6 +1112,22 @@
         "type": "github"
       }
     },
+    "nixos-patched": {
+      "locked": {
+        "lastModified": 1743001556,
+        "narHash": "sha256-JbDwc4AqG3bjNO0j1mKd6nM9CxvwK0c9B7bMiOTIBeQ=",
+        "owner": "SchweGELBin",
+        "repo": "nixpkgs",
+        "rev": "8522377415cca37ce9ad3bf6cc1851571ab71f95",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SchweGELBin",
+        "ref": "nixos-unstable-patched",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixos-small": {
       "locked": {
         "lastModified": 1742960832,
@@ -1197,10 +1213,11 @@
         "hyprpicker": "hyprpicker",
         "hyprsysteminfo": "hyprsysteminfo",
         "nix-direnv": "nix-direnv",
+        "nixos-patched": "nixos-patched",
         "nixos-small": "nixos-small",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": [
-          "nixos-unstable"
+          "nixos-patched"
         ],
         "sops-nix": "sops-nix",
         "systems": "systems"
