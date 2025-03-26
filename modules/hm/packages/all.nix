@@ -20,7 +20,6 @@
     pipes-rs
     sops
     taplo
-    toilet
     unzip
     wget
     zip
