@@ -3,11 +3,11 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
-    nixos-patched.url = "github:/SchweGELBin/nixpkgs/nixos-unstable-patched";
+    nixos-patch.url = "github:/SchweGELBin/nixpkgs/nixos-unstable";
     nixos-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs.follows = "nixos-patched";
+    nixpkgs.follows = "nixos-patch";
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
