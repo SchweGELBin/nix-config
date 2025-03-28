@@ -42,6 +42,7 @@
         pulseaudio
         sl
         slurp
+        toilet
         wev
         wineWowPackages.stagingFull
         winetricks
