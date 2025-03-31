@@ -14,6 +14,7 @@ in
       accent = vars.cat.accent;
       cava.transparent = true;
       flavor = vars.cat.flavor;
+      hyprlock.useDefaultConfig = false;
     };
 
     gtk = lib.mkIf config.theme.gtk.enable {

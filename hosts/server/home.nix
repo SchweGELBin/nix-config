@@ -14,7 +14,7 @@ in
 
   imports = [
     ../../modules/hm
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.default
   ];
 
   # Custom modules

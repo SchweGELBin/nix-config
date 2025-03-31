@@ -10,7 +10,7 @@ in
 
 {
   imports = [
-    inputs.catppuccin.nixosModules.catppuccin
+    inputs.catppuccin.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];
 
