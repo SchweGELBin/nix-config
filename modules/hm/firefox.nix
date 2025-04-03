@@ -7,9 +7,10 @@
 }:
 let
   vars = import ../nix/vars.nix;
-  searx = "https://opnxng.com";
-  piped = "https://piped.yt";
+  icons = "${pkgs.papirus-icon-theme}/share/icons/Papirus/16x16";
   invidious = "https://yewtu.be";
+  piped = "https://piped.yt";
+  searx = "https://opnxng.com";
 in
 {
   config = lib.mkIf config.firefox.enable {
@@ -77,20 +78,23 @@ in
             "ddg".metaData.hidden = false;
             "Crates" = {
               definedAliases = [ "@cr" ];
+              icon = "${icons}/actions/folder-open.svg";
               urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
             };
             "Icons" = {
               definedAliases = [ "@ic" ];
+              icon = "${icons}/emotes/face-cool.svg";
               urls = [ { template = "https://www.nerdfonts.com/cheat-sheet?q={searchTerms}"; } ];
             };
             "GitHub" = {
               definedAliases = [ "@gh" ];
+              icon = "${icons}/apps/github.svg";
               urls = [ { template = "https://github.com/search?q={searchTerms}"; } ];
             };
             "google".metaData.hidden = true;
             "Nix Packages" = {
               definedAliases = [ "@np" ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              icon = "${icons}/apps/distributor-logo-nixos.svg";
               urls = [
                 {
                   params = [
@@ -109,7 +113,7 @@ in
             };
             "Nix Options" = {
               definedAliases = [ "@no" ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              icon = "${icons}/apps/distributor-logo-nixos.svg";
               urls = [
                 {
                   params = [
@@ -128,24 +132,28 @@ in
             };
             "NixOS Wiki" = {
               definedAliases = [ "@nw" ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              icon = "${icons}/apps/distributor-logo-nixos.svg";
               urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
             };
             "Piped" = {
               definedAliases = [ "@pd" ];
+              icon = "${icons}/actions/im-youtube.svg";
               urls = [ { template = "${piped}/results?search_query={searchTerms}"; } ];
             };
             "Searx" = {
               definedAliases = [ "@sx" ];
+              icon = "${icons}/actions/edit-find.svg";
               urls = [ { template = "${searx}/search?q={searchTerms}"; } ];
             };
             "Startpage" = {
               definedAliases = [ "@sp" ];
+              icon = "${icons}/actions/edit-find.svg";
               urls = [ { template = "https://www.startpage.com/search?q={searchTerms}"; } ];
             };
             "wikipedia".metaData.hidden = true;
             "Yewtube" = {
               definedAliases = [ "@yt" ];
+              icon = "${icons}/actions/im-youtube.svg";
               urls = [ { template = "${invidious}/search?q={searchTerms}"; } ];
             };
           };
