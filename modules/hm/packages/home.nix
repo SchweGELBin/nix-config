@@ -13,6 +13,7 @@
         audacity
         bibata-cursors
         blender
+        dolphin-emu
         exfat
         (fenix.combine [
           fenix.latest.toolchain
@@ -40,9 +41,11 @@
         playerctl
         prismlauncher
         pulseaudio
+        ryubing
         sl
         slurp
         toilet
+        torzu
         wev
         wineWowPackages.stagingFull
         winetricks
