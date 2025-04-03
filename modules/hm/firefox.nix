@@ -139,6 +139,10 @@ in
               definedAliases = [ "@sx" ];
               urls = [ { template = "${searx}/search?q={searchTerms}"; } ];
             };
+            "Startpage" = {
+              definedAliases = [ "@sp" ];
+              urls = [ { template = "https://www.startpage.com/search?q={searchTerms}"; } ];
+            };
             "wikipedia".metaData.hidden = true;
             "Yewtube" = {
               definedAliases = [ "@yt" ];
