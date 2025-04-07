@@ -200,7 +200,7 @@ in
           "$mainMod       ,  K         ,  Launch Color Picker                           ,  exec                  , hyprpicker -f hex -a"
           "$mainMod       ,  D         ,  Launch Discord client ($discord)              ,  exec                  , $discord"
           "$mainMod       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
-          "$mainMod       ,  escape    ,  Launch Logout Menu                            ,  exec                  , wlogout"
+          "$mainMod       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
           "$mainMod       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
           "$mainMod       ,  R         ,  Launch Rocket League                          ,  exec                  , mangohud legendary launch Sugar"
           "$mainMod       ,  Q         ,  Launch Terminal ($terminal)                   ,  exec                  , $terminal"

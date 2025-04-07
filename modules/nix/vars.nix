@@ -5,6 +5,11 @@
     flavor = "mocha";
   };
 
+  git = {
+    email = "abramjannikmichael06@gmail.com";
+    name = "SchweGELBin";
+  };
+
   my = {
     domain = "milchi.site";
     repo = "https://github.com/SchweGELBin/nix-config";

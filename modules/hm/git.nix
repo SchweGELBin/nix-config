@@ -3,11 +3,23 @@
   lib,
   ...
 }:
+let
+  vars = import ../nix/vars.nix;
+in
 {
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      signing.format = "openpgp";
+      lfs.enable = true;
+      maintenance.enable = true;
+      riff.enable = true;
+      signing = {
+        format = "ssh";
+        key = "${vars.user.home}/.ssh/github_signing-key";
+        signByDefault = true;
+      };
+      userEmail = vars.git.email;
+      userName = vars.git.name;
     };
   };
 
