@@ -29,7 +29,7 @@
   };
 
   user = {
-    config = "/etc/nixos";
+    config = "/home/michi/nix-config";
     home = "/home/michi";
     hostname = {
       home = "nix";

@@ -1,17 +1,10 @@
 # Install Home Configuration
 
 ## Before
-- Download the minimal NixOS [ISO image](https://channels.nixos.org/nixos-24.05/latest-nixos-minimal-x86_64-linux.iso)
+- Download the minimal NixOS [ISO image](https://channels.nixos.org/nixos-24.11/latest-nixos-minimal-x86_64-linux.iso)
 - Flash this ISO image onto a USB flash drive (via: cp / dd / balena-etcher)
 - Boot from your bootable USB flash drive
 - Choose the standard live option
-
-## After
-- Check if you didn't make any mistakes and didn't get any errors
-- Exit nix-shell with `exit`
-- Reboot to your system with `reboot`
-- Remove your USB flash drive at reboot
-- Login with default password: 1234
 
 ## Install
 - Mount your drive `lsblk` && `sudo mount /dev/device_name /mnt`
@@ -24,3 +17,18 @@
 - Install NixOS with `nixos-install --root /mnt --flake /mnt/etc/nixos#home`
 - (If you get an out of space error, rerun last command)
 - Type in your preferred root password (twice)
+
+## After
+- Check if you didn't make any mistakes and didn't get any errors
+- Exit nix-shell with `exit`
+- Reboot to your system with `reboot`
+- Remove your USB flash drive at reboot
+- Login with default password: "1234"
+- Change the initial password with `passwd`
+
+<br>
+
+Now you have to options:
+
+1. Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone https://github.com/SchweGELBin/nix-config`
+2. Change vars.user.config in "/etc/nixos/modules/nix/vars.nix" to "/etc/nixos"

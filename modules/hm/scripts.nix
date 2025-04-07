@@ -28,9 +28,9 @@ in
       '')
 
       (pkgs.writeShellScriptBin "server-reset" ''
-        rm -rf /etc/nixos
-        git clone ${vars.my.repo} --depth 1 /etc/nixos
-        cp /root/bak/{hardware-configuration.nix,networking.nix} /etc/nixos/hosts/server/
+        rm -rf ${vars.user.config}
+        git clone ${vars.my.repo} --depth 1 ${vars.user.config}
+        cp /root/bak/{hardware-configuration.nix,networking.nix} ${vars.user.config}/hosts/server/
       '')
 
       (pkgs.writeShellScriptBin "music" ''

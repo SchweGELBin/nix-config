@@ -23,10 +23,6 @@ Theme                - Catppuccin Mocha Mauve
 - [Server Configuration](./docs/Install_Server.md)
 
 ## Tips
-### General
-- To sync the config with a newer version run `sudo git fetch && sudo git pull` inside of */etc/nixos*
-- You should change the initial password with `passwd`
-- Feel free to contribute to make these configs better
 
 ### Keybinds
 - View the keybinds with *"SUPER + ALT_R"*

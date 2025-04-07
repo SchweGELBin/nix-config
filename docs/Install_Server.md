@@ -18,5 +18,12 @@
 - Move back the networking file `cp ~/bak/{hardware-configuration.nix,networking.nix} ./hosts/server/`
 - Sync config with `git add .`
 - Rebuild NixOS with `TMPDIR="/tmp" nixos-rebuild switch --flake ./#server`
-- `exit` the nix-shell
-- `reboot` to take full effect
+- Check if you didn't make any mistakes and didn't get any errors
+- Exit nix-shell with `exit`
+- Reboot to your system with `reboot`
+
+## After
+Now you have to options:
+
+1. Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone https://github.com/SchweGELBin/nix-config`
+2. Change vars.user.config in "/etc/nixos/modules/nix/vars.nix" to "/etc/nixos"
