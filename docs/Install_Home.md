@@ -25,10 +25,4 @@
 - Remove your USB flash drive at reboot
 - Login with default password: "1234"
 - Change the initial password with `passwd`
-
-<br>
-
-Now you have to options:
-
-1. Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone https://github.com/SchweGELBin/nix-config`
-2. Change vars.user.config in "/etc/nixos/modules/nix/vars.nix" to "/etc/nixos"
+1. Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone git@github.com:SchweGELBin/nix-config`
