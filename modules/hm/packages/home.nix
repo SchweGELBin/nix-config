@@ -11,7 +11,6 @@
       packages = with pkgs; [
         androidStudioPackages.dev
         audacity
-        bibata-cursors
         blender
         exfat
         (fenix.combine [
@@ -26,18 +25,15 @@
         godot_4
         grim
         inkscape
-        inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
         inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
         inputs.hyprsysteminfo.packages.${pkgs.system}.hyprsysteminfo
         krita
         legendary-gl
         libnotify
         libreoffice-qt-fresh
-        mako
         minetestclient
         nemo
         pavucontrol
-        playerctl
         prismlauncher
         pulseaudio
         sl
@@ -58,6 +54,10 @@
       obs-studio.enable = true;
       wlogout.enable = true;
       yt-dlp.enable = true;
+    };
+
+    services = {
+      playerctld.enable = true;
     };
   };
 

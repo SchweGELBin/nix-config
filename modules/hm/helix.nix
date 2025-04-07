@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   vars = import ../nix/vars.nix;
 in
@@ -6,6 +11,17 @@ in
   config = lib.mkIf config.helix.enable {
     programs.helix = {
       enable = true;
+      extraPackages = with pkgs; [
+        bash-language-server
+        jdt-language-server
+        kotlin-language-server
+        lldb
+        markdown-oxide
+        marksman
+        nil
+        nixfmt-rfc-style
+        taplo
+      ];
       languages.language = [
         {
           name = "nix";
