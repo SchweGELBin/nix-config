@@ -87,6 +87,10 @@ in
       enable = true;
       package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
     };
+    ssh = {
+      enableAskPassword = false;
+      startAgent = true;
+    };
     steam = {
       enable = true;
       gamescopeSession.enable = true;

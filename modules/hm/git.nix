@@ -10,6 +10,10 @@ in
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
+      extraConfig = {
+        http.postBuffer = 524288000;
+        init.defaultBranch = "main";
+      };
       lfs.enable = true;
       maintenance.enable = true;
       riff.enable = true;
