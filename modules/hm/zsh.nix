@@ -1,4 +1,7 @@
 { config, lib, ... }:
+let
+  vars = import ../nix/vars.nix;
+in
 {
   config = lib.mkIf config.zsh.enable {
     programs.zsh = {
@@ -21,6 +24,7 @@
       shellAliases = {
         icat = "kitten icat";
         ff = "fastfetch";
+        git-ssh = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
         prefetch = "nix-prefetch-url --unpack";
         search-file = "find . -name";
         search-text = "grep -Rnwe";
