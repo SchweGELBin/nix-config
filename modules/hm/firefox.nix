@@ -16,7 +16,6 @@ in
   config = lib.mkIf config.firefox.enable {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox;
       policies = {
         AllowedDomainsForApps = "";
         AppAutoUpdate = false;
@@ -59,7 +58,12 @@ in
       profiles.${vars.user.name} = {
         bookmarks = {
           force = true;
-          settings = [ ];
+          settings = [
+            {
+              name = "Home Manager Options";
+              url = "https://nix-community.github.io/home-manager/options.xhtml";
+            }
+          ];
         };
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
           behave
