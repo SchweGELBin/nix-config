@@ -21,4 +21,4 @@
 - Check if you didn't make any mistakes and didn't get any errors
 - Exit nix-shell with `exit`
 - Reboot to your system with `reboot`
-- Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone git@github.com:SchweGELBin/nix-config`
+- Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone https://github.com/SchweGELBin/nix-config`

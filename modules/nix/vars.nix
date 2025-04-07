@@ -12,7 +12,7 @@
 
   my = {
     domain = "milchi.site";
-    repo = "git@github.com:SchweGELBin/nix-config";
+    repo = "https://github.com/SchweGELBin/nix-config";
   };
 
   keys = {
