@@ -25,4 +25,4 @@
 - Remove your USB flash drive at reboot
 - Login with default password: "1234"
 - Change the initial password with `passwd`
-1. Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone git@github.com:SchweGELBin/nix-config`
+- Clone the repo to the right spot `sudo rm -r /etc/nixos && cd ~ && git clone git@github.com:SchweGELBin/nix-config`

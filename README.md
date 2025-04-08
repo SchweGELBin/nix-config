@@ -29,12 +29,16 @@ Theme                - Catppuccin Mocha Mauve
 
 ### Scripts
 ```
-sudo rebuild         | Rebuild Home system
-sudo update          | Update Home config
-sudo server-rebuild  | Rebuild Server system
-sudo server-reset    | Reset Server config
-music                | Toogle music-instance
-music-instance       | Play music
-loopback             | Toggle mic loopback
-screenshot [d/w/r/h] | Take screenshot (Display/Window/Region/Help)
+sudo rebuild          | Rebuild Home system
+sudo update           | Update Home config
+sudo server-rebuild   | Rebuild Server system
+sudo server-reset     | Reset Server config
+music                 | Toogle music-instance
+music-instance        | Play music
+loopback              | Toggle mic loopback
+screenshot [d/w/r/h]  | Take screenshot (Display/Window/Region/Help)
+binds                 | Show Keybinds
+avabg [c/gl] [t]      | Start avabg-instance or [t]oggle it
+avabg-instance [c/gl] | Start [c]ava/[gl]ava
+ac [l/r]              | Auto Clicker [l]eft/[r]ight
 ```
