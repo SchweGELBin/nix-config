@@ -24,7 +24,8 @@ in
       shellAliases = {
         icat = "kitten icat";
         ff = "fastfetch";
-        git-ssh = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
+        git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
+        git-ssh-rm = "ssh-add -D";
         prefetch = "nix-prefetch-url --unpack";
         search-file = "find . -name";
         search-text = "grep -Rnwe";
