@@ -30,7 +30,7 @@ Theme                - Catppuccin Mocha Mauve
 ### Scripts
 ```
 sudo rebuild          | Rebuild Home system
-sudo update           | Update Home config
+update                | Update Home config
 sudo server-rebuild   | Rebuild Server system
 sudo server-reset     | Reset Server config
 music                 | Toogle music-instance
