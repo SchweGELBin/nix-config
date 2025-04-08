@@ -22,6 +22,7 @@ in
         SUDO_EDITOR = "hx";
       };
       shellAliases = {
+        cleanup = "nix-collect-garbage -d";
         icat = "kitten icat";
         ff = "fastfetch";
         git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
