@@ -29,7 +29,8 @@ in
         git-ssh-rm = "ssh-add -D";
         prefetch = "nix-prefetch-url --unpack";
         search-file = "find . -name";
-        search-text = "grep -Rnwe";
+        search-text = "grep -Rne";
+        search-word = "grep -Rnwe";
         svi = "sudoedit";
         vi = "$EDITOR";
         vps = "kitten ssh";
