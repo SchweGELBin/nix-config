@@ -123,6 +123,14 @@ in
     };
     fail2ban.enable = true;
     jellyfin.enable = true;
+    matrix-conduit = {
+      enable = true;
+      settings.global = {
+        allow_registration = true;
+        database_backend = "rocksdb";
+        server_name = "${vars.my.domain}";
+      };
+    };
     minecraft-server = {
       enable = true;
       dataDir = "/var/lib/minecraft";
@@ -162,10 +170,29 @@ in
           forceSSL = true;
           root = "/var/www";
         };
+        "element.${vars.my.domain}" = {
+          enableACME = true;
+          forceSSL = true;
+          root = pkgs.element-web.override {
+            conf = {
+              default_server_config."m.homeserver" = {
+                base_url = "https://matrix.${vars.my.domain}";
+                server_name = "${vars.my.domain}";
+              };
+              default_theme = "dark";
+              disable_custom_urls = true;
+            };
+          };
+        };
         "jelly.${vars.my.domain}" = {
           enableACME = true;
           forceSSL = true;
           locations."/".proxyPass = "http://localhost:8096";
+        };
+        "matrix.${vars.my.domain}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:6167";
         };
       };
     };
