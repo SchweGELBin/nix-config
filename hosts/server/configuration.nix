@@ -128,6 +128,7 @@ in
       settings.global = {
         allow_registration = true;
         database_backend = "rocksdb";
+        enable_lightning_bolt = false;
         server_name = "${vars.my.domain}";
         well_known_client = "https://matrix.${vars.my.domain}";
         well_known_server = "matrix.${vars.my.domain}";
