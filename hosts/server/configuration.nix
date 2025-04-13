@@ -17,13 +17,9 @@ in
   imports = [
     ./hardware-configuration.nix
     ./networking.nix
-    ../../modules/nix/default.nix
+    ../../modules/nix
     inputs.sops-nix.nixosModules.sops
   ];
-
-  boot = {
-    loader.grub.configurationLimit = 2;
-  };
 
   home-manager = {
     users = {

@@ -12,12 +12,8 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nix/default.nix
+    ../../modules/nix
   ];
-
-  boot = {
-    loader.grub.configurationLimit = 32;
-  };
 
   fonts = {
     enableDefaultPackages = true;
@@ -132,5 +128,8 @@ in
   };
 
   # Custom modules
+  sys = {
+    boot.configs = 32;
+  };
   sys-pkgs.home.enable = true;
 }

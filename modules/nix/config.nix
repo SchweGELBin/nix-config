@@ -14,21 +14,6 @@ in
     inputs.home-manager.nixosModules.default
   ];
 
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = false;
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiInstallAsRemovable = true;
-        efiSupport = true;
-        useOSProber = true;
-      };
-    };
-    kernelPackages = pkgs.linuxPackages_latest; # Kernel Version: testing = mainline, latest = stable
-    tmp.cleanOnBoot = true;
-  };
-
   catppuccin = {
     enable = true;
     accent = vars.cat.accent;
