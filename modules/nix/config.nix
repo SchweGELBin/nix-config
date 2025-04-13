@@ -10,16 +10,8 @@ in
 
 {
   imports = [
-    inputs.catppuccin.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];
-
-  catppuccin = {
-    enable = true;
-    accent = vars.cat.accent;
-    cache.enable = true;
-    flavor = vars.cat.flavor;
-  };
 
   console = {
     font = "Lat2-Terminus16";
@@ -54,29 +46,6 @@ in
       LC_PAPER = "de_DE.UTF-8";
       LC_TELEPHONE = "de_DE.UTF-8";
       LC_TIME = "de_DE.UTF-8";
-    };
-  };
-
-  networking = {
-    firewall.enable = true;
-    interfaces.eth0.ipv4.addresses = [
-      {
-        address = "192.168.0.123";
-        prefixLength = 24;
-      }
-    ];
-    nameservers = [
-      "1.1.1.3"
-      "1.0.0.3"
-    ];
-    networkmanager.enable = true;
-    stevenblack = {
-      enable = true;
-      block = [
-        "fakenews"
-        "gambling"
-        "porn"
-      ];
     };
   };
 

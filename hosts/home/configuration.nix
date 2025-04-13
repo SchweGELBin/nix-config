@@ -57,7 +57,6 @@ in
 
   networking = {
     defaultGateway = "192.168.0.1";
-    hostName = vars.user.hostname.home;
   };
 
   nix = {

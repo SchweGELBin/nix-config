@@ -41,7 +41,6 @@ in
         1096
       ];
     };
-    hostName = vars.user.hostname.server;
     nat = {
       enable = true;
       externalInterface = "eth0";
@@ -279,5 +278,11 @@ in
   };
 
   # Custom modules
+  sys = {
+    networking = {
+      gateway.enable = false;
+      hostName = vars.user.hostname.server;
+    };
+  };
   sys-pkgs.server.enable = true;
 }
