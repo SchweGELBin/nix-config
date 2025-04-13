@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  vars = import ../vars.nix;
+in
 {
   config = lib.mkIf config.sys.services.greeter.enable {
     services.greetd = {
@@ -11,7 +14,7 @@
       settings = {
         default_session = {
           command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-          user = config.sys.users.name;
+          user = vars.user.name;
         };
       };
     };
