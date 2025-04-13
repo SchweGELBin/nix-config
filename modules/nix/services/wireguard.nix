@@ -6,7 +6,7 @@
   ...
 }:
 let
-  vars = import ./vars.nix;
+  vars = import ../vars.nix;
   wg = {
     v4 = "10.0.0";
     v6 = "fdc9:281f:04d7:9ee9";
