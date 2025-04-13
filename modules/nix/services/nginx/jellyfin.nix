@@ -13,7 +13,7 @@ in
       nginx.virtualHosts."jelly.${vars.my.domain}" = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${config.sys.services.nginx.jellyfin.port}";
+        locations."/".proxyPass = "http://localhost:${toString config.sys.services.nginx.jellyfin.port}";
       };
     };
   };

@@ -24,7 +24,7 @@ in
       nginx.virtualHosts."matrix.${vars.my.domain}" = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${config.sys.services.nginx.matrix.port}";
+        locations."/".proxyPass = "http://localhost:${toString config.sys.services.nginx.matrix.port}";
       };
     };
   };
