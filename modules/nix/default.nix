@@ -6,11 +6,14 @@ in
   imports = [
     ./boot.nix
     ./catppuccin.nix
-    ./config.nix
+    ./environment.nix
+    ./fonts.nix
     ./home-manager.nix
+    ./locale.nix
     ./networking.nix
     ./nix.nix
     ./packages
+    ./services
     ./users.nix
   ];
 
@@ -20,7 +23,13 @@ in
       configs = lib.mkDefault 2;
     };
     catppuccin.enable = lib.mkDefault true;
+    environment.enable = lib.mkDefault true;
+    fonts.enable = lib.mkDefault true;
     home-manager.enable = lib.mkDefault true;
+    locale = {
+      enable = lib.mkDefault true;
+      stateVersion = lib.mkForce vars.user.stateVersion;
+    };
     networking = {
       enable = lib.mkDefault true;
       gateway.enable = lib.mkDefault true;

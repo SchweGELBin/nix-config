@@ -94,10 +94,6 @@ in
     };
   };
 
-  programs = {
-    nix-ld.enable = true;
-  };
-
   security = {
     acme = {
       acceptTerms = true;
@@ -275,9 +271,15 @@ in
 
   # Custom modules
   sys = {
+    fonts.enable = false;
     networking = {
       gateway.enable = false;
       hostName = vars.user.hostname.server;
+    };
+    services = {
+      greeter.enable = false;
+      hardware.enable = false;
+      sound.enable = false;
     };
   };
   sys-pkgs.server.enable = true;
