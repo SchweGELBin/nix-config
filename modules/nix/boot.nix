@@ -21,6 +21,7 @@
       kernelPackages = pkgs.linuxPackages_latest;
       tmp.cleanOnBoot = true;
     };
+    zramSwap.enable = true;
   };
 
   options = {

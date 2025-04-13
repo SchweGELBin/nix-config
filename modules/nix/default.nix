@@ -13,6 +13,7 @@ in
     ./networking.nix
     ./nix.nix
     ./packages
+    ./security.nix
     ./services
     ./users.nix
   ];
@@ -33,6 +34,7 @@ in
       hostName = lib.mkDefault vars.user.hostname.home;
     };
     nix.enable = lib.mkDefault true;
+    security.enable = lib.mkDefault true;
     users.enable = lib.mkDefault true;
   };
 }
