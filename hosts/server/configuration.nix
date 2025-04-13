@@ -129,18 +129,16 @@ in
         allow_registration = true;
         database_backend = "rocksdb";
         enable_lightning_bolt = false;
-        server_name = "${vars.my.domain}";
+        server_name = vars.my.domain;
         well_known_client = "https://matrix.${vars.my.domain}";
         well_known_server = "matrix.${vars.my.domain}";
       };
     };
     minecraft-server = {
       enable = true;
-      dataDir = "/var/lib/minecraft";
       declarative = true;
       eula = true;
       jvmOpts = "-Xms2G -Xmx2G";
-      openFirewall = false;
       package = pkgs.minecraft-server;
       serverProperties = {
         difficulty = "hard";
@@ -180,7 +178,7 @@ in
             conf = {
               default_server_config."m.homeserver" = {
                 base_url = "https://matrix.${vars.my.domain}";
-                server_name = "${vars.my.domain}";
+                server_name = vars.my.domain;
               };
               default_theme = "dark";
               disable_custom_urls = true;
