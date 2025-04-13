@@ -1,0 +1,41 @@
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
+{
+  config = lib.mkIf config.sys.nix.enable {
+    nix = {
+      gc.automatic = true;
+      optimise.automatic = true;
+      settings = {
+        experimental-features = [
+          "flakes"
+          "nix-command"
+        ];
+        substituters = [
+          "https://hyprland.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        trusted-public-keys = [
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
+    };
+
+    nixpkgs = {
+      config = {
+        allowUnfree = true;
+        android_sdk.accept_license = true;
+        nvidia.acceptLicense = true;
+      };
+      overlays = [ inputs.fenix.overlays.default ];
+    };
+  };
+
+  options = {
+    sys.nix.enable = lib.mkEnableOption "Enable Nix";
+  };
+}

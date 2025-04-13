@@ -1,18 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
-
+{ pkgs, ... }:
 let
   vars = import ../../modules/nix/vars.nix;
 in
-
 {
-  imports = [
-    inputs.home-manager.nixosModules.default
-  ];
-
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true;
@@ -25,13 +15,6 @@ in
       NIXOS_INSTALL_BOOTLOADER = 1;
       NIXOS_OZONE_WL = 1;
     };
-  };
-
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    useGlobalPkgs = true;
   };
 
   i18n = {
@@ -47,31 +30,6 @@ in
       LC_TELEPHONE = "de_DE.UTF-8";
       LC_TIME = "de_DE.UTF-8";
     };
-  };
-
-  nix = {
-    optimise.automatic = true;
-    settings = {
-      experimental-features = [
-        "flakes"
-        "nix-command"
-      ];
-      substituters = [
-        "https://nix-community.cachix.org"
-      ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      android_sdk.accept_license = true;
-      nvidia.acceptLicense = true;
-    };
-    overlays = [ inputs.fenix.overlays.default ];
   };
 
   programs = {
@@ -97,20 +55,5 @@ in
 
   time = {
     timeZone = "Europe/Berlin";
-  };
-
-  users = {
-    users.${vars.user.name} = {
-      description = "${vars.user.name}";
-      extraGroups = [
-        "docker"
-        "networkmanager"
-        "wheel"
-        "ydotool"
-      ];
-      initialPassword = "1234";
-      isNormalUser = true;
-      shell = pkgs.zsh;
-    };
   };
 }

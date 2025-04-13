@@ -94,10 +94,6 @@ in
     };
   };
 
-  nix = {
-    gc.automatic = true;
-  };
-
   programs = {
     nix-ld.enable = true;
   };
