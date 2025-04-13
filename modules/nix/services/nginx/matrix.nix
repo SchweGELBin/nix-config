@@ -15,7 +15,7 @@ in
           allow_registration = true;
           database_backend = "rocksdb";
           enable_lightning_bolt = false;
-          port = config.sys.nginx.matrix.port;
+          port = config.sys.services.nginx.matrix.port;
           server_name = vars.my.domain;
           well_known_client = "https://matrix.${vars.my.domain}";
           well_known_server = "matrix.${vars.my.domain}";
