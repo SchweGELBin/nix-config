@@ -26,19 +26,13 @@ in
     environment.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
     home-manager.enable = lib.mkDefault true;
-    locale = {
-      enable = lib.mkDefault true;
-      stateVersion = lib.mkForce vars.user.stateVersion;
-    };
+    locale.enable = lib.mkDefault true;
     networking = {
       enable = lib.mkDefault true;
       gateway.enable = lib.mkDefault true;
       hostName = lib.mkDefault vars.user.hostname.home;
     };
     nix.enable = lib.mkDefault true;
-    users = {
-      enable = lib.mkDefault true;
-      name = lib.mkForce vars.user.name;
-    };
+    users.enable = lib.mkDefault true;
   };
 }

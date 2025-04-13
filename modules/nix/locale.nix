@@ -3,6 +3,9 @@
   lib,
   ...
 }:
+let
+  vars = import ./vars.nix;
+in
 {
   config = lib.mkIf config.sys.locale.enable {
     console = {
@@ -25,7 +28,7 @@
     };
 
     system = {
-      stateVersion = config.sys.locale.stateVersion;
+      stateVersion = vars.user.stateVersion;
     };
 
     time = {
@@ -34,12 +37,6 @@
   };
 
   options = {
-    sys.locale = {
-      enable = lib.mkEnableOption "Enable Locale";
-      stateVersion = lib.mkOption {
-        description = "Set StateVersion";
-        type = lib.types.str;
-      };
-    };
+    sys.locale.enable = lib.mkEnableOption "Enable Locale";
   };
 }

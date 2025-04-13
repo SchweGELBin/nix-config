@@ -10,6 +10,7 @@
     ./git.nix
     ./glava.nix
     ./helix.nix
+    ./home.nix
     ./hypr.nix
     ./kitty.nix
     ./mako.nix
@@ -37,6 +38,7 @@
   git.enable = lib.mkDefault true;
   glava.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
+  home.enable = lib.mkDefault true;
   hypr.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;

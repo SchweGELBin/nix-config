@@ -4,11 +4,14 @@
   pkgs,
   ...
 }:
+let
+  vars = import ./vars.nix;
+in
 {
   config = lib.mkIf config.sys.users.enable {
     users = {
-      users.${config.sys.users.name} = {
-        description = "${config.sys.users.name}";
+      users.${vars.user.name} = {
+        description = vars.user.name;
         extraGroups = [
           "docker"
           "networkmanager"
@@ -23,12 +26,6 @@
   };
 
   options = {
-    sys.users = {
-      enable = lib.mkEnableOption "Enable Users";
-      name = lib.mkOption {
-        description = "User Name";
-        type = lib.types.str;
-      };
-    };
+    sys.users.enable = lib.mkEnableOption "Enable Users";
   };
 }
