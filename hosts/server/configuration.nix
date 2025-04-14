@@ -25,6 +25,7 @@ in
       greeter.enable = false;
       hardware.enable = false;
       minecraft.enable = true;
+      nix.gc.enable = true;
       nginx.enable = true;
       smoos.enable = true;
       sound.enable = false;

@@ -7,7 +7,7 @@
 {
   config = lib.mkIf config.sys.nix.enable {
     nix = {
-      gc.automatic = true;
+      gc.automatic = config.sys.nix.gc.enable;
       optimise.automatic = true;
       settings = {
         experimental-features = [
@@ -36,6 +36,9 @@
   };
 
   options = {
-    sys.nix.enable = lib.mkEnableOption "Enable Nix";
+    sys.nix = {
+      enable = lib.mkEnableOption "Enable Nix";
+      gc.enable = lib.mkEnableOption "Enable automatic garbage collection";
+    };
   };
 }

@@ -33,7 +33,10 @@ in
       gateway.enable = lib.mkDefault true;
       hostName = lib.mkDefault vars.user.hostname.home;
     };
-    nix.enable = lib.mkDefault true;
+    nix = {
+      enable = lib.mkDefault true;
+      gc.enable = lib.mkDefault false;
+    };
     security.enable = lib.mkDefault true;
     users.enable = lib.mkDefault true;
   };
