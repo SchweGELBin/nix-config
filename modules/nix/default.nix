@@ -54,7 +54,7 @@ in
       };
       matrix = {
         enable = lib.mkDefault true;
-        port = 6167;
+        port = 8008;
       };
     };
     nix = {
