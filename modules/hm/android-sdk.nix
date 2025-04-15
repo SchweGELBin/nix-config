@@ -5,6 +5,8 @@
   ...
 }:
 let
+  cfg = config.android-sdk;
+
   android = {
     composition = pkgs.androidenv.composeAndroidPackages {
       includeNDK = true;
@@ -14,7 +16,7 @@ let
   };
 in
 {
-  config = lib.mkIf config.android-sdk.enable {
+  config = lib.mkIf cfg.enable {
     home = {
       packages = [ android.sdk ];
       sessionVariables = {

@@ -5,10 +5,11 @@
   ...
 }:
 let
-  vars = import ../vars.nix;
+  cfg = config.sys.greeter;
+  vars = import ./vars.nix;
 in
 {
-  config = lib.mkIf config.sys.services.greeter.enable {
+  config = lib.mkIf cfg.enable {
     services.greetd = {
       enable = true;
       settings = {
@@ -21,6 +22,6 @@ in
   };
 
   options = {
-    sys.services.greeter.enable = lib.mkEnableOption "Enable Greeter";
+    sys.greeter.enable = lib.mkEnableOption "Enable Greeter";
   };
 }

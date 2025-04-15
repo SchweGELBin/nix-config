@@ -4,10 +4,13 @@
   lib,
   ...
 }:
+let
+  cfg = config.sys.nix;
+in
 {
-  config = lib.mkIf config.sys.nix.enable {
+  config = lib.mkIf cfg.enable {
     nix = {
-      gc.automatic = config.sys.nix.gc.enable;
+      gc.automatic = cfg.gc.enable;
       optimise.automatic = true;
       settings = {
         experimental-features = [

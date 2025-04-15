@@ -1,6 +1,9 @@
 { config, lib, ... }:
+let
+  cfg = config.alacritty;
+in
 {
-  config = lib.mkIf config.alacritty.enable {
+  config = lib.mkIf cfg.enable {
     home.file.".config/alacritty/cava.toml".text = ''
       [window]
       opacity = 0.0

@@ -1,6 +1,9 @@
 { config, lib, ... }:
+let
+  cfg = config.mako;
+in
 {
-  config = lib.mkIf config.mako.enable {
+  config = lib.mkIf cfg.enable {
     services.mako = {
       enable = true;
       borderRadius = 5;

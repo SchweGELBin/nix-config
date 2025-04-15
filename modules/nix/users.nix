@@ -5,10 +5,11 @@
   ...
 }:
 let
+  cfg = config.sys.users;
   vars = import ./vars.nix;
 in
 {
-  config = lib.mkIf config.sys.users.enable {
+  config = lib.mkIf cfg.enable {
     users = {
       users.${vars.user.name} = {
         description = vars.user.name;

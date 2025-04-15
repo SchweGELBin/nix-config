@@ -5,12 +5,13 @@
   ...
 }:
 let
+  cfg = config.sys.catppuccin;
   vars = import ./vars.nix;
 in
 {
   imports = [ inputs.catppuccin.nixosModules.default ];
 
-  config = lib.mkIf config.sys.catppuccin.enable {
+  config = lib.mkIf cfg.enable {
     catppuccin = {
       enable = true;
       accent = vars.cat.accent;

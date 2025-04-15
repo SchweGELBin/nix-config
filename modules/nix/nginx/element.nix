@@ -5,10 +5,13 @@
   ...
 }:
 let
-  vars = import ../../vars.nix;
+  cfg = config.sys.nginx;
+  enable = cfg.enable && cfg.element.enable;
+
+  vars = import ../vars.nix;
 in
 {
-  config = lib.mkIf config.sys.services.nginx.element.enable {
+  config = lib.mkIf enable {
     services = {
       nginx.virtualHosts."element.${vars.my.domain}" = {
         enableACME = true;
@@ -25,9 +28,5 @@ in
         };
       };
     };
-  };
-
-  options = {
-    sys.services.nginx.element.enable = lib.mkEnableOption "Enable Element";
   };
 }

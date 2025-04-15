@@ -1,6 +1,9 @@
 { config, lib, ... }:
+let
+  cfg = config.music;
+in
 {
-  config = lib.mkIf config.music.enable {
+  config = lib.mkIf cfg.enable {
     home.file.".config/nix/music.list".text = ''
       https://www.youtube.com/playlist?list=PL0PCz_ViBzWbmK6qG9CnTdvv5LntT32PM
       https://www.youtube.com/playlist?list=PLHi2T2b45lpg_X7uHlNkk8kzycLvc1AAd

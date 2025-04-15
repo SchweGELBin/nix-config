@@ -1,14 +1,11 @@
+{ config, lib, ... }:
+let
+  cfg = config.fastfetch;
+in
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-  config = lib.mkIf config.fastfetch.enable {
+  config = lib.mkIf cfg.enable {
     programs.fastfetch = {
       enable = true;
-      package = pkgs.fastfetch;
       settings = {
         logo = {
           source = "auto";

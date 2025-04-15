@@ -6,15 +6,16 @@
   ...
 }:
 let
+  cfg = config.hypr;
   vars = import ../nix/vars.nix;
+
   logo = ".config/logo.png";
   logop = "~/${logo}";
   wall = ".config/background.png";
   wallp = "~/${wall}";
 in
 {
-  config = lib.mkIf config.hypr.enable {
-
+  config = lib.mkIf cfg.enable {
     home.file = {
       "${logo}".source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";

@@ -5,10 +5,11 @@
   ...
 }:
 let
+  cfg = config.scripts;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.scripts.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = [
       (pkgs.writeShellScriptBin "rebuild" ''
         cd ${vars.user.config}

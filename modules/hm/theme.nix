@@ -5,10 +5,11 @@
   ...
 }:
 let
+  cfg = config.theme;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.theme.enable {
+  config = lib.mkIf cfg.enable {
     catppuccin = {
       enable = true;
       accent = vars.cat.accent;
@@ -17,7 +18,7 @@ in
       hyprlock.useDefaultConfig = false;
     };
 
-    gtk = lib.mkIf config.theme.gtk.enable {
+    gtk = lib.mkIf cfg.gtk.enable {
       enable = true;
       iconTheme = {
         name = "Dracula";

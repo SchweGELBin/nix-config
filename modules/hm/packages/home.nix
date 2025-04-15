@@ -5,8 +5,12 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.hm-pkgs;
+  enable = cfg.enable && cfg.home.enable;
+in
 {
-  config = lib.mkIf config.hm-pkgs.home.enable {
+  config = lib.mkIf enable {
     home = {
       packages = with pkgs; [
         androidStudioPackages.dev
@@ -58,12 +62,6 @@
 
     services = {
       playerctld.enable = true;
-    };
-  };
-
-  options = {
-    hm-pkgs = {
-      home.enable = lib.mkEnableOption "Enable Home Packages";
     };
   };
 }

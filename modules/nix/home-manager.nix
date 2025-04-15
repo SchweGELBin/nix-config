@@ -4,10 +4,13 @@
   lib,
   ...
 }:
+let
+  cfg = config.sys.home-manager;
+in
 {
   imports = [ inputs.home-manager.nixosModules.default ];
 
-  config = lib.mkIf config.sys.home-manager.enable {
+  config = lib.mkIf cfg.enable {
     home-manager = {
       extraSpecialArgs = { inherit inputs; };
       useGlobalPkgs = true;

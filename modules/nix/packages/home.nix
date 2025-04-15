@@ -5,8 +5,12 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.sys.pkgs;
+  enable = cfg.enable && cfg.home.enable;
+in
 {
-  config = lib.mkIf config.sys-pkgs.home.enable {
+  config = lib.mkIf enable {
     environment.systemPackages = [ ];
 
     programs = {
@@ -35,9 +39,5 @@
     services.hypridle.package = inputs.hypridle.packages.${pkgs.system}.hypridle;
 
     xdg.portal.enable = true;
-  };
-
-  options = {
-    sys-pkgs.home.enable = lib.mkEnableOption "Enable Home Packages";
   };
 }

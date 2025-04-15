@@ -1,10 +1,9 @@
+{ config, lib, ... }:
+let
+  cfg = config.sys.environment;
+in
 {
-  config,
-  lib,
-  ...
-}:
-{
-  config = lib.mkIf config.sys.environment.enable {
+  config = lib.mkIf cfg.enable {
     environment.sessionVariables = {
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       LIBVA_DRIVER_NAME = "nvidia";

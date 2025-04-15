@@ -3,8 +3,11 @@
   lib,
   ...
 }:
+let
+  cfg = config.sys.sound;
+in
 {
-  config = lib.mkIf config.sys.services.sound.enable {
+  config = lib.mkIf cfg.enable {
     services.pipewire = {
       enable = true;
       alsa = {
@@ -17,6 +20,6 @@
   };
 
   options = {
-    sys.services.sound.enable = lib.mkEnableOption "Enable Sound";
+    sys.sound.enable = lib.mkEnableOption "Enable Sound";
   };
 }

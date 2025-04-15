@@ -4,20 +4,18 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.hm-pkgs;
+  enable = cfg.enable && cfg.server.enable;
+in
 {
-  config = lib.mkIf config.hm-pkgs.server.enable {
+  config = lib.mkIf enable {
     home.packages = with pkgs; [
       wireguard-tools
     ];
 
     programs = {
       htop.enable = true;
-    };
-  };
-
-  options = {
-    hm-pkgs = {
-      server.enable = lib.mkEnableOption "Enable Server Packages";
     };
   };
 }

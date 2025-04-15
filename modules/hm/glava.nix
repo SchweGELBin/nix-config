@@ -4,8 +4,11 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.glava;
+in
 {
-  config = lib.mkIf config.glava.enable {
+  config = lib.mkIf cfg.enable {
     home = {
       file = {
         ".config/glava/circle" = {

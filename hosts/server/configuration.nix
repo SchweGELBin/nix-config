@@ -17,20 +17,18 @@ in
   # Custom modules
   sys = {
     fonts.enable = false;
+    greeter.enable = false;
+    hardware.enable = false;
+    minecraft.enable = true;
+    nginx.enable = true;
     networking = {
       gateway.enable = false;
       hostName = vars.user.hostname.server;
     };
     nix.gc.enable = true;
-    services = {
-      greeter.enable = false;
-      hardware.enable = false;
-      minecraft.enable = true;
-      nginx.enable = true;
-      smoos.enable = true;
-      sound.enable = false;
-      wireguard.enable = true;
-    };
+    pkgs.server.enable = true;
+    smoos.enable = true;
+    sound.enable = false;
+    wireguard.enable = true;
   };
-  sys-pkgs.server.enable = true;
 }

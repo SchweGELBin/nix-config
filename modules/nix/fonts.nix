@@ -4,8 +4,11 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.sys.fonts;
+in
 {
-  config = lib.mkIf config.sys.fonts.enable {
+  config = lib.mkIf cfg.enable {
     fonts = {
       enableDefaultPackages = true;
       fontconfig = {

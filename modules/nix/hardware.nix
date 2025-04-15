@@ -3,8 +3,11 @@
   lib,
   ...
 }:
+let
+  cfg = config.sys.hardware;
+in
 {
-  config = lib.mkIf config.sys.services.hardware.enable {
+  config = lib.mkIf cfg.enable {
     hardware = {
       graphics.enable = true;
       nvidia = {
@@ -25,6 +28,6 @@
   };
 
   options = {
-    sys.services.hardware.enable = lib.mkEnableOption "Enable Hardware";
+    sys.hardware.enable = lib.mkEnableOption "Enable Hardware";
   };
 }

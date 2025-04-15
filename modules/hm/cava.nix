@@ -1,10 +1,9 @@
+{ config, lib, ... }:
+let
+  cfg = config.cava;
+in
 {
-  config,
-  lib,
-  ...
-}:
-{
-  config = lib.mkIf config.cava.enable {
+  config = lib.mkIf cfg.enable {
     programs.cava = {
       enable = true;
       settings = {

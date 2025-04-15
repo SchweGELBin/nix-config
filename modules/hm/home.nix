@@ -1,9 +1,10 @@
 { config, lib, ... }:
 let
+  cfg = config.home;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.home.enable {
+  config = lib.mkIf cfg.enable {
     home = {
       homeDirectory = "${vars.user.home}";
       stateVersion = "${vars.user.stateVersion}";

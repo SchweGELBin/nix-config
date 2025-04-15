@@ -1,13 +1,10 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
+  cfg = config.git;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.git.enable {
+  config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
       extraConfig = {

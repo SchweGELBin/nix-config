@@ -3,9 +3,12 @@
   lib,
   ...
 }:
+let
+  cfg = config.sys.minecraft;
+in
 {
-  config = lib.mkIf config.sys.services.minecraft.enable {
-    networking.firewall.allowedTCPPorts = [ config.sys.services.minecraft.port ];
+  config = lib.mkIf cfg.enable {
+    networking.firewall.allowedTCPPorts = [ cfg.port ];
 
     services.minecraft-server = {
       enable = true;
@@ -13,7 +16,7 @@
       eula = true;
       jvmOpts = "-Xms2G -Xmx2G";
       serverProperties = {
-        "query.port" = config.sys.services.minecraft.port;
+        "query.port" = cfg.port;
         difficulty = "hard";
         enable-command-block = false;
         enforce-whitelist = true;
@@ -21,7 +24,7 @@
         max-players = 7;
         motd = "MiX MC";
         op-permission-level = 2;
-        server-port = config.sys.services.minecraft.port;
+        server-port = cfg.port;
         simulation-distance = 6;
         view-distance = 8;
         white-list = false;
@@ -33,7 +36,7 @@
   };
 
   options = {
-    sys.services.minecraft = {
+    sys.minecraft = {
       enable = lib.mkEnableOption "Enable Minecraft Server";
       port = lib.mkOption {
         description = "Minecraft Port";

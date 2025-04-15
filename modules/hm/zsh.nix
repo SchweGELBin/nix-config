@@ -1,9 +1,10 @@
 { config, lib, ... }:
 let
+  cfg = config.zsh;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.zsh.enable {
+  config = lib.mkIf cfg.enable {
     programs.zsh = {
       enable = true;
       autosuggestion.enable = true;

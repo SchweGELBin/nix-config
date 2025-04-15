@@ -1,13 +1,10 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
+  cfg = config.waybar;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.waybar.enable {
+  config = lib.mkIf cfg.enable {
     programs.waybar = {
       enable = true;
       settings = {

@@ -5,6 +5,7 @@
     ./android-sdk.nix
     ./cava.nix
     ./direnv.nix
+    ./devshells
     ./fastfetch.nix
     ./firefox.nix
     ./git.nix
@@ -38,6 +39,11 @@
   git.enable = lib.mkDefault true;
   glava.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
+  hm-pkgs = {
+    enable = lib.mkDefault true;
+    home.enable = lib.mkDefault false;
+    server.enable = lib.mkDefault false;
+  };
   home.enable = lib.mkDefault true;
   hypr.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;

@@ -16,7 +16,7 @@ in
   # Custom modules
   sys = {
     boot.configs = 32;
+    pkgs.home.enable = true;
     security.enable = false;
   };
-  sys-pkgs.home.enable = true;
 }

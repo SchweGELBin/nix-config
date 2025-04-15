@@ -4,10 +4,11 @@
   ...
 }:
 let
+  cfg = config.sys.locale;
   vars = import ./vars.nix;
 in
 {
-  config = lib.mkIf config.sys.locale.enable {
+  config = lib.mkIf cfg.enable {
     console = {
       font = "Lat2-Terminus16";
       useXkbConfig = true;

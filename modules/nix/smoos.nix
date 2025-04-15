@@ -5,11 +5,15 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.sys.smoos;
+  secrets = config.sops.secrets;
+in
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
-  config = lib.mkIf config.sys.services.smoos.enable {
-    networking.firewall.allowedTCPPorts = [ config.sys.services.smoos.port ];
+  config = lib.mkIf cfg.enable {
+    networking.firewall.allowedTCPPorts = [ cfg.port ];
 
     sops.secrets = {
       dcid.owner = "smoo";
@@ -27,8 +31,8 @@
             ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
             cp ./$repo/settings.json .
             sed -i '/JsonApi/{n;s/false/true/}' ./settings.json
-            sed -i -e "s/\"SECRET_TOKEN_1\"/\"$(cat ${config.sops.secrets.smtoken1.path})\"/g" ./settings.json
-            sed -i -e "s/\"SECRET_TOKEN_2\"/\"$(cat ${config.sops.secrets.smtoken2.path})\"/g" ./settings.json
+            sed -i -e "s/\"SECRET_TOKEN_1\"/\"$(cat ${secrets.smtoken1.path})\"/g" ./settings.json
+            sed -i -e "s/\"SECRET_TOKEN_2\"/\"$(cat ${secrets.smtoken2.path})\"/g" ./settings.json
           fi
         '';
         script = ''
@@ -49,9 +53,9 @@
           fi
         '';
         script = ''
-          export DISCORD_TOKEN="$(cat ${config.sops.secrets.dctoken.path})"
-          export DISCORD_ID="$(cat ${config.sops.secrets.dcid.path})"
-          export API_TOKEN="$(cat ${config.sops.secrets.smtoken2.path})"
+          export DISCORD_TOKEN="$(cat ${secrets.dctoken.path})"
+          export DISCORD_ID="$(cat ${secrets.dcid.path})"
+          export API_TOKEN="$(cat ${secrets.smtoken2.path})"
           export CC="${pkgs.gcc}/bin/gcc"
           export AR="${pkgs.gcc}/bin/ar"
           export RUSTFLAGS="-C linker=$CC"
@@ -76,7 +80,7 @@
   };
 
   options = {
-    sys.services.smoos = {
+    sys.smoos = {
       enable = lib.mkEnableOption "Enable Super Mario Odyssey: Online Server";
       port = lib.mkOption {
         description = "SMOOS Port";

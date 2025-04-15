@@ -5,12 +5,13 @@
   ...
 }:
 let
+  cfg = config.sys.security;
   vars = import ./vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
-  config = lib.mkIf config.sys.security.enable {
+  config = lib.mkIf cfg.enable {
     security = {
       acme = {
         acceptTerms = true;

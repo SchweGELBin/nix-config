@@ -1,6 +1,9 @@
 { config, lib, ... }:
+let
+  cfg = config.kitty;
+in
 {
-  config = lib.mkIf config.kitty.enable {
+  config = lib.mkIf cfg.enable {
     programs.kitty = {
       enable = true;
       settings = {

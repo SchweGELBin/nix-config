@@ -3,12 +3,15 @@
   lib,
   ...
 }:
+let
+  cfg = config.sys.networking;
+in
 {
-  config = lib.mkIf config.sys.networking.enable {
+  config = lib.mkIf cfg.enable {
     networking = {
-      defaultGateway = lib.mkIf config.sys.networking.gateway.enable "192.168.0.1";
+      defaultGateway = lib.mkIf cfg.gateway.enable "192.168.0.1";
       firewall.enable = true;
-      hostName = config.sys.networking.hostName;
+      hostName = cfg.hostName;
       interfaces.eth0.ipv4.addresses = [
         {
           address = "192.168.0.123";

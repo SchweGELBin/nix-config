@@ -4,14 +4,17 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.sys.boot;
+in
 {
-  config = lib.mkIf config.sys.boot.enable {
+  config = lib.mkIf cfg.enable {
     boot = {
       loader = {
         efi.canTouchEfiVariables = false;
         grub = {
           enable = true;
-          configurationLimit = config.sys.boot.configs;
+          configurationLimit = cfg.configs;
           device = "nodev";
           efiInstallAsRemovable = true;
           efiSupport = true;

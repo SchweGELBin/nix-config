@@ -5,10 +5,11 @@
   ...
 }:
 let
+  cfg = config.helix;
   vars = import ../nix/vars.nix;
 in
 {
-  config = lib.mkIf config.helix.enable {
+  config = lib.mkIf cfg.enable {
     programs.helix = {
       enable = true;
       extraPackages = with pkgs; [

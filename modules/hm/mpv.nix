@@ -4,8 +4,11 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.mpv;
+in
 {
-  config = lib.mkIf config.mpv.enable {
+  config = lib.mkIf cfg.enable {
     programs.mpv = {
       enable = true;
       scripts = with pkgs; [

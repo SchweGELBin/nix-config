@@ -6,14 +6,16 @@
   ...
 }:
 let
+  cfg = config.firefox;
   vars = import ../nix/vars.nix;
+
   icons = "${pkgs.papirus-icon-theme}/share/icons/Papirus/16x16";
   invidious = "https://yewtu.be";
   piped = "https://piped.yt";
   searx = "https://opnxng.com";
 in
 {
-  config = lib.mkIf config.firefox.enable {
+  config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
       policies = {
@@ -332,8 +334,6 @@ in
           "widget.non-native-theme.enabled" = true;
           "widget.non-native-theme.use-theme-accent" = false;
         };
-        userChrome = "";
-        userContent = "";
       };
     };
   };
