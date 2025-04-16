@@ -39,6 +39,8 @@ in
         no-tcp-relay = true;
         realm = "turn.${vars.my.domain}";
         secure-stun = true;
+        static-auth-secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
+        use-auth-secret = true;
       };
       nginx.virtualHosts."turn.${vars.my.domain}" = {
         enableACME = true;

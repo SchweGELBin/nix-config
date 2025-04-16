@@ -21,6 +21,7 @@ in
           enable_lightning_bolt = false;
           port = cfg.matrix.port;
           server_name = vars.my.domain;
+          turn_secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
           turn_uris = [
             "turn:turn.${vars.my.domain}:${toString cfg.turn.port}?transport=tcp"
             "turn:turn.${vars.my.domain}:${toString cfg.turn.port}?transport=udp"
