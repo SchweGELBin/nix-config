@@ -50,11 +50,18 @@ in
       element.enable = lib.mkDefault true;
       jellyfin = {
         enable = lib.mkDefault true;
-        port = 8096;
+        port = lib.mkDefault 8096;
       };
       matrix = {
         enable = lib.mkDefault true;
-        port = 6167;
+        port = lib.mkDefault 6167;
+      };
+      turn = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 5349;
+        port-alt = lib.mkDefault 5350;
+        relay-max = lib.mkDefault 50000;
+        relay-min = lib.mkDefault 49500;
       };
     };
     nix = {

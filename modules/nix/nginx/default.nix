@@ -8,6 +8,7 @@ in
     ./element.nix
     ./jellyfin.nix
     ./matrix.nix
+    ./turn.nix
   ];
 
   config = lib.mkIf cfg.enable {
@@ -48,6 +49,25 @@ in
         enable = lib.mkEnableOption "Enable Matrix";
         port = lib.mkOption {
           description = "Matrix Port";
+          type = lib.types.int;
+        };
+      };
+      turn = {
+        enable = lib.mkEnableOption "Enable Turn";
+        port = lib.mkOption {
+          description = "Turn Port";
+          type = lib.types.int;
+        };
+        port-alt = lib.mkOption {
+          description = "Turn Alternative Port";
+          type = lib.types.int;
+        };
+        relay-max = lib.mkOption {
+          description = "Turn Relay Range Max";
+          type = lib.types.int;
+        };
+        relay-min = lib.mkOption {
+          description = "Turn Relay Ranfe Min";
           type = lib.types.int;
         };
       };
