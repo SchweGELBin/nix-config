@@ -30,6 +30,10 @@ in
             "turn:turn.${vars.my.domain}:${toString cfg.turn.port-alt}?transport=tcp"
             "turn:turn.${vars.my.domain}:${toString cfg.turn.port-alt}?transport=udp"
           ];
+          trusted_servers = [
+            "matrix.org"
+            "mau.chat"
+          ];
           well_known_client = "https://matrix.${vars.my.domain}";
           well_known_server = "matrix.${vars.my.domain}";
         };
@@ -39,7 +43,11 @@ in
         settings = {
           appservice.port = cfg.matrix.whatsapp.port;
           bridge = {
-            encryption.allow = true;
+            encryption = {
+              allow = true;
+              default = true;
+              require = true;
+            };
             permissions."${vars.my.domain}" = "user";
           };
           homeserver = {
