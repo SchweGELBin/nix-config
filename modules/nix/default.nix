@@ -55,6 +55,10 @@ in
       matrix = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 6167;
+        whatsapp = {
+          enable = lib.mkDefault true;
+          port = lib.mkDefault 29318;
+        };
       };
       turn = {
         enable = lib.mkDefault true;

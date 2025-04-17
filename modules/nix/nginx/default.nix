@@ -51,6 +51,14 @@ in
           description = "Matrix Port";
           type = lib.types.int;
         };
+        whatsapp = {
+          enable = lib.mkEnableOption "Enable WhatsApp Bridge";
+          port = lib.mkOption {
+            description = "WhatsApp Bridge Port";
+            type = lib.types.int;
+          };
+        };
+
       };
       turn = {
         enable = lib.mkEnableOption "Enable Turn";
