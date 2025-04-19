@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -11,9 +12,6 @@ let
 in
 {
   config = lib.mkIf enable {
-    nixpkgs.config.permittedInsecurePackages = [
-      "olm-3.2.16"
-    ];
     services = {
       matrix-conduit = {
         enable = true;
@@ -40,6 +38,7 @@ in
       };
       mautrix-whatsapp = {
         enable = cfg.matrix.whatsapp.enable;
+        package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
         settings = {
           appservice.port = cfg.matrix.whatsapp.port;
           bridge = {
