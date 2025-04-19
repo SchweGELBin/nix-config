@@ -26,7 +26,6 @@ in
         gedit
         gimp
         glfw
-        godot_4
         grim
         inkscape
         inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
