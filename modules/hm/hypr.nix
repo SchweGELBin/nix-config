@@ -321,9 +321,9 @@ in
         };
 
         monitor = [
-          ",preferred,auto,1" # Default
-          "Unknown-1,disable" # Ghost Monitor
-          "DP-2,2560x1440@180,0x0,1,bitdepth,10,vrr,1,transform,0" # Main
+          ", preferred, auto, 1" # Default
+          "Unknown-1, disable" # Ghost Monitor
+          "DP-2, 2560x1440@180, 0x0, 1, transform,0, bitdepth,10, vrr,1" # Main
         ];
 
         plugin = {
