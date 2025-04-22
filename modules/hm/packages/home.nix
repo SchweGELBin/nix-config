@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -27,9 +26,8 @@ in
         gimp
         glfw
         grim
+        hyprpicker
         inkscape
-        inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-        inputs.hyprsysteminfo.packages.${pkgs.system}.hyprsysteminfo
         krita
         legendary-gl
         libnotify

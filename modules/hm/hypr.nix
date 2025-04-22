@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -27,7 +26,6 @@ in
     programs = {
       hyprlock = {
         enable = true;
-        package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
         settings = {
           background = [
             {
@@ -112,7 +110,6 @@ in
     services = {
       hypridle = {
         enable = true;
-        package = inputs.hypridle.packages.${pkgs.system}.hypridle;
         settings = {
           general = {
             after_sleep_cmd = "hyprctl dispatch dpms on";
@@ -134,7 +131,6 @@ in
       };
       hyprpaper = {
         enable = true;
-        package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
         settings = {
           preload = [ "${wallp}" ];
           wallpaper = [ ",${wallp}" ];
@@ -144,11 +140,10 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      plugins = [
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+      plugins = with pkgs.hyprlandPlugins; [
+        hyprexpo
+        hyprtrails
+        hyprwinwrap
       ];
       settings = {
 
