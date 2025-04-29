@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -24,14 +23,7 @@ in
         openFirewall = true;
       };
       hardware.openrgb.enable = true;
-      printing = {
-        enable = true;
-        drivers = with pkgs; [
-          mfcl3730cdnlpr
-          mfcl3730cdncupswrapper
-        ];
-        stateless = true;
-      };
+      printing.enable = true;
       xserver = {
         enable = true;
         exportConfiguration = true;

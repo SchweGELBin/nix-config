@@ -15,7 +15,6 @@ in
         description = vars.user.name;
         extraGroups = [
           "docker"
-          "lp"
           "networkmanager"
           "wheel"
           "ydotool"
