@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -17,8 +18,20 @@ in
     };
 
     services = {
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
       hardware.openrgb.enable = true;
-      printing.enable = true;
+      printing = {
+        enable = true;
+        drivers = with pkgs; [
+          mfcl3730cdnlpr
+          mfcl3730cdncupswrapper
+        ];
+        stateless = true;
+      };
       xserver = {
         enable = true;
         exportConfiguration = true;
