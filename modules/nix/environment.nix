@@ -7,7 +7,6 @@ in
     environment.sessionVariables = {
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       LIBVA_DRIVER_NAME = "nvidia";
-      NIXOS_INSTALL_BOOTLOADER = 1;
       NIXOS_OZONE_WL = 1;
     };
   };

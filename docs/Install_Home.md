@@ -14,7 +14,7 @@
 
 <br>
 
-- Install NixOS with `nixos-install --root /mnt --flake /mnt/etc/nixos#home`
+- Install NixOS with `NIXOS_INSTALL_BOOTLOADER=1 nixos-install --root /mnt --flake /mnt/etc/nixos#home`
 - (If you get an out of space error, rerun last command)
 - Type in your preferred root password (twice)
 

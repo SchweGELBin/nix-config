@@ -17,7 +17,7 @@
 - Get these config files with `git clone https://github.com/SchweGELBin/nix-config --depth 1 /etc/nixos`
 - Move back the networking file `cp ~/bak/{hardware-configuration.nix,networking.nix} ./hosts/server/`
 - Sync config with `git add .`
-- Rebuild NixOS with `TMPDIR="/tmp" nixos-rebuild switch --flake ./#server`
+- Rebuild NixOS with `NIXOS_INSTALL_BOOTLOADER=1 TMPDIR="/tmp" nixos-rebuild switch --flake ./#server`
 - Check if you didn't make any mistakes and didn't get any errors
 - Exit nix-shell with `exit`
 - Reboot to your system with `reboot`

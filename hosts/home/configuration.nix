@@ -15,7 +15,10 @@ in
 
   # Custom modules
   sys = {
-    boot.configs = 32;
+    boot = {
+      configs = 32;
+      timeout = 3;
+    };
     pkgs.home.enable = true;
     security.enable = false;
   };

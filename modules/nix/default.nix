@@ -28,6 +28,7 @@ in
     boot = {
       enable = lib.mkDefault true;
       configs = lib.mkDefault 2;
+      timeout = lib.mkDefault 0;
     };
     catppuccin.enable = lib.mkDefault true;
     environment.enable = lib.mkDefault true;

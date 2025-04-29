@@ -20,6 +20,7 @@ in
           efiSupport = true;
           useOSProber = true;
         };
+        timeout = cfg.timeout;
       };
       kernelPackages = pkgs.linuxPackages_latest;
       tmp.cleanOnBoot = true;
@@ -32,6 +33,10 @@ in
       enable = lib.mkEnableOption "Enable Boot";
       configs = lib.mkOption {
         description = "Configuration Limit";
+        type = lib.types.int;
+      };
+      timeout = lib.mkOption {
+        description = "Bootloader Timeout";
         type = lib.types.int;
       };
     };
