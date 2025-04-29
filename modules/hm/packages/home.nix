@@ -23,7 +23,7 @@ in
         ])
         fusee-nano
         gedit
-        gimp
+        gimp3
         glfw
         grim
         hyprpicker
