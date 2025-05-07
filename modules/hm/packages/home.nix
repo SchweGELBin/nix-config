@@ -35,6 +35,7 @@ in
         minetestclient
         nemo
         nix-update
+        nixpkgs-review
         pavucontrol
         prismlauncher
         pulseaudio
