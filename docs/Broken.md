@@ -1,4 +1,5 @@
 # Currently Broken
 
-- Vesktop: 10-Bit ScreenShare
+- Catppuccin: Mako
 - Printing
+- Vesktop: 10-Bit ScreenShare
