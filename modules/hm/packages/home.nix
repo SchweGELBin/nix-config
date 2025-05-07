@@ -34,6 +34,7 @@ in
         libreoffice-qt-fresh
         minetestclient
         nemo
+        nix-update
         pavucontrol
         prismlauncher
         pulseaudio
