@@ -86,11 +86,11 @@
     },
     "nixos-patch": {
       "locked": {
-        "lastModified": 1746622504,
-        "narHash": "sha256-1Aqbt8hQXj0jZBlpzBFfHYiX5scFxSFQL6i5Xy7BEv8=",
+        "lastModified": 1746625943,
+        "narHash": "sha256-xNNzz+kyNiZGQXINl4UtheayDViAxMFUT1C+GoUnr54=",
         "owner": "SchweGELBin",
         "repo": "nixpkgs",
-        "rev": "93137cf28d3a140c4e48cbf5968e7ad6c42c8cbd",
+        "rev": "6bc7f974ba717db66509fa0a108971eaecb0845e",
         "type": "github"
       },
       "original": {
