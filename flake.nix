@@ -12,6 +12,7 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
+      #url = "github:SchweGELBin/catppuccin-nix/patch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
