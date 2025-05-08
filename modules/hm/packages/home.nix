@@ -15,6 +15,7 @@ in
         androidStudioPackages.dev
         audacity
         blender
+        catppuccin-whiskers
         exfat
         (fenix.combine [
           fenix.latest.toolchain
