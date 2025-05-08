@@ -16,7 +16,6 @@ in
       cava.transparent = true;
       flavor = vars.cat.flavor;
       hyprlock.useDefaultConfig = false;
-      mako.enable = false;
     };
 
     gtk = lib.mkIf cfg.gtk.enable {
