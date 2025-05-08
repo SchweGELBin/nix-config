@@ -14,6 +14,7 @@
     bevy.enable = true;
   };
   direnv.enable = true;
+  element.enable = true;
   firefox.enable = true;
   hm-pkgs.home.enable = true;
   hypr.enable = true;

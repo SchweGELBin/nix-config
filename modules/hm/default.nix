@@ -6,6 +6,7 @@
     ./cava.nix
     ./direnv.nix
     ./devshells
+    ./element.nix
     ./fastfetch.nix
     ./firefox.nix
     ./git.nix
@@ -34,6 +35,7 @@
     bevy.enable = lib.mkDefault false;
   };
   direnv.enable = lib.mkDefault false;
+  element.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault false;
   git.enable = lib.mkDefault true;
