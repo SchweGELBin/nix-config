@@ -19,6 +19,7 @@ in
     fonts.enable = false;
     greeter.enable = false;
     hardware.enable = false;
+    mail.enable = true;
     minecraft.enable = true;
     nginx.enable = true;
     networking = {

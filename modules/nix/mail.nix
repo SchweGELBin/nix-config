@@ -18,9 +18,14 @@ in
   config = lib.mkIf cfg.enable {
     mailserver = {
       enable = true;
+      enableImapSsl = false;
+      enableManageSieve = false;
+      enablePop3Ssl = false;
+      enableSubmissionSsl = false;
       certificateScheme = "acme-nginx";
       domains = [ vars.my.domain ];
       fqdn = "mail.${vars.my.domain}";
+      localDnsResolver = false;
       loginAccounts = {
         "master@${vars.my.domain}" = {
           aliases = [ "@${vars.my.domain}" ];
@@ -28,6 +33,12 @@ in
         };
       };
     };
+    networking.firewall.allowedTCPPorts = [
+      110
+      143
+      587
+    ];
+
     sops.secrets.mail = { };
   };
 
