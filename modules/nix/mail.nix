@@ -29,7 +29,7 @@ in
       loginAccounts = {
         "master@${vars.my.domain}" = {
           aliases = [ "@${vars.my.domain}" ];
-          hashedPasswordFile = secrets.mail.path;
+          hashedPasswordFile = secrets.mailhash.path;
         };
       };
     };
@@ -39,7 +39,7 @@ in
       587
     ];
 
-    sops.secrets.mail = { };
+    sops.secrets.mailhash.owner = "dovecot2";
   };
 
   options = {
