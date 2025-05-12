@@ -8,13 +8,12 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [ cfg.port ];
-
     services.minecraft-server = {
       enable = true;
       declarative = true;
       eula = true;
       jvmOpts = "-Xms2G -Xmx2G";
+      openFirewall = true;
       serverProperties = {
         "query.port" = cfg.port;
         difficulty = "hard";
