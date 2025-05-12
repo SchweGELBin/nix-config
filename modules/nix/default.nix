@@ -12,6 +12,7 @@ in
     ./hardware.nix
     ./home-manager.nix
     ./locale.nix
+    ./mail.nix
     ./minecraft.nix
     ./networking.nix
     ./nginx
@@ -37,6 +38,7 @@ in
     hardware.enable = lib.mkDefault true;
     home-manager.enable = lib.mkDefault true;
     locale.enable = lib.mkDefault true;
+    mail.enable = lib.mkDefault false;
     minecraft = {
       enable = lib.mkDefault false;
       port = lib.mkDefault 25565;

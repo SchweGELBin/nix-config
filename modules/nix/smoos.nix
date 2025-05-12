@@ -10,7 +10,7 @@ let
   secrets = config.sops.secrets;
 in
 {
-  imports = [ inputs.sops-nix.nixosModules.sops ];
+  imports = [ inputs.sops-nix.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ cfg.port ];

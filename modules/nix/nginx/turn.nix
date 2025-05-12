@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   ...
 }:
@@ -10,8 +9,6 @@ let
   vars = import ../vars.nix;
 in
 {
-  imports = [ inputs.sops-nix.nixosModules.sops ];
-
   config = lib.mkIf enable {
     networking.firewall = {
       allowedTCPPorts = [

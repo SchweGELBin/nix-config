@@ -24,6 +24,7 @@ in
       mdcat
       neo-cowsay
       pipes-rs
+      pwgen
       sops
       unzip
       wget

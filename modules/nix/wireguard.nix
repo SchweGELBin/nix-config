@@ -16,7 +16,7 @@ let
   };
 in
 {
-  imports = [ inputs.sops-nix.nixosModules.sops ];
+  imports = [ inputs.sops-nix.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
     networking = {
