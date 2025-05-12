@@ -17,14 +17,16 @@ in
     services = {
       coturn = {
         enable = true;
-        alt-listening-port = null;
         alt-tls-listening-port = cfg.turn.port-alt;
         cert = "/var/lib/acme/turn.${vars.my.domain}/fullchain.pem";
         pkey = "/var/lib/acme/turn.${vars.my.domain}/key.pem";
-        listening-port = null;
         max-port = cfg.turn.relay-max;
         min-port = cfg.turn.relay-min;
         no-tcp-relay = true;
+        openPorts = with config.services.coturn; [
+          alt-tls-listening-port
+          tls-listening-port
+        ];
         realm = "turn.${vars.my.domain}";
         secure-stun = true;
         static-auth-secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
