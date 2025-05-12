@@ -10,6 +10,18 @@ let
 in
 {
   config = lib.mkIf enable {
+    networking.firewall = {
+      allowedTCPPorts = [
+        cfg.turn.port
+        cfg.turn.port-alt
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = cfg.turn.relay-min;
+          to = cfg.turn.relay-max;
+        }
+      ];
+    };
     security.acme.certs."turn.${vars.my.domain}" = {
       group = "turnserver";
       postRun = "systemctl reload nginx.service; systemctl restart coturn.service";
@@ -23,10 +35,6 @@ in
         max-port = cfg.turn.relay-max;
         min-port = cfg.turn.relay-min;
         no-tcp-relay = true;
-        openPorts = with config.services.coturn; [
-          alt-tls-listening-port
-          tls-listening-port
-        ];
         realm = "turn.${vars.my.domain}";
         secure-stun = true;
         static-auth-secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
