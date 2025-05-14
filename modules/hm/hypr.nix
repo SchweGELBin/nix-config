@@ -175,8 +175,8 @@ in
 
         bindd = [
           "$altMod   SHIFT,  up        ,  Add window to master                          ,  layoutmsg             , addmaster"
-          "          ALT_R,  left      ,  Auto Clicker Left                             , exec                   , ac l"
-          "          ALT_R,  right     ,  Auto Clicker Right                            , exec                   , ac r"
+          "          ALT_R,  left      ,  Auto Clicker Left                             ,  exec                  , ac l"
+          "          ALT_R,  right     ,  Auto Clicker Right                            ,  exec                  , ac r"
           "$mainMod       ,  C         ,  Close active window                           ,  killactive            , "
           "$mainMod       ,  mouse_down,  Go to next workspace                          ,  workspace             , e+1"
           "$mainMod       ,  mouse_up  ,  Go to previous workspace                      ,  workspace             , e-1"
