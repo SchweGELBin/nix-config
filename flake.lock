@@ -23,16 +23,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1747268376,
-        "narHash": "sha256-JDcdINnB1bfbUAy1eEgwIXLrfZeuntxuxTu7UWcQrQY=",
-        "owner": "catppuccin",
-        "repo": "nix",
-        "rev": "7a6ccdeba6e761bec9601e2192983e6b9dff630c",
+        "lastModified": 1747421159,
+        "narHash": "sha256-i5mbMNrdl6jzU0oJ14ixmg3lWrgiMhv9mipyo+WxOxQ=",
+        "owner": "SchweGELBin",
+        "repo": "catppuccin-nix",
+        "rev": "3997e1b75773518a59a3981e7774fd622e4a5f9c",
         "type": "github"
       },
       "original": {
-        "owner": "catppuccin",
-        "repo": "nix",
+        "owner": "SchweGELBin",
+        "ref": "patch",
+        "repo": "catppuccin-nix",
         "type": "github"
       }
     },
@@ -66,11 +67,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1747368212,
-        "narHash": "sha256-8bjsQVrFR3Uc0EK7vycFMUbtksqwrBbi+/Sx3O0u3lU=",
+        "lastModified": 1747403139,
+        "narHash": "sha256-GpldCFeC+YP9m2xm1POByfT3+9J9/nwst0CYxvR85I0=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "a55ddf6541db6a45e324c4f2f81f49e0322a400f",
+        "rev": "1ebb2cf654110901889353440027993312e1aeb0",
         "type": "gitlab"
       },
       "original": {
@@ -190,11 +191,11 @@
     },
     "nixos-patch": {
       "locked": {
-        "lastModified": 1747397287,
-        "narHash": "sha256-3XvlcFgXK0ExRqhHshadZ2tIUk5y4ugIap6wUdFK5CI=",
+        "lastModified": 1747420986,
+        "narHash": "sha256-LhMymoRZr9zt/IIHwzQ2BNjyU/7c8NqzZRMDEGtis6s=",
         "owner": "SchweGELBin",
         "repo": "nixpkgs",
-        "rev": "997acef50a8a06e63c8b9dfcb9cb862e2ee217b8",
+        "rev": "5832943e19d3cd7116b7fe5331823ad3896ef2dc",
         "type": "github"
       },
       "original": {
