@@ -222,7 +222,7 @@ in
           "$mainMod  SHIFT,  9         ,  Move focused window and go to workspace 9     ,  movetoworkspace       , 9"
           "$mainMod       ,  M         ,  Play Music                                    ,  exec                  , music"
           "$altMod   SHIFT,  down      ,  Remove window from master                     ,  layoutmsg             , removemaster"
-          "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill -x $bar && $bar"
+          "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill $bar && $bar"
           "          SUPER,  ALT_R     ,  Show Keybinds                                 ,  exec                  , kitty --hold binds"
           "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
           "$altMod        ,  Tab       ,  Swap focused window with master or first child,  layoutmsg             , swapwithmaster"
