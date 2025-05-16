@@ -28,7 +28,7 @@ in
         ff = "fastfetch";
         git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
         git-ssh-rm = "ssh-add -D";
-        prefetch = "nix-prefetch-url --unpack";
+        nix-prefetch-unpack = "nix-prefetch-url --unpack";
         search-file = "find . -name";
         search-text = "grep -Rne";
         search-word = "grep -Rnwe";
