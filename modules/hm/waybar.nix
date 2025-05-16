@@ -55,10 +55,10 @@ in
             rewrite = {
               "" = "  I use Nix btw";
               "cava" = "  I use Nix btw";
-              "Element (?:[\d+] )?(?:* )?| (.*)" = "󰭹 $1";
+              "Element(.*)" = "󰭹 $1";
               "(.*) — Mozilla Firefox" = "󰈹  $1";
               "(.*) - mpv" = "  $1";
-              "(?:• )?(?:\(\d+\) )?(Discord)(.*)" = "󰙯  $1";
+              "Vesktop" = "󰙯  Vesktop";
             };
             separate-outputs = true;
           };
