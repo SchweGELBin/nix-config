@@ -16,7 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       apksigner
-      catspeak
+      catspeak # PR: 404932
       cmatrix
       file
       ffmpeg
