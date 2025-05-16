@@ -15,7 +15,6 @@ in
       accent = vars.cat.accent;
       cava.transparent = true;
       flavor = vars.cat.flavor;
-      hyprlock.useDefaultConfig = false;
       mako.enable = false;
     };
 

@@ -8,9 +8,8 @@ let
   cfg = config.hypr;
   vars = import ../nix/vars.nix;
 
-  logo = ".config/logo.png";
-  logop = "~/${logo}";
-  wall = ".config/background.png";
+  logo = ".face";
+  wall = ".config/background";
   wallp = "~/${wall}";
 in
 {
@@ -23,89 +22,7 @@ in
       "${wall}".source = ../../res/wallpaper.png;
     };
 
-    programs = {
-      hyprlock = {
-        enable = true;
-        settings = {
-          background = [
-            {
-              blur_passes = 0;
-              color = "$base";
-              monitor = "";
-              path = "${wallp}";
-            }
-          ];
-          general = {
-            disable_loading_bar = true;
-            hide_cursor = true;
-          };
-          image = {
-            border_color = "$accent";
-            halign = "center";
-            monitor = "";
-            path = "${logop}";
-            position = "0, 75";
-            size = 100;
-            valign = "center";
-          };
-          input-field = [
-            {
-              capslock_color = "$yellow";
-              check_color = "$accent";
-              dots_center = true;
-              dots_size = 0.2;
-              dots_spacing = 0.2;
-              fade_on_empty = false;
-              fail_color = "$red";
-              fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-              font_color = "$text";
-              halign = "center";
-              hide_input = false;
-              inner_color = "$surface0";
-              monitor = "";
-              outer_color = "$accent";
-              outline_thickness = 4;
-              placeholder_text = "<span foreground=\"##$textAlpha\"><i>󰌾 Logged in as </i><span foreground=\"##$accentAlpha\">$USER</span></span>";
-              position = "0, -47";
-              size = "300, 60";
-              valign = "center";
-            }
-          ];
-          label = [
-            {
-              color = "$text";
-              font_family = "$font";
-              font_size = 25;
-              halign = "left";
-              monitor = "";
-              position = "30, -30";
-              text = "Layout: $LAYOUT";
-              valign = "top";
-            }
-            {
-              color = "$text";
-              font_family = "$font";
-              font_size = 90;
-              halign = "right";
-              monitor = "";
-              position = "-30, 0";
-              text = "$TIME";
-              valign = "top";
-            }
-            {
-              color = "$text";
-              font_family = "$font";
-              font_size = 25;
-              halign = "right";
-              monitor = "";
-              position = "-30, -150";
-              text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
-              valign = "top";
-            }
-          ];
-        };
-      };
-    };
+    programs.hyprlock.enable = true;
 
     services = {
       hypridle = {
