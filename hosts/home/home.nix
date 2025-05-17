@@ -21,6 +21,7 @@
   kitty.enable = true;
   mako.enable = true;
   theme.gtk.enable = true;
+  thunderbird.enable = true;
   vesktop.enable = true;
   waybar.enable = true;
 }
