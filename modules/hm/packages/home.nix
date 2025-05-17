@@ -14,6 +14,7 @@ in
       packages = with pkgs; [
         androidStudioPackages.dev
         audacity
+        bitwarden-desktop
         blender
         catppuccin-whiskers
         exfat
@@ -29,6 +30,7 @@ in
         grim
         hyprpicker
         inkscape
+        jellyfin-tui
         krita
         legendary-gl
         libnotify
