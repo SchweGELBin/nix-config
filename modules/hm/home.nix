@@ -6,9 +6,9 @@ in
 {
   config = lib.mkIf cfg.enable {
     home = {
-      homeDirectory = "${vars.user.home}";
-      stateVersion = "${vars.user.stateVersion}";
-      username = "${vars.user.name}";
+      homeDirectory = vars.user.home;
+      stateVersion = vars.user.stateVersion;
+      username = vars.user.name;
     };
   };
 
