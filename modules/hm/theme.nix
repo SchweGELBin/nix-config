@@ -15,7 +15,6 @@ in
       accent = vars.cat.accent;
       cava.transparent = true;
       flavor = vars.cat.flavor;
-      mako.enable = false;
     };
 
     gtk = lib.mkIf cfg.gtk.enable {

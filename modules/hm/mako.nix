@@ -7,9 +7,9 @@ in
     services.mako = {
       enable = true;
       settings = {
-        borderRadius = 5;
-        borderSize = 2;
-        defaultTimeout = 2000;
+        border-radius = 5;
+        border-size = 2;
+        default-timeout = 2000;
         layer = "overlay";
       };
     };
