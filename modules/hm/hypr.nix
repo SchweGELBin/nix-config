@@ -59,7 +59,7 @@ in
       enable = true;
       plugins = with pkgs.hyprlandPlugins; [
         hyprexpo
-        hyprtrails
+        #hyprtrails
         hyprwinwrap
       ];
       settings = {
