@@ -2,4 +2,3 @@
 
 - Printing
 - Vesktop: 10-Bit ScreenShare
-- Hyprtrails
