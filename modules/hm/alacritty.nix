@@ -4,14 +4,12 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.file.".config/alacritty/cava.toml".text = ''
+    programs.alacritty.enable = true;
+
+    xdg.configFile."alacritty/cava.toml".text = ''
       [window]
       opacity = 0.0
     '';
-
-    programs.alacritty = {
-      enable = true;
-    };
   };
 
   options = {
