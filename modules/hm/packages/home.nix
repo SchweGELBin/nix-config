@@ -7,6 +7,8 @@
 let
   cfg = config.hm-pkgs;
   enable = cfg.enable && cfg.home.enable;
+
+  vars = import ../../nix/vars.nix;
 in
 {
   config = lib.mkIf enable {
@@ -16,6 +18,10 @@ in
         audacity
         bitwarden-desktop
         blender
+        (catppuccin.override {
+          accent = vars.cat.accent;
+          variant = vars.cat.flavor;
+        })
         catppuccin-whiskers
         exfat
         (fenix.combine [
