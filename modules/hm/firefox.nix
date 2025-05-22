@@ -37,7 +37,7 @@ in
         DisableSystemAddonUpdate = true;
         DisableSetDesktopBackground = false;
         DisableTelemetry = true;
-        DisplayBookmarksToolbar = "never";
+        DisplayBookmarksToolbar = "newtab";
         DisplayMenuBar = "never";
         DontCheckDefaultBrowser = true;
         DownloadDirectory = "\${home}/Downloads";
@@ -59,24 +59,49 @@ in
           force = true;
           settings = [
             {
-              name = "Archive";
-              url = "https://web.archive.org/save";
-            }
-            {
-              name = "Color Theme";
-              url = "https://github.com/catppuccin/firefox";
-            }
-            {
-              name = "GitHub";
-              url = "https://github.com/SchweGELBin";
-            }
-            {
-              name = "HM Options";
-              url = "https://nix-community.github.io/home-manager/options.xhtml";
-            }
-            {
-              name = "Home";
-              url = "https://www.${vars.my.domain}";
+              name = "ALL";
+              toolbar = true;
+              bookmarks = [
+                {
+                  name = "Firefox Theme";
+                  bookmarks = [
+                    {
+                      name = "Firefox - UI";
+                      url = "https://github.com/catppuccin/firefox";
+                    }
+                    {
+                      name = "Firefox - Websites";
+                      url = "https://github.com/catppuccin/userstyles";
+                    }
+                  ];
+                }
+                {
+                  name = "Michi";
+                  bookmarks = [
+                    {
+                      name = "GitHub";
+                      url = "https://github.com/SchweGELBin";
+                    }
+                    {
+                      name = "Home";
+                      url = "https://www.${vars.my.domain}";
+                    }
+                  ];
+                }
+                {
+                  name = "Other";
+                  bookmarks = [
+                    {
+                      name = "Archive";
+                      url = "https://web.archive.org/save";
+                    }
+                    {
+                      name = "HM Options";
+                      url = "https://nix-community.github.io/home-manager/options.xhtml";
+                    }
+                  ];
+                }
+              ];
             }
           ];
         };
@@ -88,42 +113,41 @@ in
             firefox-color
             redirector
             skip-redirect
+            stylus
             ublock-origin
           ];
           settings = {
             "FirefoxColor@mozilla.com".settings.firstRunDone = true;
-            "skipredirect@sblask".settings = {
-              "blacklist" = [
-                "/abp"
-                "/account"
-                "/adfs"
-                "/auth"
-                "/cookie"
-                "/download"
-                "/login"
-                "/logoff"
-                "/logon"
-                "/logout"
-                "/oauth"
-                "/openid"
-                "/pay"
-                "/preference"
-                "/profile"
-                "/register"
-                "/saml"
-                "/signin"
-                "/signoff"
-                "/signon"
-                "/signout"
-                "/signup"
-                "/sso"
-                "/subscribe"
-                "/unauthenticated"
-                "/verification"
-                "https://external-content.duckduckgo.com"
-                "https://web.archive.org/web"
-              ];
-            };
+            "skipredirect@sblask".settings.blacklist = [
+              "/abp"
+              "/account"
+              "/adfs"
+              "/auth"
+              "/cookie"
+              "/download"
+              "/login"
+              "/logoff"
+              "/logon"
+              "/logout"
+              "/oauth"
+              "/openid"
+              "/pay"
+              "/preference"
+              "/profile"
+              "/register"
+              "/saml"
+              "/signin"
+              "/signoff"
+              "/signon"
+              "/signout"
+              "/signup"
+              "/sso"
+              "/subscribe"
+              "/unauthenticated"
+              "/verification"
+              "https://external-content.duckduckgo.com"
+              "https://web.archive.org/web"
+            ];
           };
         };
         extraConfig = "";
@@ -149,43 +173,22 @@ in
               urls = [ { template = "https://github.com/search?q={searchTerms}"; } ];
             };
             "google".metaData.hidden = true;
+            "HM Options" = {
+              definedAliases = [ "@hm" ];
+              icon = "${icons}/apps/distributor-logo-nixos.svg";
+              urls = [
+                { template = "https://home-manager-options.extranix.com/?release=master&query={searchTerms}"; }
+              ];
+            };
             "Nix Packages" = {
               definedAliases = [ "@np" ];
               icon = "${icons}/apps/distributor-logo-nixos.svg";
-              urls = [
-                {
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                  ];
-                  template = "https://search.nixos.org/packages";
-                }
-              ];
+              urls = [ { template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}"; } ];
             };
             "Nix Options" = {
               definedAliases = [ "@no" ];
               icon = "${icons}/apps/distributor-logo-nixos.svg";
-              urls = [
-                {
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                    {
-                      name = "type";
-                      value = "options";
-                    }
-                  ];
-                  template = "https://search.nixos.org/options";
-                }
-              ];
+              urls = [ { template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}"; } ];
             };
             "NixOS Wiki" = {
               definedAliases = [ "@nw" ];
