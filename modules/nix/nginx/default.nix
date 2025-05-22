@@ -8,6 +8,7 @@ in
     ./element.nix
     ./jellyfin.nix
     ./matrix.nix
+    ./searx.nix
     ./turn.nix
   ];
 
@@ -58,7 +59,13 @@ in
             type = lib.types.int;
           };
         };
-
+      };
+      searx = {
+        enable = lib.mkEnableOption "Enable SearXNG";
+        port = lib.mkOption {
+          description = "SearXNG Port";
+          type = lib.types.int;
+        };
       };
       turn = {
         enable = lib.mkEnableOption "Enable Turn";

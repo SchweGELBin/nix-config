@@ -63,6 +63,10 @@ in
           port = lib.mkDefault 29318;
         };
       };
+      searx = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 8888;
+      };
       turn = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 5349;
