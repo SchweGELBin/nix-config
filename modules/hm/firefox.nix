@@ -10,9 +10,6 @@ let
   vars = import ../nix/vars.nix;
 
   icons = "${pkgs.papirus-icon-theme}/share/icons/Papirus/16x16";
-  invidious = "https://yewtu.be";
-  piped = "https://piped.yt";
-  searx = "https://opnxng.com";
 in
 {
   config = lib.mkIf cfg.enable {
@@ -44,7 +41,7 @@ in
         DisplayMenuBar = "never";
         DontCheckDefaultBrowser = true;
         DownloadDirectory = "\${home}/Downloads";
-        NoDefaultBookmarks = true;
+        NoDefaultBookmarks = false;
         OfferToSaveLogins = false;
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";
@@ -62,19 +59,73 @@ in
           force = true;
           settings = [
             {
-              name = "Home Manager Options";
+              name = "Archive";
+              url = "https://web.archive.org/save";
+            }
+            {
+              name = "Color Theme";
+              url = "https://github.com/catppuccin/firefox";
+            }
+            {
+              name = "GitHub";
+              url = "https://github.com/SchweGELBin";
+            }
+            {
+              name = "HM Options";
               url = "https://nix-community.github.io/home-manager/options.xhtml";
+            }
+            {
+              name = "Home";
+              url = "https://www.${vars.my.domain}";
             }
           ];
         };
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-          behave
-          darkreader
-          firefox-color
-          redirector
-          skip-redirect
-          ublock-origin
-        ];
+        extensions = {
+          force = true;
+          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+            behave
+            darkreader
+            firefox-color
+            redirector
+            skip-redirect
+            ublock-origin
+          ];
+          settings = {
+            "FirefoxColor@mozilla.com".settings.firstRunDone = true;
+            "skipredirect@sblask".settings = {
+              "blacklist" = [
+                "/abp"
+                "/account"
+                "/adfs"
+                "/auth"
+                "/cookie"
+                "/download"
+                "/login"
+                "/logoff"
+                "/logon"
+                "/logout"
+                "/oauth"
+                "/openid"
+                "/pay"
+                "/preference"
+                "/profile"
+                "/register"
+                "/saml"
+                "/signin"
+                "/signoff"
+                "/signon"
+                "/signout"
+                "/signup"
+                "/sso"
+                "/subscribe"
+                "/unauthenticated"
+                "/verification"
+                "https://external-content.duckduckgo.com"
+                "https://web.archive.org/web"
+              ];
+            };
+          };
+        };
         extraConfig = "";
         id = 0;
         search = {
@@ -144,12 +195,12 @@ in
             "Piped" = {
               definedAliases = [ "@pd" ];
               icon = "${icons}/actions/im-youtube.svg";
-              urls = [ { template = "${piped}/results?search_query={searchTerms}"; } ];
+              urls = [ { template = "https://piped.yt/results?search_query={searchTerms}"; } ];
             };
-            "Searx" = {
+            "SearXNG" = {
               definedAliases = [ "@sx" ];
               icon = "${icons}/actions/edit-find.svg";
-              urls = [ { template = "${searx}/search?q={searchTerms}"; } ];
+              urls = [ { template = "https://searx.${vars.my.domain}/search?q={searchTerms}"; } ];
             };
             "Startpage" = {
               definedAliases = [ "@sp" ];
@@ -157,10 +208,10 @@ in
               urls = [ { template = "https://www.startpage.com/search?q={searchTerms}"; } ];
             };
             "wikipedia".metaData.hidden = true;
-            "Yewtube" = {
+            "Invidious" = {
               definedAliases = [ "@yt" ];
               icon = "${icons}/actions/im-youtube.svg";
-              urls = [ { template = "${invidious}/search?q={searchTerms}"; } ];
+              urls = [ { template = "https://iv.${vars.my.domain}/search?q={searchTerms}"; } ];
             };
           };
           force = true;
@@ -168,9 +219,12 @@ in
           privateDefault = "ddg";
         };
         settings = {
+          "browser.places.importBookmarksHTML" = true;
           "clipboard.autocopy" = false;
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+          "extensions.autoDisableScopes" = 0;
           "font.name.serif.x-western" = "DejaVu Sans";
+          "layout.css.devPixelsPerPx" = 1.2;
           "middlemouse.paste" = false;
         };
         settings = {
