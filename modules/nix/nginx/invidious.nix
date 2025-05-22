@@ -13,7 +13,7 @@ in
   config = lib.mkIf enable {
     services.invidious = {
       enable = true;
-      domain = vars.my.domain;
+      domain = "iv.${vars.my.domain}";
       nginx.enable = true;
       port = cfg.invidious.port;
     };
