@@ -6,7 +6,9 @@ in
 {
   imports = [
     ./element.nix
+    ./invidious.nix
     ./jellyfin.nix
+    ./mail.nix
     ./matrix.nix
     ./searx.nix
     ./turn.nix
@@ -39,6 +41,13 @@ in
     sys.nginx = {
       enable = lib.mkEnableOption "Enable Nginx";
       element.enable = lib.mkEnableOption "Enable Element";
+      invidious = {
+        enable = lib.mkEnableOption "Enable Invidious";
+        port = lib.mkOption {
+          description = "Invidious Port";
+          type = lib.types.int;
+        };
+      };
       jellyfin = {
         enable = lib.mkEnableOption "Enable Jellyfin";
         port = lib.mkOption {
@@ -46,6 +55,7 @@ in
           type = lib.types.int;
         };
       };
+      mail.enable = lib.mkEnableOption "Enable Mail Server";
       matrix = {
         enable = lib.mkEnableOption "Enable Matrix";
         port = lib.mkOption {
@@ -82,7 +92,7 @@ in
           type = lib.types.int;
         };
         relay-min = lib.mkOption {
-          description = "Turn Relay Ranfe Min";
+          description = "Turn Relay Range Min";
           type = lib.types.int;
         };
       };

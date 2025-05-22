@@ -12,7 +12,6 @@ in
     ./hardware.nix
     ./home-manager.nix
     ./locale.nix
-    ./mail.nix
     ./minecraft.nix
     ./networking.nix
     ./nginx
@@ -38,7 +37,6 @@ in
     hardware.enable = lib.mkDefault true;
     home-manager.enable = lib.mkDefault true;
     locale.enable = lib.mkDefault true;
-    mail.enable = lib.mkDefault false;
     minecraft = {
       enable = lib.mkDefault false;
       port = lib.mkDefault 25565;
@@ -51,10 +49,15 @@ in
     nginx = {
       enable = lib.mkDefault false;
       element.enable = lib.mkDefault true;
+      invidious = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 3000;
+      };
       jellyfin = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 8096;
       };
+      mail.enable = lib.mkDefault true;
       matrix = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 6167;

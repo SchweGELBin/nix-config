@@ -16,7 +16,6 @@ in
 
   config = lib.mkIf enable {
     services = {
-      jellyfin.enable = true;
       searx = {
         enable = true;
         environmentFile = secrets.searx.path;
