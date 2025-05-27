@@ -6,8 +6,6 @@ in
 {
   config = lib.mkIf enable {
     environment.systemPackages = [ ];
-    programs = {
-      nix-ld.enable = true;
-    };
+    programs = { };
   };
 }
