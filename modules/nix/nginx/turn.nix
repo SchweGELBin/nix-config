@@ -1,11 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.turn.enable;
+
+  secrets = config.sops.secrets;
   vars = import ../vars.nix;
 in
 {
@@ -37,7 +35,7 @@ in
         no-tcp-relay = true;
         realm = "turn.${vars.my.domain}";
         secure-stun = true;
-        static-auth-secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
+        static-auth-secret-file = secrets.turn.path;
         tls-listening-port = cfg.turn.port;
         use-auth-secret = true;
       };
@@ -46,7 +44,7 @@ in
         forceSSL = true;
       };
     };
-
+    sops.secrets.turn.owner = "coturn";
     users.users.nginx.extraGroups = [ "turnserver" ];
   };
 }

@@ -18,7 +18,7 @@ in
     services = {
       searx = {
         enable = true;
-        environmentFile = secrets.searx.path;
+        environmentFile = secrets.searx_env.path;
         redisCreateLocally = true;
         settings.server = {
           bind_address = "0.0.0.0";
@@ -32,6 +32,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.searx.port}";
       };
     };
-    sops.secrets.searx.owner = "searx";
+    sops.secrets.searx_env.owner = "searx";
   };
 }

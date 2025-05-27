@@ -8,6 +8,7 @@ let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.matrix.enable;
 
+  secrets = config.sops.secrets;
   vars = import ../vars.nix;
 in
 {
@@ -15,13 +16,13 @@ in
     services = {
       matrix-conduit = {
         enable = true;
+        extraEnvironment = secrets.conduit_env.path;
         settings.global = {
           allow_registration = true;
           database_backend = "rocksdb";
           enable_lightning_bolt = false;
           port = cfg.matrix.port;
           server_name = vars.my.domain;
-          turn_secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
           turn_uris = [
             "turn:turn.${vars.my.domain}:${toString cfg.turn.port}?transport=tcp"
             "turn:turn.${vars.my.domain}:${toString cfg.turn.port}?transport=udp"
@@ -61,5 +62,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";
       };
     };
+    sops.secrets.conduit_env.owner = "conduit";
   };
 }
