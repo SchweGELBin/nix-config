@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.jellyfin.enable;
