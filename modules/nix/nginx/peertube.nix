@@ -51,7 +51,7 @@ in
           };
           smtp = {
             from_address = mail;
-            hostname = domain;
+            hostname = "mail.${vars.my.domain}";
             username = mail;
           };
           user.history.videos.enabled = false;
