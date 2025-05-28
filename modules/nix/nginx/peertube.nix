@@ -10,6 +10,8 @@ let
 
   secrets = config.sops.secrets;
   vars = import ../vars.nix;
+
+  domain = "peertube.${vars.my.domain}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -19,14 +21,20 @@ in
       enable = true;
       configureNginx = true;
       database.createLocally = true;
+      enableWebHttps = true;
       listenHttp = cfg.peertube.port;
-      localDomain = "peertube.${vars.my.domain}";
+      listenWeb = cfg.peertube.port;
+      localDomain = domain;
       redis.createLocally = true;
       secrets.secretsFile = secrets.peertube.path;
       settings = {
         listen.hostname = "0.0.0.0";
         log.level = "info";
       };
+    };
+    nginx.virtualHosts."${domain}" = {
+      enableACME = true;
+      forceSSL = true;
     };
     sops.secrets.peertube.owner = "peertube";
   };
