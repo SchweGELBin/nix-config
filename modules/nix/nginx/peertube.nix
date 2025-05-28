@@ -17,24 +17,26 @@ in
   imports = [ inputs.sops-nix.nixosModules.default ];
 
   config = lib.mkIf enable {
-    services.peertube = {
-      enable = true;
-      configureNginx = true;
-      database.createLocally = true;
-      enableWebHttps = true;
-      listenHttp = cfg.peertube.port;
-      listenWeb = cfg.peertube.port;
-      localDomain = domain;
-      redis.createLocally = true;
-      secrets.secretsFile = secrets.peertube.path;
-      settings = {
-        listen.hostname = "0.0.0.0";
-        log.level = "info";
+    services = {
+      peertube = {
+        enable = true;
+        configureNginx = true;
+        database.createLocally = true;
+        enableWebHttps = true;
+        listenHttp = cfg.peertube.port;
+        listenWeb = cfg.peertube.port;
+        localDomain = domain;
+        redis.createLocally = true;
+        secrets.secretsFile = secrets.peertube.path;
+        settings = {
+          listen.hostname = "0.0.0.0";
+          log.level = "info";
+        };
       };
-    };
-    nginx.virtualHosts."${domain}" = {
-      enableACME = true;
-      forceSSL = true;
+      nginx.virtualHosts."${domain}" = {
+        enableACME = true;
+        forceSSL = true;
+      };
     };
     sops.secrets.peertube.owner = "peertube";
   };
