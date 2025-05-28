@@ -12,7 +12,7 @@ let
   vars = import ../vars.nix;
 
   domain = "peertube.${vars.my.domain}";
-  mail = "peertube@${vars.milchi.site}";
+  mail = "peertube@${vars.my.domain}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -64,7 +64,9 @@ in
         forceSSL = true;
       };
     };
-    sops.secrets.peertube.owner = "peertube";
-    sops.secrets.peertube_mail.owner = "peertube";
+    sops.secrets = {
+      peertube.owner = "peertube";
+      peertube_mail.owner = "peertube";
+    };
   };
 }
