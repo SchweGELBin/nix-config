@@ -29,6 +29,7 @@ in
         localDomain = domain;
         redis.createLocally = true;
         secrets.secretsFile = secrets.peertube.path;
+        serviceEnvironmentFile = secrets.peertube_env.path;
         settings = {
           admin.email = mail;
           client.open_in_app = {
@@ -66,6 +67,7 @@ in
     };
     sops.secrets = {
       peertube.owner = "peertube";
+      peertube_env.owner = "peertube";
       peertube_mail.owner = "peertube";
     };
   };
