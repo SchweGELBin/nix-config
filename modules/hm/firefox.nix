@@ -195,10 +195,10 @@ in
               icon = "${icons}/apps/distributor-logo-nixos.svg";
               urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
             };
-            "Piped" = {
-              definedAliases = [ "@pd" ];
-              icon = "${icons}/actions/im-youtube.svg";
-              urls = [ { template = "https://piped.yt/results?search_query={searchTerms}"; } ];
+            "PeerTube" = {
+              definedAliases = [ "@pt" ];
+              icon = "${icons}/actions/media-playback-playing.svg";
+              urls = [ { template = "https://peertube.${vars.my.domain}/search?search={searchTerms}"; } ];
             };
             "SearXNG" = {
               definedAliases = [ "@sx" ];
@@ -212,7 +212,10 @@ in
             };
             "wikipedia".metaData.hidden = true;
             "Invidious" = {
-              definedAliases = [ "@yt" ];
+              definedAliases = [
+                "@iv"
+                "@yt"
+              ];
               icon = "${icons}/actions/im-youtube.svg";
               urls = [ { template = "https://iv.${vars.my.domain}/search?q={searchTerms}"; } ];
             };

@@ -10,6 +10,7 @@ in
     ./jellyfin.nix
     ./mail.nix
     ./matrix.nix
+    ./peertube.nix
     ./searx.nix
     ./turn.nix
   ];
@@ -68,6 +69,13 @@ in
             description = "WhatsApp Bridge Port";
             type = lib.types.int;
           };
+        };
+      };
+      peertube = {
+        enable = lib.mkEnableOption "Enable PeerTube";
+        port = lib.mkOption {
+          description = "PeerTube Port";
+          type = lib.types.int;
         };
       };
       searx = {

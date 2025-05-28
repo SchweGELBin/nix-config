@@ -66,6 +66,10 @@ in
           port = lib.mkDefault 29318;
         };
       };
+      peertube = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 9000;
+      };
       searx = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 8888;
