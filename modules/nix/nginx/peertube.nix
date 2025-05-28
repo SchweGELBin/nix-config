@@ -57,6 +57,5 @@ in
       };
     };
     sops.secrets.peertube.owner = "peertube";
-    sops.secrets.peertube_smtp.owner = "peertube";
   };
 }
