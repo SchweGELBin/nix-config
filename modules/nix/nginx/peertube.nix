@@ -24,7 +24,7 @@ in
         database.createLocally = true;
         enableWebHttps = true;
         listenHttp = cfg.peertube.port;
-        listenWeb = cfg.peertube.port;
+        listenWeb = 443;
         localDomain = domain;
         redis.createLocally = true;
         secrets.secretsFile = secrets.peertube.path;
