@@ -22,7 +22,7 @@ in
       listenHttp = cfg.peertube.port;
       localDomain = "peertube.${vars.my.domain}";
       redis.createLocally = true;
-      secrets.secretsFile = secrets.searx_env.path;
+      secrets.secretsFile = secrets.peertube.path;
       settings = {
         listen.hostname = "0.0.0.0";
         log.level = "info";
