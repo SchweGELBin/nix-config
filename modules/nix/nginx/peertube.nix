@@ -29,8 +29,31 @@ in
         redis.createLocally = true;
         secrets.secretsFile = secrets.peertube.path;
         settings = {
-          listen.hostname = "0.0.0.0";
-          log.level = "info";
+          admin.email = "peertube@${vars.my.domain}";
+          client.open_in_app = {
+            android.intent = {
+              fallback_url = "https://f-droid.org/packages/org.framasoft.peertube/";
+              host = domain;
+            };
+            ios.host = domain;
+          };
+          instance = {
+            description = "Welcome to Michi's PeerTube instance!";
+            name = "MiX PT";
+            server_country = "Germany";
+            short_description = "Michi's PeerTube instance";
+          };
+          signup = {
+            enabled = true;
+            limit = 100;
+            requires_email_verification = true;
+          };
+          user.history.videos.enabled = false;
+          video_studio.enabled = true;
+        };
+        smtp = {
+          createLocally = true;
+          passwordFile = secrets.peertube_smtp.path;
         };
       };
       nginx.virtualHosts."${domain}" = {
@@ -39,5 +62,6 @@ in
       };
     };
     sops.secrets.peertube.owner = "peertube";
+    sops.secrets.peertube_smtp.owner = "peertube";
   };
 }

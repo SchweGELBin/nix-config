@@ -20,10 +20,9 @@ in
         enable = true;
         environmentFile = secrets.searx_env.path;
         redisCreateLocally = true;
-        settings.server = {
-          bind_address = "0.0.0.0";
-          general.debug = false;
-          port = cfg.searx.port;
+        settings = {
+          server.port = cfg.searx.port;
+          theme_args.simple_style = "black";
         };
       };
       nginx.virtualHosts."searx.${vars.my.domain}" = {
