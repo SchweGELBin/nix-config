@@ -28,8 +28,12 @@ in
           aliases = [ "@${vars.my.domain}" ];
           hashedPasswordFile = secrets.mailhash.path;
         };
+        "peertube@${vars.my.domain}".hashedPasswordFile = secrets.peertube_mailhash.path;
       };
     };
-    sops.secrets.mailhash.owner = "dovecot2";
+    sops.secrets = {
+      mailhash.owner = "dovecot2";
+      peertube_mailhash.owner = "dovecot2";
+    };
   };
 }

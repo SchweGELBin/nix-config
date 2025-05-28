@@ -12,6 +12,7 @@ let
   vars = import ../vars.nix;
 
   domain = "peertube.${vars.my.domain}";
+  mail = "peertube@${vars.milchi.site}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -29,7 +30,7 @@ in
         redis.createLocally = true;
         secrets.secretsFile = secrets.peertube.path;
         settings = {
-          admin.email = "peertube@${vars.my.domain}";
+          admin.email = mail;
           client.open_in_app = {
             android.intent = {
               fallback_url = "https://f-droid.org/packages/org.framasoft.peertube/";
@@ -46,10 +47,17 @@ in
           signup = {
             enabled = true;
             limit = 100;
+            requires_email_verification = true;
+          };
+          smtp = {
+            from_address = mail;
+            hostname = domain;
+            username = mail;
           };
           user.history.videos.enabled = false;
           video_studio.enabled = true;
         };
+        smtp.passwordFile = secrets.peertube_mail.path;
       };
       nginx.virtualHosts."${domain}" = {
         enableACME = true;
@@ -57,5 +65,6 @@ in
       };
     };
     sops.secrets.peertube.owner = "peertube";
+    sops.secrets.peertube_mail.owner = "peertube";
   };
 }
