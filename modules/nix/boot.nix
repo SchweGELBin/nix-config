@@ -22,7 +22,7 @@ in
         };
         timeout = cfg.timeout;
       };
-      kernelPackages = pkgs.linuxPackages_latest;
+      kernelPackages = pkgs.linuxPackages_6_14;
       tmp.cleanOnBoot = true;
     };
     zramSwap.enable = true;
