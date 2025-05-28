@@ -46,14 +46,9 @@ in
           signup = {
             enabled = true;
             limit = 100;
-            requires_email_verification = true;
           };
           user.history.videos.enabled = false;
           video_studio.enabled = true;
-        };
-        smtp = {
-          createLocally = true;
-          passwordFile = secrets.peertube_smtp.path;
         };
       };
       nginx.virtualHosts."${domain}" = {
