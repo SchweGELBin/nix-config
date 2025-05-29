@@ -74,6 +74,7 @@ in
         enable = lib.mkDefault true;
         port = lib.mkDefault 8899;
       };
+      nextcloud.enable = lib.mkDefault true;
       peertube = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 9000;

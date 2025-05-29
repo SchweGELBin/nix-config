@@ -12,6 +12,7 @@ in
     ./mail.nix
     ./matrix.nix
     ./microbin.nix
+    ./nextcloud.nix
     ./peertube.nix
     ./searx.nix
     ./turn.nix
@@ -87,6 +88,7 @@ in
           type = lib.types.int;
         };
       };
+      nextcloud.enable = lib.mkEnableOption "Enable Nextcloud";
       peertube = {
         enable = lib.mkEnableOption "Enable PeerTube";
         port = lib.mkOption {
