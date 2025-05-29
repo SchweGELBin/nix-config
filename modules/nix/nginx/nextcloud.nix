@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.nextcloud.enable;
@@ -7,6 +12,8 @@ let
   vars = import ../vars.nix;
 in
 {
+  imports = [ inputs.sops-nix.nixosModules.default ];
+
   config = lib.mkIf enable {
     services = {
       nextcloud = {
@@ -22,6 +29,6 @@ in
         };
       };
     };
+    sops.secrets.nextcloud.owner = "immich";
   };
-  sops.secrets.nextcloud.owner = "immich";
 }
