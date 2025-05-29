@@ -11,9 +11,9 @@ in
       immich = {
         enable = true;
         port = cfg.immich.port;
-        settings.server.externalDomain = "https://microbin.${vars.my.domain}";
+        settings.server.externalDomain = "https://immich.${vars.my.domain}";
       };
-      nginx.virtualHosts."microbin.${vars.my.domain}" = {
+      nginx.virtualHosts."immich.${vars.my.domain}" = {
         enableACME = true;
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.immich.port}";
