@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748547169,
-        "narHash": "sha256-gsCaAxBwH/nyt7mmZasAgHqYK/rA9g9ZWhZZmFsjdCA=",
+        "lastModified": 1748547418,
+        "narHash": "sha256-z9aVI6fnjaR2KT/+CKvSQKLKWz4S9LXR96fVx32jHQY=",
         "owner": "SchweGELBin",
         "repo": "catspeak",
-        "rev": "29aca32d5bd61e73bb353c68799cf10ea264a90a",
+        "rev": "b0f54ee508ef730133b6216a994df4c53db0bad8",
         "type": "github"
       },
       "original": {
