@@ -49,6 +49,10 @@ in
     nginx = {
       enable = lib.mkDefault false;
       element.enable = lib.mkDefault true;
+      immich = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 2283;
+      };
       invidious = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 3000;

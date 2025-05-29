@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./element.nix
+    ./immich.nix
     ./invidious.nix
     ./jellyfin.nix
     ./mail.nix
@@ -43,6 +44,13 @@ in
     sys.nginx = {
       enable = lib.mkEnableOption "Enable Nginx";
       element.enable = lib.mkEnableOption "Enable Element";
+      immich = {
+        enable = lib.mkEnableOption "Enable Immich";
+        port = lib.mkOption {
+          description = "Immich Port";
+          type = lib.types.int;
+        };
+      };
       invidious = {
         enable = lib.mkEnableOption "Enable Invidious";
         port = lib.mkOption {
