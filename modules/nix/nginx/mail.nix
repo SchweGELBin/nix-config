@@ -30,6 +30,7 @@ in
         };
         "peertube@${vars.my.domain}".hashedPasswordFile = secrets.peertube_mailhash.path;
       };
+      stateVersion = 1;
     };
     sops.secrets = {
       mailhash.owner = "dovecot2";
