@@ -212,12 +212,9 @@ in
             };
             "wikipedia".metaData.hidden = true;
             "Invidious" = {
-              definedAliases = [
-                "@iv"
-                "@yt"
-              ];
+              definedAliases = [ "@iv" ];
               icon = "${icons}/actions/im-youtube.svg";
-              urls = [ { template = "https://iv.${vars.my.domain}/search?q={searchTerms}"; } ];
+              urls = [ { template = "https://invidious.${vars.my.domain}/search?q={searchTerms}"; } ];
             };
           };
           force = true;
