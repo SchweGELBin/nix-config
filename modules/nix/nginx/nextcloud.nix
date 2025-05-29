@@ -20,6 +20,7 @@ in
         enable = true;
         config = {
           adminpassFile = secrets.nextcloud.path;
+          dbtype = "pgsql";
         };
         hostName = "nextcloud.${vars.my.domain}";
         https = true;
@@ -29,6 +30,6 @@ in
         };
       };
     };
-    sops.secrets.nextcloud.owner = "immich";
+    sops.secrets.nextcloud.owner = "nextcloud";
   };
 }
