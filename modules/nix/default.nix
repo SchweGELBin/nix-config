@@ -66,6 +66,10 @@ in
           port = lib.mkDefault 29318;
         };
       };
+      microbin = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 8899;
+      };
       peertube = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 9000;

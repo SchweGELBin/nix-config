@@ -71,6 +71,13 @@ in
           };
         };
       };
+      microbin = {
+        enable = lib.mkEnableOption "Enable MicroBin";
+        port = lib.mkOption {
+          description = "MicroBin Port";
+          type = lib.types.int;
+        };
+      };
       peertube = {
         enable = lib.mkEnableOption "Enable PeerTube";
         port = lib.mkOption {
