@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -22,12 +23,18 @@ in
           adminpassFile = secrets.nextcloud.path;
           dbtype = "pgsql";
         };
+        database.createLocally = true;
         hostName = "nextcloud.${vars.my.domain}";
         https = true;
+        package = pkgs.nextcloud31;
         settings = {
           default_phone_region = "DE";
           overwriteprotocol = "https";
         };
+      };
+      nginx.virtualHosts."nextcloud.${vars.my.domain}" = {
+        enableACME = true;
+        forceSSL = true;
       };
     };
     sops.secrets.nextcloud.owner = "nextcloud";
