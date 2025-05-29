@@ -10,6 +10,7 @@ in
     ./jellyfin.nix
     ./mail.nix
     ./matrix.nix
+    ./microbin.nix
     ./peertube.nix
     ./searx.nix
     ./turn.nix
