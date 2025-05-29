@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -16,11 +17,11 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       apksigner
-      catspeak # PR: 404932
       cmatrix
       file
       ffmpeg
       imagemagick
+      inputs.catspeak.packages.${pkgs.system}.default
       mdcat
       neo-cowsay
       pipes-rs

@@ -37,6 +37,26 @@
         "type": "github"
       }
     },
+    "catspeak": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748545547,
+        "narHash": "sha256-rdkCKL0CMKBP6joLnvxNFssxvXc10RY5j5lXP6WJOSw=",
+        "owner": "SchweGELBin",
+        "repo": "catspeak",
+        "rev": "6b994a0df497de9ecf13d87c2c979839cff4c69d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SchweGELBin",
+        "repo": "catspeak",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -67,11 +87,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1748405006,
-        "narHash": "sha256-pmt0SFjACJJAI8g8QU5arg2c9BXNZG9/okVwRSDJkG8=",
+        "lastModified": 1748491405,
+        "narHash": "sha256-kjHOCsU66vlEv0NIyrMYmg9DvUiLsEGkhxtPiYIdx5g=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "f9801a86d6603260940890c36650275090d1dceb",
+        "rev": "42b96163341bdb7934cf880307f166f0238038ab",
         "type": "gitlab"
       },
       "original": {
@@ -152,11 +172,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748391243,
-        "narHash": "sha256-7sCuihzsTRZemtbTXaFUoGJUfuQErhKEcL9v7HKIo1k=",
+        "lastModified": 1748529677,
+        "narHash": "sha256-MJEX3Skt5EAIs/aGHD8/aXXZPcceMMHheyIGSjvxZN0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f5b12be834874f7661db4ced969a621ab2d57971",
+        "rev": "da282034f4d30e787b8a10722431e8b650a907ef",
         "type": "github"
       },
       "original": {
@@ -176,46 +196,30 @@
         "nixpkgs-25_05": "nixpkgs-25_05"
       },
       "locked": {
-        "lastModified": 1747965231,
-        "narHash": "sha256-BW3ktviEhfCN/z3+kEyzpDKAI8qFTwO7+S0NVA0C90o=",
+        "lastModified": 1748540497,
+        "narHash": "sha256-QtXdmcjodPP0QWxpxGlg3IwGBm7iWu0MMN17X9Qf/0Q=",
         "owner": "simple-nixos-mailserver",
         "repo": "nixos-mailserver",
-        "rev": "53007af63fade28853408370c4c600a63dd97f41",
+        "rev": "a1e927665660762b92fdaa9b9168322057c9ae0d",
         "type": "gitlab"
       },
       "original": {
         "owner": "simple-nixos-mailserver",
         "repo": "nixos-mailserver",
         "type": "gitlab"
-      }
-    },
-    "nixos-patch": {
-      "locked": {
-        "lastModified": 1748441735,
-        "narHash": "sha256-ocajPtoM8oefAVkW58j+nqsSbeQ2FarJkr2teIk7RPo=",
-        "owner": "SchweGELBin",
-        "repo": "nixpkgs",
-        "rev": "7ec2eebcee323e7aadbf78192be127c34340f32b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SchweGELBin",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
       }
     },
     "nixos-unstable": {
       "locked": {
         "lastModified": 1748370509,
         "narHash": "sha256-QlL8slIgc16W5UaI3w7xHQEP+Qmv/6vSNTpoZrrSlbk=",
-        "owner": "nixos",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "4faa5f5321320e49a78ae7848582f684d64783e9",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -240,14 +244,14 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "catspeak": "catspeak",
         "fenix": "fenix",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "mailserver": "mailserver",
-        "nixos-patch": "nixos-patch",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": [
-          "nixos-patch"
+          "nixos-unstable"
         ],
         "sops-nix": "sops-nix",
         "systems": "systems"
