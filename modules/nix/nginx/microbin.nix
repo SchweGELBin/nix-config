@@ -29,6 +29,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.microbin.port}";
       };
     };
-    sops.secrets.microbin.owner = "microbin";
+    sops.secrets.microbin.owner = "root";
   };
 }
