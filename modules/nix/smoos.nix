@@ -16,8 +16,7 @@ in
     networking.firewall.allowedTCPPorts = [ cfg.port ];
 
     sops.secrets = {
-      dcid.owner = "smoo";
-      dctoken.owner = "smoo";
+      discord_env.owner = "smoo";
       smtoken1.owner = "smoo";
       smtoken2.owner = "smoo";
     };
@@ -53,8 +52,6 @@ in
           fi
         '';
         script = ''
-          export DISCORD_TOKEN="$(cat ${secrets.dctoken.path})"
-          export DISCORD_ID="$(cat ${secrets.dcid.path})"
           export API_TOKEN="$(cat ${secrets.smtoken2.path})"
           export CC="${pkgs.gcc}/bin/gcc"
           export AR="${pkgs.gcc}/bin/ar"
@@ -64,6 +61,7 @@ in
           ${pkgs.fenix.minimal.cargo}/bin/cargo run -r
         '';
         serviceConfig = {
+          EnvironmentFile = secrets.discord_env.path;
           User = "smoo";
           WorkingDirectory = "/var/lib/smoo";
         };
