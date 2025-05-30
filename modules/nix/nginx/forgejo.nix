@@ -51,7 +51,7 @@ in
     systemd.services.forgejo.preStart = ''
       ${lib.getExe config.services.forgejo.package} admin user create \
       --admin --email ${cfg.forgejo.mail} --username ${vars.user.name} \
-      --password $(tr -d '\n' < ${secrets.forgejo.path}) || true
+      --password $(cat ${secrets.forgejo.path}) || true
     '';
     users.users.nginx.extraGroups = [ "forgejo" ];
   };
