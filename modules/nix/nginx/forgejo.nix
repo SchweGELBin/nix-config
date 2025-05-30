@@ -10,6 +10,10 @@ let
 in
 {
   config = lib.mkIf enable {
+    security.acme.certs.${cfg.forgejo.fqdn} = {
+      group = "forgejo";
+      postRun = "systemctl reload nginx.service; systemctl restart forgejo.service";
+    };
     services = {
       forgejo = {
         enable = true;
@@ -39,5 +43,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.forgejo.port}";
       };
     };
+    users.users.nginx.extraGroups = [ "forgejo" ];
   };
 }
