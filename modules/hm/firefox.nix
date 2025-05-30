@@ -193,7 +193,7 @@ in
             "NixOS Wiki" = {
               definedAliases = [ "@nw" ];
               icon = "${icons}/apps/distributor-logo-nixos.svg";
-              urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
+              urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
             };
             "PeerTube" = {
               definedAliases = [ "@pt" ];
