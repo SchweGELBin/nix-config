@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.microbin.enable;
+  enable = cfg.enable && cfg.wastebin.enable;
 
   secrets = config.sops.secrets;
   vars = import ../vars.nix;
@@ -16,19 +16,20 @@ in
 
   config = lib.mkIf enable {
     services = {
-      microbin = {
+      wastebin = {
         enable = true;
+        secretFile = secrets.wastebin_env.path;
         settings = {
-          MICROBIN_ADMIN_PASSWORD = secrets.microbin.path;
-          MICROBIN_PORT = cfg.microbin.port;
+          WASTEBIN_ADDRESS_PORT = "127.0.0.1:${toString cfg.wastebin.port}";
+          WASTEBIN_BASE_URL = "https://wastebin.${vars.my.domain}";
         };
       };
-      nginx.virtualHosts."microbin.${vars.my.domain}" = {
+      nginx.virtualHosts."wastebin.${vars.my.domain}" = {
         enableACME = true;
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.microbin.port}";
       };
     };
-    sops.secrets.microbin.owner = "root";
+    sops.secrets.wastebin_env.owner = "wastebin";
   };
 }

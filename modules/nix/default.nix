@@ -70,10 +70,6 @@ in
           port = lib.mkDefault 29318;
         };
       };
-      microbin = {
-        enable = lib.mkDefault true;
-        port = lib.mkDefault 8899;
-      };
       nextcloud.enable = lib.mkDefault true;
       peertube = {
         enable = lib.mkDefault true;
@@ -89,6 +85,10 @@ in
         port-alt = lib.mkDefault 5350;
         relay-max = lib.mkDefault 50000;
         relay-min = lib.mkDefault 49500;
+      };
+      wastebin = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 8899;
       };
     };
     nix = {

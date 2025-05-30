@@ -11,11 +11,11 @@ in
     ./jellyfin.nix
     ./mail.nix
     ./matrix.nix
-    ./microbin.nix
     ./nextcloud.nix
     ./peertube.nix
     ./searx.nix
     ./turn.nix
+    ./wastebin.nix
   ];
 
   config = lib.mkIf cfg.enable {
@@ -81,13 +81,6 @@ in
           };
         };
       };
-      microbin = {
-        enable = lib.mkEnableOption "Enable MicroBin";
-        port = lib.mkOption {
-          description = "MicroBin Port";
-          type = lib.types.int;
-        };
-      };
       nextcloud.enable = lib.mkEnableOption "Enable Nextcloud";
       peertube = {
         enable = lib.mkEnableOption "Enable PeerTube";
@@ -119,6 +112,13 @@ in
         };
         relay-min = lib.mkOption {
           description = "Turn Relay Range Min";
+          type = lib.types.int;
+        };
+      };
+      wastebin = {
+        enable = lib.mkEnableOption "Enable wastebin";
+        port = lib.mkOption {
+          description = "wastebin Port";
           type = lib.types.int;
         };
       };
