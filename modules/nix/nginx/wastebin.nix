@@ -27,9 +27,9 @@ in
       nginx.virtualHosts."wastebin.${vars.my.domain}" = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.microbin.port}";
+        locations."/".proxyPass = "http://localhost:${toString cfg.wastebin.port}";
       };
     };
-    sops.secrets.wastebin_env.owner = "wastebin";
+    sops.secrets.wastebin_env.owner = "root";
   };
 }
