@@ -67,7 +67,7 @@ in
       invidious = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "iv.${vars.my.domain}";
-        port = lib.mkDefault 3000;
+        port = lib.mkDefault 3500;
       };
       jellyfin = {
         enable = lib.mkDefault true;
