@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -7,8 +8,12 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.forgejo.enable;
+  secrets = config.sops.secrets;
+  vars = import ../vars.nix;
 in
 {
+  imports = [ inputs.sops-nix.nixosModules.default ];
+
   config = lib.mkIf enable {
     security.acme.certs.${cfg.forgejo.fqdn} = {
       group = "forgejo";
@@ -42,6 +47,12 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.forgejo.port}";
       };
     };
+    sops.secrets.forgejo.owner = "forgejo";
+    systemd.services.forgejo.preStart = ''
+      ${lib.getExe config.services.forgejo.package} admin user create \
+      --admin --email "${cfg.forgejo.mail}" --username ${vars.user.name} \
+      --password "$(tr -d '\n' < ${secrets.forgejo.path})" || true";
+    '';
     users.users.nginx.extraGroups = [ "forgejo" ];
   };
 }
