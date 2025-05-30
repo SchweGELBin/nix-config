@@ -7,12 +7,7 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.peertube.enable;
-
   secrets = config.sops.secrets;
-  vars = import ../vars.nix;
-
-  domain = "peertube.${vars.my.domain}";
-  mail = "peertube@${vars.my.domain}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -26,18 +21,18 @@ in
         enableWebHttps = true;
         listenHttp = cfg.peertube.port;
         listenWeb = 443;
-        localDomain = domain;
+        localDomain = cfg.peertube.fqdn;
         redis.createLocally = true;
         secrets.secretsFile = secrets.peertube.path;
         serviceEnvironmentFile = secrets.peertube_env.path;
         settings = {
-          admin.email = mail;
+          admin.email = cfg.peertube.mail;
           client.open_in_app = {
             android.intent = {
               fallback_url = "https://f-droid.org/packages/org.framasoft.peertube/";
-              host = domain;
+              host = cfg.peertube.fqdn;
             };
-            ios.host = domain;
+            ios.host = cfg.peertube.fqdn;
           };
           instance = {
             description = "Welcome to Michi's PeerTube instance!";
@@ -51,16 +46,16 @@ in
             requires_email_verification = true;
           };
           smtp = {
-            from_address = mail;
-            hostname = "mail.${vars.my.domain}";
-            username = mail;
+            from_address = cfg.peertube.mail;
+            hostname = cfg.mail.fqdn;
+            username = cfg.peertube.mail;
           };
           user.history.videos.enabled = false;
           video_studio.enabled = true;
         };
         smtp.passwordFile = secrets.peertube_mail.path;
       };
-      nginx.virtualHosts."${domain}" = {
+      nginx.virtualHosts.${cfg.peertube.fqdn} = {
         enableACME = true;
         forceSSL = true;
       };

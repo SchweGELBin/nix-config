@@ -8,9 +8,7 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.nextcloud.enable;
-
   secrets = config.sops.secrets;
-  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -24,7 +22,7 @@ in
           dbtype = "pgsql";
         };
         database.createLocally = true;
-        hostName = "nextcloud.${vars.my.domain}";
+        hostName = cfg.nextcloud.fqdn;
         https = true;
         package = pkgs.nextcloud31;
         settings = {
@@ -32,7 +30,7 @@ in
           overwriteprotocol = "https";
         };
       };
-      nginx.virtualHosts."nextcloud.${vars.my.domain}" = {
+      nginx.virtualHosts.${cfg.nextcloud.fqdn} = {
         enableACME = true;
         forceSSL = true;
       };

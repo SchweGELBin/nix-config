@@ -6,7 +6,7 @@ in
   config = lib.mkIf config.direnv.enable {
     programs.direnv = {
       enable = true;
-      config.whitelist.prefix = [ "${vars.user.home}" ];
+      config.whitelist.prefix = [ vars.user.home ];
       enableBashIntegration = false;
       enableZshIntegration = true;
       nix-direnv.enable = true;

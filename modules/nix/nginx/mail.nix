@@ -7,9 +7,7 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.mail.enable;
-
   secrets = config.sops.secrets;
-  vars = import ../vars.nix;
 in
 {
   imports = [
@@ -20,15 +18,15 @@ in
     mailserver = {
       enable = true;
       certificateScheme = "acme-nginx";
-      domains = [ vars.my.domain ];
-      fqdn = "mail.${vars.my.domain}";
+      domains = [ cfg.domain ];
+      fqdn = cfg.mail.fqdn;
       localDnsResolver = false;
       loginAccounts = {
-        "master@${vars.my.domain}" = {
-          aliases = [ "@${vars.my.domain}" ];
+        "master@${cfg.domain}" = {
+          aliases = [ "@${cfg.domain}" ];
           hashedPasswordFile = secrets.mailhash.path;
         };
-        "peertube@${vars.my.domain}".hashedPasswordFile = secrets.peertube_mailhash.path;
+        ${cfg.peertube.mail}.hashedPasswordFile = secrets.peertube_mailhash.path;
       };
       stateVersion = 1;
     };

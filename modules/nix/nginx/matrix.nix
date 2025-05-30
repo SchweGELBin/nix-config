@@ -7,8 +7,6 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.matrix.enable;
-
-  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf enable {
@@ -20,20 +18,20 @@ in
           database_backend = "rocksdb";
           enable_lightning_bolt = false;
           port = cfg.matrix.port;
-          server_name = vars.my.domain;
+          server_name = cfg.domain;
           turn_secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
           turn_uris = [
-            "turn:turn.${vars.my.domain}:${toString cfg.turn.port}?transport=tcp"
-            "turn:turn.${vars.my.domain}:${toString cfg.turn.port}?transport=udp"
-            "turn:turn.${vars.my.domain}:${toString cfg.turn.port-alt}?transport=tcp"
-            "turn:turn.${vars.my.domain}:${toString cfg.turn.port-alt}?transport=udp"
+            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port}?transport=tcp"
+            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port}?transport=udp"
+            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port-alt}?transport=tcp"
+            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port-alt}?transport=udp"
           ];
           trusted_servers = [
             "matrix.org"
             "mau.chat"
           ];
-          well_known_client = "https://matrix.${vars.my.domain}";
-          well_known_server = "matrix.${vars.my.domain}";
+          well_known_client = "https://${cfg.matrix.fqdn}";
+          well_known_server = cfg.matrix.fqdn;
         };
       };
       mautrix-whatsapp = {
@@ -47,15 +45,15 @@ in
               default = true;
               require = true;
             };
-            permissions."${vars.my.domain}" = "user";
+            permissions.${cfg.domain} = "user";
           };
           homeserver = {
             address = "http://localhost:${toString cfg.matrix.port}";
-            domain = vars.my.domain;
+            domain = cfg.domain;
           };
         };
       };
-      nginx.virtualHosts."matrix.${vars.my.domain}" = {
+      nginx.virtualHosts.${cfg.matrix.fqdn} = {
         enableACME = true;
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";

@@ -48,39 +48,62 @@ in
     };
     nginx = {
       enable = lib.mkDefault false;
-      element.enable = lib.mkDefault true;
+      domain = lib.mkDefault vars.my.domain;
+      element = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "element.${vars.my.domain}";
+      };
+      forgejo = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "git.${vars.my.domain}";
+        port = lib.mkDefault 3000;
+      };
       immich = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "immich.${vars.my.domain}";
         port = lib.mkDefault 2283;
       };
       invidious = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "iv.${vars.my.domain}";
         port = lib.mkDefault 3000;
       };
       jellyfin = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "jelly.${vars.my.domain}";
         port = lib.mkDefault 8096;
       };
-      mail.enable = lib.mkDefault true;
+      mail = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "mail.${vars.my.domain}";
+      };
       matrix = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "matrix.${vars.my.domain}";
         port = lib.mkDefault 6167;
         whatsapp = {
           enable = lib.mkDefault true;
           port = lib.mkDefault 29318;
         };
       };
-      nextcloud.enable = lib.mkDefault true;
+      nextcloud = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "cloud.${vars.my.domain}";
+      };
       peertube = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "pt.${vars.my.domain}";
+        mail = lib.mkDefault "peertube@${vars.my.domain}";
         port = lib.mkDefault 9000;
       };
       searx = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "searx.${vars.my.domain}";
         port = lib.mkDefault 8888;
       };
       turn = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "turn.${vars.my.domain}";
         port = lib.mkDefault 5349;
         port-alt = lib.mkDefault 5350;
         relay-max = lib.mkDefault 50000;
@@ -88,6 +111,7 @@ in
       };
       wastebin = {
         enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "bin.${vars.my.domain}";
         port = lib.mkDefault 8899;
       };
     };

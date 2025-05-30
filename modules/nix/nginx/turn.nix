@@ -2,8 +2,6 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.turn.enable;
-
-  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf enable {
@@ -19,7 +17,7 @@ in
         }
       ];
     };
-    security.acme.certs."turn.${vars.my.domain}" = {
+    security.acme.certs.${cfg.turn.fqdn} = {
       group = "turnserver";
       postRun = "systemctl reload nginx.service; systemctl restart coturn.service";
     };
@@ -27,18 +25,18 @@ in
       coturn = {
         enable = true;
         alt-tls-listening-port = cfg.turn.port-alt;
-        cert = "/var/lib/acme/turn.${vars.my.domain}/fullchain.pem";
-        pkey = "/var/lib/acme/turn.${vars.my.domain}/key.pem";
+        cert = "/var/lib/acme/${cfg.turn.fqdn}/fullchain.pem";
+        pkey = "/var/lib/acme/${cfg.turn.fqdn}/key.pem";
         max-port = cfg.turn.relay-max;
         min-port = cfg.turn.relay-min;
         no-tcp-relay = true;
-        realm = "turn.${vars.my.domain}";
+        realm = cfg.turn.fqdn;
         secure-stun = true;
         static-auth-secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
         tls-listening-port = cfg.turn.port;
         use-auth-secret = true;
       };
-      nginx.virtualHosts."turn.${vars.my.domain}" = {
+      nginx.virtualHosts.${cfg.turn.fqdn} = {
         enableACME = true;
         forceSSL = true;
       };

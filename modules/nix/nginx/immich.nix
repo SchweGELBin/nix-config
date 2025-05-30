@@ -2,8 +2,6 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.immich.enable;
-
-  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf enable {
@@ -11,9 +9,9 @@ in
       immich = {
         enable = true;
         port = cfg.immich.port;
-        settings.server.externalDomain = "https://immich.${vars.my.domain}";
+        settings.server.externalDomain = "https://${cfg.immich.fqdn}";
       };
-      nginx.virtualHosts."immich.${vars.my.domain}" = {
+      nginx.virtualHosts.${cfg.immich.fqdn} = {
         enableACME = true;
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.immich.port}";

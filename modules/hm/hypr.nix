@@ -15,11 +15,11 @@ in
 {
   config = lib.mkIf cfg.enable {
     home.file = {
-      "${logo}".source = pkgs.fetchurl {
+      ${logo}.source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
         hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
       };
-      "${wall}".source = ../../res/wallpaper.png;
+      ${wall}.source = ../../res/wallpaper.png;
     };
 
     programs.hyprlock.enable = true;
@@ -49,7 +49,7 @@ in
       hyprpaper = {
         enable = true;
         settings = {
-          preload = [ "${wallp}" ];
+          preload = [ wallp ];
           wallpaper = [ ",${wallp}" ];
         };
       };

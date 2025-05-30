@@ -7,9 +7,7 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.searx.enable;
-
   secrets = config.sops.secrets;
-  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -25,7 +23,7 @@ in
           theme_args.simple_style = "black";
         };
       };
-      nginx.virtualHosts."searx.${vars.my.domain}" = {
+      nginx.virtualHosts.${cfg.searx.fqdn} = {
         enableACME = true;
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.searx.port}";
