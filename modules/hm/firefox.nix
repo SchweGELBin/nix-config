@@ -198,7 +198,7 @@ in
             "PeerTube" = {
               definedAliases = [ "@pt" ];
               icon = "${icons}/actions/media-playback-playing.svg";
-              urls = [ { template = "https://peertube.${vars.my.domain}/search?search={searchTerms}"; } ];
+              urls = [ { template = "https://pt.${vars.my.domain}/search?search={searchTerms}"; } ];
             };
             "SearXNG" = {
               definedAliases = [ "@sx" ];
@@ -214,7 +214,7 @@ in
             "Invidious" = {
               definedAliases = [ "@iv" ];
               icon = "${icons}/actions/im-youtube.svg";
-              urls = [ { template = "https://invidious.${vars.my.domain}/search?q={searchTerms}"; } ];
+              urls = [ { template = "https://iv.${vars.my.domain}/search?q={searchTerms}"; } ];
             };
           };
           force = true;
