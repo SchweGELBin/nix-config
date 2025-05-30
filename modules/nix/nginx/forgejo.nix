@@ -23,8 +23,10 @@ in
             SENDMAIL_PATH = "${pkgs.system-sendmail}/bin/sendmail";
           };
           server = {
+            CERT_FILE = "/var/lib/acme/${cfg.forgejo.fqdn}/cert.pem";
             DOMAIN = cfg.forgejo.fqdn;
             HTTP_PORT = cfg.forgejo.port;
+            KEY_FILE = "/var/lib/acme/${cfg.forgejo.fqdn}/key.pem";
             PROTOCOL = "https";
             ROOT_URL = "https://${cfg.forgejo.fqdn}";
           };

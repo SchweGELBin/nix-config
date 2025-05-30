@@ -25,7 +25,7 @@ in
       coturn = {
         enable = true;
         alt-tls-listening-port = cfg.turn.port-alt;
-        cert = "/var/lib/acme/${cfg.turn.fqdn}/fullchain.pem";
+        cert = "/var/lib/acme/${cfg.turn.fqdn}/cert.pem";
         pkey = "/var/lib/acme/${cfg.turn.fqdn}/key.pem";
         max-port = cfg.turn.relay-max;
         min-port = cfg.turn.relay-min;
