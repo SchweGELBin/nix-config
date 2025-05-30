@@ -61,6 +61,10 @@ in
           description = "Forgejo Domain";
           type = lib.types.string;
         };
+        mail = lib.mkOption {
+          description = "Forgejo Mail";
+          type = lib.types.string;
+        };
         port = lib.mkOption {
           description = "Forgejo Port";
           type = lib.types.int;

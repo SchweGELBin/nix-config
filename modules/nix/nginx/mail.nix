@@ -26,12 +26,14 @@ in
           aliases = [ "@${cfg.domain}" ];
           hashedPasswordFile = secrets.mailhash.path;
         };
+        ${cfg.forgejo.mail}.hashedPasswordFile = secrets.forgejo_mailhash.path;
         ${cfg.peertube.mail}.hashedPasswordFile = secrets.peertube_mailhash.path;
       };
       stateVersion = 1;
     };
     sops.secrets = {
       mailhash.owner = "dovecot2";
+      forgejo_mailhash.owner = "dovecot2";
       peertube_mailhash.owner = "dovecot2";
     };
   };
