@@ -127,6 +127,12 @@ in
         ;;
         esac
       '')
+
+      (pkgs.writeShellScriptBin "arkenfox" ''
+        link=https://raw.githubusercontent.com/arkenfox/user.js/refs/heads/master/user.js
+        echo "# arkenfox/user.js v$(curl -s $link | grep "version:" | grep -oE '[0-9]+')"
+        curl -s $link | grep "^user_pref(" | sort | sed -e 's/^user_pref(//g' -e 's/);.*/;/g' -e '/_user\.js\.parrot/d' -e 's/, / = /g' \
+      '')
     ];
   };
 

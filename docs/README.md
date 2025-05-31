@@ -19,8 +19,8 @@ Theme                - Catppuccin Mocha Mauve
 ![Desktop](./res/desktop.png)
 
 ## Apply
-- [Home Configuration](./docs/Install_Home.md)
-- [Server Configuration](./docs/Install_Server.md)
+- [Home Configuration](./Install_Home.md)
+- [Server Configuration](./Install_Server.md)
 
 ## Tips
 
@@ -41,4 +41,5 @@ binds                 | Show Keybinds
 avabg [c/gl] [t]      | Start avabg-instance or [t]oggle it
 avabg-instance [c/gl] | Start [c]ava/[gl]ava
 ac [l/r]              | Auto Clicker [l]eft/[r]ight
+arkenfox              | Echo arkenfox/user.js in nix format
 ```

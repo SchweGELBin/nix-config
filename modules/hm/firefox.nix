@@ -231,6 +231,7 @@ in
           "middlemouse.paste" = false;
         };
         settings = {
+          # arkenfox/user.js v135
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
           "app.shield.optoutstudies.enabled" = false;
