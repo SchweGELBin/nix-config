@@ -20,6 +20,7 @@ in
         settings = {
           WASTEBIN_ADDRESS_PORT = "127.0.0.1:${toString cfg.wastebin.port}";
           WASTEBIN_BASE_URL = "https://${cfg.wastebin.fqdn}";
+          WASTEBIN_MAX_BODY_SIZE = 1048576;
         };
       };
       nginx.virtualHosts.${cfg.wastebin.fqdn} = {
