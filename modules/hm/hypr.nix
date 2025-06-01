@@ -59,6 +59,7 @@ in
       enable = true;
       plugins = with pkgs.hyprlandPlugins; [
         hyprexpo
+        hyprscrolling
         hyprtrails
         hyprwinwrap
       ];
