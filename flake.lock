@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748547418,
-        "narHash": "sha256-z9aVI6fnjaR2KT/+CKvSQKLKWz4S9LXR96fVx32jHQY=",
+        "lastModified": 1748813678,
+        "narHash": "sha256-XfmJ6MfK6VjWBO6qx4+AHYd+nfSm+WmKy9NWWp/WOH0=",
         "owner": "SchweGELBin",
         "repo": "catspeak",
-        "rev": "b0f54ee508ef730133b6216a994df4c53db0bad8",
+        "rev": "37e303af000dffbea5fe5a9765603bfc84121b61",
         "type": "github"
       },
       "original": {
@@ -172,11 +172,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748737919,
-        "narHash": "sha256-5kvBbLYdp+n7Ftanjcs6Nv+UO6sBhelp6MIGJ9nWmjQ=",
+        "lastModified": 1748811839,
+        "narHash": "sha256-MDl6vpEK18ZfPHfoeOa9dGRdwVWNfmCCGazt72nHw+U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5675a9686851d9626560052a032c4e14e533c1fa",
+        "rev": "6abf27943bbb09a0f9d443df45ec70b07a6cbe20",
         "type": "github"
       },
       "original": {
