@@ -69,6 +69,10 @@ in
           description = "Forgejo Port";
           type = lib.types.int;
         };
+        username = lib.mkOption {
+          description = "Forgejo Admin Username";
+          type = lib.types.str;
+        };
       };
       immich = {
         enable = lib.mkEnableOption "Enable Immich";

@@ -9,7 +9,6 @@ let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.forgejo.enable;
   secrets = config.sops.secrets;
-  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -50,7 +49,7 @@ in
     sops.secrets.forgejo.owner = "forgejo";
     systemd.services.forgejo.preStart = ''
       ${lib.getExe config.services.forgejo.package} admin user create \
-      --admin --email ${cfg.forgejo.mail} --username ${vars.user.name} \
+      --admin --email ${cfg.forgejo.mail} --username ${cfg.forgejo.username} \
       --password $(cat ${secrets.forgejo.path}) || true
     '';
     users.users.nginx.extraGroups = [ "forgejo" ];

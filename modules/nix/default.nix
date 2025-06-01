@@ -58,6 +58,7 @@ in
         fqdn = lib.mkDefault "git.${vars.my.domain}";
         mail = lib.mkDefault "forgejo@${vars.my.domain}";
         port = lib.mkDefault 3000;
+        username = lib.mkDefault vars.user.name;
       };
       immich = {
         enable = lib.mkDefault true;
