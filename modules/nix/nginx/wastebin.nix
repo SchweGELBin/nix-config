@@ -30,5 +30,6 @@ in
       };
     };
     sops.secrets.wastebin_env.owner = "root";
+    systemd.services.wastebin.preStart = "${config.services.wastebin.package}/bin/wastebin-ctl purge --database ${config.services.wastebin.settings.WASTEBIN_DATABASE_PATH}";
   };
 }
