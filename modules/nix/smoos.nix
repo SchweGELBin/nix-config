@@ -42,7 +42,7 @@ in
       };
       smoos-bot = {
         enable = true;
-        environment.SMOOS_API_PORT = cfg.port;
+        environment.SMOOS_API_PORT = toString cfg.port;
         script = "${lib.getExe inputs.nur.packages.${pkgs.system}.smoos-bot}";
         serviceConfig = {
           EnvironmentFile = secrets.smoos_env.path;
