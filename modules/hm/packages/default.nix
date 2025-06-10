@@ -21,7 +21,7 @@ in
       file
       ffmpeg
       imagemagick
-      inputs.catspeak.packages.${pkgs.system}.default
+      inputs.nur.packages.${pkgs.system}.catspeak
       mdcat
       neo-cowsay
       pipes-rs

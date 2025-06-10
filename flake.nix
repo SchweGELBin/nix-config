@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catspeak = {
-      url = "github:SchweGELBin/catspeak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     fenix = {
       url = "github:nix-community/fenix/monthly";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +32,11 @@
 
     mailserver = {
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur = {
+      url = "github:SchweGELBin/nur-expressions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
