@@ -14,12 +14,12 @@ in
 
     services = {
       avahi = {
-        enable = true;
+        enable = false;
         nssmdns4 = true;
         openFirewall = true;
       };
       hardware.openrgb.enable = true;
-      printing.enable = true;
+      printing.enable = false;
       xserver = {
         enable = true;
         exportConfiguration = true;
