@@ -30,14 +30,15 @@ in
             ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
             cp ./$repo/settings.json .
             sed -i '/JsonApi/{n;s/false/true/}' ./settings.json
-            sed -i -e "s/\"SECRET_TOKEN_1\"/\"$(cat ${secrets.smtoken1.path})\"/g" ./settings.json
-            sed -i -e "s/\"SECRET_TOKEN_2\"/\"$(cat ${secrets.smtoken2.path})\"/g" ./settings.json
+            sed -i -e "s/\"SECRET_TOKEN_1\"/\"\$API_TOKEN_PUB\"/g" ./settings.json
+            sed -i -e "s/\"SECRET_TOKEN_2\"/\"\$API_TOKEN\"/g" ./settings.json
           fi
         '';
         script = ''
           ${pkgs.dotnet-sdk_8}/bin/dotnet run --project ./SMOOS-CS/Server/Server.csproj -c Release
         '';
         serviceConfig = {
+          EnvironmentFile = secrets.smoos_env.path;
           User = "smoo";
           WorkingDirectory = "/var/lib/smoo";
         };
@@ -45,10 +46,9 @@ in
       };
       smoos-bot = {
         enable = true;
-        environment.API_TOKEN = secrets.smtoken2.path;
         script = "${lib.getExe inputs.nur.packages.${pkgs.system}.smoos-bot}";
         serviceConfig = {
-          EnvironmentFile = secrets.discord_env.path;
+          EnvironmentFile = secrets.smoos_env.path;
           User = "smoo";
           WorkingDirectory = "/var/lib/smoo";
         };
