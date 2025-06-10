@@ -45,21 +45,8 @@ in
       };
       smoos-bot = {
         enable = true;
-        preStart = ''
-          repo="SMOOS-Bot"
-          if [[ ! -d ./$repo ]]; then
-            ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
-          fi
-        '';
-        script = ''
-          export API_TOKEN="$(cat ${secrets.smtoken2.path})"
-          export CC="${pkgs.gcc}/bin/gcc"
-          export AR="${pkgs.gcc}/bin/ar"
-          export RUSTFLAGS="-C linker=$CC"
-          export RUSTC="${pkgs.fenix.minimal.rustc}/bin/rustc"
-          cd SMOOS-Bot
-          ${pkgs.fenix.minimal.cargo}/bin/cargo run -r
-        '';
+        environment.API_TOKEN = secrets.smtoken2.path;
+        script = "${lib.getExe inputs.nur.packages.${pkgs.system}.smoos-bot}";
         serviceConfig = {
           EnvironmentFile = secrets.discord_env.path;
           User = "smoo";
