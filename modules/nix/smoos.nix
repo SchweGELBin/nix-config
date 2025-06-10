@@ -15,11 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ cfg.port ];
 
-    sops.secrets = {
-      discord_env.owner = "smoo";
-      smtoken1.owner = "smoo";
-      smtoken2.owner = "smoo";
-    };
+    sops.secrets.smoos_env.owner = "smoo";
 
     systemd.services = {
       smoos = {
