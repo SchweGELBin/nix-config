@@ -8,7 +8,7 @@ in
       enable = true;
       declarative = true;
       eula = true;
-      jvmOpts = "-Xms2G -Xmx2G";
+      jvmOpts = "-Xms128M -Xmx2G";
       openFirewall = true;
       serverProperties = {
         "query.port" = cfg.port;
