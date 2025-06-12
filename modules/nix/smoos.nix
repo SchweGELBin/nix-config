@@ -28,7 +28,7 @@ in
             sed -i -e "s/\"SECRET_TOKEN_2\"/\"\$API_TOKEN\"/g" ./settings.json
           fi
         '';
-        script = lib.getExe inputs.nur.packages.${pkgs.system}.smoos-cs;
+        script = "${inputs.nur.packages.${pkgs.system}.smoos-cs}/bin/Server";
         serviceConfig = {
           EnvironmentFile = secrets.smoos_env.path;
           User = "smoo";
