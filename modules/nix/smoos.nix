@@ -21,18 +21,14 @@ in
       smoos = {
         enable = true;
         preStart = ''
-          repo="SMOOS-CS"
-          if [[ ! -d ./$repo ]]; then
-            ${pkgs.git}/bin/git clone https://github.com/SchweGELBin/$repo.git
-            cp ./$repo/settings.json .
+          if [ ! -f ./settings.json ]; then
+            cp ${inputs.nur.packages.${pkgs.system}.smoos-cs}/settings.json .
             sed -i '/JsonApi/{n;s/false/true/}' ./settings.json
             sed -i -e "s/\"SECRET_TOKEN_1\"/\"\$API_TOKEN_PUB\"/g" ./settings.json
             sed -i -e "s/\"SECRET_TOKEN_2\"/\"\$API_TOKEN\"/g" ./settings.json
           fi
         '';
-        script = ''
-          ${pkgs.dotnet-sdk_8}/bin/dotnet run --project ./SMOOS-CS/Server/Server.csproj -c Release
-        '';
+        script = lib.getExe inputs.nur.packages.${pkgs.system}.smoos-cs;
         serviceConfig = {
           EnvironmentFile = secrets.smoos_env.path;
           User = "smoo";
@@ -43,7 +39,7 @@ in
       smoos-bot = {
         enable = true;
         environment.SMOOS_API_PORT = toString cfg.port;
-        script = "${lib.getExe inputs.nur.packages.${pkgs.system}.smoos-bot}";
+        script = lib.getExe inputs.nur.packages.${pkgs.system}.smoos-bot;
         serviceConfig = {
           EnvironmentFile = secrets.smoos_env.path;
           User = "smoo";
