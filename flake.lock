@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748355071,
-        "narHash": "sha256-yjfyczpzsgTSTRRaCXwdWiwCRf9CJpCaTPSFJ3tWVdo=",
+        "lastModified": 1749915946,
+        "narHash": "sha256-Wm8rIEIo8a0p45U5/w/8EOVRufMVtrPFke7E6AjQxgY=",
         "owner": "SchweGELBin",
         "repo": "catppuccin-nix",
-        "rev": "af20e99cd8e6902668c5da9e68998a1369c67ce0",
+        "rev": "013afe414ff7dcbec6b5129e4905d841fbcf41c8",
         "type": "github"
       },
       "original": {

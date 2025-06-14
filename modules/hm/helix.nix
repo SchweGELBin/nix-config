@@ -42,6 +42,7 @@ in
             insert = "bar";
             select = "underline";
           };
+          #insert-final-newline = false;
           line-number = "relative";
         };
         theme = "catppuccin-${vars.cat.flavor}";
