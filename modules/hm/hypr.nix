@@ -59,7 +59,6 @@ in
       enable = true;
       plugins = with pkgs.hyprlandPlugins; [
         hyprexpo
-        hyprscrolling
         hyprtrails
         hyprwinwrap
       ];
@@ -98,16 +97,24 @@ in
           "$mainMod       ,  C         ,  Close active window                           ,  killactive            , "
           "$mainMod       ,  mouse_down,  Go to next workspace                          ,  workspace             , e+1"
           "$mainMod       ,  mouse_up  ,  Go to previous workspace                      ,  workspace             , e-1"
-          "$mainMod       ,  0         ,  Go to workspace 0                             ,  workspace             , 0"
           "$mainMod       ,  1         ,  Go to workspace 1                             ,  workspace             , 1"
+          "$mainMod       ,  KP_Home   ,  Go to workspace 1                             ,  workspace             , 1"
           "$mainMod       ,  2         ,  Go to workspace 2                             ,  workspace             , 2"
+          "$mainMod       ,  KP_Up     ,  Go to workspace 2                             ,  workspace             , 2"
           "$mainMod       ,  3         ,  Go to workspace 3                             ,  workspace             , 3"
+          "$mainMod       ,  KP_Prior  ,  Go to workspace 3                             ,  workspace             , 3"
           "$mainMod       ,  4         ,  Go to workspace 4                             ,  workspace             , 4"
+          "$mainMod       ,  KP_Left   ,  Go to workspace 4                             ,  workspace             , 4"
           "$mainMod       ,  5         ,  Go to workspace 5                             ,  workspace             , 5"
+          "$mainMod       ,  KP_Begin  ,  Go to workspace 5                             ,  workspace             , 5"
           "$mainMod       ,  6         ,  Go to workspace 6                             ,  workspace             , 6"
+          "$mainMod       ,  KP_Right  ,  Go to workspace 6                             ,  workspace             , 6"
           "$mainMod       ,  7         ,  Go to workspace 7                             ,  workspace             , 7"
+          "$mainMod       ,  KP_End    ,  Go to workspace 7                             ,  workspace             , 7"
           "$mainMod       ,  8         ,  Go to workspace 8                             ,  workspace             , 8"
+          "$mainMod       ,  KP_Down   ,  Go to workspace 8                             ,  workspace             , 8"
           "$mainMod       ,  9         ,  Go to workspace 9                             ,  workspace             , 9"
+          "$mainMod       ,  KP_Next   ,  Go to workspace 9                             ,  workspace             , 9"
           "$mainMod       ,  V         ,  Kill a window (select or exit with [esc])     ,  exec                  , hyprctl kill"
           "$mainMod       ,  RETURN    ,  Launch App Launcher ($applauncher)            ,  exec                  , $applauncher"
           "$mainMod       ,  A         ,  Launch Browser ($browser)                     ,  exec                  , $browser"
@@ -128,16 +135,24 @@ in
           "$altMod        ,  right     ,  Move focus to next window                     ,  layoutmsg             , cyclenext"
           "$mainMod  SHIFT,  Tab       ,  Move focus to previous monitor                ,  focusmonitor          , -1"
           "$altMod        ,  left      ,  Move focus to previous window                 ,  layoutmsg             , cycleprev"
-          "$mainMod  SHIFT,  0         ,  Move focused window and go to workspace 0     ,  movetoworkspace       , 0"
           "$mainMod  SHIFT,  1         ,  Move focused window and go to workspace 1     ,  movetoworkspace       , 1"
+          "$mainMod  SHIFT,  KP_Home   ,  Move focused window and go to workspace 1     ,  movetoworkspace       , 1"
           "$mainMod  SHIFT,  2         ,  Move focused window and go to workspace 2     ,  movetoworkspace       , 2"
+          "$mainMod  SHIFT,  KP_Up     ,  Move focused window and go to workspace 2     ,  movetoworkspace       , 2"
           "$mainMod  SHIFT,  3         ,  Move focused window and go to workspace 3     ,  movetoworkspace       , 3"
+          "$mainMod  SHIFT,  KP_Prior  ,  Move focused window and go to workspace 3     ,  movetoworkspace       , 3"
           "$mainMod  SHIFT,  4         ,  Move focused window and go to workspace 4     ,  movetoworkspace       , 4"
+          "$mainMod  SHIFT,  KP_Left   ,  Move focused window and go to workspace 4     ,  movetoworkspace       , 4"
           "$mainMod  SHIFT,  5         ,  Move focused window and go to workspace 5     ,  movetoworkspace       , 5"
+          "$mainMod  SHIFT,  KP_Begin  ,  Move focused window and go to workspace 5     ,  movetoworkspace       , 5"
           "$mainMod  SHIFT,  6         ,  Move focused window and go to workspace 6     ,  movetoworkspace       , 6"
+          "$mainMod  SHIFT,  KP_Right  ,  Move focused window and go to workspace 6     ,  movetoworkspace       , 6"
           "$mainMod  SHIFT,  7         ,  Move focused window and go to workspace 7     ,  movetoworkspace       , 7"
+          "$mainMod  SHIFT,  KP_End    ,  Move focused window and go to workspace 7     ,  movetoworkspace       , 7"
           "$mainMod  SHIFT,  8         ,  Move focused window and go to workspace 8     ,  movetoworkspace       , 8"
+          "$mainMod  SHIFT,  KP_Down   ,  Move focused window and go to workspace 8     ,  movetoworkspace       , 8"
           "$mainMod  SHIFT,  9         ,  Move focused window and go to workspace 9     ,  movetoworkspace       , 9"
+          "$mainMod  SHIFT,  KP_Next   ,  Move focused window and go to workspace 9     ,  movetoworkspace       , 9"
           "$mainMod       ,  M         ,  Play Music                                    ,  exec                  , music"
           "$altMod   SHIFT,  down      ,  Remove window from master                     ,  layoutmsg             , removemaster"
           "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill $bar && $bar"
@@ -224,6 +239,7 @@ in
           kb_options = "caps:backspace, grp:win_space_toggle";
           kb_variant = ", workman";
           numlock_by_default = true;
+          resolve_binds_by_sym = true;
         };
 
         master = {
@@ -243,6 +259,8 @@ in
           "Unknown-1, disable" # Ghost Monitor
           "DP-2, 2560x1440@180, 0x0, 1, transform,0, bitdepth,10, vrr,1" # Main
         ];
+
+        # monitorv2 = [ { } ];
 
         plugin = {
           hyprexpo = {
