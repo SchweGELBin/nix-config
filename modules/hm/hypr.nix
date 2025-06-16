@@ -19,14 +19,17 @@ in
         url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
         hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
       };
-      ${wall}.source = ../../res/wallpaper.png;
+      ${wall}.source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png";
+        hash = "sha256-ThDrZIJIyO2DdIW41sV6iYyCNhM89cwHr8l6DAfbXjI=";
+      };
     };
 
-    programs.hyprlock.enable = true;
+    programs.hyprlock.enable = cfg.lock.enable;
 
     services = {
       hypridle = {
-        enable = true;
+        enable = cfg.idle.enable;
         settings = {
           general = {
             after_sleep_cmd = "hyprctl dispatch dpms on";
@@ -47,7 +50,7 @@ in
         };
       };
       hyprpaper = {
-        enable = true;
+        enable = cfg.paper.enable;
         settings = {
           preload = [ wallp ];
           wallpaper = [ ",${wallp}" ];
@@ -56,7 +59,7 @@ in
     };
 
     wayland.windowManager.hyprland = {
-      enable = true;
+      enable = cfg.land.enable;
       plugins = with pkgs.hyprlandPlugins; [
         hyprexpo
         hyprtrails
@@ -282,6 +285,12 @@ in
   };
 
   options = {
-    hypr.enable = lib.mkEnableOption "Enable Hypr";
+    hypr = {
+      enable = lib.mkEnableOption "Enable Hypr*";
+      idle.enable = lib.mkEnableOption "Enable hypridle";
+      land.enable = lib.mkEnableOption "Enable Hyprland";
+      lock.enable = lib.mkEnableOption "Enable hyprlock";
+      paper.enable = lib.mkEnableOption "Enable hyprpaper";
+    };
   };
 }

@@ -48,7 +48,13 @@
     server.enable = lib.mkDefault false;
   };
   home.enable = lib.mkDefault true;
-  hypr.enable = lib.mkDefault false;
+  hypr = {
+    enable = lib.mkDefault false;
+    idle.enable = lib.mkDefault true;
+    land.enable = lib.mkDefault true;
+    lock.enable = lib.mkDefault true;
+    paper.enable = lib.mkDefault true;
+  };
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
   mpv.enable = lib.mkDefault true;
