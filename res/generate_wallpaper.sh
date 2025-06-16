@@ -9,14 +9,15 @@ file=${5:-nixos-wallpaper-catppuccin-mocha.svg}
 
 interval=$(echo "1 / $time" | bc -l)
 
-if [ ! -f "$file" ]; then
-wget -q https://raw.githubusercontent.com/NixOS/nixos-artwork/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nixos-wallpaper-catppuccin-mocha.svg
-fi
-
-background="#$(cat $file | grep 'style="fill:#' | cut -d'#' -f2 | cut -d';' -f1)"
-
 rm -rf tmp
 mkdir tmp
+
+if [ ! -f "$file" ]; then
+file=tmp/flake.svg
+wget -q https://raw.githubusercontent.com/NixOS/nixos-artwork/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nixos-wallpaper-catppuccin-mocha.svg -O "$file"
+fi
+
+background="#$(grep 'style="fill:#' < "$file" | cut -d'#' -f2 | cut -d';' -f1)"
 
 inkscape --actions="\
 select-by-id:layer1;delete;\
@@ -43,6 +44,6 @@ tmp/input.svg
 
 done
 
-ffmpeg -framerate "$fps" -pattern_type glob -i 'tmp/frame_*.png' -c:v libx264 -pix_fmt yuv420p flake_"$width"x"$height"x"$fps".mp4
+ffmpeg -i tmp/frame_%03d.png -lavfi "fps=$fps,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 flake_"$width"x"$height".gif -y
 
 rm -rf tmp
