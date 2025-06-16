@@ -1,0 +1,11 @@
+title = "Credits for used ressources"
+
+[wallpapers.flake]
+author = "hcwf"
+license = "CC BY-SA 4.0"
+source = "https://github.com/NixOS/nixos-artwork/blob/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nixos-wallpaper-catppuccin-mocha.svg"
+
+[wallpapers.nineish]
+author = "isabelroses"
+license = "CC BY-SA 4.0"
+source = "https://github.com/NixOS/nixos-artwork/blob/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.svg"
