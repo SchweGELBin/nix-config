@@ -13,7 +13,7 @@ if [ ! -f "$file" ]; then
 wget -q https://raw.githubusercontent.com/NixOS/nixos-artwork/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nixos-wallpaper-catppuccin-mocha.svg
 fi
 
-background=#$(cat $file | grep 'style="fill:#' | cut -d'#' -f2 | cut -d';' -f1)
+background="#$(cat $file | grep 'style="fill:#' | cut -d'#' -f2 | cut -d';' -f1)"
 
 rm -rf tmp
 mkdir tmp
