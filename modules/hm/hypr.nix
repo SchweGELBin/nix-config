@@ -9,8 +9,18 @@ let
   vars = import ../nix/vars.nix;
 
   logo = ".face";
-  wall = ".config/background";
-  wallp = "~/${wall}";
+  monitor = {
+    left = {
+      name = "DP-2";
+      wall = ".config/background";
+      wallp = "~/${monitor.left.wall}";
+    };
+    main = {
+      name = "DP-3";
+      wall = ".config/background2";
+      wallp = "~/${monitor.main.wall}";
+    };
+  };
 in
 {
   config = lib.mkIf cfg.enable {
@@ -19,9 +29,13 @@ in
         url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
         hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
       };
-      ${wall}.source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/51a27e4a011e95cb559e37d32c44cf89b50f5154/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png";
-        hash = "sha256-ThDrZIJIyO2DdIW41sV6iYyCNhM89cwHr8l6DAfbXjI=";
+      ${monitor.left.wall}.source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/2560x1440/nineish.png";
+        hash = "sha256-vE94lLHTDcqshT/EcF0d/HFnsAQ7WDhvdmEod9BfpyI=";
+      };
+      ${monitor.main.wall}.source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/3440x1440/flake.png";
+        hash = "sha256-WYbqYZ0p0VI+CUH/ZJu5StA0z4P4YjQ6uWmVfW2NqbA=";
       };
     };
 
@@ -52,8 +66,14 @@ in
       hyprpaper = {
         enable = cfg.paper.enable;
         settings = {
-          preload = [ wallp ];
-          wallpaper = [ ",${wallp}" ];
+          preload = [
+            monitor.left.wallp
+            monitor.main.wallp
+          ];
+          wallpaper = [
+            "${monitor.left.name},${monitor.left.wallp}"
+            "${monitor.main.name},${monitor.main.wallp}"
+          ];
         };
       };
     };
@@ -254,13 +274,14 @@ in
 
         misc = {
           middle_click_paste = false;
-          vrr = 1;
+          vrr = 2;
         };
 
         monitor = [
-          ", preferred, auto, 1" # Default
-          "Unknown-1, disable" # Ghost Monitor
-          "DP-2, 2560x1440@180, 0x0, 1, transform,0, bitdepth,10, vrr,1" # Main
+          ", preferred, auto, 1"
+          "Unknown-1, disable"
+          "${monitor.left.name}, 2560x1440@180, 0x0, 1, bitdepth,10"
+          "${monitor.main.name}, 3440x1440@180, 2560x0, 1, bitdepth,10"
         ];
 
         # monitorv2 = [ { } ];
@@ -277,8 +298,8 @@ in
         };
 
         windowrule = [
-          "idleinhibit focus, title:^(Rocket League)"
-          "fullscreen, class:(.exe)$"
+          "idleinhibit focus, title:(Rocket League)(.*)"
+          "fullscreen, class:(.*)(.exe)"
         ];
       };
     };

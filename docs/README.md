@@ -16,7 +16,7 @@ Theme                - Catppuccin Mocha Mauve
 ```
 
 ### Preview
-![Desktop](../res/desktop.png)
+![Desktop](./preview.png)
 
 ## Apply
 - [Home Configuration](./Install_Home.md)
