@@ -10,7 +10,7 @@ let
   android = {
     composition = pkgs.androidenv.composeAndroidPackages {
       includeNDK = true;
-      platformVersions = [ "35" ];
+      platformVersions = [ "36" ];
     };
     sdk = android.composition.androidsdk;
   };
