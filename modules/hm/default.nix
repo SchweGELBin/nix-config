@@ -44,7 +44,10 @@
   helix.enable = lib.mkDefault true;
   hm-pkgs = {
     enable = lib.mkDefault true;
-    home.enable = lib.mkDefault false;
+    home = {
+      enable = lib.mkDefault false;
+      gaming.enable = lib.mkDefault false;
+    };
     server.enable = lib.mkDefault false;
   };
   home.enable = lib.mkDefault true;

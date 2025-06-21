@@ -146,7 +146,7 @@ in
           "$mainMod       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
           "$mainMod       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
           "$mainMod       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
-          "$mainMod       ,  R         ,  Launch Rocket League                          ,  exec                  , mangohud legendary launch Sugar"
+          "$mainMod       ,  R         ,  Launch Rocket League                          ,  exec                  , xrandr --output ${monitor.main.name} --primary && mangohud legendary launch Sugar"
           "$mainMod       ,  Q         ,  Launch Terminal ($terminal)                   ,  exec                  , $terminal"
           "$mainMod  SHIFT,  S         ,  Move current workspace to special workspace   ,  movetoworkspace       , special:magic"
           "$mainMod       ,  down      ,  Move focus down                               ,  movefocus             , d"
@@ -298,8 +298,8 @@ in
         };
 
         windowrule = [
-          "idleinhibit focus, title:(Rocket League)(.*)"
-          "fullscreen, class:(.*)(.exe)"
+          "idleinhibit focus, class:(rocketleague.exe)"
+          "fullscreen, class:(rocketleague.exe)"
         ];
       };
     };
