@@ -21,6 +21,7 @@ in
     hardware.enable = false;
     minecraft.enable = true;
     nginx.enable = true;
+    nginx.immich.enable = false; # https://github.com/NixOS/nixpkgs/pull/418962
     networking = {
       gateway.enable = false;
       hostName = vars.user.hostname.server;
