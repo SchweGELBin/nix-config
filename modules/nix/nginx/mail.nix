@@ -29,7 +29,7 @@ in
         ${cfg.forgejo.mail}.hashedPasswordFile = secrets.forgejo_mailhash.path;
         ${cfg.peertube.mail}.hashedPasswordFile = secrets.peertube_mailhash.path;
       };
-      stateVersion = 1;
+      stateVersion = 3;
     };
     sops.secrets = {
       mailhash.owner = "dovecot2";
