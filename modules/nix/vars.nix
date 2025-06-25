@@ -11,7 +11,7 @@
   };
 
   my = {
-    domain = "milchi.site";
+    domain = "michi.my";
     repo = "https://github.com/SchweGELBin/nix-config";
   };
 
