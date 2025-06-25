@@ -1,5 +1,5 @@
 keys:
-  - &mix age1s47mptkd9ket9urgmtt2zzjpur6s84vm8nhlhy0zqv9srgj8cacqth5nve
+  - &mix age16sgxsms0k0798n56g9ydy65xmhtryzjh2t8ewe0w7fn6d86smclqcrz3np
 creation_rules:
   - path_regex: secrets/mix.yaml
     key_groups:
