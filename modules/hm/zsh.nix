@@ -34,7 +34,7 @@ in
         search-word = "grep -Rnwe";
         svi = "sudoedit";
         vi = "$EDITOR";
-        vps = "kitten ssh";
+        vps = "kitten ssh -i ${vars.user.home}/Documents/ssh/mix ${vars.user.name}@${vars.my.domain}";
       };
       syntaxHighlighting.enable = true;
     };
