@@ -39,7 +39,11 @@ in
   options = {
     sys.pkgs = {
       enable = lib.mkEnableOption "Enable System Packages";
-      home.enable = lib.mkEnableOption "Enable System Home Packages";
+      home = {
+        enable = lib.mkEnableOption "Enable System Home Packages";
+        hypr.enable = lib.mkEnableOption "Enable System Home Hypr* Packages";
+        niri.enable = lib.mkEnableOption "Enable System Home Niri Packages";
+      };
       server.enable = lib.mkEnableOption "Enable System Server Packages";
     };
   };

@@ -18,6 +18,7 @@
     ./mako.nix
     ./mpv.nix
     ./music.nix
+    ./niri.nix
     ./packages
     ./scripts.nix
     ./tealdeer.nix
@@ -57,11 +58,13 @@
     land.enable = lib.mkDefault true;
     lock.enable = lib.mkDefault true;
     paper.enable = lib.mkDefault true;
+    picker.enable = lib.mkDefault true;
   };
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
   mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault true;
+  niri.enable = lib.mkDefault false;
   scripts.enable = lib.mkDefault true;
   tealdeer.enable = lib.mkDefault true;
   theme = {

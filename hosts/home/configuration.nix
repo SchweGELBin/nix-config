@@ -19,7 +19,10 @@ in
       configs = 32;
       timeout = 3;
     };
-    pkgs.home.enable = true;
+    pkgs.home = {
+      enable = true;
+      hypr.enable = true;
+    };
     security.enable = false;
   };
 }

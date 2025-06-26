@@ -2,6 +2,14 @@
 let
   cfg = config.waybar;
   vars = import ../nix/vars.nix;
+
+  wm =
+    if config.hypr.enable then
+      "hyprland"
+    else if config.niri.enable then
+      "niri"
+    else
+      "";
 in
 {
   config = lib.mkIf cfg.enable {
@@ -19,11 +27,11 @@ in
 
           modules-left = [
             "custom/logout"
-            "hyprland/workspaces"
+            "${wm}/workspaces"
             "tray"
             "custom/mpv"
           ];
-          modules-center = [ "hyprland/window" ];
+          modules-center = [ "${wm}/window" ];
           modules-right = [
             "cpu"
             "memory"

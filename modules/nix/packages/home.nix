@@ -10,13 +10,14 @@ in
     programs = {
       gamemode.enable = true;
       hyprland = {
-        enable = true;
+        enable = cfg.home.hypr.enable;
         xwayland.enable = true;
       };
-      hyprlock.enable = true;
+      hyprlock.enable = cfg.home.hypr.enable;
+      niri.enable = cfg.home.niri.enable;
       ssh = {
         enableAskPassword = false;
-        startAgent = true;
+        startAgent = cfg.home.hypr.enable;
       };
       steam = {
         enable = true;

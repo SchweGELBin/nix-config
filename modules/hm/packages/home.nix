@@ -37,7 +37,6 @@ in
           gimp3
           glfw
           grim
-          hyprpicker
           inkscape
           jellyfin-tui
           krita

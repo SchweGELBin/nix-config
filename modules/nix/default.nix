@@ -125,7 +125,11 @@ in
     };
     pkgs = {
       enable = lib.mkDefault true;
-      home.enable = lib.mkDefault false;
+      home = {
+        enable = lib.mkDefault false;
+        hypr.enable = lib.mkDefault false;
+        niri.enable = lib.mkDefault false;
+      };
       server.enable = lib.mkDefault false;
     };
     security.enable = lib.mkDefault true;

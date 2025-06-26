@@ -24,19 +24,22 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.file = {
-      ${logo}.source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
-        hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
+    home = {
+      file = {
+        ${logo}.source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
+          hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
+        };
+        ${monitor.left.wall}.source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/2560x1440/nineish.png";
+          hash = "sha256-vE94lLHTDcqshT/EcF0d/HFnsAQ7WDhvdmEod9BfpyI=";
+        };
+        ${monitor.main.wall}.source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/3440x1440/flake.png";
+          hash = "sha256-WYbqYZ0p0VI+CUH/ZJu5StA0z4P4YjQ6uWmVfW2NqbA=";
+        };
       };
-      ${monitor.left.wall}.source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/2560x1440/nineish.png";
-        hash = "sha256-vE94lLHTDcqshT/EcF0d/HFnsAQ7WDhvdmEod9BfpyI=";
-      };
-      ${monitor.main.wall}.source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/3440x1440/flake.png";
-        hash = "sha256-WYbqYZ0p0VI+CUH/ZJu5StA0z4P4YjQ6uWmVfW2NqbA=";
-      };
+      packages = with pkgs; [ ] ++ lib.optionals cfg.picker.enable [ hyprpicker ];
     };
 
     programs.hyprlock.enable = cfg.lock.enable;
@@ -312,6 +315,7 @@ in
       land.enable = lib.mkEnableOption "Enable Hyprland";
       lock.enable = lib.mkEnableOption "Enable hyprlock";
       paper.enable = lib.mkEnableOption "Enable hyprpaper";
+      picker.enable = lib.mkEnableOption "Enable hyprpicker";
     };
   };
 }
