@@ -155,6 +155,11 @@ in
         search = {
           default = "ddg";
           engines = {
+            "Archive" = {
+              definedAliases = [ "@ar" ];
+              icon = "${icons}/actions/archive.svg";
+              urls = [ { template = "https://web.archive.org/web/*/{searchTerms}"; } ];
+            };
             "bing".metaData.hidden = true;
             "ddg".metaData.hidden = false;
             "Crates" = {

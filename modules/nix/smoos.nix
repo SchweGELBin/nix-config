@@ -24,8 +24,8 @@ in
           if [ ! -f ./settings.json ]; then
             cp ${inputs.nur.packages.${pkgs.system}.smoos-cs}/settings.json .
             sed -i '/JsonApi/{n;s/false/true/}' ./settings.json
-            sed -i -e "s/\"SECRET_TOKEN_1\"/\"\$API_TOKEN_PUB\"/g" ./settings.json
-            sed -i -e "s/\"SECRET_TOKEN_2\"/\"\$API_TOKEN\"/g" ./settings.json
+            sed -i -e "s/\"SECRET_TOKEN_1\"/\"\$SMOOS_API_TOKEN_PUB\"/g" ./settings.json
+            sed -i -e "s/\"SECRET_TOKEN_2\"/\"\$SMOOS_API_TOKEN\"/g" ./settings.json
           fi
         '';
         script = "${inputs.nur.packages.${pkgs.system}.smoos-cs}/bin/Server";
