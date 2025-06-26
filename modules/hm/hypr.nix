@@ -303,6 +303,7 @@ in
         windowrule = [
           "idleinhibit focus, class:(rocketleague.exe)"
           "fullscreen, class:(rocketleague.exe)"
+          "fullscreen, title:(Minecraft)(.*)"
         ];
       };
     };
