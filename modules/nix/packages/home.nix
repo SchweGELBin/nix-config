@@ -17,7 +17,7 @@ in
       niri.enable = cfg.home.niri.enable;
       ssh = {
         enableAskPassword = false;
-        startAgent = cfg.home.hypr.enable;
+        startAgent = (cfg.home.niri.enable == false);
       };
       steam = {
         enable = true;
