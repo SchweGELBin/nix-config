@@ -45,10 +45,7 @@ in
   options = {
     hm-pkgs = {
       enable = lib.mkEnableOption "Enable HM Packages";
-      home = {
-        enable = lib.mkEnableOption "Enable HM Home Packages";
-        gaming.enable = lib.mkEnableOption "Enable HM Home Gaming Packages";
-      };
+      home.enable = lib.mkEnableOption "Enable HM Home Packages";
       server.enable = lib.mkEnableOption "Enable HM Server Packages";
     };
   };

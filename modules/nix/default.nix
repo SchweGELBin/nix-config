@@ -8,7 +8,6 @@ in
     ./catppuccin.nix
     ./environment.nix
     ./fonts.nix
-    ./gaming.nix
     ./greeter.nix
     ./hardware.nix
     ./home-manager.nix
@@ -34,7 +33,6 @@ in
     catppuccin.enable = lib.mkDefault true;
     environment.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
-    gaming.enable = lib.mkDefault false;
     greeter.enable = lib.mkDefault true;
     hardware.enable = lib.mkDefault true;
     home-manager.enable = lib.mkDefault true;
