@@ -8,13 +8,7 @@ let
   cfg = config.sys.greeter;
   vars = import ./vars.nix;
 
-  wm =
-    if config.sys.pkgs.home.hypr.enable then
-      "Hyprland"
-    else if config.sys.pkgs.home.niri.enable then
-      "niri"
-    else
-      "";
+  wm = if (config.sys.pkgs.home.wm == "hyprland") then "Hyprland" else config.sys.pkgs.home.wm;
 in
 {
   config = lib.mkIf cfg.enable {

@@ -41,8 +41,13 @@ in
       enable = lib.mkEnableOption "Enable System Packages";
       home = {
         enable = lib.mkEnableOption "Enable System Home Packages";
-        hypr.enable = lib.mkEnableOption "Enable System Home Hypr* Packages";
-        niri.enable = lib.mkEnableOption "Enable System Home Niri Packages";
+        wm = lib.mkOption {
+          description = "Window Manager to use";
+          type = lib.types.enum [
+            "hyprland"
+            "niri"
+          ];
+        };
       };
       server.enable = lib.mkEnableOption "Enable System Server Packages";
     };

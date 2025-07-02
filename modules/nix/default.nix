@@ -125,8 +125,7 @@ in
       enable = lib.mkDefault true;
       home = {
         enable = lib.mkDefault false;
-        hypr.enable = lib.mkDefault false;
-        niri.enable = lib.mkDefault false;
+        wm = lib.mkDefault "hyprland";
       };
       server.enable = lib.mkDefault false;
     };
