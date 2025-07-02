@@ -22,6 +22,25 @@
     wg2 = "i08NC8TyYYNSiFC8v3aeBKs/joVQ5nZnyBSSdYNZqnY=";
   };
 
+  monitors = {
+    first = {
+      bit = 10;
+      hz = 180;
+      res = {
+        x = 2560;
+        y = 1440;
+      };
+    };
+    second = {
+      bit = 10;
+      hz = 180;
+      res = {
+        x = 3440;
+        y = 1440;
+      };
+    };
+  };
+
   theme = {
     cursor = {
       size = 24;

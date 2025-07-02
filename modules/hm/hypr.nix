@@ -9,16 +9,16 @@ let
   vars = import ../nix/vars.nix;
 
   logo = ".face";
-  monitor = {
-    left = {
+  monitors = {
+    first = {
       name = "DP-2";
       wall = ".config/background";
-      wallp = "~/${monitor.left.wall}";
+      wallp = "~/${monitors.first.wall}";
     };
-    main = {
+    second = {
       name = "DP-3";
       wall = ".config/background2";
-      wallp = "~/${monitor.main.wall}";
+      wallp = "~/${monitors.second.wall}";
     };
   };
 in
@@ -30,11 +30,11 @@ in
           url = "https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png";
           hash = "sha256-A85wBdJ2StkgODmxtNGfbNq8PU3G3kqnBAwWvQXVtqo=";
         };
-        ${monitor.left.wall}.source = pkgs.fetchurl {
+        ${monitors.first.wall}.source = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/2560x1440/nineish.png";
           hash = "sha256-vE94lLHTDcqshT/EcF0d/HFnsAQ7WDhvdmEod9BfpyI=";
         };
-        ${monitor.main.wall}.source = pkgs.fetchurl {
+        ${monitors.second.wall}.source = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/SchweGELBin/artwork/main/wallpapers/3440x1440/flake.png";
           hash = "sha256-WYbqYZ0p0VI+CUH/ZJu5StA0z4P4YjQ6uWmVfW2NqbA=";
         };
@@ -70,12 +70,12 @@ in
         enable = cfg.paper.enable;
         settings = {
           preload = [
-            monitor.left.wallp
-            monitor.main.wallp
+            monitors.first.wallp
+            monitors.second.wallp
           ];
           wallpaper = [
-            "${monitor.left.name},${monitor.left.wallp}"
-            "${monitor.main.name},${monitor.main.wallp}"
+            "${monitors.first.name},${monitors.first.wallp}"
+            "${monitors.second.name},${monitors.second.wallp}"
           ];
         };
       };
@@ -149,7 +149,7 @@ in
           "$mainMod       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
           "$mainMod       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
           "$mainMod       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
-          "$mainMod       ,  R         ,  Launch Rocket League                          ,  exec                  , xrandr --output ${monitor.main.name} --primary && mangohud legendary launch Sugar"
+          "$mainMod       ,  R         ,  Launch Rocket League                          ,  exec                  , xrandr --output ${monitors.second.name} --primary && mangohud legendary launch Sugar"
           "$mainMod       ,  Q         ,  Launch Terminal ($terminal)                   ,  exec                  , $terminal"
           "$mainMod  SHIFT,  S         ,  Move current workspace to special workspace   ,  movetoworkspace       , special:magic"
           "$mainMod       ,  down      ,  Move focus down                               ,  movefocus             , d"
@@ -283,8 +283,8 @@ in
         monitor = [
           ", preferred, auto, 1"
           "Unknown-1, disable"
-          "${monitor.left.name}, 2560x1440@180, 0x0, 1, bitdepth,10"
-          "${monitor.main.name}, 3440x1440@180, 2560x0, 1, bitdepth,10"
+          "${monitors.first.name}, ${toString vars.monitors.first.res.x}x${toString vars.monitors.first.res.y}@${toString vars.monitors.first.hz}, 0x0, 1, bitdepth,${toString vars.monitors.first.bit}"
+          "${monitors.second.name}, ${toString vars.monitors.second.res.x}x${toString vars.monitors.second.res.y}@${toString vars.monitors.second.hz}, ${toString vars.monitors.first.res.x}x0, 1, bitdepth,${toString vars.monitors.second.bit}"
         ];
 
         # monitorv2 = [ { } ];
