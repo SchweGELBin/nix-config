@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -20,10 +21,12 @@ in
       bot = {
         enable = cfg.bot.enable;
         environmentFile = secrets.smoos_env.path;
+        package = inputs.nur.packages.${pkgs.system}.smoos-bot;
       };
       cs = {
         enable = cfg.cs.enable;
         environmentFile = secrets.smoos_env.path;
+        package = inputs.nur.packages.${pkgs.system}.smoos-cs;
       };
     };
 
