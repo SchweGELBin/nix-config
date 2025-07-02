@@ -13,8 +13,12 @@ in
     catppuccin = {
       enable = true;
       accent = vars.cat.accent;
-      cava.transparent = true;
       flavor = vars.cat.flavor;
+    };
+
+    catppuccin = {
+      cava.transparent = true;
+      firefox.profiles.${vars.user.name}.force = true;
     };
 
     gtk = lib.mkIf cfg.gtk.enable {
