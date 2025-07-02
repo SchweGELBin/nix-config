@@ -132,7 +132,8 @@ in
     security.enable = lib.mkDefault true;
     smoos = {
       enable = lib.mkDefault false;
-      port = lib.mkDefault 1027;
+      bot.enable = lib.mkDefault true;
+      cs.enable = lib.mkDefault true;
     };
     sound.enable = lib.mkDefault true;
     users.enable = lib.mkDefault true;

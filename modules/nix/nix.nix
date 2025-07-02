@@ -8,6 +8,8 @@ let
   cfg = config.sys.nix;
 in
 {
+  imports = [ inputs.nur.nixosModules.default ];
+
   config = lib.mkIf cfg.enable {
     nix = {
       gc.automatic = cfg.gc.enable;
@@ -20,12 +22,10 @@ in
         substituters = [
           "https://hyprland.cachix.org"
           "https://nix-community.cachix.org"
-          "https://schwegelbin.cachix.org"
         ];
         trusted-public-keys = [
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "schwegelbin.cachix.org-1:Ckh//WCg8vz3W1AzjD/QdYZ4VHA7ZU/q7nXb98IZ+TQ="
         ];
       };
     };
@@ -38,6 +38,8 @@ in
       };
       overlays = [ inputs.fenix.overlays.default ];
     };
+
+    nur.cache.enable = true;
   };
 
   options = {
