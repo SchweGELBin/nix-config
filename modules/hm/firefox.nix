@@ -63,19 +63,6 @@ in
               toolbar = true;
               bookmarks = [
                 {
-                  name = "Firefox Theme";
-                  bookmarks = [
-                    {
-                      name = "Firefox - UI";
-                      url = "https://github.com/catppuccin/firefox";
-                    }
-                    {
-                      name = "Firefox - Websites";
-                      url = "https://github.com/catppuccin/userstyles";
-                    }
-                  ];
-                }
-                {
                   name = "Michi";
                   bookmarks = [
                     {
