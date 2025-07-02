@@ -2,16 +2,16 @@
   description = "SchweGELBin's nix-config flake";
 
   inputs = {
-    #nixos-patch.url = "github:SchweGELBin/nixpkgs/nixos-unstable";
-    #nixos-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    nixpkgs.follows = "nixos-unstable";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+      #url = "github:NixOS/nixpkgs/nixos-unstable-small";
+      #url = "github:SchweGELBin/nixpkgs/nixos-unstable";
+    };
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
-      #url = "github:catppuccin/nix";
-      url = "github:SchweGELBin/catppuccin-nix/patch";
+      url = "github:catppuccin/nix";
+      #url = "github:SchweGELBin/catppuccin-nix/patch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
