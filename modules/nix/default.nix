@@ -111,6 +111,11 @@ in
         relay-max = lib.mkDefault 50000;
         relay-min = lib.mkDefault 49500;
       };
+      uptime = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "uptime.${vars.my.domain}";
+        port = lib.mkDefault 3001;
+      };
       wastebin = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "bin.${vars.my.domain}";

@@ -15,6 +15,7 @@ in
     ./peertube.nix
     ./searx.nix
     ./turn.nix
+    ./uptime.nix
     ./wastebin.nix
   ];
 
@@ -185,6 +186,17 @@ in
         };
         relay-min = lib.mkOption {
           description = "Turn Relay Range Min";
+          type = lib.types.int;
+        };
+      };
+      uptime = {
+        enable = lib.mkEnableOption "Enable Uptime Kuma";
+        fqdn = lib.mkOption {
+          description = "Uptime Kuma Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Uptime Kuma Port";
           type = lib.types.int;
         };
       };
