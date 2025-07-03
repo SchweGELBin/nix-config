@@ -23,6 +23,7 @@ in
           variant = vars.cat.flavor;
         })
         catppuccin-whiskers
+        devtoolbox
         exfat
         (fenix.combine [
           fenix.latest.toolchain
