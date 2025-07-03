@@ -20,13 +20,19 @@ in
       enable = true;
       bot = {
         enable = cfg.bot.enable;
-        environmentFile = secrets.smoos_env.path;
         package = inputs.nur.packages.${pkgs.system}.smoos-bot;
+        secretFile = secrets.smoos_env.path;
+        settings.SMOOS_API_PORT = cfg.bot.port;
       };
       cs = {
         enable = cfg.cs.enable;
-        environmentFile = secrets.smoos_env.path;
         package = inputs.nur.packages.${pkgs.system}.smoos-cs;
+        secretFile = secrets.smoos_env.path;
+        settings = {
+          force = true;
+          jsonapi = true;
+          port = cfg.cs.port;
+        };
       };
     };
 
@@ -36,8 +42,20 @@ in
   options = {
     sys.smoos = {
       enable = lib.mkEnableOption "Enable Super Mario Odyssey: Online Server";
-      bot.enable = lib.mkEnableOption "Enable Super Mario Odyssey: Online Server - Bot";
-      cs.enable = lib.mkEnableOption "Enable Super Mario Odyssey: Online Server - C#";
+      bot = {
+        enable = lib.mkEnableOption "Enable SMOOS-Bot";
+        port = lib.mkOption {
+          description = "SMOOS-Bot port, should match a server's port";
+          type = lib.types.int;
+        };
+      };
+      cs = {
+        enable = lib.mkEnableOption "Enable SMOOS-CS";
+        port = lib.mkOption {
+          description = "SMOOS-CS port";
+          type = lib.types.int;
+        };
+      };
     };
   };
 }
