@@ -9,7 +9,7 @@ in
       uptime-kuma = {
         enable = true;
         appriseSupport = true;
-        settings.PORT = cfg.uptime.port;
+        settings.PORT = toString cfg.uptime.port;
       };
       nginx.virtualHosts.${cfg.uptime.fqdn} = {
         enableACME = true;
