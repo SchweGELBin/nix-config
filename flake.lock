@@ -23,17 +23,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1751634070,
-        "narHash": "sha256-VHjpyzBaLukQqctZrzy/WtHN/GycI18jgwLyqlzqfyo=",
-        "owner": "SchweGELBin",
-        "repo": "catppuccin-nix",
-        "rev": "c056337312fb8926449502a13630ffd73b03d8c2",
+        "lastModified": 1751636951,
+        "narHash": "sha256-07ZP0hEF7HVqGdDc7hgP3jOduNznFt71Lqb3xgXXQWI=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "09e2be240370f27312a44633d852732b66cb8f01",
         "type": "github"
       },
       "original": {
-        "owner": "SchweGELBin",
-        "ref": "patch",
-        "repo": "catppuccin-nix",
+        "owner": "catppuccin",
+        "repo": "nix",
         "type": "github"
       }
     },
