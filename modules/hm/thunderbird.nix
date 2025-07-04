@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.thunderbird;
-  vars = import ../nix/vars.nix;
+  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf cfg.enable {

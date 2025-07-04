@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.firefox;
-  vars = import ../nix/vars.nix;
+  vars = import ../vars.nix;
 
   icons = "${pkgs.papirus-icon-theme}/share/icons/Papirus/16x16";
 in

@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.sys.catppuccin;
-  vars = import ./vars.nix;
+  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.catppuccin.nixosModules.default ];

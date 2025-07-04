@@ -8,7 +8,7 @@ let
   cfg = config.hm-pkgs;
   enable = cfg.enable && cfg.home.enable;
 
-  vars = import ../../nix/vars.nix;
+  vars = import ../../vars.nix;
 in
 {
   config = lib.mkIf enable {

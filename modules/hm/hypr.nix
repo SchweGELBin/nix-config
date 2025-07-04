@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.hypr;
-  vars = import ../nix/vars.nix;
+  vars = import ../vars.nix;
 
   logo = ".face";
   monitors = {

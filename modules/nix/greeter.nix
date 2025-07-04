@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.sys.greeter;
-  vars = import ./vars.nix;
+  vars = import ../vars.nix;
 
   wm = if (config.sys.pkgs.home.wm == "hyprland") then "Hyprland" else config.sys.pkgs.home.wm;
 in

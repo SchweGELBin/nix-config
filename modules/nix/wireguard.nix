@@ -8,7 +8,7 @@
 let
   cfg = config.sys.wireguard;
   secrets = config.sops.secrets;
-  vars = import ./vars.nix;
+  vars = import ../vars.nix;
 
   wg = {
     v4 = "10.0.0";

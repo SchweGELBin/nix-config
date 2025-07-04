@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.waybar;
-  vars = import ../nix/vars.nix;
+  vars = import ../vars.nix;
 
   wm =
     if config.hypr.enable then

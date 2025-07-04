@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.devshells;
-  vars = import ../../nix/vars.nix;
+  vars = import ../../vars.nix;
 
   nixp = "use nix ${vars.user.config}/modules/hm/devshells";
 in

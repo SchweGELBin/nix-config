@@ -1,5 +1,5 @@
 let
-  vars = import ../../modules/nix/vars.nix;
+  vars = import ../../modules/vars.nix;
 in
 {
   imports = [

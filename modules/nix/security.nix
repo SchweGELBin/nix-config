@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.sys.security;
-  vars = import ./vars.nix;
+  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
