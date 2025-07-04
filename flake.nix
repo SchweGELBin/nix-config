@@ -10,8 +10,8 @@
     systems.url = "github:nix-systems/default-linux";
 
     catppuccin = {
-      url = "github:catppuccin/nix";
-      #url = "github:SchweGELBin/catppuccin-nix/patch";
+      #url = "github:catppuccin/nix";
+      url = "github:SchweGELBin/catppuccin-nix/patch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

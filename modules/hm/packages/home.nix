@@ -62,7 +62,6 @@ in
       fuzzel.enable = true;
       imv.enable = true;
       jq.enable = true;
-      mangohud.enable = true;
       obs-studio.enable = true;
       wlogout.enable = true;
       yt-dlp.enable = true;

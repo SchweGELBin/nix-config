@@ -42,7 +42,7 @@ in
             insert = "bar";
             select = "underline";
           };
-          #insert-final-newline = false;
+          insert-final-newline = true;
           line-number = "relative";
         };
         theme = lib.mkIf config.theme.catppuccin.enable "catppuccin-${vars.cat.flavor}";

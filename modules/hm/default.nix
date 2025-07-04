@@ -16,6 +16,7 @@
     ./hypr.nix
     ./kitty.nix
     ./mako.nix
+    ./mangohud.nix
     ./mpv.nix
     ./music.nix
     ./niri.nix
@@ -59,6 +60,7 @@
   };
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
+  mangohud.enable = lib.mkDefault false;
   mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault true;
   niri.enable = lib.mkDefault false;

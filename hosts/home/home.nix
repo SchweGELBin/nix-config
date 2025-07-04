@@ -20,6 +20,7 @@
   hypr.enable = true;
   kitty.enable = true;
   mako.enable = true;
+  mangohud.enable = true;
   theme.gtk.enable = true;
   thunderbird.enable = true;
   vesktop.enable = true;
