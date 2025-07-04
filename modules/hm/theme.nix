@@ -11,13 +11,12 @@ in
 {
   config = lib.mkIf cfg.enable {
     catppuccin = {
-      enable = true;
+      enable = cfg.catppuccin.enable;
       accent = vars.cat.accent;
       flavor = vars.cat.flavor;
-    };
 
-    catppuccin = {
       cava.transparent = true;
+      cursors.enable = cfg.catppuccin.cursors.enable;
       firefox.profiles.${vars.user.name}.force = true;
     };
 
@@ -34,8 +33,8 @@ in
     };
 
     home.pointerCursor = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+      name = lib.mkIf (cfg.catppuccin.cursors.enable == false) "Bibata-Modern-Ice";
+      package = lib.mkIf (cfg.catppuccin.cursors.enable == false) pkgs.bibata-cursors;
       size = vars.theme.cursor.size;
     };
 
@@ -49,7 +48,10 @@ in
   options = {
     theme = {
       enable = lib.mkEnableOption "Enable Theme";
-      catppuccin.enable = lib.mkEnableOption "Enable Catppuccin Theme";
+      catppuccin = {
+        enable = lib.mkEnableOption "Enable Catppuccin Theme";
+        cursors.enable = lib.mkEnableOption "Enable Catppuccin Cursor theme";
+      };
       gtk.enable = lib.mkEnableOption "Enable GTK Theme";
     };
   };
