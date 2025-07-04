@@ -21,7 +21,7 @@ in
           WASTEBIN_ADDRESS_PORT = "127.0.0.1:${toString cfg.wastebin.port}";
           WASTEBIN_BASE_URL = "https://${cfg.wastebin.fqdn}";
           WASTEBIN_MAX_BODY_SIZE = 1048576;
-          WASTEBIN_THEME = "catppuccin";
+          WASTEBIN_THEME = lib.mkIf config.sys.catppuccin.enable "catppuccin";
         };
       };
       nginx.virtualHosts.${cfg.wastebin.fqdn} = {

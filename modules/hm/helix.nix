@@ -45,7 +45,7 @@ in
           #insert-final-newline = false;
           line-number = "relative";
         };
-        theme = "catppuccin-${vars.cat.flavor}";
+        theme = lib.mkIf config.theme.catppuccin.enable "catppuccin-${vars.cat.flavor}";
       };
     };
   };

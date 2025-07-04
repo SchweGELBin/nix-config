@@ -66,6 +66,7 @@
   tealdeer.enable = lib.mkDefault true;
   theme = {
     enable = lib.mkDefault true;
+    catppuccin.enable = lib.mkDefault true;
     gtk.enable = lib.mkDefault false;
   };
   thunderbird.enable = lib.mkDefault false;

@@ -49,6 +49,7 @@ in
   options = {
     theme = {
       enable = lib.mkEnableOption "Enable Theme";
+      catppuccin.enable = lib.mkEnableOption "Enable Catppuccin Theme";
       gtk.enable = lib.mkEnableOption "Enable GTK Theme";
     };
   };
