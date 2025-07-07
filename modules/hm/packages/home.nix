@@ -24,6 +24,7 @@ in
         })
         catppuccin-whiskers
         devtoolbox
+        exiftool
         exfat
         (fenix.combine [
           fenix.latest.toolchain
