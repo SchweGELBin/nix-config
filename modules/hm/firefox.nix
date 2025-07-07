@@ -221,9 +221,8 @@ in
           "font.name.serif.x-western" = "DejaVu Sans";
           "layout.css.devPixelsPerPx" = 1.2;
           "middlemouse.paste" = false;
-        };
-        settings = {
-          # arkenfox/user.js v135
+
+          # arkenfox/user.js v140
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
           "app.shield.optoutstudies.enabled" = false;
@@ -262,7 +261,7 @@ in
           "browser.sessionstore.privacy_level" = 2;
           "browser.shell.shortcutFavicons" = false;
           "browser.shopping.experience2023.enabled" = false;
-          "browser.startup.homepage" = "about:blank";
+          "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
           "browser.startup.homepage_override.mstone" = "ignore";
           "browser.startup.page" = 0;
           "browser.tabs.crashReporting.sendReport" = false;
