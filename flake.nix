@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs = {
-      #url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
       #url = "github:NixOS/nixpkgs/nixos-unstable-small";
-      url = "github:SchweGELBin/nixpkgs/nixos-unstable";
+      #url = "github:SchweGELBin/nixpkgs/nixos-unstable";
     };
     systems.url = "github:nix-systems/default-linux";
 
