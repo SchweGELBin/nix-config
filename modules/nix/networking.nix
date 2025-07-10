@@ -15,18 +15,11 @@ in
         }
       ];
       nameservers = [
-        "1.1.1.3"
-        "1.0.0.3"
+        "1.1.1.1"
+        "1.0.0.1"
       ];
       networkmanager.enable = true;
-      stevenblack = {
-        enable = true;
-        block = [
-          "fakenews"
-          "gambling"
-          "porn"
-        ];
-      };
+      stevenblack.enable = true;
     };
   };
 
