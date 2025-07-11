@@ -32,6 +32,7 @@ in
         search-file = "find . -name";
         search-text = "grep -Rne";
         search-word = "grep -Rnwe";
+        ssh = "kitten ssh";
         svi = "sudoedit";
         vi = "$EDITOR";
         vps = "kitten ssh -i ${vars.user.home}/Documents/ssh/mix ${vars.user.name}@${vars.my.domain}";
