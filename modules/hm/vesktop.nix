@@ -1,6 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.vesktop;
+  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -27,7 +28,7 @@ in
             buttonOneText = "Download Game";
             buttonOneURL = "https://play.google.com/store/apps/details?id=com.schwegelbin.foxisadventure";
             buttonTwoText = "Homepage";
-            buttonTwoURL = "https://milchi.site";
+            buttonTwoURL = "https://${vars.my.domain}";
             imageBig = "https://play-lh.googleusercontent.com/SdxJZuzbOXOMv6VnkfyO2Yb_xBw4UII11uTuJmjqJnombs_yUwxG706tRdBFNt73ftym=w480-h960";
           };
           CrashHandler = {
