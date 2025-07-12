@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.sys.minecraft;
 in
@@ -6,6 +11,7 @@ in
   config = lib.mkIf cfg.enable {
     services.minecraft-server = {
       enable = true;
+      package = pkgs.papermcServers.papermc-1_21_4;
       declarative = true;
       eula = true;
       jvmOpts = "-Xms128M -Xmx2G";
@@ -25,6 +31,7 @@ in
         white-list = false;
       };
       whitelist = {
+        mixbot = "81a1f96b-6231-48d7-8f06-bfb21bad12cc";
         schwegelbin = "bc3a1c45-03cb-43c6-b860-1def6fddcdb9";
       };
     };
