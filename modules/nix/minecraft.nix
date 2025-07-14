@@ -7,7 +7,6 @@
 }:
 let
   cfg = config.sys.minecraft;
-  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.nur.nixosModules.default ];
@@ -15,11 +14,7 @@ in
     nur.mixbot = {
       enable = true;
       package = inputs.nur.packages.${pkgs.system}.mixbot;
-      settings = {
-        MIXBOT_HOST = vars.my.domain;
-        MIXBOT_NAME = "MiXBot";
-        MIXBOT_ONLINE = true;
-      };
+      settings.MIXBOT_ONLINE = true;
     };
 
     services.minecraft-server = {
