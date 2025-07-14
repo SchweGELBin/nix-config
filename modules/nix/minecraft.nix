@@ -11,7 +11,7 @@ in
   config = lib.mkIf cfg.enable {
     services.minecraft-server = {
       enable = true;
-      package = pkgs.papermcServers.papermc-1_21_4;
+      package = pkgs.papermcServers.papermc-1_21_5;
       declarative = true;
       eula = true;
       jvmOpts = "-Xms128M -Xmx2G";
