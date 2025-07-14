@@ -14,6 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     nur.mixbot = {
       enable = true;
+      package = inputs.nur.packages.${pkgs.system}.mixbot;
       settings = {
         MIXBOT_HOST = vars.my.domain;
         MIXBOT_NAME = "MiXBot";
