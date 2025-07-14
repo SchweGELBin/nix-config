@@ -222,16 +222,19 @@
     },
     "nur": {
       "inputs": {
+        "fenix": [
+          "fenix"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1752349565,
-        "narHash": "sha256-N3RC2wgVQ7FOx5QX9nYfZR4JAYS4PNLTVdZaL1pEnyM=",
+        "lastModified": 1752528589,
+        "narHash": "sha256-fI+eyEHH6HNSXRJqL5VXgnd4bxUmMF6k2ltBxaZl/pQ=",
         "owner": "SchweGELBin",
         "repo": "nur-expressions",
-        "rev": "7cba87a81739344ff03b23c4fe3643797e3afccb",
+        "rev": "c56c25a93533b8ad6d825a2f49aae23f1a585445",
         "type": "github"
       },
       "original": {

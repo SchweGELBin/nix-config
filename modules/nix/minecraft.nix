@@ -1,14 +1,26 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }:
 let
   cfg = config.sys.minecraft;
+  vars = import ../vars.nix;
 in
 {
+  imports = [ inputs.nur.nixosModules.default ];
   config = lib.mkIf cfg.enable {
+    nur.mixbot = {
+      enable = true;
+      settings = {
+        MIXBOT_HOST = vars.my.domain;
+        MIXBOT_NAME = "MiXBot";
+        MIXBOT_ONLINE = true;
+      };
+    };
+
     services.minecraft-server = {
       enable = true;
       package = pkgs.papermcServers.papermc-1_21_5;

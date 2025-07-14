@@ -37,7 +37,10 @@
 
     nur = {
       url = "github:SchweGELBin/nur-expressions";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        fenix.follows = "fenix";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     sops-nix = {
