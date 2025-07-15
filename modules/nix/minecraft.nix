@@ -7,6 +7,7 @@
 }:
 let
   cfg = config.sys.minecraft;
+  secrets = config.sops.secrets;
   vars = import ../vars.nix;
 in
 {
@@ -15,6 +16,7 @@ in
     nur.mixbot = {
       enable = true;
       package = inputs.nur.packages.${pkgs.system}.mixbot;
+      secretFile = secrets.mixbot_env.path;
       settings = {
         MIXBOT_DISCORD_ID = toString vars.my.discordid;
         MIXBOT_ONLINE = true;
@@ -47,6 +49,8 @@ in
         schwegelbin = "bc3a1c45-03cb-43c6-b860-1def6fddcdb9";
       };
     };
+
+    sops.secrets.mixbot_env.owner = "mixbot";
   };
 
   options = {
