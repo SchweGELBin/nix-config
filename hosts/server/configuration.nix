@@ -19,7 +19,10 @@ in
     fonts.enable = false;
     greeter.enable = false;
     hardware.enable = false;
-    minecraft.enable = true;
+    minecraft = {
+      enable = true;
+      bot.enable = false;
+    };
     nginx.enable = true;
     nginx.immich.enable = false; # https://github.com/NixOS/nixpkgs/pull/418962
     networking = {
