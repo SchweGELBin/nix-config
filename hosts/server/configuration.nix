@@ -22,7 +22,6 @@ in
     minecraft.enable = true;
     nginx.enable = true;
     nginx.immich.enable = false; # https://github.com/NixOS/nixpkgs/pull/418962
-    nginx.peertube.enable = false; # https://github.com/NixOS/nixpkgs/pull/424687
     networking = {
       gateway.enable = false;
       hostName = vars.user.hostname.server;
