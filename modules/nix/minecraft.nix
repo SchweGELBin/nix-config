@@ -50,7 +50,7 @@ in
       };
     };
 
-    sops.secrets.mixbot_env.owner = "mixbot";
+    sops.secrets.mixbot_env.owner = lib.mikIf cfg.bot.enable "mixbot";
   };
 
   options = {
