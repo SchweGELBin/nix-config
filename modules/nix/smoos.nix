@@ -8,6 +8,7 @@
 let
   cfg = config.sys.smoos;
   secrets = config.sops.secrets;
+  vars = import ../vars.nix;
 in
 {
   imports = [
@@ -22,7 +23,10 @@ in
         enable = cfg.bot.enable;
         package = inputs.nur.packages.${pkgs.system}.smoos-bot;
         secretFile = secrets.smoos_env.path;
-        settings.SMOOS_API_PORT = cfg.bot.port;
+        settings = {
+          SMOOS_API_PORT = cfg.bot.port;
+          SMOOS_DISCORD_ID = toString vars.my.discordid;
+        };
       };
       cs = {
         enable = cfg.cs.enable;

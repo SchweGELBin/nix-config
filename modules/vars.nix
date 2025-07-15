@@ -11,6 +11,7 @@
   };
 
   my = {
+    discordid = 494972810100211722;
     domain = "michi.my";
     repo = "https://github.com/SchweGELBin/nix-config";
   };
