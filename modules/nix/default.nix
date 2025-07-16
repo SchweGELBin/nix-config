@@ -39,10 +39,11 @@ in
     locale.enable = lib.mkDefault true;
     minecraft = {
       enable = lib.mkDefault false;
-      bot.enable = lib.mkDefault true;
+      bot.enable = lib.mkDefault false;
       server = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 25565;
+        whitelist.enable = lib.mkDefault true;
       };
     };
     networking = {

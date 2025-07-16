@@ -42,10 +42,14 @@ in
         server-port = cfg.server.port;
         simulation-distance = 6;
         view-distance = 8;
-        white-list = false;
+        white-list = true;
       };
-      whitelist = {
+      whitelist = lib.mkIf cfg.server.whitelist.enable {
+        ilikeyourcut = "c4ac655d-1da4-4e44-9bc1-2b556c44cb6f";
+        lord_slavik = "7f6a1a19-9fda-447b-8339-cf4ef2568c64";
         mixbot = "81a1f96b-6231-48d7-8f06-bfb21bad12cc";
+        muffin_xp = "c31c008f-9820-4b10-bae5-bbe3d65d2e04";
+        nimelab = "91ca4c55-637b-4767-b0c3-75c0f8017e1d";
         schwegelbin = "bc3a1c45-03cb-43c6-b860-1def6fddcdb9";
       };
     };
@@ -63,6 +67,7 @@ in
           description = "Minecraft Server Port";
           type = lib.types.int;
         };
+        whitelist.enable = lib.mkEnableOption "Enable Minecraft Server Whitelist";
       };
     };
   };
