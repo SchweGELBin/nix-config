@@ -25,6 +25,7 @@ in
       shellAliases = {
         cleanup = "nix-collect-garbage -d";
         icat = "kitten icat";
+        ipc = "curl -4 ifconfig.me && echo && curl -6 ifconfig.me && echo";
         ff = "fastfetch";
         git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
         git-ssh-rm = "ssh-add -D";
@@ -35,6 +36,7 @@ in
         ssh = "kitten ssh";
         svi = "sudoedit";
         vi = "$EDITOR";
+        vcp = "scp -i ${vars.user.home}/Documents/ssh/mix";
         vps = "kitten ssh -i ${vars.user.home}/Documents/ssh/mix ${vars.user.name}@${vars.my.domain}";
       };
       syntaxHighlighting.enable = true;
