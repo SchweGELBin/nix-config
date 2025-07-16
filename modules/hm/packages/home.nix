@@ -46,7 +46,9 @@ in
         nemo
         nix-update
         nixpkgs-review
+        nodejs
         pavucontrol
+        pnpm
         prismlauncher
         pulseaudio
         sl

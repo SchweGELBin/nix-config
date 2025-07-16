@@ -30,6 +30,7 @@ in
         git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
         git-ssh-rm = "ssh-add -D";
         nix-prefetch-unpack = "nix-prefetch-url --unpack";
+        npm = "pnpm";
         search-file = "find . -name";
         search-text = "grep -Rne";
         search-word = "grep -Rnwe";
