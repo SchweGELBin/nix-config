@@ -13,6 +13,7 @@ in
     programs.helix = {
       enable = true;
       extraPackages = with pkgs; [
+        astro-language-server
         bash-language-server
         jdt-language-server
         kotlin-language-server
@@ -24,6 +25,10 @@ in
         taplo
       ];
       languages.language = [
+        {
+          name = "astro";
+          auto-format = true;
+        }
         {
           name = "nix";
           auto-format = true;
