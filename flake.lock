@@ -66,11 +66,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1752638600,
-        "narHash": "sha256-Y833l/KT+yKjW8fv1wMMW1ZR187hwuBo7k+CAvwYpTI=",
+        "lastModified": 1752701647,
+        "narHash": "sha256-aaL53zN58rduP4K96ElJCHLm00t2TnEuCvEw/GZo5Hc=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "24b604cfc91b1450035c438b5df4a1fe786900d2",
+        "rev": "488fa03304c2992af0a3e03ed551148f1a9e4c35",
         "type": "gitlab"
       },
       "original": {
@@ -151,11 +151,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752603129,
-        "narHash": "sha256-S+wmHhwNQ5Ru689L2Gu8n1OD6s9eU9n9mD827JNR+kw=",
+        "lastModified": 1752767945,
+        "narHash": "sha256-C7l88gwS48gjLxGqsJvQkVvvi7e99CdsdEVKiZTKEj8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e8c19a3cec2814c754f031ab3ae7316b64da085b",
+        "rev": "460f1e9af95b081fb7e2022485b6c22b92085936",
         "type": "github"
       },
       "original": {
@@ -190,15 +190,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1752480373,
-        "narHash": "sha256-JHQbm+OcGp32wAsXTE/FLYGNpb+4GLi5oTvCxwSoBOA=",
-        "owner": "NixOS",
+        "lastModified": 1752711193,
+        "narHash": "sha256-WNIFGtjfQPxBJgHVWUcoX4DpLP7eKjFiFfoWweyHKZQ=",
+        "owner": "SchweGELBin",
         "repo": "nixpkgs",
-        "rev": "62e0f05ede1da0d54515d4ea8ce9c733f12d9f08",
+        "rev": "822e4722a1a8a4cfec19109697542a3e91a39e43",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "SchweGELBin",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -222,19 +222,16 @@
     },
     "nur": {
       "inputs": {
-        "fenix": [
-          "fenix"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1752677205,
-        "narHash": "sha256-NJKG2r/En+DGVtyjvFVFBWoWiDM3maIq5wPZtXXDt4k=",
+        "lastModified": 1752771699,
+        "narHash": "sha256-Qvsnr4Q1xkNgr8q1Ns8Vy1jhx0n020OGozfgHJvm/xY=",
         "owner": "SchweGELBin",
         "repo": "nur-expressions",
-        "rev": "0df68b5d0e966b422c1e0f3174d5139952c833f2",
+        "rev": "f4d0f36fe15a6c0c52eb77f7976f3ad384588c43",
         "type": "github"
       },
       "original": {

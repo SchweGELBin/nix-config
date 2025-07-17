@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      #url = "github:NixOS/nixpkgs/nixos-unstable";
       #url = "github:NixOS/nixpkgs/nixos-unstable-small";
-      #url = "github:SchweGELBin/nixpkgs/nixos-unstable";
+      url = "github:SchweGELBin/nixpkgs/nixos-unstable";
     };
     systems.url = "github:nix-systems/default-linux";
 
@@ -37,10 +37,7 @@
 
     nur = {
       url = "github:SchweGELBin/nur-expressions";
-      inputs = {
-        fenix.follows = "fenix";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix = {
