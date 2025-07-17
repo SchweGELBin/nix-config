@@ -126,6 +126,7 @@ in
         fqdn = lib.mkDefault "bin.${vars.my.domain}";
         port = lib.mkDefault 8899;
       };
+      website.enable = lib.mkDefault true;
     };
     nix = {
       enable = lib.mkDefault true;

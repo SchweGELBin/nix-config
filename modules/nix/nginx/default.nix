@@ -17,6 +17,7 @@ in
     ./turn.nix
     ./uptime.nix
     ./wastebin.nix
+    ./www.nix
   ];
 
   config = lib.mkIf cfg.enable {
@@ -33,12 +34,6 @@ in
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
       recommendedZstdSettings = true;
-      virtualHosts.${cfg.domain} = {
-        default = true;
-        enableACME = true;
-        forceSSL = true;
-        root = "/var/www";
-      };
     };
   };
 
@@ -211,6 +206,7 @@ in
           type = lib.types.int;
         };
       };
+      website.enable = lib.mkEnableOption "Enable Website";
     };
   };
 }
