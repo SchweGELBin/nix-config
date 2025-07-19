@@ -36,7 +36,7 @@ in
       };
       mautrix-discord = {
         enable = cfg.matrix.discord.enable;
-        package = (pkgs.mautrix-discord.override { withGoolm = true; });
+        package = pkgs.mautrix-discord; # Doesn't support goolm (yet)
         settings = {
           appservice.port = cfg.matrix.discord.port;
           bridge = {

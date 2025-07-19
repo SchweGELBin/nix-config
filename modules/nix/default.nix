@@ -89,7 +89,7 @@ in
         fqdn = lib.mkDefault "matrix.${vars.my.domain}";
         port = lib.mkDefault 6167;
         discord = {
-          enable = lib.mkDefault true;
+          enable = lib.mkDefault false;
           port = lib.mkDefault 29334;
         };
         whatsapp = {
