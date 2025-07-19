@@ -39,10 +39,7 @@ in
         android_sdk.accept_license = true;
         nvidia.acceptLicense = true;
       };
-      overlays = [
-        inputs.fenix.overlays.default
-        (final: prev: { jdk8 = final.openjdk8-bootstrap; }) # https://github.com/NixOS/nixpkgs/issues/425323
-      ];
+      overlays = [ inputs.fenix.overlays.default ];
     };
 
     nur.cache.enable = true;
