@@ -38,6 +38,7 @@ in
         grim
         inkscape
         jellyfin-tui
+        kdePackages.kdenlive
         krita
         legendary-gl
         libnotify
