@@ -190,11 +190,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1752938399,
-        "narHash": "sha256-+KL4CTdOST3Hjq5zxn74H7vEv/Ag7rSX7pZiZ8YGgzY=",
+        "lastModified": 1752941033,
+        "narHash": "sha256-sLafoS9ZpYv/roTEkE3po0a/z+yr56lpUX0ubgweDiM=",
         "owner": "SchweGELBin",
         "repo": "nixpkgs",
-        "rev": "f829bff0de7feb58011f90da32b7c29667cc7298",
+        "rev": "ba71d0d420d79e556ea35517ece84d0a03926bf3",
         "type": "github"
       },
       "original": {
