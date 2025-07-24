@@ -53,7 +53,21 @@
   hypr = {
     enable = lib.mkDefault false;
     idle.enable = lib.mkDefault true;
-    land.enable = lib.mkDefault true;
+    land = {
+      enable = lib.mkDefault true;
+      plugins = {
+          enable = lib.mkDefault true;
+          borders-plus-plus.enable = lib.mkDefault false;
+          csgo-vulkan-fix.enable = lib.mkDefault false;
+          hyprbars.enable = lib.mkDefault false;
+          hyprexpo.enable = lib.mkDefault true;
+          hyprfocus.enable = lib.mkDefault false;
+          hyprscrolling.enable = lib.mkDefault false;
+          hyprtrails.enable = lib.mkDefault true;
+          hyprwinwrap.enable = lib.mkDefault true;
+          xtra-dispatchers.enable = lib.mkDefault false;
+        };
+    };
     lock.enable = lib.mkDefault true;
     paper.enable = lib.mkDefault true;
     picker.enable = lib.mkDefault true;

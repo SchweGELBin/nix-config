@@ -83,11 +83,16 @@ in
 
     wayland.windowManager.hyprland = {
       enable = cfg.land.enable;
-      plugins = with pkgs.hyprlandPlugins; [
-        hyprexpo
-        hyprtrails
-        hyprwinwrap
-      ];
+      plugins = with pkgs.hyprlandPlugins; [ ]
+        ++ lib.optionals cfg.land.plugins.borders-plus-plus.enable [ borders-plus-plus ]
+        ++ lib.optionals cfg.land.plugins.csgo-vulkan-fix.enable [ csgo-vulkan-fix ]
+        ++ lib.optionals cfg.land.plugins.hyprbars.enable [ hyprbars ]
+        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ hyprexpo ]
+        ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ hyprfocus ]
+        ++ lib.optionals cfg.land.plugins.hyprscrolling.enable [ hyprscrolling ]
+        ++ lib.optionals cfg.land.plugins.hyprtrails.enable [ hyprtrails ]
+        ++ lib.optionals cfg.land.plugins.hyprwinwrap.enable [ hyprwinwrap ]
+        ++ lib.optionals cfg.land.plugins.xtra-dispatchers.enable [ xtra-dispatchers ];
       settings = {
 
         "$alt" = "\$${vars.cat.alt}";
@@ -313,7 +318,21 @@ in
     hypr = {
       enable = lib.mkEnableOption "Enable Hypr*";
       idle.enable = lib.mkEnableOption "Enable hypridle";
-      land.enable = lib.mkEnableOption "Enable Hyprland";
+      land = {
+        enable = lib.mkEnableOption "Enable Hyprland";
+        plugins = {
+          enable = lib.mkEnableOption "Enable Hyprland Plugins";
+          borders-plus-plus.enable = lib.mkEnableOption "Enable Hyprland Plugin: borders-plus-plus";
+          csgo-vulkan-fix.enable = lib.mkEnableOption "Enable Hyprland Plugin: csgo-vulkan-fix";
+          hyprbars.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprbars";
+          hyprexpo.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprexpo";
+          hyprfocus.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprfocus";
+          hyprscrolling.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprscrolling";
+          hyprtrails.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprtrails";
+          hyprwinwrap.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprwinwrap";
+          xtra-dispatchers.enable = lib.mkEnableOption "Enable Hyprland Plugin: xtra-dispatchers";
+        };
+      };
       lock.enable = lib.mkEnableOption "Enable hyprlock";
       paper.enable = lib.mkEnableOption "Enable hyprpaper";
       picker.enable = lib.mkEnableOption "Enable hyprpicker";
