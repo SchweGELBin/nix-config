@@ -134,6 +134,11 @@ in
         port = lib.mkDefault 8899;
       };
       website.enable = lib.mkDefault true;
+      zipline = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "zip.${vars.my.domain}";
+        port = lib.mkDefault 3000;
+      };
     };
     nix = {
       enable = lib.mkDefault true;

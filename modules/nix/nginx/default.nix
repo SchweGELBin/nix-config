@@ -18,6 +18,7 @@ in
     ./uptime.nix
     ./wastebin.nix
     ./www.nix
+    ./zipline.nix
   ];
 
   config = lib.mkIf cfg.enable {
@@ -213,6 +214,17 @@ in
         };
       };
       website.enable = lib.mkEnableOption "Enable Website";
+      zipline = {
+        enable = lib.mkEnableOption "Enable Zipline";
+        fqdn = lib.mkOption {
+          description = "Zipline Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Zipline Port";
+          type = lib.types.int;
+        };
+      };
     };
   };
 }
