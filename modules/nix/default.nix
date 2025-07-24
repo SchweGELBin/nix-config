@@ -34,7 +34,10 @@ in
     environment.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
     greeter.enable = lib.mkDefault true;
-    hardware.enable = lib.mkDefault true;
+    hardware = {
+      enable = lib.mkDefault true;
+      printing.enable = lib.mkDefault false;
+    };
     home-manager.enable = lib.mkDefault true;
     locale.enable = lib.mkDefault true;
     minecraft = {

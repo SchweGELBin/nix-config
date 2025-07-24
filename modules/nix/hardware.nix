@@ -14,12 +14,12 @@ in
 
     services = {
       avahi = {
-        enable = false;
+        enable = cfg.printing.enable;
         nssmdns4 = true;
         openFirewall = true;
       };
       hardware.openrgb.enable = true;
-      printing.enable = false;
+      printing.enable = cfg.printing.enable;
       xserver = {
         enable = true;
         exportConfiguration = true;
@@ -29,6 +29,9 @@ in
   };
 
   options = {
-    sys.hardware.enable = lib.mkEnableOption "Enable Hardware";
+    sys.hardware = {
+      enable = lib.mkEnableOption "Enable Hardware";
+      printing.enable = lib.mkEnableOption "Enable Printing";
+    };
   };
 }
