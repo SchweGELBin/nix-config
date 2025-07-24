@@ -83,7 +83,9 @@ in
 
     wayland.windowManager.hyprland = {
       enable = cfg.land.enable;
-      plugins = with pkgs.hyprlandPlugins; [ ]
+      plugins =
+        with pkgs.hyprlandPlugins;
+        [ ]
         ++ lib.optionals cfg.land.plugins.borders-plus-plus.enable [ borders-plus-plus ]
         ++ lib.optionals cfg.land.plugins.csgo-vulkan-fix.enable [ csgo-vulkan-fix ]
         ++ lib.optionals cfg.land.plugins.hyprbars.enable [ hyprbars ]
@@ -291,8 +293,6 @@ in
           "${monitors.first.name}, ${toString vars.monitors.first.res.x}x${toString vars.monitors.first.res.y}@${toString vars.monitors.first.hz}, 0x0, 1, bitdepth,${toString vars.monitors.first.bit}"
           "${monitors.second.name}, ${toString vars.monitors.second.res.x}x${toString vars.monitors.second.res.y}@${toString vars.monitors.second.hz}, ${toString vars.monitors.first.res.x}x0, 1, bitdepth,${toString vars.monitors.second.bit}"
         ];
-
-        # monitorv2 = [ { } ];
 
         plugin = {
           hyprexpo = {
