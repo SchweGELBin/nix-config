@@ -9,7 +9,7 @@ in
     services = {
       zipline = {
         enable = true;
-        environmentFiles = [ secrets.zipline.path ];
+        environmentFiles = [ secrets.zipline_env.path ];
         settings.CORE_PORT = cfg.zipline.port;
       };
       nginx.virtualHosts.${cfg.zipline.fqdn} = {
@@ -18,6 +18,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.zipline.port}";
       };
     };
-    sops.secrets.zipline.owner = "zipline";
+    sops.secrets.zipline_env.owner = "zipline";
   };
 }
