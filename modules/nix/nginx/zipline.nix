@@ -10,7 +10,11 @@ in
       zipline = {
         enable = true;
         environmentFiles = [ secrets.zipline_env.path ];
-        settings.CORE_PORT = cfg.zipline.port;
+        settings = {
+          CORE_DEFAULT_DOMAIN = cfg.zipline.fqdn;
+          CORE_PORT = cfg.zipline.port;
+          CORE_RETURN_HTTPS_URLS = lib.boolToString true;
+        };
       };
       nginx.virtualHosts.${cfg.zipline.fqdn} = {
         enableACME = true;
