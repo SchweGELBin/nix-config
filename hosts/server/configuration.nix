@@ -23,8 +23,6 @@ in
     nginx = {
       enable = true;
       immich.enable = false;
-      nextcloud.enable = false;
-      zipline.enable = false;
     };
     networking = {
       gateway.enable = false;
