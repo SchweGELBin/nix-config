@@ -137,7 +137,7 @@ in
       zipline = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "zip.${vars.my.domain}";
-        port = lib.mkDefault 3000;
+        port = lib.mkDefault 3002;
       };
     };
     nix = {

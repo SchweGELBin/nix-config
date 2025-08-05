@@ -18,6 +18,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.zipline.port}";
       };
     };
-    sops.secrets.zipline_env.owner = "zipline";
+    sops.secrets.zipline_env.owner = "root";
   };
 }
