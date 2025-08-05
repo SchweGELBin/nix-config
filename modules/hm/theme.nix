@@ -18,11 +18,12 @@ in
       cava.transparent = true;
       cursors.enable = cfg.catppuccin.cursors.enable;
       firefox.profiles.${vars.user.name}.force = true;
+      gtk.icon.enable = cfg.catppuccin.gtk.enable;
     };
 
     gtk = lib.mkIf cfg.gtk.enable {
       enable = true;
-      iconTheme = {
+      iconTheme = lib.mkIf (!cfg.catppuccin.gtk.enable) {
         name = "Dracula";
         package = pkgs.dracula-icon-theme;
       };
@@ -51,6 +52,7 @@ in
       catppuccin = {
         enable = lib.mkEnableOption "Enable Catppuccin Theme";
         cursors.enable = lib.mkEnableOption "Enable Catppuccin Cursor theme";
+        gtk.enable = lib.mkEnableOption "Enable Catppuccin GTK theme";
       };
       gtk.enable = lib.mkEnableOption "Enable GTK Theme";
     };
