@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -8,10 +7,8 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.matrix.enable;
-  secrets = config.sops.secrets;
 in
 {
-  imports = [ inputs.sops-nix.nixosModules.default ];
   config = lib.mkIf enable {
     services = {
       matrix-conduit = {
@@ -77,7 +74,6 @@ in
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";
       };
-      sops.secrets.mautrix-whatsapp_env = "mautrix-whatsapp";
     };
   };
 }
