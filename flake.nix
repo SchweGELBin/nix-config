@@ -31,6 +31,7 @@
     };
 
     mailserver = {
+      #url = "gitlab:Milchi/nixos-mailserver/patch";
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
       inputs.nixpkgs.follows = "nixpkgs";
     };
