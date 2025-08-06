@@ -20,10 +20,7 @@ in
     greeter.enable = false;
     hardware.enable = false;
     minecraft.enable = true;
-    nginx = {
-      enable = true;
-      immich.enable = false;
-    };
+    nginx.enable = true;
     networking = {
       gateway.enable = false;
       hostName = vars.user.hostname.server;
