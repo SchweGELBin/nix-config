@@ -39,13 +39,11 @@ in
         package = pkgs.mautrix-discord; # Doesn't support goolm (yet)
         settings = {
           appservice.port = cfg.matrix.discord.port;
-          bridge = {
-            encryption = {
-              allow = true;
-              default = true;
-              require = true;
-            };
-            permissions.${cfg.domain} = "user";
+          bridge.permissions.${cfg.domain} = "user";
+          encryption = {
+            allow = true;
+            default = true;
+            require = true;
           };
           homeserver = {
             address = "http://localhost:${toString cfg.matrix.port}";
@@ -58,13 +56,11 @@ in
         package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
         settings = {
           appservice.port = cfg.matrix.whatsapp.port;
-          bridge = {
-            encryption = {
-              allow = true;
-              default = true;
-              require = true;
-            };
-            permissions.${cfg.domain} = "user";
+          bridge.permissions.${cfg.domain} = "user";
+          encryption = {
+            allow = true;
+            default = true;
+            require = true;
           };
           homeserver = {
             address = "http://localhost:${toString cfg.matrix.port}";
