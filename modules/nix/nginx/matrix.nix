@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -10,6 +11,7 @@ let
   secrets = config.sops.secrets;
 in
 {
+  imports = [ inputs.sops-nix.nixosModules.default ];
   config = lib.mkIf enable {
     services = {
       matrix-conduit = {
