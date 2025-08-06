@@ -7,6 +7,7 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.matrix.enable;
+  secrets = config.sops.secrets;
 in
 {
   config = lib.mkIf enable {
@@ -54,6 +55,7 @@ in
       mautrix-whatsapp = {
         enable = cfg.matrix.whatsapp.enable;
         package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
+        environmentFile = secrets.mautrix-whatsapp_env.path;
         settings = {
           appservice.port = cfg.matrix.whatsapp.port;
           bridge.permissions.${cfg.domain} = "user";
@@ -73,6 +75,7 @@ in
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";
       };
+      sops.secrets.mautrix-whatsapp_env = "mautrix-whatsapp";
     };
   };
 }
