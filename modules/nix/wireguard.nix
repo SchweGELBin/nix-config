@@ -84,7 +84,7 @@ in
       };
     };
 
-    sops.secrets.wg = { };
+    sops.secrets.wg.owner = "root";
   };
 
   options = {

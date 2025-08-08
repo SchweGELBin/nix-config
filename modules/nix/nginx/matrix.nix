@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -7,19 +8,22 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.matrix.enable;
+  secrets = config.sops.secrets;
 in
 {
+  imports = [ inputs.sops-nix.nixosModules.default ];
+
   config = lib.mkIf enable {
     services = {
       matrix-conduit = {
         enable = true;
+        extraEnvironment = secrets.matrix_env.path;
         settings.global = {
           allow_registration = true;
           database_backend = "rocksdb";
           enable_lightning_bolt = false;
           port = cfg.matrix.port;
           server_name = cfg.domain;
-          turn_secret = "CCtSExOF9jBoi6Aj5y6boZZCImyFLQxE";
           turn_uris = [
             "turn:${cfg.turn.fqdn}:${toString cfg.turn.port}?transport=tcp"
             "turn:${cfg.turn.fqdn}:${toString cfg.turn.port}?transport=udp"
@@ -74,5 +78,6 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";
       };
     };
+    sops.secrets.matrix_env.owner = "root";
   };
 }

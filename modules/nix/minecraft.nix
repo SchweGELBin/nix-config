@@ -12,6 +12,7 @@ let
 in
 {
   imports = [ inputs.nur.nixosModules.default ];
+
   config = lib.mkIf cfg.enable {
     nur.mixbot = {
       enable = cfg.bot.enable;

@@ -14,6 +14,7 @@ in
     inputs.mailserver.nixosModules.default
     inputs.sops-nix.nixosModules.default
   ];
+
   config = lib.mkIf enable {
     mailserver = {
       enable = true;
