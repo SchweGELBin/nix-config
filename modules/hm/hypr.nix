@@ -113,11 +113,13 @@ in
             "border, 1, 10, default"
             "borderangle, 1, 60, linear, loop"
             "fade, 1, 7, default"
+            "hyprfocusIn, 1, 2, focus"
             "windows, 1, 7, window"
             "windowsOut, 1, 7, default, popin 80%"
             "workspaces, 1, 6, default"
           ];
           bezier = [
+            "focus, 0.25, 1, 0.5, 1"
             "linear, 0.0, 0.0, 1.0, 1.0"
             "window, 0.05, 0.9, 0.1, 1.05"
           ];
@@ -301,6 +303,7 @@ in
             bg_col = "$accent";
             workspace_method = "first 1";
           };
+          hyprfocus.mode = "slide";
           hyprtrails.color = "$accent";
           hyprwinwrap.class = "hyprbg";
         };
