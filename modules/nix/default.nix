@@ -91,6 +91,10 @@ in
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "matrix.${vars.my.domain}";
         port = lib.mkDefault 6167;
+        signal = {
+          enable = lib.mkDefault true;
+          port = lib.mkDefault 29328;
+        };
         whatsapp = {
           enable = lib.mkDefault true;
           port = lib.mkDefault 29318;

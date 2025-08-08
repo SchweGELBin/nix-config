@@ -38,6 +38,25 @@ in
           well_known_server = cfg.matrix.fqdn;
         };
       };
+      mautrix-signal = {
+        enable = cfg.matrix.signal.enable;
+        package = (pkgs.mautrix-signal.override { withGoolm = true; });
+        environmentFile = secrets.mautrix-signal_env.path;
+        settings = {
+          appservice.port = cfg.matrix.signal.port;
+          bridge.permissions.${cfg.domain} = "user";
+          encryption = {
+            allow = true;
+            default = true;
+            pickle_key = "$MAUTRIX_SIGNAL_ENCRYPTION_PICKLE_KEY";
+            require = true;
+          };
+          homeserver = {
+            address = "http://localhost:${toString cfg.matrix.port}";
+            domain = cfg.domain;
+          };
+        };
+      };
       mautrix-whatsapp = {
         enable = cfg.matrix.whatsapp.enable;
         package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
@@ -65,6 +84,7 @@ in
     };
     sops.secrets = {
       matrix_env.owner = "root";
+      mautrix-signal_env = "mautrix-signal";
       mautrix-whatsapp_env = "mautrix-whatsapp";
     };
   };
