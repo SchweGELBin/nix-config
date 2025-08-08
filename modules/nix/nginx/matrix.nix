@@ -41,12 +41,14 @@ in
       mautrix-whatsapp = {
         enable = cfg.matrix.whatsapp.enable;
         package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
+        environmentFile = secrets.mautrix-whatsapp_env.path;
         settings = {
           appservice.port = cfg.matrix.whatsapp.port;
           bridge.permissions.${cfg.domain} = "user";
           encryption = {
             allow = true;
             default = true;
+            pickle_key = "$MAUTRIX_WHATSAPP_ENCRYPTION_PICKLE_KEY";
             require = true;
           };
           homeserver = {
@@ -61,6 +63,9 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";
       };
     };
-    sops.secrets.matrix_env.owner = "root";
+    sops.secrets = {
+      matrix_env.owner = "root";
+      mautrix-whatsapp_env = "mautrix-whatsapp";
+    };
   };
 }
