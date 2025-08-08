@@ -38,23 +38,6 @@ in
           well_known_server = cfg.matrix.fqdn;
         };
       };
-      mautrix-discord = {
-        enable = cfg.matrix.discord.enable;
-        package = pkgs.mautrix-discord; # Doesn't support goolm (yet)
-        settings = {
-          appservice.port = cfg.matrix.discord.port;
-          bridge.permissions.${cfg.domain} = "user";
-          encryption = {
-            allow = true;
-            default = true;
-            require = true;
-          };
-          homeserver = {
-            address = "http://localhost:${toString cfg.matrix.port}";
-            domain = cfg.domain;
-          };
-        };
-      };
       mautrix-whatsapp = {
         enable = cfg.matrix.whatsapp.enable;
         package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
