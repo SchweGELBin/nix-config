@@ -17,7 +17,7 @@ in
     services = {
       matrix-conduit = {
         enable = true;
-        extraEnvironment = secrets.matrix_env.path;
+        secretFile = secrets.matrix_env.path;
         settings.global = {
           allow_registration = true;
           database_backend = "rocksdb";
