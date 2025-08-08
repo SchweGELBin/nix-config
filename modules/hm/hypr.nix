@@ -235,7 +235,7 @@ in
 
         decoration = {
           active_opacity = 0.75;
-          blur.new_optimizations = false;
+          blur.new_optimizations = !cfg.land.plugins.hyprfocus.enable;
           inactive_opacity = 0.9;
           rounding = 12;
           shadow.color = "$surface0";
@@ -252,12 +252,12 @@ in
         };
 
         exec-once = [
-          "avabg c"
-          "hypridle"
-          "hyprpaper"
           "openrgb -c $accentAlpha"
-          "waybar"
-        ];
+        ]
+        ++ lib.optionals cfg.idle.enable [ "hypridle" ]
+        ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ "avabg c" ]
+        ++ lib.optionals cfg.paper.enable [ "hyprpaper" ]
+        ++ lib.optionals config.waybar.enable [ "waybar" ];
 
         general = {
           "col.active_border" = "$accent $alt 45deg";
