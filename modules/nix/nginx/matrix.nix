@@ -84,8 +84,8 @@ in
     };
     sops.secrets = {
       matrix_env.owner = "root";
-      mautrix-signal_env = "mautrix-signal";
-      mautrix-whatsapp_env = "mautrix-whatsapp";
+      mautrix-signal_env.owner = "mautrix-signal";
+      mautrix-whatsapp_env.owner = "mautrix-whatsapp";
     };
   };
 }
