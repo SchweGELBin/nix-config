@@ -84,8 +84,8 @@ in
     };
     sops.secrets = {
       matrix_env.owner = "root";
-      mautrix-signal_env.owner = "mautrix-signal";
-      mautrix-whatsapp_env.owner = "mautrix-whatsapp";
+      mautrix-signal_env.owner = lib.mkIf cfg.matrix.signal.enable "mautrix-signal";
+      mautrix-whatsapp_env.owner = lib.mkIf cfg.matrix.whatsapp.enable "mautrix-whatsapp";
     };
   };
 }
