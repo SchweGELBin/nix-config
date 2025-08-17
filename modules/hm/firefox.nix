@@ -94,50 +94,54 @@ in
         };
         extensions = {
           force = true;
-          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-            behave
-            darkreader
-            firefox-color
-            redirector
-            skip-redirect
-            stylus
-            ublock-origin
-          ];
+          packages =
+            with inputs.firefox-addons.packages.${pkgs.system};
+            [ ]
+            ++ lib.optionals cfg.extensions.behave.enable [ behave ]
+            ++ lib.optionals cfg.extensions.darkreader.enable [ darkreader ]
+            ++ lib.optionals cfg.extensions.firefox-color.enable [ firefox-color ]
+            ++ lib.optionals cfg.extensions.redirector.enable [ redirector ]
+            ++ lib.optionals cfg.extensions.skip-redirect.enable [ skip-redirect ]
+            ++ lib.optionals cfg.extensions.stylus.enable [ stylus ]
+            ++ lib.optionals cfg.extensions.ublock-origin.enable [ ublock-origin ];
           settings = {
-            "FirefoxColor@mozilla.com".settings.firstRunDone = true;
-            "skipredirect@sblask".settings.blacklist = [
-              "/abp"
-              "/account"
-              "/adfs"
-              "/auth"
-              "/cookie"
-              "/download"
-              "/login"
-              "/logoff"
-              "/logon"
-              "/logout"
-              "/oauth"
-              "/openid"
-              "/pay"
-              "/preference"
-              "/profile"
-              "/register"
-              "/saml"
-              "/signin"
-              "/signoff"
-              "/signon"
-              "/signout"
-              "/signup"
-              "/sso"
-              "/subscribe"
-              "/unauthenticated"
-              "/verification"
-              "https://external-content.duckduckgo.com"
-              "https://web.archive.org/web"
-            ];
+            "FirefoxColor@mozilla.com".settings = lib.mkIf cfg.extensions.firefox-color.enable {
+              firstRunDone = true;
+            };
+            "skipredirect@sblask".settings = lib.mkIf cfg.extensions.skip-redirect.enable {
+              blacklist = [
+                "/abp"
+                "/account"
+                "/adfs"
+                "/auth"
+                "/cookie"
+                "/download"
+                "/login"
+                "/logoff"
+                "/logon"
+                "/logout"
+                "/oauth"
+                "/openid"
+                "/pay"
+                "/preference"
+                "/profile"
+                "/register"
+                "/saml"
+                "/signin"
+                "/signoff"
+                "/signon"
+                "/signout"
+                "/signup"
+                "/sso"
+                "/subscribe"
+                "/unauthenticated"
+                "/verification"
+                "https://external-content.duckduckgo.com"
+                "https://web.archive.org/web"
+              ];
+            };
           };
         };
-        extraConfig = "";
         id = 0;
         search = {
           default = "ddg";
@@ -210,7 +214,6 @@ in
             };
           };
           force = true;
-          order = [ ];
           privateDefault = "ddg";
         };
         settings = {
@@ -222,7 +225,8 @@ in
           "layout.css.devPixelsPerPx" = 1.2;
           "media.hardwaremediakeys.enabled" = false;
           "middlemouse.paste" = false;
-
+        }
+        // lib.optionalAttrs cfg.arkenfox.enable {
           # arkenfox v140
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
@@ -382,6 +386,18 @@ in
   };
 
   options = {
-    firefox.enable = lib.mkEnableOption "Enable FireFox";
+    firefox = {
+      enable = lib.mkEnableOption "Enable FireFox";
+      arkenfox.enable = lib.mkEnableOption "Enable FireFox arkenfox configurations";
+      extensions = {
+        behave.enable = lib.mkEnableOption "Enable FireFox security extension: behave";
+        darkreader.enable = lib.mkEnableOption "Enable FireFox style extension: darkreader";
+        firefox-color.enable = lib.mkEnableOption "Enable FireFox style extension: firefox-color";
+        redirector.enable = lib.mkEnableOption "Enable FireFox security extension: redirector";
+        skip-redirect.enable = lib.mkEnableOption "Enable FireFox security extension: skip-redirect";
+        stylus.enable = lib.mkEnableOption "Enable FireFox style extension: stylus";
+        ublock-origin.enable = lib.mkEnableOption "Enable FireFox security extension: ublock-origin";
+      };
+    };
   };
 }

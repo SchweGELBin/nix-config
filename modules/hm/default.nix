@@ -40,7 +40,19 @@
   direnv.enable = lib.mkDefault false;
   element.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
-  firefox.enable = lib.mkDefault false;
+  firefox = {
+    enable = lib.mkDefault false;
+    arkenfox.enable = lib.mkDefault true;
+    extensions = {
+      behave.enable = lib.mkDefault true;
+      darkreader.enable = lib.mkDefault true;
+      firefox-color.enable = lib.mkDefault true;
+      redirector.enable = lib.mkDefault true;
+      skip-redirect.enable = lib.mkDefault true;
+      stylus.enable = lib.mkDefault true;
+      ublock-origin.enable = lib.mkDefault true;
+    };
+  };
   git.enable = lib.mkDefault true;
   glava.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
