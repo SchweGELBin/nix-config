@@ -220,6 +220,7 @@ in
           "extensions.autoDisableScopes" = 0;
           "font.name.serif.x-western" = "DejaVu Sans";
           "layout.css.devPixelsPerPx" = 1.2;
+          "media.hardwaremediakeys.enabled" = false;
           "middlemouse.paste" = false;
 
           # arkenfox/user.js v140
