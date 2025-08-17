@@ -249,6 +249,7 @@ in
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
           "browser.newtabpage.activity-stream.default.sites" = "";
           "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+          "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
           "browser.newtabpage.activity-stream.telemetry" = false;
@@ -269,6 +270,7 @@ in
           "browser.tabs.searchclipboardfor.middleclick" = false;
           "browser.uitour.enabled" = false;
           "browser.urlbar.addons.featureGate" = false;
+          "browser.urlbar.amp.featureGate" = false;
           "browser.urlbar.fakespot.featureGate" = false;
           "browser.urlbar.mdn.featureGate" = false;
           "browser.urlbar.pocket.featureGate" = false;
@@ -280,6 +282,7 @@ in
           "browser.urlbar.suggest.searches" = false;
           "browser.urlbar.trending.featureGate" = false;
           "browser.urlbar.weather.featureGate" = false;
+          "browser.urlbar.wikipedia.featureGate" = false;
           "browser.urlbar.yelp.featureGate" = false;
           "browser.xul.error_pages.expert_bad_cert" = true;
           "captivedetect.canonicalURL" = "";
@@ -347,6 +350,7 @@ in
           "privacy.window.maxInnerHeight" = 900;
           "privacy.window.maxInnerWidth" = 1600;
           "security.cert_pinning.enforcement_level" = 2;
+          "security.csp.reporting.enabled" = false;
           "security.dialog_enable_delay" = 1000;
           "security.OCSP.enabled" = 1;
           "security.OCSP.require" = true;
