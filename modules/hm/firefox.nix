@@ -223,7 +223,7 @@ in
           "media.hardwaremediakeys.enabled" = false;
           "middlemouse.paste" = false;
 
-          # arkenfox/user.js v140
+          # arkenfox v140
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
           "app.shield.optoutstudies.enabled" = false;
