@@ -46,6 +46,7 @@ in
       };
       timers.gickup.timerConfig = {
         OnCalendar = "Mon 04:00:00";
+        Persistent = true;
         Unit = "gickup.service";
       };
     };
