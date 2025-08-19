@@ -25,7 +25,6 @@ in
         catppuccin-whiskers
         devtoolbox
         exiftool
-        exfat
         (fenix.combine [
           fenix.latest.toolchain
           fenix.targets.aarch64-linux-android.latest.rust-std
