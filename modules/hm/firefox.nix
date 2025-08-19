@@ -217,6 +217,7 @@ in
           privateDefault = "ddg";
         };
         settings = {
+          "browser.ml.enable" = false;
           "browser.places.importBookmarksHTML" = true;
           "clipboard.autocopy" = false;
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
