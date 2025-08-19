@@ -8,6 +8,7 @@
 let
   cfg = config.sys.gickup;
   secrets = config.sops.secrets;
+  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -21,13 +22,14 @@ in
             configFile = (pkgs.formats.yaml { }).generate "gickup.yml" {
               source.github = [
                 {
-                  filter.excludeforks = false;
+                  filter.excludeforks = true;
                   starred = false;
-                  user = "SchweGELBin";
+                  user = vars.git.name;
                 }
               ];
               destination.gitea = [
                 {
+                  createorg = true;
                   force = true;
                   lfs = true;
                   mirror.enabled = true;
