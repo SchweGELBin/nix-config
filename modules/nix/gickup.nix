@@ -19,22 +19,26 @@ in
         script =
           let
             configFile = (pkgs.formats.yaml { }).generate "gickup.yml" {
-              source.github = {
-                filter.excludeforks = false;
-                starred = false;
-                user = "SchweGELBin";
-              };
-              destination.gitea = {
-                force = true;
-                lfs = true;
-                mirror.enabled = true;
-                token = secrets.codeberg.path;
-                url = "https://codeberg.org/";
-                visibility = {
-                  organizations = "public";
-                  repositories = "public";
-                };
-              };
+              source.github = [
+                {
+                  filter.excludeforks = false;
+                  starred = false;
+                  user = "SchweGELBin";
+                }
+              ];
+              destination.gitea = [
+                {
+                  force = true;
+                  lfs = true;
+                  mirror.enabled = true;
+                  token_file = secrets.codeberg.path;
+                  url = "https://codeberg.org/";
+                  visibility = {
+                    organizations = "public";
+                    repositories = "public";
+                  };
+                }
+              ];
             };
           in
           "${lib.getExe pkgs.gickup} ${configFile}";
