@@ -40,7 +40,7 @@ in
           "${lib.getExe pkgs.gickup} ${configFile}";
         wantedBy = [ "multi-user.target" ];
       };
-      timers.gickup = {
+      timers.gickup.timerConfig = {
         OnCalendar = "Mon 04:00:00";
         Unit = "gickup.service";
       };
