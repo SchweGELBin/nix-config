@@ -22,6 +22,9 @@ in
             configFile = (pkgs.formats.yaml { }).generate "gickup.yml" {
               source.github = [
                 {
+                  exclude = [
+                    "kernel_milk_davinci"
+                  ];
                   filter.excludeforks = true;
                   starred = false;
                   user = vars.git.name;
@@ -30,6 +33,7 @@ in
               destination.gitea = [
                 {
                   createorg = true;
+                  user = vars.git.name;
                   force = true;
                   lfs = true;
                   mirror.enabled = true;
