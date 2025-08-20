@@ -11,7 +11,7 @@ let
   vars = import ../vars.nix;
 in
 {
-  imports = [ inputs.sops-nix.nixosModules.default ];
+  imports = [ inputs.sops-nix.homeManagerModules.default ];
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [ jellyfin-tui ];
