@@ -14,6 +14,7 @@
     ./helix.nix
     ./home.nix
     ./hypr.nix
+    ./jellyfin-tui.nix
     ./kitty.nix
     ./mako.nix
     ./mangohud.nix
@@ -84,6 +85,7 @@
     paper.enable = lib.mkDefault true;
     picker.enable = lib.mkDefault true;
   };
+  jellyfin-tui.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
   mangohud.enable = lib.mkDefault false;
