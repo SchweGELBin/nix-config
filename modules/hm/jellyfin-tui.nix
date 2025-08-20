@@ -14,7 +14,7 @@ in
   imports = [ inputs.sops-nix.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
-    home.programs = with pkgs; [ jellyfin-tui ];
+    home.packages = with pkgs; [ jellyfin-tui ];
     sops.secrets.jellyfin.owner = vars.user.name;
     xdg.configFile."jellyfin-tui/config.yaml".source =
       (pkgs.formats.yaml { }).generate "jellyfin-tui.yaml"
