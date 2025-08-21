@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./coturn.nix
     ./element.nix
     ./forgejo.nix
     ./immich.nix
@@ -13,9 +14,8 @@ in
     ./matrix.nix
     ./nextcloud.nix
     ./peertube.nix
-    ./searx.nix
-    ./turn.nix
-    ./uptime.nix
+    ./searxng.nix
+    ./uptimekuma.nix
     ./wastebin.nix
     ./www.nix
     ./zipline.nix
@@ -43,6 +43,29 @@ in
       domain = lib.mkOption {
         description = "Nginx Domain";
         type = lib.types.str;
+      };
+      coturn = {
+        enable = lib.mkEnableOption "Enable Turn";
+        fqdn = lib.mkOption {
+          description = "Turn Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Turn Port";
+          type = lib.types.int;
+        };
+        port-alt = lib.mkOption {
+          description = "Turn Alternative Port";
+          type = lib.types.int;
+        };
+        relay-max = lib.mkOption {
+          description = "Turn Relay Range Max";
+          type = lib.types.int;
+        };
+        relay-min = lib.mkOption {
+          description = "Turn Relay Range Min";
+          type = lib.types.int;
+        };
       };
       element = {
         enable = lib.mkEnableOption "Enable Element";
@@ -157,7 +180,7 @@ in
           type = lib.types.int;
         };
       };
-      searx = {
+      searxng = {
         enable = lib.mkEnableOption "Enable SearXNG";
         fqdn = lib.mkOption {
           description = "SearXNG Domain";
@@ -168,30 +191,7 @@ in
           type = lib.types.int;
         };
       };
-      turn = {
-        enable = lib.mkEnableOption "Enable Turn";
-        fqdn = lib.mkOption {
-          description = "Turn Domain";
-          type = lib.types.str;
-        };
-        port = lib.mkOption {
-          description = "Turn Port";
-          type = lib.types.int;
-        };
-        port-alt = lib.mkOption {
-          description = "Turn Alternative Port";
-          type = lib.types.int;
-        };
-        relay-max = lib.mkOption {
-          description = "Turn Relay Range Max";
-          type = lib.types.int;
-        };
-        relay-min = lib.mkOption {
-          description = "Turn Relay Range Min";
-          type = lib.types.int;
-        };
-      };
-      uptime = {
+      uptimekuma = {
         enable = lib.mkEnableOption "Enable Uptime Kuma";
         fqdn = lib.mkOption {
           description = "Uptime Kuma Domain";

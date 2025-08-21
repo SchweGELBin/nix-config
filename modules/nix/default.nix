@@ -59,6 +59,14 @@ in
     nginx = {
       enable = lib.mkDefault false;
       domain = lib.mkDefault vars.my.domain;
+      coturn = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "turn.${vars.my.domain}";
+        port = lib.mkDefault 5349;
+        port-alt = lib.mkDefault 5350;
+        relay-max = lib.mkDefault 50000;
+        relay-min = lib.mkDefault 49500;
+      };
       element = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "element.${vars.my.domain}";
@@ -112,20 +120,12 @@ in
         mail = lib.mkDefault "peertube@${vars.my.domain}";
         port = lib.mkDefault 9000;
       };
-      searx = {
+      searxng = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "searx.${vars.my.domain}";
         port = lib.mkDefault 8888;
       };
-      turn = {
-        enable = lib.mkDefault true;
-        fqdn = lib.mkDefault "turn.${vars.my.domain}";
-        port = lib.mkDefault 5349;
-        port-alt = lib.mkDefault 5350;
-        relay-max = lib.mkDefault 50000;
-        relay-min = lib.mkDefault 49500;
-      };
-      uptime = {
+      uptimekuma = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "uptime.${vars.my.domain}";
         port = lib.mkDefault 3001;

@@ -25,10 +25,10 @@ in
           port = cfg.matrix.port;
           server_name = cfg.domain;
           turn_uris = [
-            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port}?transport=tcp"
-            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port}?transport=udp"
-            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port-alt}?transport=tcp"
-            "turn:${cfg.turn.fqdn}:${toString cfg.turn.port-alt}?transport=udp"
+            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port}?transport=tcp"
+            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port}?transport=udp"
+            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port-alt}?transport=tcp"
+            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port-alt}?transport=udp"
           ];
           trusted_servers = [
             "matrix.org"

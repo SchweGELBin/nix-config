@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.searx.enable;
+  enable = cfg.enable && cfg.searxng.enable;
   secrets = config.sops.secrets;
 in
 {
@@ -19,14 +19,14 @@ in
         environmentFile = secrets.searx_env.path;
         redisCreateLocally = true;
         settings = {
-          server.port = cfg.searx.port;
+          server.port = cfg.searxng.port;
           theme_args.simple_style = "black";
         };
       };
-      nginx.virtualHosts.${cfg.searx.fqdn} = {
+      nginx.virtualHosts.${cfg.searxng.fqdn} = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.searx.port}";
+        locations."/".proxyPass = "http://localhost:${toString cfg.searxng.port}";
       };
     };
     sops.secrets.searx_env.owner = "searx";
