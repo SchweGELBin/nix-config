@@ -20,9 +20,9 @@ in
         server = {
           name = vars.my.domain;
           listeners = {
-            "127.0.0.1:${toString cfg.port}" = { };
-            "[::1]:${toString cfg.port}" = { };
-            ":${toString cfg.port}" = {
+            "127.0.0.1:${toString cfg.ergo.port}" = { };
+            "[::1]:${toString cfg.ergo.port}" = { };
+            ":${toString cfg.ergo.port}" = {
               tls = {
                 cert = "/var/lib/acme/${cfg.thelounge.fqdn}/cert.pem";
                 key = "/var/lib/acme/${cfg.thelounge.fqdn}/key.pem";
