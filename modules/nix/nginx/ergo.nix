@@ -12,24 +12,31 @@ let
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
+
   config = lib.mkIf enable {
-    services.ergochat = {
-      enable = true;
-      settings = {
-        network.name = "MiX";
-        server = {
-          name = vars.my.domain;
-          listeners = {
-            "127.0.0.1:${toString cfg.ergo.port}" = { };
-            "[::1]:${toString cfg.ergo.port}" = { };
-            ":${toString cfg.ergo.port}" = {
-              tls = {
-                cert = "/var/lib/acme/${cfg.thelounge.fqdn}/cert.pem";
-                key = "/var/lib/acme/${cfg.thelounge.fqdn}/key.pem";
+    services = {
+      ergochat = {
+        enable = true;
+        settings = {
+          network.name = "MiX";
+          server = {
+            name = vars.my.domain;
+            listeners = {
+              "127.0.0.1:${toString cfg.ergo.port}" = { };
+              "[::1]:${toString cfg.ergo.port}" = { };
+              ":${toString cfg.ergo.port}" = {
+                tls = {
+                  cert = "/var/lib/acme/${cfg.thelounge.fqdn}/cert.pem";
+                  key = "/var/lib/acme/${cfg.thelounge.fqdn}/key.pem";
+                };
               };
             };
+            opers.password = secrets.ergo.path;
           };
-          opers.password = secrets.ergo.path;
+        };
+        security.acme.certs.${cfg.thelounge.fqdn} = {
+          group = "root";
+          postRun = "systemctl reload nginx.service; systemctl restart ergochat.service";
         };
       };
     };
