@@ -6,7 +6,6 @@ in
   imports = [
     ./coturn.nix
     ./element.nix
-    ./ergo.nix
     ./forgejo.nix
     ./immich.nix
     ./invidious.nix
@@ -74,13 +73,6 @@ in
         fqdn = lib.mkOption {
           description = "Element Domain";
           type = lib.types.str;
-        };
-      };
-      ergo = {
-        enable = lib.mkEnableOption "Enable Ergo";
-        port = lib.mkOption {
-          description = "Ergo Port";
-          type = lib.types.int;
         };
       };
       forgejo = {
@@ -205,6 +197,10 @@ in
         fqdn = lib.mkOption {
           description = "The Lounge Domain";
           type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "The Lounge Port";
+          type = lib.types.int;
         };
       };
       uptimekuma = {

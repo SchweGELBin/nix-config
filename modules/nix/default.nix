@@ -71,10 +71,6 @@ in
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "element.${vars.my.domain}";
       };
-      ergo = {
-        enable = lib.mkDefault true;
-        port = lib.mkDefault 6789;
-      };
       forgejo = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "git.${vars.my.domain}";
@@ -132,6 +128,7 @@ in
       thelounge = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "irc.${vars.my.domain}";
+        port = lib.mkDefault 6789;
       };
       uptimekuma = {
         enable = lib.mkDefault true;
