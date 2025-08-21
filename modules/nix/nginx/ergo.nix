@@ -8,7 +8,7 @@ let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.ergo.enable;
   secrets = config.sops.secrets;
-  vars = import ../vars.nix;
+  vars = import ../../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
