@@ -34,10 +34,10 @@ in
             opers.password = secrets.ergo.path;
           };
         };
-        security.acme.certs.${cfg.thelounge.fqdn} = {
-          group = "root";
-          postRun = "systemctl reload nginx.service; systemctl restart ergochat.service";
-        };
+      };
+      security.acme.certs.${cfg.thelounge.fqdn} = {
+        group = "root";
+        postRun = "systemctl reload nginx.service; systemctl restart ergochat.service";
       };
     };
 
