@@ -6,6 +6,7 @@ in
   imports = [
     ./coturn.nix
     ./element.nix
+    ./ergo.nix
     ./forgejo.nix
     ./immich.nix
     ./invidious.nix
@@ -15,6 +16,7 @@ in
     ./nextcloud.nix
     ./peertube.nix
     ./searxng.nix
+    ./thelounge.nix
     ./uptimekuma.nix
     ./wastebin.nix
     ./www.nix
@@ -72,6 +74,13 @@ in
         fqdn = lib.mkOption {
           description = "Element Domain";
           type = lib.types.str;
+        };
+      };
+      ergo = {
+        enable = lib.mkEnableOption "Enable Ergo";
+        port = lib.mkOption {
+          description = "Ergo Port";
+          type = lib.types.int;
         };
       };
       forgejo = {
@@ -189,6 +198,13 @@ in
         port = lib.mkOption {
           description = "SearXNG Port";
           type = lib.types.int;
+        };
+      };
+      thelounge = {
+        enable = lib.mkEnableOption "Enable The Lounge";
+        fqdn = lib.mkOption {
+          description = "The Lounge Domain";
+          type = lib.types.str;
         };
       };
       uptimekuma = {
