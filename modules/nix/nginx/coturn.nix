@@ -49,7 +49,7 @@ in
         forceSSL = true;
       };
     };
-    sops.secrets.turn.owner = "turnserver";
+    sops.secrets.coturn.owner = "turnserver";
     users.users.nginx.extraGroups = [ "turnserver" ];
   };
 }
