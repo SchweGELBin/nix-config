@@ -63,12 +63,12 @@ in
         enable = true;
         extraConfig = {
           defaults = {
-            host = vars.my.domain;
+            host = "localhost";
             join = "#general";
-            name = "MiX";
-            nick = "Gast%%%%";
+            name = "MiX IRC";
+            nick = "gast%%%";
             port = cfg.thelounge.ergo.port;
-            leaveMessage = "Tschau";
+            tls = false;
             username = "gast";
           };
           reverseProxy = true;
