@@ -2,24 +2,56 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.thelounge.enable;
-  secrets = config.sops.secrets;
   vars = import ../../vars.nix;
 in
 {
   config = lib.mkIf enable {
     services = {
       ergochat = {
-        enable = true;
+        enable = cfg.thelounge.ergo.enable;
         settings = {
+          datastore = {
+            autoupgrade = true;
+            path = "/var/lib/ergo/ircd.db";
+          };
           network.name = "MiX";
-          server = {
-            name = vars.my.domain;
-            listeners = {
-              "127.0.0.1:${toString cfg.thelounge.port}" = { };
-              "[::1]:${toString cfg.thelounge.port}" = { };
+          oper-classes = {
+            chat-moderator = {
+              capabilities = [
+                "ban"
+                "kill"
+                "nofakelag"
+                "relaymsg"
+                "roleplay"
+                "sajoin"
+                "samode"
+                "snomasks"
+                "vhosts"
+              ];
+              title = "Chat Moderator";
+            };
+            server-admin = {
+              capabilities = [
+                "accreg"
+                "chanreg"
+                "defcon"
+                "history"
+                "massmessage"
+                "metadata"
+                "rehash"
+              ];
+              extends = "chat-moderator";
+              title = "Server Admin";
             };
           };
-          opers.password = secrets.ergo.path;
+          opers.admin = {
+            class = "server-admin";
+            password = "$2a$04$k74NXvQCcTIQXm1RvJ29suNStbD4.62fhqXvwBIsg.hou/lwjd4.u";
+          };
+          server = {
+            name = vars.my.domain;
+            listeners.":${toString cfg.thelounge.ergo.port}" = { };
+          };
         };
       };
       nginx.virtualHosts.${cfg.thelounge.fqdn} = {
@@ -31,10 +63,11 @@ in
         enable = true;
         extraConfig = {
           defaults = {
-            host = "localhost";
+            host = vars.my.domain;
             join = "#general";
             name = "MiX";
             nick = "Gast%%%%";
+            port = cfg.thelounge.ergo.port;
             leaveMessage = "Tschau";
             username = "gast";
           };
@@ -44,6 +77,5 @@ in
         public = true;
       };
     };
-    sops.secrets.ergo.owner = "root";
   };
 }

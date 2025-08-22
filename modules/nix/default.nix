@@ -127,6 +127,10 @@ in
       };
       thelounge = {
         enable = lib.mkDefault true;
+        ergo = {
+          enable = lib.mkDefault true;
+          port = lib.mkDefault 6667;
+        };
         fqdn = lib.mkDefault "irc.${vars.my.domain}";
         port = lib.mkDefault 6789;
       };

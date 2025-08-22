@@ -194,6 +194,13 @@ in
       };
       thelounge = {
         enable = lib.mkEnableOption "Enable The Lounge";
+        ergo = {
+          enable = lib.mkEnableOption "Enable Ergo";
+          port = lib.mkOption {
+            description = "Ergo Port";
+            type = lib.types.int;
+          };
+        };
         fqdn = lib.mkOption {
           description = "The Lounge Domain";
           type = lib.types.str;
