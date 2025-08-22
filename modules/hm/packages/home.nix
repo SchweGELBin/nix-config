@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -36,6 +37,7 @@ in
         glfw
         grim
         inkscape
+        inputs.nur.packages.${pkgs.system}.bible4tui
         jellyfin-tui
         kdePackages.kdenlive
         krita
