@@ -24,7 +24,7 @@ in
           variant = vars.cat.flavor;
         })
         catppuccin-whiskers
-        devtoolbox
+        dolphin-emu
         exiftool
         (fenix.combine [
           fenix.latest.toolchain
@@ -53,6 +53,7 @@ in
         pnpm
         prismlauncher
         pulseaudio
+        ryubing
         sl
         slurp
         toilet
