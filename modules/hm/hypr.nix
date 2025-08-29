@@ -113,11 +113,11 @@ in
             "border, 1, 10, default"
             "borderangle, 1, 60, linear, loop"
             "fade, 1, 7, default"
-            "hyprfocusIn, 1, 2, focus"
             "windows, 1, 7, window"
             "windowsOut, 1, 7, default, popin 80%"
             "workspaces, 1, 6, default"
-          ];
+          ]
+          ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ "hyprfocusIn, 1, 2, focus" ];
           bezier = [
             "focus, 0.25, 1, 0.5, 1"
             "linear, 0.0, 0.0, 1.0, 1.0"
