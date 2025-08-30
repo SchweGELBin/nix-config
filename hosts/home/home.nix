@@ -9,10 +9,7 @@
   alacritty.enable = true;
   android-sdk.enable = true;
   cava.enable = true;
-  devshells = {
-    enable = true;
-    bevy.enable = true;
-  };
+  devshells.enable = true;
   direnv.enable = true;
   element.enable = true;
   firefox.enable = true;
