@@ -6,7 +6,7 @@ in
   imports = [
     ./boot.nix
     ./catppuccin.nix
-    ./disko.nix
+    ./disko
     ./environment.nix
     ./fonts.nix
     ./gickup.nix
@@ -34,7 +34,7 @@ in
     };
     catppuccin.enable = lib.mkDefault true;
     disko = {
-      enable = lib.mkDefault false;
+      enable = lib.mkDefault true;
       device = lib.mkDefault "/dev/sda";
     };
     environment.enable = lib.mkDefault true;

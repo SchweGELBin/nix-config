@@ -19,10 +19,7 @@ in
       configs = 32;
       timeout = 3;
     };
-    disko = {
-      enable = true;
-      device = "/dev/nvme0n1";
-    };
+    disko.device = "/dev/nvme0n1";
     pkgs.home.enable = true;
     security.enable = false;
   };
