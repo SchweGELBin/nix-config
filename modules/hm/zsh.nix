@@ -37,8 +37,8 @@ in
         ssh = "kitten ssh";
         svi = "sudoedit";
         vi = "$EDITOR";
-        vcp = "scp -i ${vars.user.home}/Documents/ssh/mix";
-        vps = "kitten ssh -i ${vars.user.home}/Documents/ssh/mix ${vars.user.name}@${vars.my.domain}";
+        vcp = "scp -i ${vars.user.home}/.ssh/mix";
+        vps = "kitten ssh -i ${vars.user.home}/.ssh/mix ${vars.user.name}@${vars.my.domain}";
       };
       syntaxHighlighting.enable = true;
     };
