@@ -30,50 +30,48 @@ in
           root = {
             size = "100%";
             content = {
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                settings.allowDiscards = true;
-                subvolumes = {
-                  "/root" = {
-                    mountpoint = "/";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "/home" = {
-                    mountpoint = "/home";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "/log" = {
-                    mountpoint = "/var/log";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "/nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "/persist" = {
-                    mountpoint = "/persist";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "/swap" = {
-                    mountpoint = "/swap";
-                    swap.swapfile.size = "20M";
-                  };
+              type = "btrfs";
+              extraArgs = [ "-f" ];
+              settings.allowDiscards = true;
+              subvolumes = {
+                "/root" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/home" = {
+                  mountpoint = "/home";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/log" = {
+                  mountpoint = "/var/log";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/persist" = {
+                  mountpoint = "/persist";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/swap" = {
+                  mountpoint = "/swap";
+                  swap.swapfile.size = "20M";
                 };
               };
             };
