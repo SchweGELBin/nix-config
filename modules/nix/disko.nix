@@ -32,7 +32,6 @@ in
             content = {
               type = "btrfs";
               extraArgs = [ "-f" ];
-              settings.allowDiscards = true;
               subvolumes = {
                 "/root" = {
                   mountpoint = "/";
