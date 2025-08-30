@@ -6,6 +6,7 @@ in
   imports = [
     ./boot.nix
     ./catppuccin.nix
+    ./disko.nix
     ./environment.nix
     ./fonts.nix
     ./gickup.nix
@@ -32,6 +33,10 @@ in
       timeout = lib.mkDefault 0;
     };
     catppuccin.enable = lib.mkDefault true;
+    disko = {
+      enable = lib.mkDefault false;
+      device = lib.mkDefault "/dev/sda";
+    };
     environment.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
     gickup.enable = lib.mkDefault false;
