@@ -41,4 +41,4 @@
 - Setup sops/age
 - Clone the repo to the right spot
   1. HOME `sudo rm -r /etc/nixos && cd ~ && git clone git@github.com:SchweGELBin/nix-config`
-  2. SERVER `sudo server-reset`
+  2. SERVER `sudo rm -r /etc/nixos && sudo server-reset`
