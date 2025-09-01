@@ -20,6 +20,7 @@ in
       timeout = 3;
     };
     disko.device = "/dev/nvme0n1";
+    networking.static.enable = true;
     pkgs.home.enable = true;
     security.enable = false;
   };

@@ -58,8 +58,10 @@ in
     };
     networking = {
       enable = lib.mkDefault true;
-      gateway.enable = lib.mkDefault true;
+      hetzner.enable = lib.mkDefault false;
       hostName = lib.mkDefault vars.user.hostname.home;
+      interface = lib.mkDefault "eth0";
+      static.enable = lib.mkDefault false;
     };
     nginx = {
       enable = lib.mkDefault false;

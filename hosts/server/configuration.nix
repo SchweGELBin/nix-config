@@ -4,7 +4,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./networking.nix
     ../../modules/nix
   ];
 
@@ -23,7 +22,7 @@ in
     minecraft.enable = true;
     nginx.enable = true;
     networking = {
-      gateway.enable = false;
+      hetzner.enable = true;
       hostName = vars.user.hostname.server;
     };
     nix.gc.enable = true;
