@@ -50,15 +50,15 @@ in
                 prefixLength = 64;
               }
             ];
+          routes =
+            [ ]
+            ++ lib.optionals cfg.hetzner.enable [
+              {
+                address = "fe80::1";
+                prefixLength = 128;
+              }
+            ];
         };
-        routes =
-          [ ]
-          ++ lib.optionals cfg.hetzner.enable [
-            {
-              address = "fe80::1";
-              prefixLength = 128;
-            }
-          ];
       };
       nameservers = [
         "1.1.1.1"
@@ -66,7 +66,7 @@ in
       ];
       networkmanager.enable = true;
       stevenblack.enable = true;
-      useDHCP = true;
+      useDHCP = lib.mkDefault true;
     };
   };
 
