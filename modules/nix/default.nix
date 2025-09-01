@@ -58,7 +58,11 @@ in
     };
     networking = {
       enable = lib.mkDefault true;
-      hetzner.enable = lib.mkDefault false;
+      hetzner = {
+        enable = lib.mkDefault false;
+        ipv4 = lib.mkDefault "127.0.0.1";
+        ipv6 = lib.mkDefault "::1";
+      };
       hostName = lib.mkDefault vars.user.hostname.home;
       interface = lib.mkDefault "eth0";
       static.enable = lib.mkDefault false;

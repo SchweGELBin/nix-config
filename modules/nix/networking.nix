@@ -18,7 +18,7 @@ in
             [ ]
             ++ lib.optionals cfg.hetzner.enable [
               {
-                address = "78.47.17.130";
+                address = cfg.hetzner.ipv4;
                 prefixLength = 32;
               }
             ]
@@ -42,7 +42,7 @@ in
             [ ]
             ++ lib.optionals cfg.hetzner.enable [
               {
-                address = "2a01:4f8:1c1c:7645::1";
+                address = cfg.hetzner.ipv6;
                 prefixLength = 64;
               }
               {
@@ -73,7 +73,17 @@ in
   options = {
     sys.networking = {
       enable = lib.mkEnableOption "Enable Networking";
-      hetzner.enable = lib.mkEnableOption "Enable Hetzner specific Networking";
+      hetzner = {
+        enable = lib.mkEnableOption "Enable Hetzner specific Networking";
+        ipv4 = lib.mkOption {
+          description = "Global IPv4 address";
+          type = lib.types.str;
+        };
+        ipv6 = lib.mkOption {
+          description = "Global IPv6 address";
+          type = lib.types.str;
+        };
+      };
       hostName = lib.mkOption {
         description = "Networking Host Name";
         type = lib.types.str;
