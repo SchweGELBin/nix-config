@@ -24,6 +24,7 @@ in
                 {
                   exclude = [ "kernel_milk_davinci" ];
                   filter.excludeforks = true;
+                  issues = true;
                   starred = false;
                   user = vars.git.name;
                 }
