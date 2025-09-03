@@ -13,6 +13,7 @@ in
     ./greeter.nix
     ./hardware.nix
     ./home-manager.nix
+    ./impermanence.nix
     ./locale.nix
     ./minecraft.nix
     ./networking.nix
@@ -46,6 +47,7 @@ in
       printing.enable = lib.mkDefault false;
     };
     home-manager.enable = lib.mkDefault true;
+    impermanence.enable = lib.mkDefault true;
     locale.enable = lib.mkDefault true;
     minecraft = {
       enable = lib.mkDefault false;
