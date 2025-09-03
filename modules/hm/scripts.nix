@@ -28,10 +28,20 @@ in
         nixos-rebuild switch --flake ./#server
       '')
 
-      (pkgs.writeShellScriptBin "server-reset" ''
+      (pkgs.writeShellScriptBin "config-reset" ''
         rm -rf ${vars.user.config}
-        git clone ${vars.my.repo} --depth 1 ${vars.user.config}
-        cp /root/bak/{hardware-configuration.nix,networking.nix} ${vars.user.config}/hosts/server/
+        mkdir -p ${vars.user.config}
+        case $1 in
+        git)
+          git clone ${vars.my.repo.git} ${vars.user.config}
+        ;;
+        https)
+          git clone ${vars.my.repo.https} ${vars.user.config}
+        ;;
+        *)
+          git clone ${vars.my.repo.https} --depth 1 ${vars.user.config}
+        esac
+        chown -R ${vars.user.name} ${vars.user.config}
       '')
 
       (pkgs.writeShellScriptBin "music" ''

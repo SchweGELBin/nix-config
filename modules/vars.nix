@@ -13,7 +13,10 @@
   my = {
     discordid = 494972810100211722;
     domain = "michi.my";
-    repo = "https://github.com/SchweGELBin/nix-config";
+    repo = {
+      git = "git@github.com:SchweGELBin/nix-config";
+      https = "https://github.com/SchweGELBin/nix-config";
+    };
   };
 
   keys = {
@@ -49,7 +52,7 @@
   };
 
   user = {
-    config = "/home/michi/nix-config";
+    config = "/etc/nixos";
     home = "/home/michi";
     hostname = {
       home = "nix";

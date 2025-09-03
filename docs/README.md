@@ -33,7 +33,7 @@ General
 sudo rebuild            | Rebuild Home system
 update                  | Update Home config
 sudo server-rebuild     | Rebuild Server system
-sudo server-reset       | Reset Server config
+sudo config-reset       | Reset config
 music                   | Toogle music-instance
 music-instance          | Play music
 loopback                | Toggle mic loopback
