@@ -7,6 +7,10 @@ in
     programs.mangohud = {
       enable = true;
       enableSessionWide = true;
+      settingsPerApplication = {
+        mpv.no_display = true;
+        ".pavucontrol-wrapped".no_display = true;
+      };
     };
   };
 
