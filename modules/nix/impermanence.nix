@@ -16,9 +16,10 @@ in
   config = lib.mkIf cfg.enable {
     environment.persistence."/persist" = {
       directories = [
-        "/etc/nixos"
+        vars.user.config
         "/var/lib"
       ];
+      hideMounts = true;
       users.${vars.user.name} = {
         directories = [
           ".android"
@@ -35,7 +36,6 @@ in
           ".config/sops/age/keys.txt"
         ];
       };
-      hideMounts = true;
     };
   };
 
