@@ -43,7 +43,7 @@ in
       '')
 
       (pkgs.writeShellScriptBin "music-instance" ''
-        input=~/.config/nix/music.list
+        input="$HOME/Media/Music/play.list"
         while read -r line
         do
           mpv $line --no-video --slang=en
@@ -112,7 +112,7 @@ in
     ++ lib.optionals config.hypr.enable [
       (pkgs.writeShellScriptBin "screenshot" ''
         filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
-        scrDir="$HOME/Pictures/Screenshots"
+        scrDir="$HOME/Media/Pictures/Screenshots"
         scrPath="$scrDir/$filename"
 
         mkdir -p $scrDir
