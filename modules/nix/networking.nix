@@ -25,17 +25,16 @@ in
         ipv4.addresses = lib.mkIf cfg.static.v4.enable [
           {
             address = cfg.static.v4.ip;
-            prefixLength = 32;
+            prefixLength = 24;
           }
         ];
-        ipv6.adresses = lib.mkIf cfg.static.v6.enable [
+        ipv6.addresses = lib.mkIf cfg.static.v6.enable [
           {
             address = cfg.static.v6.ip;
             prefixLength = 64;
           }
         ];
       };
-
     };
   };
 
