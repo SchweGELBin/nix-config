@@ -13,7 +13,6 @@
     ./glava.nix
     ./helix.nix
     ./home.nix
-    ./impermanence.nix
     ./hypr.nix
     ./jellyfin-tui.nix
     ./kitty.nix
@@ -86,7 +85,6 @@
     paper.enable = lib.mkDefault true;
     picker.enable = lib.mkDefault true;
   };
-  impermanence.enable = lib.mkDefault true;
   jellyfin-tui.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault false;
   mako.enable = lib.mkDefault false;
