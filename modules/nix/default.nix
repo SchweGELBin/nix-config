@@ -47,7 +47,7 @@ in
       printing.enable = lib.mkDefault false;
     };
     home-manager.enable = lib.mkDefault true;
-    impermanence.enable = lib.mkDefault true;
+    impermanence.enable = lib.mkDefault false;
     locale.enable = lib.mkDefault true;
     minecraft = {
       enable = lib.mkDefault false;
