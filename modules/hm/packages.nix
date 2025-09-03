@@ -68,6 +68,7 @@ in
         pnpm
         prismlauncher
         pulseaudio
+        qrencode
         ryubing
         sl
         slurp
