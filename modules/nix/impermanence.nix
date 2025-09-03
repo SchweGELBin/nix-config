@@ -17,7 +17,6 @@ in
       directories = [
         "/etc/nixos"
         "/var/lib"
-        "/var/log"
       ];
       hideMounts = true;
     };
