@@ -29,7 +29,6 @@ in
       '')
 
       (pkgs.writeShellScriptBin "config-reset" ''
-        rm -rf ${vars.user.config}
         mkdir -p ${vars.user.config}
         case $1 in
         git)
