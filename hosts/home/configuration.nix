@@ -20,7 +20,13 @@ in
       timeout = 3;
     };
     disko.device = "/dev/nvme0n1";
-    networking.static.enable = true;
+    networking.static = {
+      enable = true;
+      v4 = {
+        enable = true;
+        ip = "192.168.0.123";
+      };
+    };
     pkgs.home.enable = true;
     security.enable = false;
   };

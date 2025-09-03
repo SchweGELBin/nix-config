@@ -22,12 +22,19 @@ in
     minecraft.enable = true;
     nginx.enable = true;
     networking = {
-      hetzner = {
-        enable = true;
-        ipv4 = "78.47.17.130";
-        ipv6 = "2a01:4f8:1c1c:7645::1";
-      };
       hostName = vars.user.hostname.server;
+      static = {
+        enable = true;
+        mode = "hetzner";
+        v4 = {
+          enable = true;
+          ip = "78.47.17.130";
+        };
+        v6 = {
+          enable = true;
+          ip = "2a01:4f8:1c1c:7645::1";
+        };
+      };
     };
     nix.gc.enable = true;
     pkgs.server.enable = true;
