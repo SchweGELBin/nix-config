@@ -18,7 +18,7 @@ in
     ./networking.nix
     ./nginx
     ./nix.nix
-    ./packages
+    ./packages.nix
     ./security.nix
     ./smoos.nix
     ./sound.nix

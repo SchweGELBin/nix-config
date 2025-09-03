@@ -21,7 +21,7 @@
     ./mpv.nix
     ./music.nix
     ./niri.nix
-    ./packages
+    ./packages.nix
     ./scripts.nix
     ./tealdeer.nix
     ./theme.nix

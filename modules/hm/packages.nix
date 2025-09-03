@@ -7,14 +7,29 @@
 }:
 let
   cfg = config.hm-pkgs;
-  enable = cfg.enable && cfg.home.enable;
-
-  vars = import ../../vars.nix;
+  vars = import ../vars.nix;
 in
 {
-  config = lib.mkIf enable {
-    home = {
-      packages = with pkgs; [
+  config = lib.mkIf cfg.enable {
+    home.packages =
+      with pkgs;
+      [
+        apksigner
+        cmatrix
+        file
+        ffmpeg
+        imagemagick
+        inputs.nur.packages.${pkgs.system}.catspeak
+        mdcat
+        neo-cowsay
+        pipes-rs
+        pwgen
+        sops
+        unzip
+        wget
+        zip
+      ]
+      ++ lib.optionals cfg.home.enable [
         androidStudioPackages.dev
         audacity
         bitwarden-desktop
@@ -61,20 +76,39 @@ in
         winetricks
         wineWowPackages.stagingFull
         wl-clipboard
+      ]
+      ++ lib.optionals cfg.server.enable [
+        wireguard-tools
       ];
-    };
 
     programs = {
+      bash.enable = true;
+      bat.enable = true;
+      btop.enable = true;
+      git-cliff.enable = true;
+      home-manager.enable = true;
+      zsh.enable = true;
+    }
+    // lib.optionalAttrs cfg.home.enable {
       fuzzel.enable = true;
       imv.enable = true;
       jq.enable = true;
       obs-studio.enable = true;
       wlogout.enable = true;
       yt-dlp.enable = true;
+    }
+    // lib.optionalAttrs cfg.server.enable {
+      htop.enable = true;
     };
 
-    services = {
-      playerctld.enable = true;
+    services.playerctld.enable = cfg.home.enable;
+  };
+
+  options = {
+    hm-pkgs = {
+      enable = lib.mkEnableOption "Enable HM Packages";
+      home.enable = lib.mkEnableOption "Enable HM Home Packages";
+      server.enable = lib.mkEnableOption "Enable HM Server Packages";
     };
   };
 }
