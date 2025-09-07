@@ -22,6 +22,7 @@
     ./music.nix
     ./niri.nix
     ./packages.nix
+    ./rofi.nix
     ./scripts.nix
     ./tealdeer.nix
     ./theme.nix
@@ -92,6 +93,10 @@
   mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault true;
   niri.enable = lib.mkDefault false;
+  rofi = {
+    enable = lib.mkDefault false;
+    emoji.enable = lib.mkDefault true;
+  };
   scripts.enable = lib.mkDefault true;
   tealdeer.enable = lib.mkDefault true;
   theme = {

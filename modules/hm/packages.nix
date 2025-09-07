@@ -95,7 +95,6 @@ in
       imv.enable = true;
       jq.enable = true;
       obs-studio.enable = true;
-      rofi.enable = true;
       wlogout.enable = true;
       yt-dlp.enable = true;
     }
