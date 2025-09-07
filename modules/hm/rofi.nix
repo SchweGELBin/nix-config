@@ -12,7 +12,11 @@ in
     programs.rofi = {
       enable = true;
       modes = [
+        "combi"
         "drun"
+        "filebrowser"
+        "keys"
+        "recursivebrowser"
         "run"
         "ssh"
         "window"
