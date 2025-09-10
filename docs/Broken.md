@@ -2,4 +2,4 @@
 
 - Impermanence
 - Printing
-- Vesktop: 10-Bit ScreenShare
+- hyprland-plugins for v0.51.0
