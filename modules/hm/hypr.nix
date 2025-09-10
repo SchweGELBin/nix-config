@@ -252,10 +252,10 @@ in
         };
 
         exec-once = [
+          "avabg c"
           "openrgb -c $accentAlpha"
         ]
         ++ lib.optionals cfg.idle.enable [ "hypridle" ]
-        ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ "avabg c" ]
         ++ lib.optionals cfg.paper.enable [ "hyprpaper" ]
         ++ lib.optionals config.waybar.enable [ "waybar" ];
 
