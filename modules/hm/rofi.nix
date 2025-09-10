@@ -22,9 +22,7 @@ in
         "window"
       ]
       ++ lib.optionals cfg.emoji.enable [ "emoji" ];
-      package = pkgs.rofi.override {
-        plugins = lib.optionals cfg.emoji.enable [ pkgs.rofi-emoji ];
-      };
+      plugins = with pkgs; lib.optionals cfg.emoji.enable [ rofi-emoji ];
     };
   };
 
