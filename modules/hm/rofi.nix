@@ -20,10 +20,12 @@ in
         ++ lib.optionals cfg.modes.run.enable [ "run" ]
         ++ lib.optionals cfg.modes.ssh.enable [ "ssh" ]
         ++ lib.optionals cfg.modes.window.enable [ "window" ]
+        ++ lib.optionals cfg.plugins.calc.enable [ "calc" ]
         ++ lib.optionals cfg.plugins.emoji.enable [ "emoji" ];
       plugins =
         with pkgs;
-        lib.optionals cfg.emoji.enable [ rofi-calc ] ++ lib.optionals cfg.emoji.enable [ rofi-emoji ];
+        lib.optionals cfg.plugins.calc.enable [ rofi-calc ]
+        ++ lib.optionals cfg.plugins.emoji.enable [ rofi-emoji ];
     };
   };
 
