@@ -3,7 +3,7 @@
 ## Preparation
 ### Boot the ISO
 - Download the minimal NixOS [ISO image](https://channels.nixos.org/nixos-25.05/latest-nixos-minimal-x86_64-linux.iso)
-- Flash this ISO image onto a USB flash drive (via: cp / dd / balena-etcher)
+- Flash this ISO image onto a USB flash drive (via: cat, cp, dd, pv, tee or balena-etcher, rufus, ventoy)
 - Boot from your bootable USB flash drive
 - Choose the standard live option
 
