@@ -96,8 +96,7 @@ in
           force = true;
           packages =
             with inputs.firefox-addons.packages.${pkgs.system};
-            [ ]
-            ++ lib.optionals cfg.extensions.behave.enable [ behave ]
+            lib.optionals cfg.extensions.behave.enable [ behave ]
             ++ lib.optionals cfg.extensions.darkreader.enable [ darkreader ]
             ++ lib.optionals cfg.extensions.firefox-color.enable [ firefox-color ]
             ++ lib.optionals cfg.extensions.redirector.enable [ redirector ]

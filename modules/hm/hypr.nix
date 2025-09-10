@@ -39,7 +39,7 @@ in
           hash = "sha256-WYbqYZ0p0VI+CUH/ZJu5StA0z4P4YjQ6uWmVfW2NqbA=";
         };
       };
-      packages = with pkgs; [ ] ++ lib.optionals cfg.picker.enable [ hyprpicker ];
+      packages = with pkgs; lib.optionals cfg.picker.enable [ hyprpicker ];
     };
 
     programs.hyprlock.enable = cfg.lock.enable;
@@ -85,8 +85,7 @@ in
       enable = cfg.land.enable;
       plugins =
         with pkgs.hyprlandPlugins;
-        [ ]
-        ++ lib.optionals cfg.land.plugins.borders-plus-plus.enable [ borders-plus-plus ]
+        lib.optionals cfg.land.plugins.borders-plus-plus.enable [ borders-plus-plus ]
         ++ lib.optionals cfg.land.plugins.csgo-vulkan-fix.enable [ csgo-vulkan-fix ]
         ++ lib.optionals cfg.land.plugins.hyprbars.enable [ hyprbars ]
         ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ hyprexpo ]
