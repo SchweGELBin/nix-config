@@ -191,20 +191,22 @@ in
           "$altMod   SHIFT,  down      ,  Remove window from master                     ,  layoutmsg             , removemaster"
           "$mainMod       ,  W         ,  Restart Bar ($bar)                            ,  exec                  , pkill $bar && $bar"
           "          SUPER,  ALT_R     ,  Show Keybinds                                 ,  exec                  , kitty --hold binds"
-          "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
           "$altMod        ,  Tab       ,  Swap focused window with master or first child,  layoutmsg             , swapwithmaster"
           "$altMod        ,  up        ,  Swap focused window with next one             ,  layoutmsg             , swapnext"
           "$altMod        ,  down      ,  Swap focused window with previous one         ,  layoutmsg             , swapprev"
           "               ,  Print     ,  Take Screenshot of current Display            ,  exec                  , screenshot d"
           "$mainMod       ,  Print     ,  Take Screenshot of focused Window             ,  exec                  , screenshot w"
           "          SHIFT,  Print     ,  Take Screenshot of selected Region            ,  exec                  , screenshot r"
-          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
-          "$mainMod  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
           "$mainMod       ,  G         ,  Toggle floating window                        ,  togglefloating        , "
           "$mainMod       ,  F         ,  Toggle fullscreen                             ,  fullscreen            , "
           "$mainMod       ,  O         ,  Toggle h/w window split                       ,  togglesplit           , "
           "$mainMod       ,  P         ,  Toggle pseudo (Keep aspect ratio)             ,  pseudo                , "
           "$mainMod       ,  S         ,  Toggle special workspace                      ,  togglespecialworkspace, magic"
+        ]
+        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [
+          "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
+          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
+          "$mainMod  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
         ];
 
         binddel = [
@@ -251,10 +253,10 @@ in
         };
 
         exec-once = [
-          "avabg c"
           "openrgb -c $accentAlpha"
         ]
         ++ lib.optionals cfg.idle.enable [ "hypridle" ]
+        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ "avabg c" ]
         ++ lib.optionals cfg.paper.enable [ "hyprpaper" ]
         ++ lib.optionals config.waybar.enable [ "waybar" ];
 
