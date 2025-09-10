@@ -21,7 +21,9 @@ in
         ++ lib.optionals cfg.modes.ssh.enable [ "ssh" ]
         ++ lib.optionals cfg.modes.window.enable [ "window" ]
         ++ lib.optionals cfg.plugins.emoji.enable [ "emoji" ];
-      plugins = with pkgs; lib.optionals cfg.emoji.enable [ rofi-emoji ];
+      plugins =
+        with pkgs;
+        lib.optionals cfg.emoji.enable [ rofi-calc ] ++ lib.optionals cfg.emoji.enable [ rofi-emoji ];
     };
   };
 
@@ -30,7 +32,7 @@ in
       enable = lib.mkEnableOption "Enable Rofi";
       modes = {
         combi.enable = lib.mkEnableOption "Enable Rofi combi";
-        drun.enable = lib.mkEnableOption "Enable Rofi  drun";
+        drun.enable = lib.mkEnableOption "Enable Rofi drun";
         filebrowser.enable = lib.mkEnableOption "Enable Rofi filebrowser";
         keys.enable = lib.mkEnableOption "Enable Rofi keys";
         recursivebrowser.enable = lib.mkEnableOption "Enable Rofi recursivebrowser";
@@ -39,6 +41,7 @@ in
         window.enable = lib.mkEnableOption "Enable Rofi window";
       };
       plugins = {
+        calc.enable = lib.mkEnableOption "Enable Rofi Calc";
         emoji.enable = lib.mkEnableOption "Enable Rofi Emojis";
       };
     };

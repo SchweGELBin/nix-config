@@ -95,7 +95,20 @@
   niri.enable = lib.mkDefault false;
   rofi = {
     enable = lib.mkDefault false;
-    emoji.enable = lib.mkDefault true;
+    modes = {
+      combi.enable = lib.mkDefault false;
+      drun.enable = lib.mkDefault true;
+      filebrowser.enable = lib.mkDefault false;
+      keys.enable = lib.mkDefault false;
+      recursivebrowser.enable = lib.mkDefault false;
+      run.enable = lib.mkDefault false;
+      ssh.enable = lib.mkDefault false;
+      window.enable = lib.mkDefault false;
+    };
+    plugins = {
+      calc.enable = lib.mkDefault true;
+      emoji.enable = lib.mkDefault true;
+    };
   };
   scripts.enable = lib.mkDefault true;
   tealdeer.enable = lib.mkDefault true;
