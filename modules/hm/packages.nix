@@ -23,6 +23,7 @@ in
         mdcat
         neo-cowsay
         pipes-rs
+        pv
         pwgen
         sops
         unzip
