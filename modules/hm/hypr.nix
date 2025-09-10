@@ -83,17 +83,6 @@ in
 
     wayland.windowManager.hyprland = {
       enable = cfg.land.enable;
-      plugins =
-        with pkgs.hyprlandPlugins;
-        lib.optionals cfg.land.plugins.borders-plus-plus.enable [ borders-plus-plus ]
-        ++ lib.optionals cfg.land.plugins.csgo-vulkan-fix.enable [ csgo-vulkan-fix ]
-        ++ lib.optionals cfg.land.plugins.hyprbars.enable [ hyprbars ]
-        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ hyprexpo ]
-        ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ hyprfocus ]
-        ++ lib.optionals cfg.land.plugins.hyprscrolling.enable [ hyprscrolling ]
-        ++ lib.optionals cfg.land.plugins.hyprtrails.enable [ hyprtrails ]
-        ++ lib.optionals cfg.land.plugins.hyprwinwrap.enable [ hyprwinwrap ]
-        ++ lib.optionals cfg.land.plugins.xtra-dispatchers.enable [ xtra-dispatchers ];
       settings = {
 
         "$alt" = "\$${vars.cat.alt}";
@@ -202,11 +191,6 @@ in
           "$mainMod       ,  O         ,  Toggle h/w window split                       ,  togglesplit           , "
           "$mainMod       ,  P         ,  Toggle pseudo (Keep aspect ratio)             ,  pseudo                , "
           "$mainMod       ,  S         ,  Toggle special workspace                      ,  togglespecialworkspace, magic"
-        ]
-        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [
-          "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
-          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
-          "$mainMod  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
         ];
 
         binddel = [
@@ -256,7 +240,6 @@ in
           "openrgb -c $accentAlpha"
         ]
         ++ lib.optionals cfg.idle.enable [ "hypridle" ]
-        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ "avabg c" ]
         ++ lib.optionals cfg.paper.enable [ "hyprpaper" ]
         ++ lib.optionals config.waybar.enable [ "waybar" ];
 
@@ -314,6 +297,29 @@ in
           "fullscreen, class:(rocketleague.exe)"
           "fullscreen, title:(Minecraft)(.*)"
         ];
+      };
+    }
+    // lib.optionalAttrs cfg.land.plugins.enable {
+      plugins =
+        with pkgs.hyprlandPlugins;
+        lib.optionals cfg.land.plugins.borders-plus-plus.enable [
+          borders-plus-plus
+        ]
+        ++ lib.optionals cfg.land.plugins.csgo-vulkan-fix.enable [ csgo-vulkan-fix ]
+        ++ lib.optionals cfg.land.plugins.hyprbars.enable [ hyprbars ]
+        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ hyprexpo ]
+        ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ hyprfocus ]
+        ++ lib.optionals cfg.land.plugins.hyprscrolling.enable [ hyprscrolling ]
+        ++ lib.optionals cfg.land.plugins.hyprtrails.enable [ hyprtrails ]
+        ++ lib.optionals cfg.land.plugins.hyprwinwrap.enable [ hyprwinwrap ]
+        ++ lib.optionals cfg.land.plugins.xtra-dispatchers.enable [ xtra-dispatchers ];
+      settings = {
+        bindd = lib.optionals cfg.land.plugins.hyprexpo.enable [
+          "$mainMod       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
+          "$mainMod       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
+          "$mainMod  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
+        ];
+        exec-once = lib.optionals cfg.land.plugins.hyprexpo.enable [ "avabg c" ];
       };
     };
   };
