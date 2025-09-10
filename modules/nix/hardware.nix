@@ -6,7 +6,7 @@ in
   config = lib.mkIf cfg.enable {
     hardware = {
       graphics.enable = true;
-      nvidia = {
+      nvidia = lib.mkIf cfg.nvidia.enable {
         open = true;
         package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
@@ -22,8 +22,7 @@ in
       printing.enable = cfg.printing.enable;
       xserver = {
         enable = true;
-        exportConfiguration = true;
-        videoDrivers = [ "nvidia" ];
+        videoDrivers = lib.optionals cfg.nvidia.enable [ "nvidia" ];
       };
     };
   };
@@ -31,6 +30,7 @@ in
   options = {
     sys.hardware = {
       enable = lib.mkEnableOption "Enable Hardware";
+      nvidia.enable = lib.mkEnableOption "Enable NVidia";
       printing.enable = lib.mkEnableOption "Enable Printing";
     };
   };
