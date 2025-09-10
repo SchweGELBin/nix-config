@@ -1,7 +1,6 @@
 { config, lib, ... }:
 let
   cfg = config.sys.locale;
-  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -23,14 +22,18 @@ in
         LC_TIME = "de_DE.UTF-8";
       };
     };
-
-    system = {
-      stateVersion = vars.user.stateVersion;
+    services.xserver.xkb = {
+      extraLayouts = {
+        us_de = {
+          description = "English (US with German Umlauts)";
+          languages = [ "eng" ];
+          symbolsFile = ./custom-keyboard;
+        };
+      };
+      layout = "us_de";
+      options = "caps:backspace";
     };
-
-    time = {
-      timeZone = "Europe/Berlin";
-    };
+    time.timeZone = "Europe/Berlin";
   };
 
   options = {

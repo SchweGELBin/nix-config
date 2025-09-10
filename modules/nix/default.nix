@@ -14,7 +14,7 @@ in
     ./hardware.nix
     ./home-manager.nix
     ./impermanence.nix
-    ./locale.nix
+    ./locale
     ./minecraft.nix
     ./networking.nix
     ./nginx
@@ -44,6 +44,7 @@ in
     greeter.enable = lib.mkDefault true;
     hardware = {
       enable = lib.mkDefault true;
+      nvidia.enable = lib.mkDefault true;
       printing.enable = lib.mkDefault false;
     };
     home-manager.enable = lib.mkDefault true;

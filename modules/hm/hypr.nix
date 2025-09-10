@@ -269,7 +269,7 @@ in
 
         input = {
           force_no_accel = true;
-          kb_layout = "us,us";
+          kb_layout = "us_de, us_de";
           kb_options = "caps:backspace, grp:win_space_toggle";
           kb_variant = ", workman";
           numlock_by_default = true;

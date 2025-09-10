@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.sys.nix;
+  vars = import ../vars.nix;
 in
 {
   imports = [ inputs.nur.nixosModules.default ];
@@ -19,13 +20,12 @@ in
           "flakes"
           "nix-command"
         ];
-        substituters =
-          [
-            "https://nix-community.cachix.org"
-          ]
-          ++ lib.optionals (config.sys.pkgs.home.enable && config.sys.pkgs.home.wm == "hyprland") [
-            "https://hyprland.cachix.org"
-          ];
+        substituters = [
+          "https://nix-community.cachix.org"
+        ]
+        ++ lib.optionals (config.sys.pkgs.home.enable && config.sys.pkgs.home.wm == "hyprland") [
+          "https://hyprland.cachix.org"
+        ];
         trusted-public-keys = [
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -43,6 +43,8 @@ in
     };
 
     nur.cache.enable = true;
+
+    system.stateVersion = vars.user.stateVersion;
   };
 
   options = {

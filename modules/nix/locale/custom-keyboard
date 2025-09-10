@@ -1,0 +1,20 @@
+partial alphanumeric_keys
+xkb_symbols "basic" {
+	include "us(basic)"
+	name[Group1]= "Basic";
+    key <AC01> { [ a, A, adiaeresis, Adiaeresis ] };
+    key <AD07> { [ u, U, udiaeresis, Udiaeresis ] };
+    key <AD09> { [ o, O, odiaeresis, Odiaeresis ] };
+    key <AC02> { [ s, S,     ssharp,     ssharp ] };
+    include "level3(ralt_switch)"
+};
+partial alphanumeric_keys
+xkb_symbols "workman" {
+    include "us(workman)"
+    name[Group1]= "Workman";
+    key <AC01> { [ a, A, adiaeresis, Adiaeresis ] };
+    key <AD07> { [ u, U, udiaeresis, Udiaeresis ] };
+    key <AD09> { [ o, O, odiaeresis, Odiaeresis ] };
+    key <AC02> { [ s, S,     ssharp,     ssharp ] };
+    include "level3(ralt_switch)"
+};
