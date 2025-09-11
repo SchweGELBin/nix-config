@@ -88,6 +88,7 @@ in
         "$alt" = "\$${vars.cat.alt}";
         "$altMod" = "ALT_L";
         "$applauncher" = "fuzzel";
+        "$applauncher2" = "rofi -show drun -show-icons";
         "$bar" = "waybar";
         "$browser" = "firefox";
         "$discord" = "vesktop";
@@ -140,9 +141,12 @@ in
           "$mainMod       ,  KP_Next   ,  Go to workspace 9                             ,  workspace             , 9"
           "$mainMod       ,  V         ,  Kill a window (select or exit with [esc])     ,  exec                  , hyprctl kill"
           "$mainMod       ,  RETURN    ,  Launch App Launcher ($applauncher)            ,  exec                  , $applauncher"
+          "$altMod        ,  RETURN    ,  Launch App Launcher Alt ($applauncher2)       ,  exec                  , $applauncher2"
           "$mainMod       ,  A         ,  Launch Browser ($browser)                     ,  exec                  , $browser"
+          "$mainMod       ,  KP_Enter  ,  Launch Calculator                             ,  exec                  , rofi -show calc"
           "$mainMod       ,  K         ,  Launch Color Picker                           ,  exec                  , hyprpicker -f hex -a"
           "$mainMod       ,  D         ,  Launch Discord client ($discord)              ,  exec                  , $discord"
+          "$mainMod       ,  backslash ,  Launch Emoji Picker                           ,  exec                  , rofi -show emoji"
           "$mainMod       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
           "$mainMod       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
           "$mainMod       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
