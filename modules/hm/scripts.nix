@@ -29,7 +29,8 @@ in
       '')
 
       (pkgs.writeShellScriptBin "config-reset" ''
-        mkdir -p ${vars.user.config}
+        rm -rf "${vars.user.config}"
+        mkdir -p "${vars.user.config}"
         case $1 in
         git)
           git clone ${vars.my.repo.git} ${vars.user.config}
