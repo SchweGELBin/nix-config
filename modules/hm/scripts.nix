@@ -149,9 +149,11 @@ in
       '')
 
       (pkgs.writeShellScriptBin "binds" ''
-        main=$(printf "%-8s" "$(cat .config/hypr/hyprland.conf | grep "\$mainMod=" | cut -c 10-)")
-        alt=$(printf "%-7s" "$(cat .config/hypr/hyprland.conf | grep "\$altMod=" | cut -c 9-)")
-        cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," | sed "s|\$mainMod|$main|g" | sed "s|\$altMod|$alt|g"
+        mod1=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod1=" | cut -c 7-)")
+        mod2=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod2=" | cut -c 7-)")
+        mod3=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod3=" | cut -c 7-)")
+        cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," \
+        | sed "s|\$mod1|$mod1|g" | sed "s|\$mod2|$mod2|g" | sed "s|\$mod3|$mod3|g"
       '')
 
       (pkgs.writeShellScriptBin "avabg" ''
