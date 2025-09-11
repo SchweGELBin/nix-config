@@ -28,11 +28,11 @@ in
         mode = "hetzner";
         v4 = {
           enable = true;
-          ip = "78.47.17.130";
+          ip = "138.199.210.86";
         };
         v6 = {
           enable = true;
-          ip = "2a01:4f8:1c1c:7645::1";
+          ip = "2a01:4f8:1c1a:d504::1";
         };
       };
     };
