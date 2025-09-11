@@ -1,6 +1,16 @@
 { config, lib, ... }:
 let
   cfg = config.sys.networking;
+  gateway = {
+    v4 =
+      if (cfg.static.mode == "hetzner") then
+        "172.31.1.1"
+      else if (cfg.static.mode == "oracle") then
+        "10.0.0.1"
+      else
+        "192.168.0.1";
+    v6 = if (cfg.static.mode == "hetzner") then "fe80::1" else "";
+  };
 in
 {
   config = lib.mkIf cfg.enable {
@@ -16,30 +26,40 @@ in
       useDHCP = lib.mkDefault true;
     }
     // lib.optionalAttrs cfg.static.enable {
-      defaultGateway =
-        if (cfg.static.mode == "hetzner") then
-          "172.31.1.1"
-        else if (cfg.static.mode == "oracle") then
-          "10.0.0.1"
-        else
-          "192.168.0.1";
-      defaultGateway6 = lib.mkIf (cfg.static.mode == "hetzner") {
-        address = "fe80::1";
+      defaultGateway = gateway.v4;
+      defaultGateway6 = lib.mkIf (gateway.v6 != "") {
+        address = gateway.v6;
         interface = cfg.interface;
       };
       interfaces.${cfg.interface} = {
-        ipv4.addresses = lib.mkIf cfg.static.v4.enable [
-          {
-            address = cfg.static.v4.ip;
-            prefixLength = 24;
-          }
-        ];
-        ipv6.addresses = lib.mkIf cfg.static.v6.enable [
-          {
-            address = cfg.static.v6.ip;
-            prefixLength = 64;
-          }
-        ];
+        ipv4 = {
+          addresses = lib.mkIf cfg.static.v4.enable [
+            {
+              address = cfg.static.v4.ip;
+              prefixLength = 24;
+            }
+          ];
+          routes = [
+            {
+              address = gateway.v4;
+              prefixLength = 32;
+            }
+          ];
+        };
+        ipv6 = {
+          addresses = lib.mkIf cfg.static.v6.enable [
+            {
+              address = cfg.static.v6.ip;
+              prefixLength = 64;
+            }
+          ];
+          routes = [
+            {
+              address = gateway.v6;
+              prefixLength = 128;
+            }
+          ];
+        };
       };
     };
   };
