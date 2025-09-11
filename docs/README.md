@@ -25,7 +25,7 @@ Theme                - Catppuccin Mocha Mauve
 ## Tips
 
 ### Keybinds
-- View the keybinds with *"SUPER + ALT_R"*
+- View the keybinds with *"SUPER + MENU"*
 
 ### Scripts
 General
