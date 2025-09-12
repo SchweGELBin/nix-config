@@ -203,8 +203,9 @@ in
     sound.enable = lib.mkDefault true;
     users.enable = lib.mkDefault true;
     wireguard = {
-      enable = lib.mkDefault false;
-      mode = lib.mkDefault "server";
+      enable = lib.mkDefault true;
+      autostart.enable = lib.mkDefault false;
+      mode = lib.mkDefault "client";
       port = lib.mkDefault 1096;
     };
   };

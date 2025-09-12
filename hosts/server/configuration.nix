@@ -45,6 +45,9 @@ in
     };
     smoos.enable = true;
     sound.enable = false;
-    wireguard.enable = true;
+    wireguard = {
+      autostart.enable = true;
+      mode = "server";
+    };
   };
 }

@@ -14,6 +14,7 @@ let
     v4 = "10.0.0";
     v6 = "fdc9:281f:04d7:9ee9";
   };
+  interface = "wg";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -24,17 +25,19 @@ in
         53
         cfg.port
       ];
-      nat.internalInterfaces = [ "wg" ];
-      wg-quick.interfaces.wg =
+      nat.internalInterfaces = [ interface ];
+      wg-quick.interfaces.${interface} =
         lib.optionalAttrs (cfg.mode == "client") {
           address = [
             "${wg.v4}.2/24"
             "${wg.v6}::2/64"
           ];
+          autostart = cfg.autostart.enable;
           dns = [
             "${wg.v4}.1"
             "${wg.v6}::1"
           ];
+          listenPort = cfg.port;
           peers = [
             {
               allowedIPs = [
@@ -53,6 +56,7 @@ in
             "${wg.v4}.1/24"
             "${wg.v6}::1/64"
           ];
+          autostart = cfg.autostart.enable;
           listenPort = cfg.port;
           peers = [
             {
@@ -81,18 +85,19 @@ in
 
     services.dnsmasq = {
       enable = true;
-      settings.interface = "wg";
+      settings.interface = interface;
     };
 
     sops.secrets = {
-      wgc.owner = "root";
-      wgs.owner = "root";
+      wgc.owner = lib.mkIf (cfg.mode == "client") "root";
+      wgs.owner = lib.mkIf (cfg.mode == "server") "root";
     };
   };
 
   options = {
     sys.wireguard = {
       enable = lib.mkEnableOption "Enable Wireguard";
+      autostart.enable = lib.mkEnableOption "Start Wireguard automatically";
       mode = lib.mkOption {
         description = "Wireguard Mode";
         type = lib.types.enum [
