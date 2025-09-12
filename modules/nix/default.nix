@@ -204,7 +204,7 @@ in
     users.enable = lib.mkDefault true;
     wireguard = {
       enable = lib.mkDefault false;
-      mode = lib.mkDefault "client";
+      mode = lib.mkDefault "server";
       port = lib.mkDefault 1096;
     };
   };

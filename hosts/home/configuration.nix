@@ -28,6 +28,5 @@ in
       };
     };
     pkgs.home.enable = true;
-    wireguard.enable = true;
   };
 }
