@@ -2,7 +2,6 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.filebrowser.enable;
-
   vars = import ../../vars.nix;
 in
 {
