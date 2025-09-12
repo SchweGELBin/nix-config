@@ -16,6 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     disko.devices.disk.main.device = lib.mkForce cfg.device;
     fileSystems = {
+      "/home".neededForBoot = true;
       "/persist".neededForBoot = true;
       "/var/log".neededForBoot = true;
     };
