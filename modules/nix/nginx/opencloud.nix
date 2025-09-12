@@ -13,8 +13,9 @@ in
       };
       opencloud = {
         enable = true;
+        environment.PROXY_TLS = "false";
         port = cfg.opencloud.port;
-        url = cfg.opencloud.fqdn;
+        url = "https://${cfg.opencloud.fqdn}";
       };
     };
   };
