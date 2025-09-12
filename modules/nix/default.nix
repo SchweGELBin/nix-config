@@ -134,11 +134,6 @@ in
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "cloud.${vars.my.domain}";
       };
-      onlyoffice = {
-        enable = lib.mkDefault true;
-        fqdn = lib.mkDefault "office.${vars.my.domain}";
-        port = lib.mkDefault 8000;
-      };
       peertube = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "pt.${vars.my.domain}";
