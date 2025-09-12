@@ -13,6 +13,7 @@ in
     ./mail.nix
     ./matrix.nix
     ./nextcloud.nix
+    ./onlyoffice.nix
     ./peertube.nix
     ./searxng.nix
     ./thelounge.nix
@@ -164,6 +165,17 @@ in
         fqdn = lib.mkOption {
           description = "Nextcloud Domain";
           type = lib.types.str;
+        };
+      };
+      onlyoffice = {
+        enable = lib.mkEnableOption "Enable OnlyOffice";
+        fqdn = lib.mkOption {
+          description = "OnlyOffice Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "OnlyOffice Port";
+          type = lib.types.int;
         };
       };
       peertube = {
