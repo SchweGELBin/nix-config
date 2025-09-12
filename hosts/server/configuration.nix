@@ -20,7 +20,11 @@ in
     greeter.enable = false;
     hardware.enable = false;
     minecraft.enable = true;
-    nginx.enable = true;
+    nginx = {
+      enable = true;
+      nextcloud.enable = false;
+      onlyoffice.enable = false;
+    };
     networking = {
       hostName = vars.user.hostname.server;
       nat.enable = true;

@@ -136,7 +136,7 @@ in
         fqdn = lib.mkDefault "cloud.${vars.my.domain}";
       };
       onlyoffice = {
-        enable = lib.mkDefault false;
+        enable = lib.mkDefault true;
         fqdn = lib.mkDefault "office.${vars.my.domain}";
         port = lib.mkDefault 8000;
       };
