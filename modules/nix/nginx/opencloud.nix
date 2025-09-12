@@ -14,7 +14,7 @@ in
       opencloud = {
         enable = true;
         port = cfg.opencloud.port;
-        url = cfg.opencloud.url;
+        url = cfg.opencloud.fqdn;
       };
     };
   };
