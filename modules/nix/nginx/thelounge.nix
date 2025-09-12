@@ -2,7 +2,6 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.thelounge.enable;
-  vars = import ../../vars.nix;
 in
 {
   config = lib.mkIf enable {
@@ -49,7 +48,7 @@ in
             password = "$2a$04$k74NXvQCcTIQXm1RvJ29suNStbD4.62fhqXvwBIsg.hou/lwjd4.u";
           };
           server = {
-            name = vars.my.domain;
+            name = cfg.domain;
             listeners.":${toString cfg.thelounge.ergo.port}" = { };
           };
         };

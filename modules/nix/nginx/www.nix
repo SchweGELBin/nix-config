@@ -7,13 +7,12 @@
 }:
 let
   cfg = config.sys.nginx;
-  vars = import ../../vars.nix;
 in
 {
   imports = [ inputs.nur.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
-    services.nginx.virtualHosts.${vars.my.domain} = {
+    services.nginx.virtualHosts.${cfg.domain} = {
       enableACME = true;
       default = true;
       forceSSL = true;
