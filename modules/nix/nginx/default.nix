@@ -6,6 +6,7 @@ in
   imports = [
     ./coturn.nix
     ./element.nix
+    ./filebrowser.nix
     ./forgejo.nix
     ./immich.nix
     ./invidious.nix
@@ -75,6 +76,17 @@ in
         fqdn = lib.mkOption {
           description = "Element Domain";
           type = lib.types.str;
+        };
+      };
+      filebrowser = {
+        enable = lib.mkEnableOption "Enable FileBrowser";
+        fqdn = lib.mkOption {
+          description = "FileBrowser Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "FileBrowser Port";
+          type = lib.types.int;
         };
       };
       forgejo = {

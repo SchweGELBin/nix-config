@@ -92,6 +92,11 @@ in
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "element.${vars.my.domain}";
       };
+      filebrowser = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "files.${vars.my.domain}";
+        port = lib.mkDefault 8181;
+      };
       forgejo = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "git.${vars.my.domain}";
