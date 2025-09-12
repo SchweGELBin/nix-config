@@ -88,10 +88,13 @@ in
       settings.interface = interface;
     };
 
-    sops.secrets = {
-      wgc.owner = lib.mkIf (cfg.mode == "client") "root";
-      wgs.owner = lib.mkIf (cfg.mode == "server") "root";
-    };
+    sops.secrets =
+      lib.optionalAttrs (cfg.mode == "client") {
+        wgc.owner = "root";
+      }
+      // lib.optionalAttrs (cfg.mode == "server") {
+        wgs.owner = "root";
+      };
   };
 
   options = {
