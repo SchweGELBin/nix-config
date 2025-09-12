@@ -177,6 +177,19 @@ in
         ;;
         esac
       '')
+
+      (pkgs.writeShellScriptBin "vpn" ''
+        case $1 in
+        on)
+          systemctl start wg-quick-wg.service
+        ;;
+        off)
+          systemctl stop wg-quick-wg.service
+        ;;
+        *)
+          systemctl restart wg-quick-wg.service
+        esac
+      '')
     ];
   };
 
