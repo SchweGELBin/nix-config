@@ -1,7 +1,7 @@
 keys:
-  - &mix age1xk8wkgmz7r26clks0ul8yfakekfeupmt7nvkdduewwc4997j04wsx9cup2
+  - &secrets age10hcdjwmu6806rc4532a9x9hqyuw5mdzgnrhn30l65kncnquj23sszr0qje
 creation_rules:
-  - path_regex: secrets/mix.yaml
+  - path_regex: modules/nix/security/secrets.yaml
     key_groups:
       - age:
-        - *mix
+        - *secrets

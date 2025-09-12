@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.sys.security;
-  vars = import ../vars.nix;
+  vars = import ../../vars.nix;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -22,8 +22,8 @@ in
     services.fail2ban.enable = true;
 
     sops = {
-      defaultSopsFile = ../../secrets/mix.yaml;
-      age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      age.keyFile = "${vars.user.home}/.config/sops/age/keys.txt";
+      defaultSopsFile = ./secrets.yaml;
     };
 
     users = {
