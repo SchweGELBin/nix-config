@@ -24,14 +24,10 @@ in
         53
         cfg.port
       ];
-      nat = {
-        enable = true;
-        externalInterface = "eth0";
-        internalInterfaces = [ "mix" ];
-      };
+      nat.internalInterfaces = [ "wg" ];
       wireguard = {
         enable = true;
-        interfaces.mix = {
+        interfaces.wg = {
           ips = [
             "${wg.v4}.1/24"
             "${wg.v6}::1/64"

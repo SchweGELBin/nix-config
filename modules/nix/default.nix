@@ -63,6 +63,7 @@ in
       enable = lib.mkDefault true;
       hostName = lib.mkDefault vars.user.hostname.home;
       interface = lib.mkDefault "eth0";
+      nat.enable = lib.mkDefault false;
       static = {
         enable = lib.mkDefault false;
         mode = lib.mkDefault "default";

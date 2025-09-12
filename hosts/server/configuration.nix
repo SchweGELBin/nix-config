@@ -23,6 +23,7 @@ in
     nginx.enable = true;
     networking = {
       hostName = vars.user.hostname.server;
+      nat.enable = true;
       static = {
         enable = true;
         mode = "hetzner";

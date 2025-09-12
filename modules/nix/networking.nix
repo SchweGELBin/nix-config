@@ -21,6 +21,11 @@ in
         "1.1.1.1"
         "1.0.0.1"
       ];
+      nat = lib.mkIf cfg.nat.enable {
+        enable = true;
+        enableIPv6 = true;
+        externalInterface = cfg.interface;
+      };
       networkmanager.enable = true;
       stevenblack.enable = true;
       useDHCP = lib.mkDefault true;
@@ -75,6 +80,7 @@ in
         description = "Networking Interface";
         type = lib.types.str;
       };
+      nat.enable = lib.mkEnableOption "Enable NAT";
       static = {
         enable = lib.mkEnableOption "Enable Static IPs";
         mode = lib.mkOption {
