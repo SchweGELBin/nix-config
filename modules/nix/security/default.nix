@@ -12,11 +12,9 @@ in
   imports = [ inputs.sops-nix.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
-    security = {
-      acme = {
-        acceptTerms = true;
-        defaults.email = "acme@${vars.my.domain}";
-      };
+    security.acme = lib.mkIf cfg.acme.enable {
+      acceptTerms = true;
+      defaults.email = "acme@${vars.my.domain}";
     };
 
     services.fail2ban.enable = true;
@@ -28,11 +26,15 @@ in
 
     users = {
       groups.systemd = { };
-      users.${vars.user.name}.openssh.authorizedKeys.keys = [ vars.keys.ssh ];
+      users.${vars.user.name}.openssh.authorizedKeys.keys = lib.mkIf cfg.ssh.enable [ vars.keys.ssh ];
     };
   };
 
   options = {
-    sys.security.enable = lib.mkEnableOption "Enable Server Security";
+    sys.security = {
+      enable = lib.mkEnableOption "Enable Security";
+      acme.enable = lib.mkEnableOption "Enable ACME";
+      ssh.enable = lib.mkEnableOption "Enable SSH";
+    };
   };
 }

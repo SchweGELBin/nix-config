@@ -39,8 +39,15 @@ in
     };
     nix.gc.enable = true;
     pkgs.server.enable = true;
+    security = {
+      acme.enable = true;
+      ssh.enable = true;
+    };
     smoos.enable = true;
     sound.enable = false;
-    wireguard.enable = true;
+    wireguard = {
+      enable = true;
+      mode = "server";
+    };
   };
 }

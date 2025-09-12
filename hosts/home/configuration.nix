@@ -28,6 +28,6 @@ in
       };
     };
     pkgs.home.enable = true;
-    security.enable = false;
+    wireguard.enable = true;
   };
 }

@@ -184,7 +184,11 @@ in
       };
       server.enable = lib.mkDefault false;
     };
-    security.enable = lib.mkDefault true;
+    security = {
+      enable = lib.mkDefault true;
+      acme.enable = lib.mkDefault false;
+      ssh.enable = lib.mkDefault false;
+    };
     smoos = {
       enable = lib.mkDefault false;
       bot = {
@@ -200,6 +204,7 @@ in
     users.enable = lib.mkDefault true;
     wireguard = {
       enable = lib.mkDefault false;
+      mode = lib.mkDefault "client";
       port = lib.mkDefault 1096;
     };
   };

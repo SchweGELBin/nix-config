@@ -21,9 +21,8 @@
 
   keys = {
     ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMtipw/kY5vjH1jeuXWXbmiAxPSSxpqjFx78AlVZ3/Tn";
-    wg0 = "DuwZGh9pQ0ES/H/U8BGwTWDEE8hrI/gKuM3cjH6y7T8=";
-    wg1 = "Lft8o+wiz7ECT/3sNUX/fNbU2sVdowQEr9mgSJnHghA=";
-    wg2 = "i08NC8TyYYNSiFC8v3aeBKs/joVQ5nZnyBSSdYNZqnY=";
+    wgc = "+nIuimwykjLu8JGyJw2U6vOFaeCkF4agedgfxX7Iizs=";
+    wgs = "D2hzynxz2/P5GV8tusEniV26jBne2UnJyaReA5d4PHA=";
   };
 
   monitors = {
