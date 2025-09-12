@@ -133,12 +133,17 @@ in
       };
       nextcloud = {
         enable = lib.mkDefault true;
-        fqdn = lib.mkDefault "cloud.${vars.my.domain}";
+        fqdn = lib.mkDefault "next.${vars.my.domain}";
       };
       onlyoffice = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "office.${vars.my.domain}";
         port = lib.mkDefault 8000;
+      };
+      opencloud = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "cloud.${vars.my.domain}";
+        port = lib.mkDefault 9200;
       };
       peertube = {
         enable = lib.mkDefault true;

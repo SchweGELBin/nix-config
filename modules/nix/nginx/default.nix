@@ -14,6 +14,7 @@ in
     ./matrix.nix
     ./nextcloud.nix
     ./onlyoffice.nix
+    ./opencloud.nix
     ./peertube.nix
     ./searxng.nix
     ./thelounge.nix
@@ -175,6 +176,17 @@ in
         };
         port = lib.mkOption {
           description = "OnlyOffice Port";
+          type = lib.types.int;
+        };
+      };
+      opencloud = {
+        enable = lib.mkEnableOption "Enable OpenCloud";
+        fqdn = lib.mkOption {
+          description = "OpenCloud Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "OpenCloud Port";
           type = lib.types.int;
         };
       };
