@@ -2,6 +2,8 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.filebrowser.enable;
+
+  vars = import ../../vars.nix;
 in
 {
   config = lib.mkIf enable {
@@ -13,7 +15,11 @@ in
       };
       filebrowser = {
         enable = true;
-        settings.port = cfg.opencloud.port;
+        settings = {
+          password = "$2a$10$Pmb6Lp5JvxhaFcvkOn4NhuBNtZ8V4tC3CjrVuM0kaOdv47wV0Izse";
+          port = cfg.filebrowser.port;
+          username = vars.user.name;
+        };
       };
     };
   };
