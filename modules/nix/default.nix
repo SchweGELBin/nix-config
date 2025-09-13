@@ -40,7 +40,13 @@ in
     };
     environment.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
-    gickup.enable = lib.mkDefault false;
+    gickup = {
+      enable = lib.mkDefault true;
+      cron.enable = lib.mkDefault false;
+      forks.enable = lib.mkDefault false;
+      issues.enable = lib.mkDefault false;
+      starred.enable = lib.mkDefault false;
+    };
     greeter.enable = lib.mkDefault true;
     hardware = {
       enable = lib.mkDefault true;

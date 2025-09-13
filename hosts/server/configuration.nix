@@ -16,7 +16,7 @@ in
   # Custom modules
   sys = {
     fonts.enable = false;
-    gickup.enable = true;
+    gickup.cron.enable = true;
     greeter.enable = false;
     hardware.enable = false;
     minecraft.enable = true;

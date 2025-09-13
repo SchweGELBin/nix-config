@@ -20,7 +20,7 @@ in
         script =
           let
             configFile = (pkgs.formats.yaml { }).generate "gickup.yml" {
-              cron = "0 4 * * 1";
+              cron = lib.mkIf cfg.cron.enable "0 4 * * 1";
               destination.gitea = [
                 {
                   createorg = true;
@@ -39,9 +39,9 @@ in
               source.github = [
                 {
                   exclude = [ "kernel_milk_davinci" ];
-                  filter.excludeforks = true;
-                  issues = true;
-                  starred = false;
+                  filter.excludeforks = !cfg.forks.enable;
+                  issues = cfg.issues.enable;
+                  starred = cfg.starred.enable;
                   user = vars.git.name;
                 }
               ];
@@ -55,6 +55,12 @@ in
   };
 
   options = {
-    sys.gickup.enable = lib.mkEnableOption "Enable Gickup";
+    sys.gickup = {
+      enable = lib.mkEnableOption "Enable Gickup";
+      cron.enable = lib.mkEnableOption "Automate Backups";
+      forks.enable = lib.mkEnableOption "Backup Forks";
+      issues.enable = lib.mkEnableOption "Backup Issues";
+      starred.enable = lib.mkEnableOption "Backup Starred Repositories";
+    };
   };
 }
