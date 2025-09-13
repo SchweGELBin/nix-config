@@ -20,15 +20,7 @@ in
         script =
           let
             configFile = (pkgs.formats.yaml { }).generate "gickup.yml" {
-              source.github = [
-                {
-                  exclude = [ "kernel_milk_davinci" ];
-                  filter.excludeforks = true;
-                  issues = true;
-                  starred = false;
-                  user = vars.git.name;
-                }
-              ];
+              cron = "0 4 * * 1";
               destination.gitea = [
                 {
                   createorg = true;
@@ -44,18 +36,21 @@ in
                   };
                 }
               ];
+              source.github = [
+                {
+                  exclude = [ "kernel_milk_davinci" ];
+                  filter.excludeforks = true;
+                  issues = true;
+                  starred = false;
+                  user = vars.git.name;
+                }
+              ];
             };
           in
           "${lib.getExe pkgs.gickup} ${configFile}";
         wantedBy = [ "multi-user.target" ];
       };
-      timers.gickup.timerConfig = {
-        OnCalendar = "Mon 04:00:00";
-        Persistent = true;
-        Unit = "gickup.service";
-      };
     };
-
     sops.secrets.codeberg.owner = "root";
   };
 
