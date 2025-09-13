@@ -86,6 +86,11 @@ in
     nginx = {
       enable = lib.mkDefault false;
       domain = lib.mkDefault vars.my.domain;
+      collabora = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "cool.${vars.my.domain}";
+        port = lib.mkDefault 9980;
+      };
       coturn = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "turn.${vars.my.domain}";

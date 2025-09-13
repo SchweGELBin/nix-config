@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./collabora.nix
     ./coturn.nix
     ./element.nix
     ./filebrowser.nix
@@ -48,6 +49,18 @@ in
         description = "Nginx Domain";
         type = lib.types.str;
       };
+      collabora = {
+        enable = lib.mkEnableOption "Enable Collabora Online";
+        fqdn = lib.mkOption {
+          description = "Collabora Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Collabora Port";
+          type = lib.types.int;
+        };
+      };
+
       coturn = {
         enable = lib.mkEnableOption "Enable Turn";
         fqdn = lib.mkOption {
