@@ -23,7 +23,4 @@
   thunderbird.enable = true;
   vesktop.enable = true;
   waybar.enable = true;
-
-  # Waiting for hyprland-plugins v0.51.0
-  hypr.land.plugins.enable = false;
 }
