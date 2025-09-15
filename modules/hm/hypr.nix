@@ -196,6 +196,11 @@ in
           "$mod1       ,  O         ,  Toggle h/w window split                       ,  togglesplit           , "
           "$mod1       ,  P         ,  Toggle pseudo (Keep aspect ratio)             ,  pseudo                , "
           "$mod1       ,  S         ,  Toggle special workspace                      ,  togglespecialworkspace, magic"
+        ]
+        ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) [
+          "$mod1       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
+          "$mod1       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
+          "$mod1  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
         ];
 
         binddel = [
@@ -246,7 +251,8 @@ in
         ]
         ++ lib.optionals cfg.idle.enable [ "hypridle" ]
         ++ lib.optionals cfg.paper.enable [ "hyprpaper" ]
-        ++ lib.optionals config.waybar.enable [ "waybar" ];
+        ++ lib.optionals config.waybar.enable [ "waybar" ]
+        ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) [ "avabg c" ];
 
         general = {
           "col.active_border" = "$accent $alt 45deg";
@@ -318,14 +324,6 @@ in
         ++ lib.optionals cfg.land.plugins.hyprtrails.enable [ hyprtrails ]
         ++ lib.optionals cfg.land.plugins.hyprwinwrap.enable [ hyprwinwrap ]
         ++ lib.optionals cfg.land.plugins.xtra-dispatchers.enable [ xtra-dispatchers ];
-      settings = {
-        bindd = lib.optionals cfg.land.plugins.hyprexpo.enable [
-          "$mod1       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
-          "$mod1       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
-          "$mod1  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
-        ];
-        exec-once = lib.optionals cfg.land.plugins.hyprexpo.enable [ "avabg c" ];
-      };
     };
   };
 
