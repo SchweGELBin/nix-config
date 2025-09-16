@@ -40,7 +40,6 @@ in
       };
       mautrix-signal = {
         enable = cfg.matrix.signal.enable;
-        package = (pkgs.mautrix-signal.override { withGoolm = true; });
         environmentFile = secrets.mautrix-signal_env.path;
         settings = {
           appservice.port = cfg.matrix.signal.port;
@@ -59,7 +58,6 @@ in
       };
       mautrix-whatsapp = {
         enable = cfg.matrix.whatsapp.enable;
-        package = (pkgs.mautrix-whatsapp.override { withGoolm = true; });
         environmentFile = secrets.mautrix-whatsapp_env.path;
         settings = {
           appservice.port = cfg.matrix.whatsapp.port;
