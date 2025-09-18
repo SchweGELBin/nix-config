@@ -89,6 +89,7 @@ in
       btop.enable = true;
       git-cliff.enable = true;
       home-manager.enable = true;
+      vivid.enable = true;
       zsh.enable = true;
     }
     // lib.optionalAttrs cfg.home.enable {
