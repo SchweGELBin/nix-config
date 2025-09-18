@@ -74,6 +74,7 @@ in
         sl
         slurp
         toilet
+        tree
         wev
         winetricks
         wineWowPackages.stagingFull
