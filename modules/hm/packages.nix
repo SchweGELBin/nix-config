@@ -22,10 +22,13 @@ in
         inputs.nur.packages.${pkgs.system}.catspeak
         mdcat
         neo-cowsay
+        nix-tree
         pipes-rs
         pv
         pwgen
         sops
+        toilet
+        tree
         unzip
         wget
         zip
@@ -73,8 +76,6 @@ in
         ryubing
         sl
         slurp
-        toilet
-        tree
         wev
         winetricks
         wineWowPackages.stagingFull
