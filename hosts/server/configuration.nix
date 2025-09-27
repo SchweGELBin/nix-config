@@ -22,6 +22,7 @@ in
     minecraft.enable = true;
     nginx = {
       enable = true;
+      collabora.enable = false;
       nextcloud.enable = false;
       ollama.enable = false;
       onlyoffice.enable = false;
