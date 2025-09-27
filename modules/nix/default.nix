@@ -151,6 +151,15 @@ in
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "next.${vars.my.domain}";
       };
+      ollama = {
+        enable = lib.mkDefault true;
+        port = lib.mkDefault 11434;
+        web = {
+          enable = lib.mkDefault true;
+          fqdn = lib.mkDefault "ai.${vars.my.domain}";
+          port = lib.mkDefault 11435;
+        };
+      };
       onlyoffice = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "office.${vars.my.domain}";

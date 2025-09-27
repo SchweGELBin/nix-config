@@ -15,6 +15,7 @@ in
     ./mail.nix
     ./matrix.nix
     ./nextcloud.nix
+    ./ollama.nix
     ./onlyoffice.nix
     ./opencloud.nix
     ./peertube.nix
@@ -191,6 +192,24 @@ in
         fqdn = lib.mkOption {
           description = "Nextcloud Domain";
           type = lib.types.str;
+        };
+      };
+      ollama = {
+        enable = lib.mkEnableOption "Enable Ollama";
+        port = lib.mkOption {
+          description = "Ollama Port";
+          type = lib.types.int;
+        };
+        web = {
+          enable = lib.mkEnableOption "Enable Open WebUI";
+          fqdn = lib.mkOption {
+            description = "Open WebUI Domain";
+            type = lib.types.str;
+          };
+          port = lib.mkOption {
+            description = "Open WebUI Port";
+            type = lib.types.int;
+          };
         };
       };
       onlyoffice = {
