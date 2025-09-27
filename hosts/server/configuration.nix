@@ -23,6 +23,7 @@ in
     nginx = {
       enable = true;
       nextcloud.enable = false;
+      ollama.enable = false;
       onlyoffice.enable = false;
     };
     networking = {
