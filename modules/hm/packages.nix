@@ -106,7 +106,10 @@ in
       htop.enable = true;
     };
 
-    services.playerctld.enable = cfg.home.enable;
+    services = lib.optionalAttrs cfg.home.enable {
+      ollama.enable = true;
+      playerctld.enable = true;
+    };
   };
 
   options = {

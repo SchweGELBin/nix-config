@@ -200,6 +200,7 @@ in
     };
     nix = {
       enable = lib.mkDefault true;
+      cuda.enable = lib.mkDefault false;
       gc.enable = lib.mkDefault false;
     };
     pkgs = {

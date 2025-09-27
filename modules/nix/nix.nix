@@ -37,6 +37,7 @@ in
       config = {
         allowUnfree = true;
         android_sdk.accept_license = true;
+        cudaSupport = cfg.cuda.enable;
         nvidia.acceptLicense = true;
       };
       overlays = [ inputs.fenix.overlays.default ];
@@ -50,6 +51,7 @@ in
   options = {
     sys.nix = {
       enable = lib.mkEnableOption "Enable Nix";
+      cuda.enable = lib.mkEnableOption "Enable CUDA";
       gc.enable = lib.mkEnableOption "Enable automatic garbage collection";
     };
   };
