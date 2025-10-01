@@ -54,7 +54,6 @@ in
         fusee-nano
         gedit
         gimp3
-        glfw
         grim
         inkscape
         inputs.nur.packages.${pkgs.system}.bible4tui
