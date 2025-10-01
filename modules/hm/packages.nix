@@ -26,6 +26,7 @@ in
         pipes-rs
         pv
         pwgen
+        sl
         sops
         toilet
         tree
@@ -74,7 +75,6 @@ in
         pulseaudio
         qrencode
         ryubing
-        sl
         slurp
         wev
         winetricks
