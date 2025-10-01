@@ -36,6 +36,7 @@ in
       ]
       ++ lib.optionals cfg.home.enable [
         androidStudioPackages.dev
+        ardour
         audacity
         bitwarden-desktop
         blender
