@@ -230,7 +230,7 @@ in
 
         decoration = {
           active_opacity = 0.75;
-          blur.new_optimizations = !cfg.land.plugins.hyprfocus.enable;
+          blur.new_optimizations = !cfg.land.plugins.hyprexpo.enable;
           inactive_opacity = 0.9;
           rounding = 12;
           shadow.color = "$surface0";
