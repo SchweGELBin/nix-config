@@ -20,6 +20,7 @@ in
         ffmpeg
         imagemagick
         inputs.nur.packages.${pkgs.system}.catspeak
+        lsof
         mdcat
         neo-cowsay
         nix-tree
