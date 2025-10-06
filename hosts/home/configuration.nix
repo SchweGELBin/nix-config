@@ -17,6 +17,10 @@ in
   sys = {
     boot = {
       configs = 32;
+      modules = {
+        ntsync.enable = true;
+        v4l2loopback.enable = true;
+      };
       timeout = 3;
     };
     disko.device = "/dev/nvme0n1";

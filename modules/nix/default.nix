@@ -31,6 +31,10 @@ in
     boot = {
       enable = lib.mkDefault true;
       configs = lib.mkDefault 2;
+      modules = {
+        ntsync.enable = lib.mkDefault false;
+        v4l2loopback.enable = lib.mkDefault false;
+      };
       timeout = lib.mkDefault 0;
     };
     catppuccin.enable = lib.mkDefault true;

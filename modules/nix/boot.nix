@@ -22,6 +22,9 @@ in
         };
         timeout = cfg.timeout;
       };
+      kernelModules =
+        lib.optionals cfg.modules.ntsync.enable [ "ntsync" ]
+        ++ lib.optionals cfg.modules.v4l2loopback.enable [ "v4l2loopback" ];
       kernelPackages = pkgs.linuxPackages_latest;
       tmp.cleanOnBoot = true;
     };
@@ -34,6 +37,10 @@ in
       configs = lib.mkOption {
         description = "Configuration Limit";
         type = lib.types.int;
+      };
+      modules = {
+        ntsync.enable = lib.mkEnableOption "Enable NTSync";
+        v4l2loopback.enable = lib.mkEnableOption "Enable v4l2loopback";
       };
       timeout = lib.mkOption {
         description = "Bootloader Timeout";
