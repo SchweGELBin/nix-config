@@ -10,6 +10,13 @@ in
 {
   config = lib.mkIf cfg.enable {
     boot = {
+      extraModulePackages =
+        with config.boot.kernelPackages;
+        lib.optionals cfg.modules.v4l2loopback.enable [ v4l2loopback ];
+      kernelModules =
+        lib.optionals cfg.modules.ntsync.enable [ "ntsync" ]
+        ++ lib.optionals cfg.modules.v4l2loopback.enable [ "v4l2loopback" ];
+      kernelPackages = pkgs.linuxPackages_latest;
       loader = {
         efi.canTouchEfiVariables = false;
         grub = {
@@ -22,10 +29,6 @@ in
         };
         timeout = cfg.timeout;
       };
-      kernelModules =
-        lib.optionals cfg.modules.ntsync.enable [ "ntsync" ]
-        ++ lib.optionals cfg.modules.v4l2loopback.enable [ "v4l2loopback" ];
-      kernelPackages = pkgs.linuxPackages_latest;
       tmp.cleanOnBoot = true;
     };
     zramSwap.enable = true;
