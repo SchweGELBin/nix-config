@@ -31,7 +31,6 @@ in
         ip = "192.168.0.123";
       };
     };
-    nix.cuda.enable = true;
     pkgs.home.enable = true;
   };
 }
