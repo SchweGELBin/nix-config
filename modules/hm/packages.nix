@@ -66,7 +66,7 @@ in
         legendary-gl
         libnotify
         libreoffice-qt-fresh
-        minetestclient
+        luanti
         nemo
         nix-update
         nixpkgs-review
