@@ -78,6 +78,7 @@ in
         qrencode
         ryubing
         slurp
+        superTuxKart
         wev
         winetricks
         wineWowPackages.stagingFull
