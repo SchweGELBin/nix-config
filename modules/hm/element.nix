@@ -9,7 +9,7 @@ in
       enable = true;
       settings = {
         default_server_config."m.homeserver" = {
-          base_url = "https://matrix.${vars.my.domain}";
+          base_url = "https://${vars.my.domain}";
           server_name = vars.my.domain;
         };
         permalink_prefix = "https://element.${vars.my.domain}";

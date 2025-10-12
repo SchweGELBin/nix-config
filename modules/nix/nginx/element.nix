@@ -17,7 +17,7 @@ in
         root = pkgs.element-web.override {
           conf = {
             default_server_config."m.homeserver" = {
-              base_url = "https://${cfg.matrix.fqdn}";
+              base_url = "https://${cfg.domain}";
               server_name = cfg.domain;
             };
             default_theme = "dark";
