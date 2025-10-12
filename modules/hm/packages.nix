@@ -78,6 +78,7 @@ in
         qrencode
         ryubing
         slurp
+        superTux
         superTuxKart
         wev
         winetricks
