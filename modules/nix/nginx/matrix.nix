@@ -9,6 +9,8 @@ let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.matrix.enable;
   secrets = config.sops.secrets;
+
+  localaddress = "http://localhost:${toString cfg.matrix.port}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -51,7 +53,7 @@ in
             require = true;
           };
           homeserver = {
-            address = "http://localhost:${toString cfg.matrix.port}";
+            address = localaddress;
             domain = cfg.domain;
           };
         };
@@ -69,15 +71,21 @@ in
             require = true;
           };
           homeserver = {
-            address = "http://localhost:${toString cfg.matrix.port}";
+            address = localaddress;
             domain = cfg.domain;
           };
         };
       };
-      nginx.virtualHosts.${cfg.matrix.fqdn} = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.matrix.port}";
+      nginx.virtualHosts = {
+        ${cfg.domain}.locations = {
+          "/.well-known/".proxyPass = localaddress;
+          "/_matrix/".proxyPass = localaddress;
+        };
+        ${cfg.matrix.fqdn} = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = localaddress;
+        };
       };
     };
     sops.secrets = {
