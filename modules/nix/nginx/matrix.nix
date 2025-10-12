@@ -32,10 +32,6 @@ in
             "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port-alt}?transport=tcp"
             "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port-alt}?transport=udp"
           ];
-          trusted_servers = [
-            "matrix.org"
-            "mau.chat"
-          ];
           well_known_client = "https://${cfg.matrix.fqdn}";
           well_known_server = cfg.matrix.fqdn;
         };
