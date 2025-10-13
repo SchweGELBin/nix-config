@@ -69,6 +69,7 @@
     idle.enable = lib.mkDefault true;
     land = {
       enable = lib.mkDefault true;
+      forceBitdepth.enable = lib.mkDefault false;
       plugins = {
         enable = lib.mkDefault true;
         borders-plus-plus.enable = lib.mkDefault false;

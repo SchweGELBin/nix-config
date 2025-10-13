@@ -284,11 +284,33 @@ in
           vrr = 2;
         };
 
+        # monitorv2 alternative
+        # output, mode, position, scale, ...
         monitor = [
-          ", preferred, auto, 1"
-          "Unknown-1, disable"
-          "${monitors.first.name}, ${toString vars.monitors.first.res.x}x${toString vars.monitors.first.res.y}@${toString vars.monitors.first.hz}, 0x0, 1, bitdepth,${toString vars.monitors.first.bit}"
-          "${monitors.second.name}, ${toString vars.monitors.second.res.x}x${toString vars.monitors.second.res.y}@${toString vars.monitors.second.hz}, ${toString vars.monitors.first.res.x}x0, 1, bitdepth,${toString vars.monitors.second.bit}"
+          (lib.strings.concatStringsSep "," [
+            ""
+            "preferred"
+            "auto"
+            "1"
+          ])
+          (lib.strings.concatStringsSep "," [
+            "Unknown-1"
+            "disable"
+          ])
+          (lib.strings.concatStringsSep "," [
+            "${monitors.first.name}"
+            "${toString vars.monitors.first.res.x}x${toString vars.monitors.first.res.y}@${toString vars.monitors.first.hz}"
+            "0x0"
+            "1"
+            (lib.strings.optionalString cfg.land.forceBitdepth.enable "bitdepth,${toString vars.monitors.first.bit}")
+          ])
+          (lib.strings.concatStringsSep "," [
+            "${monitors.second.name}"
+            "${toString vars.monitors.second.res.x}x${toString vars.monitors.second.res.y}@${toString vars.monitors.second.hz}"
+            "${toString vars.monitors.first.res.x}x0"
+            "1"
+            (lib.strings.optionalString cfg.land.forceBitdepth.enable "bitdepth,${toString vars.monitors.second.bit}")
+          ])
         ];
 
         plugin = {
@@ -333,6 +355,7 @@ in
       idle.enable = lib.mkEnableOption "Enable hypridle";
       land = {
         enable = lib.mkEnableOption "Enable Hyprland";
+        forceBitdepth.enable = lib.mkEnableOption "Enable forcing monitor bitdepth";
         plugins = {
           enable = lib.mkEnableOption "Enable Hyprland Plugins";
           borders-plus-plus.enable = lib.mkEnableOption "Enable Hyprland Plugin: borders-plus-plus";
