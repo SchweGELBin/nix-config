@@ -67,6 +67,7 @@ in
         libnotify
         libreoffice-qt-fresh
         luanti
+        mari0
         nemo
         nix-update
         nixpkgs-review
