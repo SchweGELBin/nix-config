@@ -60,7 +60,6 @@ in
         grim
         inkscape
         inputs.nur.packages.${pkgs.system}.bible4tui
-        jellyfin-tui
         kdePackages.kdenlive
         krita
         legendary-gl

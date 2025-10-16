@@ -15,14 +15,14 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [ jellyfin-tui ];
-    sops.secrets.jellyfin.owner = vars.user.name;
+    sops.secrets.jellyfin = { };
     xdg.configFile."jellyfin-tui/config.yaml".source =
       (pkgs.formats.yaml { }).generate "jellyfin-tui.yaml"
         {
           servers = [
             {
               name = vars.user.hostname.server;
-              password_file = secrets.jellyin.path;
+              password_file = secrets.jellyfin.path;
               url = "https://jelly.${vars.my.domain}";
               username = "jelly";
             }

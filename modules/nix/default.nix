@@ -20,7 +20,7 @@ in
     ./nginx
     ./nix.nix
     ./packages.nix
-    ./security
+    ./security.nix
     ./smoos.nix
     ./sound.nix
     ./users.nix

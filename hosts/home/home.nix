@@ -15,6 +15,7 @@
   firefox.enable = true;
   hm-pkgs.home.enable = true;
   hypr.enable = true;
+  jellyfin-tui.enable = true;
   kitty.enable = true;
   mako.enable = true;
   mangohud.enable = true;

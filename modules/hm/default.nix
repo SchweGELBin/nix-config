@@ -24,6 +24,7 @@
     ./packages.nix
     ./rofi.nix
     ./scripts.nix
+    ./security.nix
     ./tealdeer.nix
     ./theme.nix
     ./thunderbird.nix
@@ -112,6 +113,7 @@
     };
   };
   scripts.enable = lib.mkDefault true;
+  security.enable = lib.mkDefault true;
   tealdeer.enable = lib.mkDefault true;
   theme = {
     enable = lib.mkDefault true;
