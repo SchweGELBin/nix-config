@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -9,6 +10,8 @@ let
   vars = import ../vars.nix;
 in
 {
+  imports = [ inputs.catppuccin.homeModules.default ];
+
   config = lib.mkIf cfg.enable {
     catppuccin = {
       enable = cfg.catppuccin.enable;

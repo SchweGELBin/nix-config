@@ -1,9 +1,5 @@
-{ inputs, ... }:
 {
-  imports = [
-    ../../modules/hm
-    inputs.catppuccin.homeModules.default
-  ];
+  imports = [ ../../modules/hm ];
 
   # Custom modules
   alacritty.enable = true;
