@@ -151,7 +151,7 @@ in
           "$mod1       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
           "$mod1       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
           "$mod1       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
-          "$mod1       ,  R         ,  Launch Rocket League                          ,  exec                  , xrandr --output ${monitors.second.name} --primary && mangohud legendary launch Sugar"
+          "$mod1       ,  R         ,  Launch Rocket League                          ,  exec                  , DISPLAY= legendary launch Sugar"
           "$mod1       ,  Q         ,  Launch Terminal ($terminal)                   ,  exec                  , $terminal"
           "$mod1  SHIFT,  S         ,  Move current workspace to special workspace   ,  movetoworkspace       , special:magic"
           "$mod1       ,  down      ,  Move focus down                               ,  movefocus             , d"
@@ -325,10 +325,13 @@ in
           hyprwinwrap.class = "hyprbg";
         };
 
+        # Multiple rules per line: https://github.com/hyprwm/Hyprland/pull/11689
         windowrule = [
-          "idleinhibit focus, class:(rocketleague.exe)"
-          "fullscreen, class:(rocketleague.exe)"
-          "fullscreen, title:(Minecraft)(.*)"
+          "fullscreen, class:rocketleague.exe"
+          "idleinhibit focus, class:rocketleague.exe"
+          "monitor 1, class:rocketleague.exe"
+          "noscreenshare on, class:Bitwarden"
+          "fullscreen, title:Minecraft.*"
         ];
       };
     }
