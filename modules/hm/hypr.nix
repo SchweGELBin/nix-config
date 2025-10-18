@@ -11,12 +11,12 @@ let
   logo = ".face";
   monitors = {
     first = {
-      name = "DP-2";
+      name = "desc:AOC Q27G4 18DPCHA026086";
       wall = ".config/background";
       wallp = "~/${monitors.first.wall}";
     };
     second = {
-      name = "DP-3";
+      name = "desc:Acer Technologies XZ342CU V3 A4070C3923W01";
       wall = ".config/background2";
       wallp = "~/${monitors.second.wall}";
     };
