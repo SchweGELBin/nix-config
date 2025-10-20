@@ -45,6 +45,7 @@ in
           accent = vars.cat.accent;
           variant = vars.cat.flavor;
         })
+        catppuccin-catwalk
         catppuccin-whiskers
         dolphin-emu
         exiftool
