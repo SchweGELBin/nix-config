@@ -45,7 +45,7 @@ in
     environment.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
     gickup = {
-      enable = lib.mkDefault true;
+      enable = lib.mkDefault false;
       cron.enable = lib.mkDefault false;
       forks.enable = lib.mkDefault false;
       issues.enable = lib.mkDefault false;
