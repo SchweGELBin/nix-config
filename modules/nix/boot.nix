@@ -12,10 +12,10 @@ in
     boot = {
       extraModulePackages =
         with config.boot.kernelPackages;
-        lib.optionals cfg.modules.v4l2loopback.enable [ v4l2loopback ];
+        lib.optional cfg.modules.v4l2loopback.enable v4l2loopback;
       kernelModules =
-        lib.optionals cfg.modules.ntsync.enable [ "ntsync" ]
-        ++ lib.optionals cfg.modules.v4l2loopback.enable [ "v4l2loopback" ];
+        lib.optional cfg.modules.ntsync.enable "ntsync"
+        ++ lib.optional cfg.modules.v4l2loopback.enable "v4l2loopback";
       kernelPackages = pkgs.linuxPackages_latest;
       loader = {
         efi.canTouchEfiVariables = false;

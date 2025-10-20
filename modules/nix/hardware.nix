@@ -22,7 +22,7 @@ in
       printing.enable = cfg.printing.enable;
       xserver = {
         enable = true;
-        videoDrivers = lib.optionals cfg.nvidia.enable [ "nvidia" ];
+        videoDrivers = lib.optional cfg.nvidia.enable "nvidia";
       };
     };
   };

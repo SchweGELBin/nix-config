@@ -39,7 +39,7 @@ in
           hash = "sha256-WYbqYZ0p0VI+CUH/ZJu5StA0z4P4YjQ6uWmVfW2NqbA=";
         };
       };
-      packages = with pkgs; lib.optionals cfg.picker.enable [ hyprpicker ];
+      packages = with pkgs; lib.optional cfg.picker.enable hyprpicker;
     };
 
     programs.hyprlock.enable = cfg.lock.enable;
@@ -107,7 +107,7 @@ in
             "windowsOut, 1, 7, default, popin 80%"
             "workspaces, 1, 6, default"
           ]
-          ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ "hyprfocusIn, 1, 2, focus" ];
+          ++ lib.optional cfg.land.plugins.hyprfocus.enable "hyprfocusIn, 1, 2, focus";
           bezier = [
             "focus, 0.25, 1, 0.5, 1"
             "linear, 0.0, 0.0, 1.0, 1.0"
@@ -224,9 +224,7 @@ in
           "$mod1, mouse:273, Resize Window, resizewindow"
         ];
 
-        debug = {
-          error_position = 1;
-        };
+        debug.error_position = 1;
 
         decoration = {
           active_opacity = 0.75;
@@ -249,10 +247,10 @@ in
         exec-once = [
           "openrgb -c $accentAlpha"
         ]
-        ++ lib.optionals cfg.idle.enable [ "hypridle" ]
-        ++ lib.optionals cfg.paper.enable [ "hyprpaper" ]
-        ++ lib.optionals config.waybar.enable [ "waybar" ]
-        ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) [ "avabg c" ];
+        ++ lib.optional cfg.idle.enable "hypridle"
+        ++ lib.optional cfg.paper.enable "hyprpaper"
+        ++ lib.optional config.waybar.enable "waybar"
+        ++ lib.optional (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) "avabg c";
 
         general = {
           "col.active_border" = "$accent $alt 45deg";
@@ -338,17 +336,15 @@ in
     // lib.optionalAttrs cfg.land.plugins.enable {
       plugins =
         with pkgs.hyprlandPlugins;
-        lib.optionals cfg.land.plugins.borders-plus-plus.enable [
-          borders-plus-plus
-        ]
-        ++ lib.optionals cfg.land.plugins.csgo-vulkan-fix.enable [ csgo-vulkan-fix ]
-        ++ lib.optionals cfg.land.plugins.hyprbars.enable [ hyprbars ]
-        ++ lib.optionals cfg.land.plugins.hyprexpo.enable [ hyprexpo ]
-        ++ lib.optionals cfg.land.plugins.hyprfocus.enable [ hyprfocus ]
-        ++ lib.optionals cfg.land.plugins.hyprscrolling.enable [ hyprscrolling ]
-        ++ lib.optionals cfg.land.plugins.hyprtrails.enable [ hyprtrails ]
-        ++ lib.optionals cfg.land.plugins.hyprwinwrap.enable [ hyprwinwrap ]
-        ++ lib.optionals cfg.land.plugins.xtra-dispatchers.enable [ xtra-dispatchers ];
+        lib.optional cfg.land.plugins.borders-plus-plus.enable borders-plus-plus
+        ++ lib.optional cfg.land.plugins.csgo-vulkan-fix.enable csgo-vulkan-fix
+        ++ lib.optional cfg.land.plugins.hyprbars.enable hyprbars
+        ++ lib.optional cfg.land.plugins.hyprexpo.enable hyprexpo
+        ++ lib.optional cfg.land.plugins.hyprfocus.enable hyprfocus
+        ++ lib.optional cfg.land.plugins.hyprscrolling.enable hyprscrolling
+        ++ lib.optional cfg.land.plugins.hyprtrails.enable hyprtrails
+        ++ lib.optional cfg.land.plugins.hyprwinwrap.enable hyprwinwrap
+        ++ lib.optional cfg.land.plugins.xtra-dispatchers.enable xtra-dispatchers;
     };
   };
 

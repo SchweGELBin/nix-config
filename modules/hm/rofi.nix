@@ -12,20 +12,19 @@ in
     programs.rofi = {
       enable = true;
       modes =
-        lib.optionals cfg.modes.combi.enable [ "combi" ]
-        ++ lib.optionals cfg.modes.drun.enable [ "drun" ]
-        ++ lib.optionals cfg.modes.filebrowser.enable [ "filebrowser" ]
-        ++ lib.optionals cfg.modes.keys.enable [ "keys" ]
-        ++ lib.optionals cfg.modes.recursivebrowser.enable [ "recursivebrowser" ]
-        ++ lib.optionals cfg.modes.run.enable [ "run" ]
-        ++ lib.optionals cfg.modes.ssh.enable [ "ssh" ]
-        ++ lib.optionals cfg.modes.window.enable [ "window" ]
-        ++ lib.optionals cfg.plugins.calc.enable [ "calc" ]
-        ++ lib.optionals cfg.plugins.emoji.enable [ "emoji" ];
+        lib.optional cfg.modes.combi.enable "combi"
+        ++ lib.optional cfg.modes.drun.enable "drun"
+        ++ lib.optional cfg.modes.filebrowser.enable "filebrowser"
+        ++ lib.optional cfg.modes.keys.enable "keys"
+        ++ lib.optional cfg.modes.recursivebrowser.enable "recursivebrowser"
+        ++ lib.optional cfg.modes.run.enable "run"
+        ++ lib.optional cfg.modes.ssh.enable "ssh"
+        ++ lib.optional cfg.modes.window.enable "window"
+        ++ lib.optional cfg.plugins.calc.enable "calc"
+        ++ lib.optional cfg.plugins.emoji.enable "emoji";
       plugins =
         with pkgs;
-        lib.optionals cfg.plugins.calc.enable [ rofi-calc ]
-        ++ lib.optionals cfg.plugins.emoji.enable [ rofi-emoji ];
+        lib.optional cfg.plugins.calc.enable rofi-calc ++ lib.optional cfg.plugins.emoji.enable rofi-emoji;
     };
   };
 

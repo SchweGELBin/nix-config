@@ -96,13 +96,13 @@ in
           force = true;
           packages =
             with inputs.firefox-addons.packages.${pkgs.system};
-            lib.optionals cfg.extensions.behave.enable [ behave ]
-            ++ lib.optionals cfg.extensions.darkreader.enable [ darkreader ]
-            ++ lib.optionals cfg.extensions.firefox-color.enable [ firefox-color ]
-            ++ lib.optionals cfg.extensions.redirector.enable [ redirector ]
-            ++ lib.optionals cfg.extensions.skip-redirect.enable [ skip-redirect ]
-            ++ lib.optionals cfg.extensions.stylus.enable [ stylus ]
-            ++ lib.optionals cfg.extensions.ublock-origin.enable [ ublock-origin ];
+            lib.optional cfg.extensions.behave.enable behave
+            ++ lib.optional cfg.extensions.darkreader.enable darkreader
+            ++ lib.optional cfg.extensions.firefox-color.enable firefox-color
+            ++ lib.optional cfg.extensions.redirector.enable redirector
+            ++ lib.optional cfg.extensions.skip-redirect.enable skip-redirect
+            ++ lib.optional cfg.extensions.stylus.enable stylus
+            ++ lib.optional cfg.extensions.ublock-origin.enable ublock-origin;
           settings = {
             "FirefoxColor@mozilla.com".settings = lib.mkIf cfg.extensions.firefox-color.enable {
               firstRunDone = true;
