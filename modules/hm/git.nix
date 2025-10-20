@@ -22,10 +22,10 @@ in
         userEmail = vars.git.email;
         userName = vars.git.name;
       };
-    };
-    riff = {
-      enable = true;
-      enableGitIntegration = true;
+      riff = {
+        enable = true;
+        enableGitIntegration = true;
+      };
     };
   };
 
