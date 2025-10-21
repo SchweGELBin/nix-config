@@ -331,6 +331,18 @@ in
           "noscreenshare on, class:Bitwarden"
           "fullscreen, title:Minecraft.*"
         ];
+
+        workspace = [
+          "1, monitor:${monitors.first.name}, default:1"
+          "2, monitor:${monitors.second.name}, default:1"
+          "3, monitor:${monitors.first.name}"
+          "4, monitor:${monitors.second.name}"
+          "5, monitor:${monitors.first.name}"
+          "6, monitor:${monitors.second.name}"
+          "7, monitor:${monitors.first.name}"
+          "8, monitor:${monitors.second.name}"
+          "9, monitor:${monitors.first.name}"
+        ];
       };
     }
     // lib.optionalAttrs cfg.land.plugins.enable {
