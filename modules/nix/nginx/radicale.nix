@@ -21,7 +21,7 @@ in
             htpasswd_filename = secrets.radicale.path;
             type = "htpasswd";
           };
-          server.hosts = [ "0.0.0.0:${cfg.radicale.port}" ];
+          server.hosts = [ "0.0.0.0:${toString cfg.radicale.port}" ];
         };
       };
       nginx.virtualHosts.${cfg.radicale.fqdn} = {
