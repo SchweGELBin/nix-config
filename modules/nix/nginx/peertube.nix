@@ -63,7 +63,6 @@ in
     sops.secrets = {
       peertube.owner = "peertube";
       peertube_env.owner = "peertube";
-      peertube_mail.owner = "peertube";
     };
   };
 }
