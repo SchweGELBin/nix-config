@@ -28,7 +28,7 @@ in
             ENABLED = true;
             FROM = cfg.forgejo.mail;
             PROTOCOL = "sendmail";
-            SENDMAIL_PATH = "${pkgs.system-sendmail}/bin/sendmail";
+            SENDMAIL_PATH = lib.getExe pkgs.system-sendmail;
           };
           server = {
             CERT_FILE = "/var/lib/acme/${cfg.forgejo.fqdn}/cert.pem";
