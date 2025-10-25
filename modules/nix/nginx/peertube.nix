@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -47,13 +48,12 @@ in
           };
           smtp = {
             from_address = cfg.peertube.mail;
-            hostname = cfg.mail.fqdn;
-            username = cfg.peertube.mail;
+            transport = "sendmail";
+            sendmail = lib.getExe pkgs.system-sendmail;
           };
           user.history.videos.enabled = false;
           video_studio.enabled = true;
         };
-        smtp.passwordFile = secrets.peertube_mail.path;
       };
       nginx.virtualHosts.${cfg.peertube.fqdn} = {
         enableACME = true;
