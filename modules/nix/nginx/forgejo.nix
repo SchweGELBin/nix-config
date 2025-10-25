@@ -24,12 +24,14 @@ in
         package = pkgs.forgejo;
         database.type = "postgres";
         lfs.enable = true;
+        secrets.mailer.PASSWD = secrets.forgejo_mail.path;
         settings = {
           mailer = {
             ENABLED = true;
             FROM = cfg.forgejo.mail;
-            PROTOCOL = "sendmail";
-            SENDMAIL_PATH = lib.getExe pkgs.system-sendmail;
+            PROTOCOL = "smtps";
+            SMTP_ADDR = cfg.mail.fqdn;
+            USER = cfg.forgejo.mail;
           };
           server = {
             CERT_FILE = "/var/lib/acme/${cfg.forgejo.fqdn}/cert.pem";
@@ -47,7 +49,10 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.forgejo.port}";
       };
     };
-    sops.secrets.forgejo.owner = "forgejo";
+    sops.secrets = {
+      forgejo.owner = "forgejo";
+      forgejo_mail.owner = "forgejo";
+    };
     systemd.services.forgejo.preStart = ''
       ${lib.getExe config.services.forgejo.package} admin user create \
       --admin --email ${cfg.forgejo.mail} --username ${cfg.forgejo.username} \

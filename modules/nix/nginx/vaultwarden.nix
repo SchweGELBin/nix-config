@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -21,11 +20,11 @@ in
         config = {
           DOMAIN = "https://${cfg.vaultwarden.fqdn}";
           ROCKET_PORT = cfg.vaultwarden.port;
-          SENDMAIL_COMMAND = lib.getExe pkgs.system-sendmail;
           SIGNUPS_VERIFY = true;
           SMTP_FROM = cfg.vaultwarden.mail;
           SMTP_FROM_NAME = "MiX Vaultwarden";
-          USE_SENDMAIL = true;
+          SMTP_HOST = cfg.mail.fqdn;
+          SMTP_USERNAME = cfg.vaultwarden.mail;
         };
         environmentFile = secrets.vaultwarden.path;
       };
