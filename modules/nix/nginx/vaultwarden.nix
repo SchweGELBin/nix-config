@@ -26,7 +26,6 @@ in
           SMTP_FROM_NAME = "MiX Vaultwarden";
           USE_SENDMAIL = true;
         };
-        dbBackend = "postgresql";
         environmentFile = secrets.vaultwarden.path;
       };
       nginx.virtualHosts.${cfg.vaultwarden.fqdn} = {
