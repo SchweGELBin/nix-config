@@ -17,6 +17,7 @@ in
     services = {
       vaultwarden = {
         enable = true;
+        backupDir = "/var/backup/vaultwarden";
         config = {
           DOMAIN = "https://${cfg.vaultwarden.fqdn}";
           ROCKET_PORT = cfg.vaultwarden.port;
