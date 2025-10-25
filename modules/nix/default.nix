@@ -180,6 +180,11 @@ in
         mail = lib.mkDefault "peertube@${vars.my.domain}";
         port = lib.mkDefault 9000;
       };
+      radicale = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "cal.${vars.my.domain}";
+        port = lib.mkDefault 5232;
+      };
       searxng = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "searx.${vars.my.domain}";

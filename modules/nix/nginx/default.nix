@@ -19,6 +19,7 @@ in
     ./onlyoffice.nix
     ./opencloud.nix
     ./peertube.nix
+    ./radicale.nix
     ./searxng.nix
     ./thelounge.nix
     ./uptimekuma.nix
@@ -247,6 +248,17 @@ in
         };
         port = lib.mkOption {
           description = "PeerTube Port";
+          type = lib.types.int;
+        };
+      };
+      radicale = {
+        enable = lib.mkEnableOption "Enable Radicale";
+        fqdn = lib.mkOption {
+          description = "Radicale Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Radicale Port";
           type = lib.types.int;
         };
       };
