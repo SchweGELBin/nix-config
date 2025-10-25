@@ -199,6 +199,12 @@ in
         fqdn = lib.mkDefault "uptime.${vars.my.domain}";
         port = lib.mkDefault 3001;
       };
+      vaultwarden = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "vault.${vars.my.domain}";
+        mail = lib.mkDefault "vault@${vars.my.domain}";
+        port = lib.mkDefault 8222;
+      };
       wastebin = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "bin.${vars.my.domain}";

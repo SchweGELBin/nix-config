@@ -22,6 +22,7 @@ in
     ./searxng.nix
     ./thelounge.nix
     ./uptimekuma.nix
+    ./vaultwarden.nix
     ./wastebin.nix
     ./www.nix
     ./zipline.nix
@@ -286,6 +287,21 @@ in
         };
         port = lib.mkOption {
           description = "Uptime Kuma Port";
+          type = lib.types.int;
+        };
+      };
+      vaultwarden = {
+        enable = lib.mkEnableOption "Enable Vaultwarden";
+        fqdn = lib.mkOption {
+          description = "Vaultwarden Domain";
+          type = lib.types.str;
+        };
+        mail = lib.mkOption {
+          description = "Vaultwarden Mail";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Vaultwarden Port";
           type = lib.types.int;
         };
       };
