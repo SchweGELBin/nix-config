@@ -182,7 +182,7 @@ in
       };
       radicale = {
         enable = lib.mkDefault true;
-        fqdn = lib.mkDefault "cal.${vars.my.domain}";
+        fqdn = lib.mkDefault "dav.${vars.my.domain}";
         port = lib.mkDefault 5232;
       };
       searxng = {
