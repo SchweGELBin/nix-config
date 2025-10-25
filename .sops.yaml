@@ -1,7 +1,7 @@
 keys:
   - &secrets age10hcdjwmu6806rc4532a9x9hqyuw5mdzgnrhn30l65kncnquj23sszr0qje
 creation_rules:
-  - path_regex: modules/nix/security/secrets.yaml
+  - path_regex: modules/secrets.yaml
     key_groups:
       - age:
         - *secrets
