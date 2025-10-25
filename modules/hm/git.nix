@@ -8,10 +8,6 @@ in
     programs = {
       git = {
         enable = true;
-        extraConfig = {
-          http.postBuffer = 524288000;
-          init.defaultBranch = "main";
-        };
         lfs.enable = true;
         maintenance.enable = true;
         signing = {
@@ -19,8 +15,14 @@ in
           key = "${vars.user.home}/.ssh/github_signing-key";
           signByDefault = true;
         };
-        userEmail = vars.git.email;
-        userName = vars.git.name;
+        settings = {
+          http.postBuffer = 524288000;
+          init.defaultBranch = "main";
+          user = {
+            email = vars.git.email;
+            name = vars.git.name;
+          };
+        };
       };
       riff = {
         enable = true;
