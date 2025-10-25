@@ -328,7 +328,7 @@ in
           "fullscreen, class:rocketleague.exe"
           "idleinhibit focus, class:rocketleague.exe"
           "monitor 1, class:rocketleague.exe"
-          "noscreenshare 1, class:Bitwarden"
+          "prop noscreenshare 1, class:Bitwarden"
           "fullscreen, title:Minecraft.*"
         ];
 
