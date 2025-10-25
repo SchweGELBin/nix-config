@@ -40,6 +40,7 @@ in
             KEY_FILE = "/var/lib/acme/${cfg.forgejo.fqdn}/key.pem";
             ROOT_URL = "https://${cfg.forgejo.fqdn}";
           };
+          service.REGISTER_EMAIL_CONFIRM = true;
           session.COOKIE_SECURE = true;
         };
       };
