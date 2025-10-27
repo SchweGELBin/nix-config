@@ -26,15 +26,14 @@ in
           ".local/share"
           ".ssh"
           ".thunderbird"
+          ".wine"
           "Documents"
           "Downloads"
+          "Games"
           "Git"
           "Media"
         ];
-        files = [
-          ".config/jellyfin-tui/config.yaml"
-          ".config/sops/age/keys.txt"
-        ];
+        files = ".config/sops/age/keys.txt";
       };
     };
   };
