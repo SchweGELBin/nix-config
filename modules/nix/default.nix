@@ -180,6 +180,10 @@ in
         mail = lib.mkDefault "peertube@${vars.my.domain}";
         port = lib.mkDefault 9000;
       };
+      piped = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "pd.${vars.my.domain}";
+      };
       radicale = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "dav.${vars.my.domain}";

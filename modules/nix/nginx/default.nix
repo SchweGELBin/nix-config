@@ -19,6 +19,7 @@ in
     ./onlyoffice.nix
     ./opencloud.nix
     ./peertube.nix
+    ./piped.nix
     ./radicale.nix
     ./searxng.nix
     ./thelounge.nix
@@ -249,6 +250,13 @@ in
         port = lib.mkOption {
           description = "PeerTube Port";
           type = lib.types.int;
+        };
+      };
+      piped = {
+        enable = lib.mkEnableOption "Enable Piped";
+        fqdn = lib.mkOption {
+          description = "Piped Domain";
+          type = lib.types.str;
         };
       };
       radicale = {
