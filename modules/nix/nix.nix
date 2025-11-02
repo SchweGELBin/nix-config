@@ -40,7 +40,10 @@ in
         cudaSupport = cfg.cuda.enable;
         nvidia.acceptLicense = true;
       };
-      overlays = [ inputs.fenix.overlays.default ];
+      overlays = [
+        inputs.fenix.overlays.default
+        inputs.firefox-addons.overlays.default
+      ];
     };
 
     nur = {

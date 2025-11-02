@@ -95,7 +95,7 @@ in
         extensions = {
           force = true;
           packages =
-            with inputs.firefox-addons.packages.${pkgs.system};
+            with pkgs.firefox-addons;
             lib.optional cfg.extensions.behave.enable behave
             ++ lib.optional cfg.extensions.darkreader.enable darkreader
             ++ lib.optional cfg.extensions.firefox-color.enable firefox-color
