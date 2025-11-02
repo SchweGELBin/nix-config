@@ -19,7 +19,7 @@ in
         file
         ffmpeg
         imagemagick
-        inputs.nur.packages.${pkgs.system}.catspeak
+        nur.catspeak
         lsof
         mdcat
         neo-cowsay
@@ -60,7 +60,7 @@ in
         godot
         grim
         inkscape
-        inputs.nur.packages.${pkgs.system}.bible4tui
+        nur.bible4tui
         kdePackages.kdenlive
         krita
         legendary-gl

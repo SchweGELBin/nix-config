@@ -21,7 +21,7 @@ in
       enable = true;
       bot = {
         enable = cfg.bot.enable;
-        package = inputs.nur.packages.${pkgs.system}.smoos-bot;
+        package = pkgs.nur.smoos-bot;
         secretFile = secrets.smoos_env.path;
         settings = {
           SMOOS_API_PORT = cfg.bot.port;
@@ -30,7 +30,7 @@ in
       };
       cs = {
         enable = cfg.cs.enable;
-        package = inputs.nur.packages.${pkgs.system}.smoos-cs;
+        package = pkgs.nur.smoos-cs;
         secretFile = secrets.smoos_env.path;
         settings = {
           force = true;

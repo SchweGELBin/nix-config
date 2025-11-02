@@ -16,7 +16,7 @@ in
       enableACME = true;
       default = true;
       forceSSL = true;
-      root = if cfg.website.enable then inputs.nur.packages.${pkgs.system}.website else "/var/www";
+      root = if cfg.website.enable then pkgs.nur.website else "/var/www";
     };
   };
 }

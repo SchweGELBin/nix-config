@@ -16,7 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     nur.mixbot = {
       enable = cfg.bot.enable;
-      package = inputs.nur.packages.${pkgs.system}.mixbot;
+      package = pkgs.nur.mixbot;
       secretFile = secrets.mixbot_env.path;
       settings = {
         MIXBOT_DISCORD_ID = toString vars.my.discordid;

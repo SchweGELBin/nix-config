@@ -43,7 +43,10 @@ in
       overlays = [ inputs.fenix.overlays.default ];
     };
 
-    nur.cache.enable = true;
+    nur = {
+      cache.enable = true;
+      overlay.enable = true;
+    };
 
     system.stateVersion = vars.user.stateVersion;
   };
