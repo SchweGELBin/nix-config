@@ -331,6 +331,9 @@ in
           "fullscreen, class:steam_app_965680"
           "idleinhibit focus, class:steam_app_965680"
           "monitor 1, class:steam_app_965680"
+          "fullscreen, class:UltimateChickenHorse.x86_64"
+          "idleinhibit focus, class:UltimateChickenHorse.x86_64"
+          "monitor 1, class:UltimateChickenHorse.x86_64"
           "prop noscreenshare 1, class:Bitwarden"
           "fullscreen, title:Minecraft.*"
         ];
