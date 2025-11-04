@@ -20,6 +20,7 @@ in
     ./nginx
     ./nix.nix
     ./packages.nix
+    ./ryuldn.nix
     ./security.nix
     ./smoos.nix
     ./sound.nix
@@ -238,6 +239,14 @@ in
         wm = lib.mkDefault "hyprland";
       };
       server.enable = lib.mkDefault false;
+    };
+    ryuldn = {
+      enable = lib.mkDefault false;
+      port = lib.mkDefault 30456;
+      web = {
+        enable = lib.mkDefault false;
+        port = lib.mkDefault 3700;
+      };
     };
     security = {
       enable = lib.mkDefault true;

@@ -48,6 +48,7 @@ in
     };
     nix.gc.enable = true;
     pkgs.server.enable = true;
+    ryuldn.enable = true;
     security = {
       acme.enable = true;
       ssh.enable = true;
