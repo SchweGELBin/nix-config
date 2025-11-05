@@ -24,8 +24,8 @@ in
         package = pkgs.nur.smoos-bot;
         secretFile = secrets.smoos_env.path;
         settings = {
-          SMOOS_API_PORT = cfg.bot.port;
-          SMOOS_DISCORD_ID = toString vars.my.discordid;
+          api_port = cfg.bot.port;
+          discord_id = toString vars.my.discordid;
         };
       };
       cs = {
