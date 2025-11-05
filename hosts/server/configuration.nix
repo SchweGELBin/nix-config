@@ -26,6 +26,7 @@ in
     nginx = {
       enable = true;
       collabora.enable = false;
+      immich.enable = false;
       nextcloud.enable = false;
       ollama.enable = false;
       onlyoffice.enable = false;
