@@ -19,8 +19,8 @@ in
       package = pkgs.nur.mixbot;
       secretFile = secrets.mixbot_env.path;
       settings = {
-        MIXBOT_DISCORD_ID = toString vars.my.discordid;
-        MIXBOT_ONLINE = true;
+        discord_id = toString vars.my.discordid;
+        online = true;
       };
     };
 
