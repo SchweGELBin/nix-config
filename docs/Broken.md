@@ -1,4 +1,3 @@
 # Currently Broken
 
 - Impermanence
-- Printing

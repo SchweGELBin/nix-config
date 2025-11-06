@@ -56,7 +56,7 @@ in
     hardware = {
       enable = lib.mkDefault true;
       nvidia.enable = lib.mkDefault true;
-      printing.enable = lib.mkDefault false;
+      printing.enable = lib.mkDefault true;
     };
     home-manager.enable = lib.mkDefault true;
     impermanence.enable = lib.mkDefault false;
