@@ -323,19 +323,12 @@ in
           hyprwinwrap.class = "hyprbg";
         };
 
-        # Multiple rules per line: https://github.com/hyprwm/Hyprland/pull/11689
         windowrule = [
-          "fullscreen, class:rocketleague.exe"
-          "idleinhibit focus, class:rocketleague.exe"
-          "monitor 1, class:rocketleague.exe"
-          "fullscreen, class:steam_app_965680"
-          "idleinhibit focus, class:steam_app_965680"
-          "monitor 1, class:steam_app_965680"
-          "fullscreen, class:UltimateChickenHorse.x86_64"
-          "idleinhibit focus, class:UltimateChickenHorse.x86_64"
-          "monitor 1, class:UltimateChickenHorse.x86_64"
+          "fullscreen, idleinhibit focus, monitor 1, class:rocketleague.exe"
+          "fullscreen, idleinhibit focus, monitor 1, class:steam_app_965680"
+          "fullscreen, idleinhibit focus, monitor 1, class:UltimateChickenHorse.x86_64"
           "prop noscreenshare 1, class:Bitwarden"
-          "fullscreen, title:Minecraft.*"
+          "fullscreen, monitor 1, title:Minecraft.*"
         ];
 
         workspace = [
