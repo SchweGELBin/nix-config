@@ -43,7 +43,14 @@ in
       overlays = [
         inputs.fenix.overlays.default
         inputs.firefox-addons.overlays.default
-      ];
+      ]
+      ++ lib.optional cfg.olmoverlay.enable (
+        final: prev: {
+          olm = prev.olm.overrideAttrs (previousAttrs: {
+            meta.knownVulnerabilities = [ ];
+          });
+        }
+      );
     };
 
     nur = {
@@ -59,6 +66,7 @@ in
       enable = lib.mkEnableOption "Enable Nix";
       cuda.enable = lib.mkEnableOption "Enable CUDA";
       gc.enable = lib.mkEnableOption "Enable automatic garbage collection";
+      olmoverlay.enable = lib.mkEnableOption "Enable Olm overlay: Remove insecure warning";
     };
   };
 }

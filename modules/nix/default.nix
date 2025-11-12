@@ -231,6 +231,7 @@ in
       enable = lib.mkDefault true;
       cuda.enable = lib.mkDefault false;
       gc.enable = lib.mkDefault false;
+      olmoverlay.enable = lib.mkDefault true;
     };
     pkgs = {
       enable = lib.mkDefault true;
