@@ -43,6 +43,7 @@ Hyprland
 ```
 screenshot [d/w/r/h]    | Take screenshot ([d]isplay/[w]indow/[r]egion/[h]elp)
 binds                   | Show Keybinds
-avabg [c/gl] [t]        | Start avabg-instance or [t]oggle it
-avabg-instance [c/gl]   | Start [c]ava/[gl]ava
+avabg [c/gl/*] [t]      | Start [c/gl/*]avabg-instance or [t]oggle it
+avabg-instance [c/gl/*] | Start [c/gl/*]ava background instance
+glavabg-setup [f]       | Replace glava config
 ```

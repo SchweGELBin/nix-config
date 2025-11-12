@@ -4,7 +4,7 @@
   # Custom modules
   alacritty.enable = true;
   android-sdk.enable = true;
-  cava.enable = true;
+  ava.enable = true;
   devshells.enable = true;
   direnv.enable = true;
   element.enable = true;

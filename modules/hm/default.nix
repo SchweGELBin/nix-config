@@ -3,14 +3,13 @@
   imports = [
     ./alacritty.nix
     ./android-sdk.nix
-    ./cava.nix
+    ./ava.nix
     ./direnv.nix
     ./devshells
     ./element.nix
     ./fastfetch.nix
     ./firefox.nix
     ./git.nix
-    ./glava.nix
     ./helix.nix
     ./home.nix
     ./hypr.nix
@@ -35,7 +34,11 @@
 
   alacritty.enable = lib.mkDefault false;
   android-sdk.enable = lib.mkDefault false;
-  cava.enable = lib.mkDefault false;
+  ava = {
+    enable = lib.mkDefault false;
+    cava.enable = lib.mkDefault true;
+    glava.enable = lib.mkDefault true;
+  };
   devshells = {
     enable = lib.mkDefault false;
     bevy.enable = lib.mkDefault false;
@@ -57,7 +60,6 @@
     };
   };
   git.enable = lib.mkDefault true;
-  glava.enable = lib.mkDefault false;
   helix.enable = lib.mkDefault true;
   hm-pkgs = {
     enable = lib.mkDefault true;

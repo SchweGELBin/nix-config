@@ -199,8 +199,7 @@ in
         ]
         ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) [
           "$mod1       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
-          "$mod1       ,  B         ,  Toggle Cava Background                        ,  exec                  , avabg c t"
-          "$mod1  SHIFT,  B         ,  Toggle GLava Background                       ,  exec                  , avabg gl t"
+          "$mod1       ,  B         ,  Toggle *ava Background                        ,  exec                  , avabg b t"
         ];
 
         binddel = [
@@ -250,7 +249,7 @@ in
         ++ lib.optional cfg.idle.enable "hypridle"
         ++ lib.optional cfg.paper.enable "hyprpaper"
         ++ lib.optional config.waybar.enable "waybar"
-        ++ lib.optional (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) "avabg c";
+        ++ lib.optional (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) "avabg";
 
         general = {
           "col.active_border" = "$accent $alt 45deg";
@@ -320,15 +319,20 @@ in
           };
           hyprfocus.mode = "slide";
           hyprtrails.color = "$accent";
-          hyprwinwrap.class = "hyprbg";
+          hyprwinwrap = {
+            class = "hyprbg";
+            title = "hyprbg";
+          };
         };
 
         windowrule = [
           "fullscreen, idleinhibit focus, monitor 1, class:rocketleague.exe"
           "fullscreen, idleinhibit focus, monitor 1, class:steam_app_965680"
           "fullscreen, idleinhibit focus, monitor 1, class:UltimateChickenHorse.x86_64"
-          "prop noscreenshare 1, class:Bitwarden"
           "fullscreen, monitor 1, title:Minecraft.*"
+          "monitor 0, class:hyprpg"
+          "monitor 1, title:hyprbg"
+          "prop noscreenshare 1, class:Bitwarden"
         ];
 
         workspace = [

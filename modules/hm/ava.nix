@@ -1,11 +1,17 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  cfg = config.cava;
+  cfg = config.ava;
 in
 {
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; lib.optional cfg.glava.enable glava;
     programs.cava = {
-      enable = true;
+      enable = cfg.cava.enable;
       settings = {
         general = {
           sensitivity = 60;
@@ -23,6 +29,10 @@ in
   };
 
   options = {
-    cava.enable = lib.mkEnableOption "Enable Cava";
+    ava = {
+      enable = lib.mkEnableOption "Enable Audio Visualizers";
+      cava.enable = lib.mkEnableOption "Enable Cava";
+      glava.enable = lib.mkEnableOption "Enable GLava";
+    };
   };
 }
