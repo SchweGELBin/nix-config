@@ -22,6 +22,7 @@ in
     programs = {
       java.enable = true;
       nix-ld.enable = true;
+      ssh.package = pkgs.openssh_10_2; # Remove, when pkgs.openssh gets updated
       zsh.enable = true;
     }
     // lib.optionalAttrs cfg.home.enable {
@@ -50,9 +51,7 @@ in
       rtkit.enable = true;
     };
 
-    services = {
-      openssh.enable = true;
-    };
+    services.openssh.enable = true;
 
     xdg.portal.enable = cfg.home.enable;
   };
