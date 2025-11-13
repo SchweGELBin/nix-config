@@ -177,40 +177,47 @@ in
         esac
       '')
 
-      (pkgs.writeShellScriptBin "glavabg-setup" ''
-        cfgdir="${vars.user.home}/.config/glava"
-        if [[ -d $cfgdir && $1 == "f" ]]; then rm -r $cfgdir; fi
-        if [[ ! -d $cfgdir ]]; then
-          glava --copy-config
-          sed -i \
-            -e 's/#request mod bars/#request mod circle/' \
-            -e 's/#request setgeometry 0 0 800 600/#request setgeometry 0 0 2560 1440/' \
-            -e 's/#request settitle "GLava"/#request settitle "hyprbg"/' \
-            "$cfgdir/rc.glsl"
-          sed -i \
-            -e 's/#define BAR_OUTLINE #262626/#define BAR_OUTLINE #cba6f7/' \
-            -e 's/#define COLOR (#3366b2 \* GRADIENT)/#define COLOR #b4befe/' \
-            "$cfgdir/bars.glsl"
-          sed -i \
-            -e 's/#define C_LINE 1.5/#define C_LINE 4/' \
-            -e 's/#define C_RADIUS 128/#define C_RADIUS 256/' \
-            -e 's/#define OUTLINE #333333/#define OUTLINE #b4befe/' \
-            "$cfgdir/circle.glsl"
-          sed -i \
-            -e 's/#define COLOR mix(#802A2A, #4F4F92, clamp(pos \/ GRADIENT_SCALE, 0, 1))/#define COLOR #b4befe/' \
-            -e 's/#define OUTLINE #262626/#define OUTLINE #cba6f7/' \
-            "$cfgdir/graph.glsl"
-          sed -i \
-            -e 's/#define C_LINE 2/#define C_LINE 4/' \
-            -e 's/#define C_RADIUS 128/#define C_RADIUS 256/' \
-            -e 's/#define OUTLINE #333333/#define OUTLINE #b4befe/' \
-            "$cfgdir/radial.glsl"
-          sed -i \
-            -e 's/#define BASE_COLOR vec4(0.7, 0.2, 0.45, 1)/#define BASE_COLOR #b4befe/' \
-            -e 's/#define OUTLINE vec4(0.15, 0.15, 0.15, 1)/#define OUTLINE #cba6f7/' \
-            "$cfgdir/wave.glsl"
-        fi
-      '')
+      (
+        let
+          palette = (lib.importJSON "${pkgs.catppuccin}/palette/palette.json").${vars.cat.flavor}.colors;
+          bars = palette.${vars.cat.accent}.hex;
+          outline = palette.${vars.cat.alt}.hex;
+        in
+        pkgs.writeShellScriptBin "glavabg-setup" ''
+          cfgdir="${vars.user.home}/.config/glava"
+          if [[ -d $cfgdir && $1 == "f" ]]; then rm -r $cfgdir; fi
+          if [[ ! -d $cfgdir ]]; then
+            glava --copy-config
+            sed -i \
+              -e 's/#request mod bars/#request mod circle/' \
+              -e 's/#request setgeometry 0 0 800 600/#request setgeometry 0 0 2560 1440/' \
+              -e 's/#request settitle "GLava"/#request settitle "hyprbg"/' \
+              "$cfgdir/rc.glsl"
+            sed -i \
+              -e 's/#define BAR_OUTLINE #262626/#define BAR_OUTLINE ${outline}/' \
+              -e 's/#define COLOR (#3366b2 \* GRADIENT)/#define COLOR ${bars}/' \
+              "$cfgdir/bars.glsl"
+            sed -i \
+              -e 's/#define C_LINE 1.5/#define C_LINE 4/' \
+              -e 's/#define C_RADIUS 128/#define C_RADIUS 256/' \
+              -e 's/#define OUTLINE #333333/#define OUTLINE ${outline}/' \
+              "$cfgdir/circle.glsl"
+            sed -i \
+              -e 's/#define COLOR mix(#802A2A, #4F4F92, clamp(pos \/ GRADIENT_SCALE, 0, 1))/#define COLOR ${bars}/' \
+              -e 's/#define OUTLINE #262626/#define OUTLINE ${outline}/' \
+              "$cfgdir/graph.glsl"
+            sed -i \
+              -e 's/#define C_LINE 2/#define C_LINE 4/' \
+              -e 's/#define C_RADIUS 128/#define C_RADIUS 256/' \
+              -e 's/#define OUTLINE #333333/#define OUTLINE ${outline}/' \
+              "$cfgdir/radial.glsl"
+            sed -i \
+              -e 's/#define BASE_COLOR vec4(0.7, 0.2, 0.45, 1)/#define BASE_COLOR ${bars}/' \
+              -e 's/#define OUTLINE vec4(0.15, 0.15, 0.15, 1)/#define OUTLINE ${outline}/' \
+              "$cfgdir/wave.glsl"
+          fi
+        ''
+      )
 
       (pkgs.writeShellScriptBin "vpn" ''
         case $1 in
