@@ -28,16 +28,16 @@ Theme                - Catppuccin Mocha Mauve
 ### Scripts
 General
 ```
-sudo rebuild            | Rebuild Home system
-update                  | Update Home config
-sudo server-rebuild     | Rebuild Server system
-sudo config-reset       | Reset config
-music                   | Toogle music-instance
-music-instance          | Play music
-loopback                | Toggle mic loopback
-ac [l/r]                | Auto Clicker [l]eft/[r]ight
-user2nix [arkenfox/...] | Echo user.js in nix format
-vpn [on/off/*]          | Toggle VPN connection
+sudo rebuild                    | Rebuild Home system
+update                          | Update Home config
+sudo server-rebuild             | Rebuild Server system
+sudo config-reset [git/https/*] | Reset config
+music                           | Toogle music-instance
+music-instance                  | Play music
+loopback                        | Toggle mic loopback
+ac [l/r]                        | Auto Clicker [l]eft/[r]ight
+userjs2nix [arkenfox/.../*]     | Echo user.js in nix format
+vpn [on/off/*]                  | Toggle VPN connection
 ```
 Hyprland
 ```

@@ -118,6 +118,19 @@ in
         cat $tmpfile | grep "^user_pref(" | sort | sed -e 's/^user_pref(//g' -e 's/);.*/;/g' -e '/_user\.js\.parrot/d' -e 's/, / = /g'
         rm $tmpfile
       '')
+
+      (pkgs.writeShellScriptBin "vpn" ''
+        case $1 in
+        on)
+          systemctl start wg-quick-wg.service
+        ;;
+        off)
+          systemctl stop wg-quick-wg.service
+        ;;
+        *)
+          systemctl restart wg-quick-wg.service
+        esac
+      '')
     ]
     ++ lib.optionals config.hypr.enable [
       (pkgs.writeShellScriptBin "screenshot" ''
@@ -218,19 +231,6 @@ in
           fi
         ''
       )
-
-      (pkgs.writeShellScriptBin "vpn" ''
-        case $1 in
-        on)
-          systemctl start wg-quick-wg.service
-        ;;
-        off)
-          systemctl stop wg-quick-wg.service
-        ;;
-        *)
-          systemctl restart wg-quick-wg.service
-        esac
-      '')
     ];
   };
 
