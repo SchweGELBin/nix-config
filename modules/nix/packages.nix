@@ -22,7 +22,6 @@ in
     programs = {
       java.enable = true;
       nix-ld.enable = true;
-      ssh.package = pkgs.openssh_10_2; # Remove, when pkgs.openssh gets updated
       zsh.enable = true;
     }
     // lib.optionalAttrs cfg.home.enable {
