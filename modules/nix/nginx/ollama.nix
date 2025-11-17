@@ -13,7 +13,7 @@ in
       };
       ollama = {
         enable = true;
-        loadModels = [ "moondream" ];
+        loadModels = [ "tinydolphin" ];
         port = cfg.ollama.port;
       };
       open-webui = {
