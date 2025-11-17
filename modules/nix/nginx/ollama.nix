@@ -17,7 +17,11 @@ in
         port = cfg.ollama.port;
       };
       open-webui = {
-        enable = cfg.ollama.web.enable;
+        enable = cfg.ollama.web.mode == "open-webui";
+        port = cfg.ollama.web.port;
+      };
+      nextjs-ollama-llm-ui = {
+        enable = cfg.ollama.web.mode == "nextjs-ollama-llm-ui";
         port = cfg.ollama.web.port;
       };
     };

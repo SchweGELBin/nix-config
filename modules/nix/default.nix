@@ -160,7 +160,7 @@ in
         enable = lib.mkDefault true;
         port = lib.mkDefault 11434;
         web = {
-          enable = lib.mkDefault true;
+          mode = lib.mkDefault "nextjs-ollama-llm-ui";
           fqdn = lib.mkDefault "ai.${vars.my.domain}";
           port = lib.mkDefault 11435;
         };

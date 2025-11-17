@@ -204,13 +204,21 @@ in
           type = lib.types.int;
         };
         web = {
-          enable = lib.mkEnableOption "Enable Open WebUI";
+          mode = lib.mkOption {
+            description = "Ollama Web Service";
+            type = lib.types.enum [
+              "disabled"
+              "librechat"
+              "nextjs-ollama-llm-ui"
+              "open-webui"
+            ];
+          };
           fqdn = lib.mkOption {
-            description = "Open WebUI Domain";
+            description = "Ollama Web Domain";
             type = lib.types.str;
           };
           port = lib.mkOption {
-            description = "Open WebUI Port";
+            description = "Ollama Web Port";
             type = lib.types.int;
           };
         };
