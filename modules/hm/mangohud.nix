@@ -8,6 +8,7 @@ in
       enable = true;
       enableSessionWide = true;
       settingsPerApplication = {
+        ".easyeffects-wrapped".no_display = true;
         mpv.no_display = true;
         ".pavucontrol-wrapped".no_display = true;
       };

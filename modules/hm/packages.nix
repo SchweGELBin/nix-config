@@ -47,6 +47,7 @@ in
         catppuccin-catwalk
         catppuccin-whiskers
         dolphin-emu
+        easyeffects
         exiftool
         (fenix.combine [
           fenix.latest.toolchain
