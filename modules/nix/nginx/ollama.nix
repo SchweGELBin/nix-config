@@ -21,7 +21,11 @@ in
       };
       ollama = {
         enable = true;
-        loadModels = [ "tinydolphin" ];
+        loadModels = [
+          "gpt-oss:120b-cloud"
+          "granite4:350m"
+          "smollm2:135m"
+        ];
         port = cfg.ollama.port;
         user = "ollama";
       };
