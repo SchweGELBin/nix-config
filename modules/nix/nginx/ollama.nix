@@ -1,9 +1,17 @@
-{ config, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.ollama.enable;
+  secrets = config.sops.secrets;
 in
 {
+  imports = [ inputs.sops-nix.nixosModules.default ];
+
   config = lib.mkIf enable {
     services = {
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
@@ -15,6 +23,7 @@ in
         enable = true;
         loadModels = [ "tinydolphin" ];
         port = cfg.ollama.port;
+        user = "ollama";
       };
       open-webui = {
         enable = cfg.ollama.web.mode == "open-webui";
@@ -25,5 +34,6 @@ in
         port = cfg.ollama.web.port;
       };
     };
+    sops.secrets.ollama_env.owner = "ollama";
   };
 }
