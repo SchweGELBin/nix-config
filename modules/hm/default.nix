@@ -29,6 +29,7 @@
     ./thunderbird.nix
     ./vesktop.nix
     ./waybar.nix
+    ./yt-dlp.nix
     ./zsh.nix
   ];
 
@@ -130,5 +131,6 @@
   thunderbird.enable = lib.mkDefault false;
   vesktop.enable = lib.mkDefault false;
   waybar.enable = lib.mkDefault false;
+  yt-dlp.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
 }

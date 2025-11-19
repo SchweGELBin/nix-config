@@ -106,7 +106,6 @@ in
       obs-studio.enable = true;
       qutebrowser.enable = true;
       wlogout.enable = true;
-      yt-dlp.enable = true;
     }
     // lib.optionalAttrs cfg.server.enable {
       htop.enable = true;
