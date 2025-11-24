@@ -29,14 +29,16 @@ in
       librechat = {
         enable = cfg.ollama.web.mode == "librechat";
         credentials = {
-          CREDS_IV = secrets.librechat_creds-iv;
-          CREDS_KEY = secrets.librechat_creds-key;
-          JWT_REFRESH_SECRET = secrets.librechat_jwt-refresh-secret;
-          JWT_SECRET = secrets.librechat_jwt-secret;
-          MEILI_MASTER_KEY = secrets.librechat_meili-master-key;
+          CREDS_IV = secrets.librechat_creds-iv.path;
+          CREDS_KEY = secrets.librechat_creds-key.path;
+          JWT_REFRESH_SECRET = secrets.librechat_jwt-refresh-secret.path;
+          JWT_SECRET = secrets.librechat_jwt-secret.path;
+          MEILI_MASTER_KEY = secrets.librechat_meili-master-key.path;
         };
+        enableLocalDB = true;
         env.PORT = cfg.ollama.web.port;
       };
+
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
         enableACME = true;
         forceSSL = true;
@@ -52,11 +54,11 @@ in
       };
     };
     sops.secrets = {
-      librechat_creds-iv = "librechat";
-      librechat_creds-key = "librechat";
-      librechat_jwt-refresh-secret = "librechat";
-      librechat_jwt-secret = "librechat";
-      librechat_meili-master-key = "librechat";
+      librechat_creds-iv.owner = "librechat";
+      librechat_creds-key.owner = "librechat";
+      librechat_jwt-refresh-secret.owner = "librechat";
+      librechat_jwt-secret.owner = "librechat";
+      librechat_meili-master-key.owner = "librechat";
       ollama_env.owner = "ollama";
     };
   };
