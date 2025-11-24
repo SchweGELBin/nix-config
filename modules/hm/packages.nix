@@ -81,6 +81,7 @@ in
         slurp
         superTux
         superTuxKart
+        theclicker
         wev
         winetricks
         wineWowPackages.stagingFull
