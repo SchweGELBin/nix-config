@@ -7,7 +7,7 @@
 let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.ollama.enable;
-  secrets = config.sops.secrets;
+  #secrets = config.sops.secrets;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -43,6 +43,6 @@ in
         port = cfg.ollama.web.port;
       };
     };
-    sops.secrets.ollama_env.owner = "ollama";
+    #sops.secrets.ollama_env.owner = "ollama";
   };
 }
