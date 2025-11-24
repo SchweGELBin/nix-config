@@ -7,20 +7,14 @@
 let
   cfg = config.android-sdk;
 
-  android = {
-    composition = pkgs.androidenv.composeAndroidPackages {
-      includeNDK = true;
-      platformVersions = [ "36" ];
-    };
-    sdk = android.composition.androidsdk;
-  };
+  androidsdk = pkgs.androidenv.androidPkgs.androidsdk;
 in
 {
   config = lib.mkIf cfg.enable {
     home = {
-      packages = [ android.sdk ];
+      packages = [ androidsdk ];
       sessionVariables = {
-        ANDROID_HOME = "${android.sdk}/libexec/android-sdk";
+        ANDROID_HOME = androidsdk + "/libexec/android-sdk";
         NDK_HOME = "$ANDROID_HOME/ndk-bundle";
       };
     };
