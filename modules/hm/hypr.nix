@@ -90,6 +90,7 @@ in
         "$applauncher2" = "rofi -show drun -show-icons";
         "$bar" = "waybar";
         "$browser" = "firefox";
+        "$clicker" = "theclicker";
         "$discord" = "vesktop";
         "$filemanager" = "nemo";
         "$mod1" = "SUPER";
@@ -141,6 +142,7 @@ in
           "$mod1       ,  V         ,  Kill a window (select or exit with [esc])     ,  exec                  , hyprctl kill"
           "$mod1       ,  RETURN    ,  Launch App Launcher ($applauncher)            ,  exec                  , $applauncher"
           "$mod2       ,  RETURN    ,  Launch App Launcher Alt ($applauncher2)       ,  exec                  , $applauncher2"
+          "$mod1       ,  mouse:274 ,  Lauch Auto Clicker ($clicker)                 ,  exec                  , kitty --hold $clicker"
           "$mod1       ,  A         ,  Launch Browser ($browser)                     ,  exec                  , $browser"
           "$mod1       ,  KP_Enter  ,  Launch Calculator                             ,  exec                  , rofi -show calc"
           "$mod1       ,  K         ,  Launch Color Picker                           ,  exec                  , hyprpicker -f hex -a"
@@ -202,24 +204,24 @@ in
         ];
 
         binddel = [
-          ", XF86MonBrightnessDown, Decrease Brightness, exec, brightnessctl s 10%-"
-          ", XF86AudioLowerVolume,  Decrease Volume,     exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-          ", XF86MonBrightnessUp,   Increase Brightness, exec, brightnessctl s 10%+"
-          ", XF86AudioRaiseVolume,  Increase Volume,     exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+          ",  XF86MonBrightnessDown,  Decrease Brightness,  exec,  brightnessctl s 10%-"
+          ",  XF86AudioLowerVolume,   Decrease Volume    ,  exec,  wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
+          ",  XF86MonBrightnessUp,    Increase Brightness,  exec,  brightnessctl s 10%+"
+          ",  XF86AudioRaiseVolume,   Increase Volume    ,  exec,  wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ];
 
         binddl = [
-          "SHIFT,  XF86AudioPlay,     Kill MPV,        exec,  pkill -x mpv"
-          "     ,  XF86AudioNext,     Media Next,      exec,  playerctl next"
-          "     ,  XF86AudioPlay,     Media Play,      exec,  playerctl play-pause"
+          "SHIFT,  XF86AudioPlay,     Kill MPV      ,  exec,  pkill -x mpv"
+          "     ,  XF86AudioNext,     Media Next    ,  exec,  playerctl next"
+          "     ,  XF86AudioPlay,     Media Play    ,  exec,  playerctl play-pause"
           "     ,  XF86AudioPrev,     Media Previous,  exec,  playerctl previous"
-          "     ,  XF86AudioMute,     Mute Audio,      exec,  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          "     ,  XF86AudioMicMute,  Mute Mic,        exec,  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          "     ,  XF86AudioMute,     Mute Audio    ,  exec,  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          "     ,  XF86AudioMicMute,  Mute Mic      ,  exec,  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ];
 
         binddm = [
-          "$mod1, mouse:272, Move Window, movewindow"
-          "$mod1, mouse:273, Resize Window, resizewindow"
+          "$mod1,  mouse:272,  Move Window  ,  movewindow"
+          "$mod1,  mouse:273,  Resize Window,  resizewindow"
         ];
 
         debug.error_position = 1;
