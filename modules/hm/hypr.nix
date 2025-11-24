@@ -146,6 +146,7 @@ in
           "$mod1       ,  K         ,  Launch Color Picker                           ,  exec                  , hyprpicker -f hex -a"
           "$mod1       ,  D         ,  Launch Discord client ($discord)              ,  exec                  , $discord"
           "$mod1       ,  backslash ,  Launch Emoji Picker                           ,  exec                  , rofi -show emoji"
+          "$mod1       ,  X         ,  Launch Easy Effects in background             ,  exec                  , easyeffects --hide-window"
           "$mod1       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
           "$mod1       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
           "$mod1       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
