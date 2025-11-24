@@ -161,7 +161,7 @@ in
         port = lib.mkDefault 11434;
         web = {
           enable = lib.mkDefault true;
-          mode = lib.mkDefault "open-webui";
+          mode = lib.mkDefault "librechat";
           fqdn = lib.mkDefault "ai.${vars.my.domain}";
           port = lib.mkDefault 11435;
         };
