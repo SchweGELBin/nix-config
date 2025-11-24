@@ -14,6 +14,11 @@ in
 
   config = lib.mkIf enable {
     services = {
+      # Not merged yet, see https://github.com/NixOS/nixpkgs/pull/462287
+      #librechat = {
+      #  enable = cfg.ollama.web.mode == "librechat";
+      #  env.PORT = cfg.ollama.web.port;
+      #};
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
         enableACME = true;
         forceSSL = true;
