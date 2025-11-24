@@ -35,7 +35,6 @@ sudo config-reset [git/https/*] | Reset config
 music                           | Toogle music-instance
 music-instance                  | Play music
 loopback                        | Toggle mic loopback
-ac [l/r]                        | Auto Clicker [l]eft/[r]ight
 userjs2nix [arkenfox/.../*]     | Echo user.js in nix format
 vpn [on/off/*]                  | Toggle VPN connection
 ```

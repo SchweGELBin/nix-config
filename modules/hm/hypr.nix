@@ -117,8 +117,6 @@ in
 
         bindd = [
           "$mod2  SHIFT,  up        ,  Add window to master                          ,  layoutmsg             , addmaster"
-          "$mod3       ,  left      ,  Auto Clicker Left                             ,  exec                  , ac l"
-          "$mod3       ,  right     ,  Auto Clicker Right                            ,  exec                  , ac r"
           "$mod1       ,  C         ,  Close active window                           ,  killactive            , "
           "$mod1       ,  mouse_down,  Go to next workspace                          ,  workspace             , e+1"
           "$mod1       ,  mouse_up  ,  Go to previous workspace                      ,  workspace             , e-1"

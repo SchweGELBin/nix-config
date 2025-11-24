@@ -68,20 +68,6 @@ in
         fi
       '')
 
-      (pkgs.writeShellScriptBin "ac" ''
-        pkill -x ydotool
-        ydotool click 0x80
-        ydotool click 0x81
-        case $1 in
-        l) # Left
-          ydotool click -r 50 -D 50 0xC0
-        ;;
-        r) # Right
-          ydotool click -r 100 -D 25 0xC1
-        ;;
-        esac
-      '')
-
       (pkgs.writeShellScriptBin "userjs2nix" ''
         if [ -z "$1" ]; then
           echo "Usage: $0 [arkenfox/Betterfox/Fastfox/Peskyfox/Securefox/Smoothfox or /path/to/user.js]"
