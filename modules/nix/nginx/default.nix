@@ -204,10 +204,10 @@ in
           type = lib.types.int;
         };
         web = {
+          enable = lib.mkEnableOption "Enable Ollama Web";
           mode = lib.mkOption {
             description = "Ollama Web Service";
             type = lib.types.enum [
-              "disabled"
               "librechat"
               "nextjs-ollama-llm-ui"
               "open-webui"
