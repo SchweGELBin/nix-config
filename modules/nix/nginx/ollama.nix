@@ -41,7 +41,6 @@ in
           PORT = cfg.ollama.web.port;
         };
       };
-
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
         enableACME = true;
         forceSSL = true;
