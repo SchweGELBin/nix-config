@@ -8,6 +8,12 @@ let
   cfg = config.sys.nginx;
   enable = cfg.enable && cfg.ollama.enable;
   secrets = config.sops.secrets;
+
+  models = [
+    "gpt-oss:120b-cloud"
+    "granite4:350m"
+    "smollm2:135m"
+  ];
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -16,11 +22,7 @@ in
     services = {
       ollama = {
         enable = true;
-        loadModels = [
-          "gpt-oss:120b-cloud"
-          "granite4:350m"
-          "smollm2:135m"
-        ];
+        loadModels = models;
         port = cfg.ollama.port;
         user = "ollama";
       };
@@ -39,6 +41,24 @@ in
         env = {
           ALLOW_REGISTRATION = true;
           PORT = cfg.ollama.web.port;
+        };
+        settings = {
+          cache = true;
+          endpoints.custom = [
+            {
+              name = "Ollama";
+              apiKey = "ollama";
+              baseURL = "http://localhost:11434/v1/";
+              forcePrompt = false;
+              modelDisplayLabel = "Ollama";
+              models.default = models;
+              summarize = false;
+              summaryModel = "current_model";
+              titleConvo = true;
+              titleModel = "current_model";
+            }
+          ];
+          version = "1.2.8";
         };
       };
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
