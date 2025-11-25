@@ -36,7 +36,10 @@ in
           MEILI_MASTER_KEY = secrets.librechat_meili-master-key.path;
         };
         enableLocalDB = true;
-        env.PORT = cfg.ollama.web.port;
+        env = {
+          ALLOW_REGISTRATION = true;
+          PORT = cfg.ollama.web.port;
+        };
       };
 
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
