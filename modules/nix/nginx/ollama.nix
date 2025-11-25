@@ -48,7 +48,7 @@ in
             {
               name = "Ollama";
               apiKey = "ollama";
-              baseURL = "http://localhost:11434/v1/";
+              baseURL = "http://localhost:${toString cfg.ollama.port}/v1/";
               forcePrompt = false;
               modelDisplayLabel = "Ollama";
               models.default = models;
