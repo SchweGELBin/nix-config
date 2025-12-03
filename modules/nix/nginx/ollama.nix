@@ -30,13 +30,7 @@ in
     // lib.optionalAttrs cfg.ollama.web.enable {
       librechat = {
         enable = cfg.ollama.web.mode == "librechat";
-        credentials = {
-          CREDS_IV = secrets.librechat_creds-iv.path;
-          CREDS_KEY = secrets.librechat_creds-key.path;
-          JWT_REFRESH_SECRET = secrets.librechat_jwt-refresh-secret.path;
-          JWT_SECRET = secrets.librechat_jwt-secret.path;
-          MEILI_MASTER_KEY = secrets.librechat_meili-master-key.path;
-        };
+        credentialsFile = secrets.librechat_env.path;
         enableLocalDB = true;
         env = {
           ALLOW_REGISTRATION = true;
@@ -76,11 +70,7 @@ in
       };
     };
     sops.secrets = {
-      librechat_creds-iv.owner = "librechat";
-      librechat_creds-key.owner = "librechat";
-      librechat_jwt-refresh-secret.owner = "librechat";
-      librechat_jwt-secret.owner = "librechat";
-      librechat_meili-master-key.owner = "librechat";
+      librechat_env.owner = "librechat";
       ollama_env.owner = "ollama";
     };
   };
