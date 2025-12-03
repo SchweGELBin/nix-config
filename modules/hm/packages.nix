@@ -68,6 +68,7 @@ in
         libreoffice-qt-fresh
         luanti
         mari0
+        melonDS
         nemo
         nix-update
         nixpkgs-review
