@@ -80,6 +80,7 @@ in
         qrencode
         ryubing
         slurp
+        sm64coopdx
         superTux
         superTuxKart
         theclicker
