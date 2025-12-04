@@ -72,6 +72,15 @@ in
     };
     networking = {
       enable = lib.mkDefault true;
+      dns = {
+        enable = lib.mkDefault true;
+        cloudflare = {
+          enable = lib.mkDefault true;
+          flavor = lib.mkDefault 1;
+        };
+        google.enable = lib.mkDefault false;
+        quad9.enable = lib.mkDefault true;
+      };
       hostName = lib.mkDefault vars.user.hostname.home;
       interface = lib.mkDefault "eth0";
       nat.enable = lib.mkDefault false;

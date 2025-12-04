@@ -17,10 +17,6 @@ in
     networking = {
       firewall.enable = true;
       hostName = cfg.hostName;
-      nameservers = [
-        "1.1.1.1"
-        "1.0.0.1"
-      ];
       nat = lib.mkIf cfg.nat.enable {
         enable = true;
         enableIPv6 = true;
@@ -29,6 +25,21 @@ in
       networkmanager.enable = true;
       stevenblack.enable = true;
       useDHCP = lib.mkDefault true;
+    }
+    // lib.optionalAttrs cfg.dns.enable {
+      nameservers =
+        lib.optionals cfg.dns.cloudflare.enable [
+          "1.1.1.${toString cfg.dns.cloudflare.flavor}"
+          "1.0.0.${toString cfg.dns.cloudflare.flavor}"
+        ]
+        ++ lib.optionals cfg.dns.google.enable [
+          "8.8.8.8"
+          "8.4.4.8"
+        ]
+        ++ lib.optionals cfg.dns.quad9.enable [
+          "9.9.9.9"
+          "149.112.112.112"
+        ];
     }
     // lib.optionalAttrs cfg.static.enable {
       defaultGateway = gateway.v4;
@@ -72,6 +83,18 @@ in
   options = {
     sys.networking = {
       enable = lib.mkEnableOption "Enable Networking";
+      dns = {
+        enable = lib.mkEnableOption "Enable Custom DNS";
+        cloudflare = {
+          enable = lib.mkEnableOption "Enable Cloudflare DNS";
+          flavor = lib.mkOption {
+            description = "Cloudflare DNS Flavor";
+            type = (lib.types.ints.between 1 3);
+          };
+        };
+        google.enable = lib.mkEnableOption "Enable Google DNS";
+        quad9.enable = lib.mkEnableOption "Enable Quad9 DNS";
+      };
       hostName = lib.mkOption {
         description = "Networking Host Name";
         type = lib.types.str;
