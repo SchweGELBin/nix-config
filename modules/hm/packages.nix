@@ -107,6 +107,7 @@ in
       jq.enable = true;
       obs-studio.enable = true;
       qutebrowser.enable = true;
+      retroarch.enable = true;
       wlogout.enable = true;
     }
     // lib.optionalAttrs cfg.server.enable {

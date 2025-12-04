@@ -21,7 +21,6 @@
     ./music.nix
     ./niri.nix
     ./packages.nix
-    ./retroarch.nix
     ./rofi.nix
     ./scripts.nix
     ./security.nix
@@ -100,7 +99,6 @@
   mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault true;
   niri.enable = lib.mkDefault false;
-  retroarch.enable = lib.mkDefault false;
   rofi = {
     enable = lib.mkDefault false;
     modes = {
