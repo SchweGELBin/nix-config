@@ -11,6 +11,12 @@ in
 {
   config = lib.mkIf cfg.enable {
     xdg.desktopEntries = {
+      keybinds = {
+        categories = [ "Education" ];
+        exec = "kitty --hold binds";
+        icon = "${icons}/devices/keyboard.svg";
+        name = "Keybinds";
+      };
       rocketleague = {
         actions.update = {
           exec = "legendary update Sugar -y";
