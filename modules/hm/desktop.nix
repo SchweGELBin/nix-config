@@ -12,15 +12,19 @@ in
   config = lib.mkIf cfg.enable {
     xdg.desktopEntries = {
       rocketleague = {
-        actions."Update".exec = "legendary update Sugar -y";
+        actions.update = {
+          exec = "legendary update Sugar -y";
+          icon = "${icons}/apps/rocket-league.svg";
+          name = "Update Rocket League";
+        };
         categories = [ "Game" ];
-        exec = "DISPLAY= legendary launch Sugar";
+        exec = "env DISPLAY= legendary launch Sugar";
         icon = "${icons}/apps/rocket-league.svg";
         name = "Rocket League";
       };
       sm64coopdx = {
         categories = [ "Game" ];
-        exec = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p sm64coopdx --run \"sm64coopdx\"";
+        exec = "env NIXPKGS_ALLOW_UNFREE=1 nix-shell -p sm64coopdx --run sm64coopdx";
         icon = "${icons}/apps/sm64ex.svg";
         name = "sm64coopdx";
       };
