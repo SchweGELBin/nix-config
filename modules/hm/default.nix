@@ -5,6 +5,7 @@
     ./android-sdk.nix
     ./ava.nix
     ./direnv.nix
+    ./desktop.nix
     ./devshells
     ./element.nix
     ./fastfetch.nix
@@ -40,6 +41,7 @@
     cava.enable = lib.mkDefault true;
     glava.enable = lib.mkDefault true;
   };
+  desktop.enable = lib.mkDefault true;
   devshells = {
     enable = lib.mkDefault false;
     bevy.enable = lib.mkDefault false;
