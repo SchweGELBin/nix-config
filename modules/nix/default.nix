@@ -266,13 +266,15 @@ in
     };
     smoos = {
       enable = lib.mkDefault false;
-      bot = {
-        enable = lib.mkDefault true;
-        port = lib.mkDefault 1027;
-      };
       cs = {
         enable = lib.mkDefault true;
+        bot.enable = lib.mkDefault true;
         port = lib.mkDefault 1027;
+      };
+      rs = {
+        enable = lib.mkDefault true;
+        bot.enable = lib.mkDefault true;
+        port = lib.mkDefault 1028;
       };
     };
     sound.enable = lib.mkDefault true;
