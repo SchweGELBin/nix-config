@@ -19,44 +19,60 @@ in
   config = lib.mkIf cfg.enable {
     nur.smoos = {
       enable = true;
-      bot = {
-        enable = cfg.bot.enable;
-        package = pkgs.nur.smoos-bot;
-        secretFile = secrets.smoos_env.path;
-        settings = {
-          api_port = cfg.bot.port;
-          discord_id = toString vars.my.discordid;
-        };
-      };
       cs = {
         enable = cfg.cs.enable;
         package = pkgs.nur.smoos-cs;
-        secretFile = secrets.smoos_env.path;
+        bot = {
+          enable = cfg.cs.bot.enable;
+          package = pkgs.nur.smoos-bot;
+          settings.discord_id = toString vars.my.discordid;
+        };
+        secretFile = secrets.smoos-cs_env.path;
         settings = {
           force = true;
           jsonapi = true;
           port = cfg.cs.port;
         };
       };
+      rs = {
+        enable = cfg.rs.enable;
+        package = pkgs.nur.smoos-rs;
+        bot = {
+          enable = cfg.rs.bot.enable;
+          package = pkgs.nur.smoos-bot;
+          settings.discord_id = toString vars.my.discordid;
+        };
+        secretFile = secrets.smoos-rs_env.path;
+        settings = {
+          force = true;
+          jsonapi = true;
+          port = cfg.rs.port;
+        };
+      };
     };
 
-    sops.secrets.smoos_env.owner = "smoos";
+    sops.secrets = {
+      smoos-cs_env.owner = "smoos";
+      smoos-rs_env.owner = "smoos";
+    };
   };
 
   options = {
     sys.smoos = {
       enable = lib.mkEnableOption "Enable Super Mario Odyssey: Online Server";
-      bot = {
-        enable = lib.mkEnableOption "Enable SMOOS-Bot";
+      cs = {
+        enable = lib.mkEnableOption "Enable SMOOS-CS";
+        bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
         port = lib.mkOption {
-          description = "SMOOS-Bot port, should match a server's port";
+          description = "SMOOS-CS port";
           type = lib.types.int;
         };
       };
-      cs = {
-        enable = lib.mkEnableOption "Enable SMOOS-CS";
+      rs = {
+        enable = lib.mkEnableOption "Enable SMOOS-RS";
+        bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
         port = lib.mkOption {
-          description = "SMOOS-CS port";
+          description = "SMOOS-RS port";
           type = lib.types.int;
         };
       };
