@@ -28,6 +28,7 @@ in
       collabora.enable = false;
       immich.enable = false;
       nextcloud.enable = false;
+      ollama.enable = false;
       onlyoffice.enable = false;
       piped.enable = false;
     };
