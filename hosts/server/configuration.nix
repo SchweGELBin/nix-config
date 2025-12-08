@@ -29,6 +29,7 @@ in
       immich.enable = false;
       nextcloud.enable = false;
       onlyoffice.enable = false;
+      piped.enable = false;
     };
     networking = {
       hostName = vars.user.hostname.server;
