@@ -4,14 +4,17 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    services.ryuldn = {
-      enable = true;
-      settings.port = cfg.port;
-      web = {
-        enable = cfg.web.enable;
-        settings.port = cfg.web.port;
+    /*
+      https://github.com/NixOS/nixpkgs/pull/458646
+      services.ryuldn = {
+        enable = true;
+        settings.port = cfg.port;
+        web = {
+          enable = cfg.web.enable;
+          settings.port = cfg.web.port;
+        };
       };
-    };
+    */
   };
 
   options = {
