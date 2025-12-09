@@ -52,8 +52,8 @@ in
     };
 
     sops.secrets = {
-      smoos-cs_env.owner = "smoos";
-      smoos-rs_env.owner = "smoos";
+      smoos-cs_env.owner = "smoos-cs";
+      smoos-rs_env.owner = "smoos-rs";
     };
   };
 
