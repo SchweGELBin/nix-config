@@ -22,13 +22,13 @@ in
       enable = lib.mkEnableOption "Enable RyuLDN Multiplayer Server";
       port = lib.mkOption {
         description = "RyuLDN port";
-        type = lib.types.int;
+        type = lib.types.port;
       };
       web = {
         enable = lib.mkEnableOption "Enable RyuLDN Website";
         port = lib.mkOption {
           description = "RyuLDN Website port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
     };

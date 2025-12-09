@@ -65,7 +65,7 @@ in
         bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
         port = lib.mkOption {
           description = "SMOOS-CS port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       rs = {
@@ -73,7 +73,7 @@ in
         bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
         port = lib.mkOption {
           description = "SMOOS-RS port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
     };

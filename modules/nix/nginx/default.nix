@@ -61,7 +61,7 @@ in
         };
         port = lib.mkOption {
           description = "Collabora Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
 
@@ -73,19 +73,19 @@ in
         };
         port = lib.mkOption {
           description = "Turn Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         port-alt = lib.mkOption {
           description = "Turn Alternative Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         relay-max = lib.mkOption {
           description = "Turn Relay Range Max";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         relay-min = lib.mkOption {
           description = "Turn Relay Range Min";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       element = {
@@ -103,7 +103,7 @@ in
         };
         port = lib.mkOption {
           description = "FileBrowser Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       forgejo = {
@@ -118,7 +118,7 @@ in
         };
         port = lib.mkOption {
           description = "Forgejo Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         username = lib.mkOption {
           description = "Forgejo Admin Username";
@@ -133,7 +133,7 @@ in
         };
         port = lib.mkOption {
           description = "Immich Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       invidious = {
@@ -144,7 +144,7 @@ in
         };
         port = lib.mkOption {
           description = "Invidious Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       jellyfin = {
@@ -155,7 +155,7 @@ in
         };
         port = lib.mkOption {
           description = "Jellyfin Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       mail = {
@@ -173,20 +173,20 @@ in
         };
         port = lib.mkOption {
           description = "Matrix Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         signal = {
           enable = lib.mkEnableOption "Enable Signal Bridge";
           port = lib.mkOption {
             description = "Signal Bridge Port";
-            type = lib.types.int;
+            type = lib.types.port;
           };
         };
         whatsapp = {
           enable = lib.mkEnableOption "Enable WhatsApp Bridge";
           port = lib.mkOption {
             description = "WhatsApp Bridge Port";
-            type = lib.types.int;
+            type = lib.types.port;
           };
         };
       };
@@ -201,7 +201,7 @@ in
         enable = lib.mkEnableOption "Enable Ollama";
         port = lib.mkOption {
           description = "Ollama Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         web = {
           enable = lib.mkEnableOption "Enable Ollama Web";
@@ -219,7 +219,7 @@ in
           };
           port = lib.mkOption {
             description = "Ollama Web Port";
-            type = lib.types.int;
+            type = lib.types.port;
           };
         };
       };
@@ -231,7 +231,7 @@ in
         };
         port = lib.mkOption {
           description = "OnlyOffice Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       opencloud = {
@@ -242,7 +242,7 @@ in
         };
         port = lib.mkOption {
           description = "OpenCloud Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       peertube = {
@@ -257,7 +257,7 @@ in
         };
         port = lib.mkOption {
           description = "PeerTube Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       piped = {
@@ -275,7 +275,7 @@ in
         };
         port = lib.mkOption {
           description = "Radicale Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       searxng = {
@@ -286,7 +286,7 @@ in
         };
         port = lib.mkOption {
           description = "SearXNG Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       thelounge = {
@@ -295,7 +295,7 @@ in
           enable = lib.mkEnableOption "Enable Ergo";
           port = lib.mkOption {
             description = "Ergo Port";
-            type = lib.types.int;
+            type = lib.types.port;
           };
         };
         fqdn = lib.mkOption {
@@ -304,7 +304,7 @@ in
         };
         port = lib.mkOption {
           description = "The Lounge Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       uptimekuma = {
@@ -315,7 +315,7 @@ in
         };
         port = lib.mkOption {
           description = "Uptime Kuma Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       vaultwarden = {
@@ -330,7 +330,7 @@ in
         };
         port = lib.mkOption {
           description = "Vaultwarden Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       wastebin = {
@@ -341,7 +341,7 @@ in
         };
         port = lib.mkOption {
           description = "wastebin Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
       website.enable = lib.mkEnableOption "Enable Website";
@@ -353,7 +353,7 @@ in
         };
         port = lib.mkOption {
           description = "Zipline Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
       };
     };

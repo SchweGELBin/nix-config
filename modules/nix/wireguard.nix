@@ -110,7 +110,7 @@ in
       };
       port = lib.mkOption {
         description = "Wireguard Port";
-        type = lib.types.int;
+        type = lib.types.port;
       };
     };
   };

@@ -66,7 +66,7 @@ in
         enable = lib.mkEnableOption "Enable Minecraft Server";
         port = lib.mkOption {
           description = "Minecraft Server Port";
-          type = lib.types.int;
+          type = lib.types.port;
         };
         whitelist.enable = lib.mkEnableOption "Enable Minecraft Server Whitelist";
       };
