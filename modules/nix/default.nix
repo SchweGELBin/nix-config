@@ -272,7 +272,7 @@ in
         port = lib.mkDefault 1027;
       };
       rs = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         bot.enable = lib.mkDefault true;
         port = lib.mkDefault 1028;
       };
