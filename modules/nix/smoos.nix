@@ -30,7 +30,6 @@ in
         secretFile = secrets.smoos-cs_env.path;
         settings = {
           force = true;
-          jsonapi = true;
           port = cfg.cs.port;
         };
       };
@@ -45,7 +44,7 @@ in
         secretFile = secrets.smoos-rs_env.path;
         settings = {
           force = true;
-          jsonapi = true;
+          jsonapi.port = cfg.rs.jsonapi-port;
           port = cfg.rs.port;
         };
       };
@@ -71,8 +70,12 @@ in
       rs = {
         enable = lib.mkEnableOption "Enable SMOOS-RS";
         bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
-        port = lib.mkOption {
+        jsonapi-port = lib.mkOption {
           description = "SMOOS-RS port";
+          type = lib.types.port;
+        };
+        port = lib.mkOption {
+          description = "SMOOS-RS JsonApi port";
           type = lib.types.port;
         };
       };
