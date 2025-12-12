@@ -71,11 +71,11 @@ in
         enable = lib.mkEnableOption "Enable SMOOS-RS";
         bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
         jsonapi-port = lib.mkOption {
-          description = "SMOOS-RS port";
+          description = "SMOOS-RS JsonApi port";
           type = lib.types.port;
         };
         port = lib.mkOption {
-          description = "SMOOS-RS JsonApi port";
+          description = "SMOOS-RS port";
           type = lib.types.port;
         };
       };
