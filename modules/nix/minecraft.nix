@@ -26,7 +26,7 @@ in
 
     services.minecraft-server = {
       enable = cfg.server.enable;
-      package = pkgs.papermcServers.papermc-1_21_5;
+      package = pkgs.papermcServers.papermc-1_21_10;
       declarative = true;
       eula = true;
       jvmOpts = "-Xms128M -Xmx2G";
