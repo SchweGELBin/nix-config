@@ -51,8 +51,9 @@ in
     };
 
     sops.secrets = {
-      smoos-cs_env.owner = "smoos-cs";
-      smoos-rs_env.owner = "smoos-rs";
+      smoos-cs_env.owner = lib.mkIf cfg.cs.enable "smoos-cs";
+      smoos-rs_env.owner = lib.mkIf cfg.rs.enable "smoos-rs";
+
     };
   };
 
