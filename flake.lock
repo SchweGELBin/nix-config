@@ -245,11 +245,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765582153,
-        "narHash": "sha256-dG8MS7K5o43ForLtIOCXdYolrf/5j11n6IjRPeQYQTk=",
+        "lastModified": 1765583953,
+        "narHash": "sha256-0eEx/a4RyGf2qeNmk82q34jwfEJa4HsZBIHDQDIYjLk=",
         "owner": "SchweGELBin",
         "repo": "nur-expressions",
-        "rev": "adc40ca4b83def83b1dade2bef5017e8cff7c4f2",
+        "rev": "ad60ea463c987aeeb4c0e44d62a01135feb71078",
         "type": "github"
       },
       "original": {
