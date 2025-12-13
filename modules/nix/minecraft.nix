@@ -15,8 +15,10 @@ in
 
   config = lib.mkIf cfg.enable {
     networking.firewall = {
-      allowedTCPPorts = [ cfg.server.port ] ++ lib.optional cfg.server.rcon.enable cfg.server.rcon.port;
-      allowedUDPPorts = [ cfg.server.port ];
+      allowedTCPPorts =
+        lib.optional cfg.server.enable cfg.server.port
+        ++ lib.optional cfg.server.rcon.enable cfg.server.rcon.port;
+      allowedUDPPorts = lib.optional cfg.server.enable cfg.server.port;
     };
 
     nur.mixbot = {
