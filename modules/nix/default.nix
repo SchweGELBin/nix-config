@@ -69,7 +69,7 @@ in
         port = lib.mkDefault 25565;
         ram = lib.mkDefault "-Xms128M -Xmx2G";
         rcon = {
-          enable = lib.mkDefault true;
+          enable = lib.mkDefault false;
           port = lib.mkDefault 25566;
         };
         whitelist.enable = lib.mkDefault true;
