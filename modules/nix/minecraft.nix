@@ -14,15 +14,13 @@ in
   imports = [ inputs.nur.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
-    networking.firewall = {
-      allowedTCPPorts =
-        lib.optional cfg.server.enable cfg.server.port
-        ++ lib.optional cfg.server.rcon.enable cfg.server.rcon.port;
-      allowedUDPPorts = lib.optional cfg.server.enable cfg.server.port;
+    networking.firewall = lib.mkIf cfg.server.enable {
+      allowedTCPPorts = [ cfg.server.port ] ++ lib.optional cfg.server.rcon.enable cfg.server.rcon.port;
+      allowedUDPPorts = [ cfg.server.port ];
     };
 
-    nur.mixbot = {
-      enable = cfg.bot.enable;
+    nur.mixbot = lib.mkIf cfg.bot.enable {
+      enable = true;
       package = pkgs.nur.mixbot;
       secretFile = secrets.mixbot_env.path;
       settings = {
@@ -31,8 +29,8 @@ in
       };
     };
 
-    services.minecraft-server = {
-      enable = cfg.server.enable;
+    services.minecraft-server = lib.mkIf cfg.server.enable {
+      enable = true;
       package = pkgs.papermcServers.papermc-1_21_10;
       declarative = true;
       eula = true;
