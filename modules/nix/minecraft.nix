@@ -14,6 +14,11 @@ in
   imports = [ inputs.nur.nixosModules.default ];
 
   config = lib.mkIf cfg.enable {
+    networking.firewall = {
+      allowedTCPPorts = [ cfg.server.port ] ++ lib.optional cfg.server.rcon.enable cfg.server.rcon.port;
+      allowedUDPPorts = [ cfg.server.port ];
+    };
+
     nur.mixbot = {
       enable = cfg.bot.enable;
       package = pkgs.nur.mixbot;
@@ -29,23 +34,26 @@ in
       package = pkgs.papermcServers.papermc-1_21_10;
       declarative = true;
       eula = true;
-      jvmOpts = "-Xms128M -Xmx2G";
+      jvmOpts = cfg.server.ram;
       openFirewall = true;
       serverProperties = {
-        "query.port" = cfg.server.port;
         difficulty = "hard";
         enable-command-block = false;
+        enable-rcon = cfg.server.rcon.enable;
         enforce-whitelist = true;
         force-gamemode = true;
         max-players = 7;
         motd = "MiX MC";
         op-permission-level = 2;
+        "query.port" = cfg.server.port;
+        "rcon.password" = "V3ry S3cr3t P455w0rd";
+        "rcon.port" = cfg.server.rcon.port;
         server-port = cfg.server.port;
         simulation-distance = 6;
         view-distance = 8;
-        white-list = true;
+        white-list = cfg.server.whitelist.enable;
       };
-      whitelist = lib.mkIf cfg.server.whitelist.enable {
+      whitelist = {
         ilikeyourcut = "c4ac655d-1da4-4e44-9bc1-2b556c44cb6f";
         lord_slavik = "7f6a1a19-9fda-447b-8339-cf4ef2568c64";
         mixbot = "81a1f96b-6231-48d7-8f06-bfb21bad12cc";
@@ -67,6 +75,17 @@ in
         port = lib.mkOption {
           description = "Minecraft Server Port";
           type = lib.types.port;
+        };
+        ram = lib.mkOption {
+          description = "Minecraft RAM arguments";
+          type = lib.types.str;
+        };
+        rcon = {
+          enable = lib.mkEnableOption "Enable Minecraft Remote Control";
+          port = lib.mkOption {
+            description = "Minecraft Remote Control Port";
+            type = lib.types.port;
+          };
         };
         whitelist.enable = lib.mkEnableOption "Enable Minecraft Server Whitelist";
       };
