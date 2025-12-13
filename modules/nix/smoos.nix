@@ -44,7 +44,7 @@ in
         secretFile = secrets.smoos-rs_env.path;
         settings = {
           force = true;
-          jsonapi.port = cfg.rs.jsonapi-port;
+          jsonapi-port = cfg.rs.jsonapi-port;
           port = cfg.rs.port;
         };
       };
