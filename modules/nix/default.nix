@@ -279,7 +279,6 @@ in
       rs = {
         enable = lib.mkDefault true;
         bot.enable = lib.mkDefault true;
-        jsonapi-port = lib.mkDefault 1128;
         port = lib.mkDefault 1028;
       };
     };
