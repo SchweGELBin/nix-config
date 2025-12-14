@@ -99,7 +99,7 @@
   mako.enable = lib.mkDefault false;
   mangohud.enable = lib.mkDefault false;
   mpv.enable = lib.mkDefault true;
-  music.enable = lib.mkDefault true;
+  music.enable = lib.mkDefault false;
   niri.enable = lib.mkDefault false;
   rofi = {
     enable = lib.mkDefault false;

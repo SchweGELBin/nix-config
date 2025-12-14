@@ -15,6 +15,7 @@
   kitty.enable = true;
   mako.enable = true;
   mangohud.enable = true;
+  music.enable = true;
   rofi.enable = true;
   theme.gtk.enable = true;
   thunderbird.enable = true;
