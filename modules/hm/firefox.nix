@@ -161,6 +161,11 @@ in
               icon = "${icons}/emotes/face-cool.svg";
               urls = [ { template = "https://www.nerdfonts.com/cheat-sheet?q={searchTerms}"; } ];
             };
+            "Forgejo" = {
+              definedAliases = [ "@fo" ];
+              icon = "${icons}/apps/git.svg";
+              urls = [ { template = "https://git.${vars.my.domain}/explore/repos?q={searchTerms}"; } ];
+            };
             "GitHub" = {
               definedAliases = [ "@gh" ];
               icon = "${icons}/apps/github.svg";
@@ -173,6 +178,11 @@ in
               urls = [
                 { template = "https://home-manager-options.extranix.com/?release=master&query={searchTerms}"; }
               ];
+            };
+            "Invidious" = {
+              definedAliases = [ "@iv" ];
+              icon = "${icons}/actions/im-youtube.svg";
+              urls = [ { template = "https://iv.${vars.my.domain}/search?q={searchTerms}"; } ];
             };
             "Nix Packages" = {
               definedAliases = [ "@np" ];
@@ -194,6 +204,11 @@ in
               icon = "${icons}/actions/media-playback-playing.svg";
               urls = [ { template = "https://pt.${vars.my.domain}/search?search={searchTerms}"; } ];
             };
+            "Piped" = {
+              definedAliases = [ "@pd" ];
+              icon = "${icons}/actions/im-youtube.svg";
+              urls = [ { template = "https://pd.${vars.my.domain}/results?search_query={searchTerms}"; } ];
+            };
             "SearXNG" = {
               definedAliases = [ "@sx" ];
               icon = "${icons}/actions/edit-find.svg";
@@ -205,10 +220,15 @@ in
               urls = [ { template = "https://www.startpage.com/search?q={searchTerms}"; } ];
             };
             "wikipedia".metaData.hidden = true;
-            "Invidious" = {
-              definedAliases = [ "@iv" ];
-              icon = "${icons}/actions/im-youtube.svg";
-              urls = [ { template = "https://iv.${vars.my.domain}/search?q={searchTerms}"; } ];
+            "websurfx" = {
+              definedAliases = [ "@ws" ];
+              icon = "${icons}/actions/edit-find.svg";
+              urls = [ { template = "https://surfx.${vars.my.domain}/search?q={searchTerms}"; } ];
+            };
+            "Whoogle" = {
+              definedAliases = [ "@wh" ];
+              icon = "${icons}/actions/edit-find.svg";
+              urls = [ { template = "https://whoogle.${vars.my.domain}/search?q={searchTerms}"; } ];
             };
           };
           force = true;
