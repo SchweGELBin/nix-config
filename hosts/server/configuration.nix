@@ -31,6 +31,7 @@ in
       ollama.enable = false;
       onlyoffice.enable = false;
       piped.enable = false;
+      websurfx.enable = false;
     };
     networking = {
       hostName = vars.user.hostname.server;
