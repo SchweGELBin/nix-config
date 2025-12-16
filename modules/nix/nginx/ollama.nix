@@ -28,36 +28,33 @@ in
       };
     }
     // lib.optionalAttrs cfg.ollama.web.enable {
-      /*
-        https://github.com/NixOS/nixpkgs/pull/462287
-        librechat = {
-          enable = cfg.ollama.web.mode == "librechat";
-          credentialsFile = secrets.librechat_env.path;
-          enableLocalDB = true;
-          env = {
-            ALLOW_REGISTRATION = true;
-            PORT = cfg.ollama.web.port;
-          };
-          settings = {
-            cache = true;
-            endpoints.custom = [
-              {
-                name = "Ollama";
-                apiKey = "ollama";
-                baseURL = "http://localhost:${toString cfg.ollama.port}/v1/";
-                forcePrompt = false;
-                modelDisplayLabel = "Ollama";
-                models.default = models;
-                summarize = false;
-                summaryModel = "current_model";
-                titleConvo = true;
-                titleModel = "current_model";
-              }
-            ];
-            version = "1.2.8";
-          };
+      librechat = {
+        enable = cfg.ollama.web.mode == "librechat";
+        credentialsFile = secrets.librechat_env.path;
+        enableLocalDB = true;
+        env = {
+          ALLOW_REGISTRATION = true;
+          PORT = cfg.ollama.web.port;
         };
-      */
+        settings = {
+          cache = true;
+          endpoints.custom = [
+            {
+              name = "Ollama";
+              apiKey = "ollama";
+              baseURL = "http://localhost:${toString cfg.ollama.port}/v1/";
+              forcePrompt = false;
+              modelDisplayLabel = "Ollama";
+              models.default = models;
+              summarize = false;
+              summaryModel = "current_model";
+              titleConvo = true;
+              titleModel = "current_model";
+            }
+          ];
+          version = "1.2.8";
+        };
+      };
       nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
         enableACME = true;
         forceSSL = true;
