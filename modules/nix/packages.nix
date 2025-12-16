@@ -26,6 +26,7 @@ in
     }
     // lib.optionalAttrs cfg.home.enable {
       gamemode.enable = true;
+      ghidra.enable = true;
       hyprland = {
         enable = (cfg.home.wm == "hyprland");
         xwayland.enable = true;
