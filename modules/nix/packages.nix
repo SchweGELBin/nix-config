@@ -42,6 +42,7 @@ in
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
         gamescopeSession.enable = true;
       };
+      wireshark.enable = true;
       ydotool.enable = true;
     }
     // lib.optionalAttrs cfg.server.enable { };
