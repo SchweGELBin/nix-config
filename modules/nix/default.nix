@@ -236,6 +236,10 @@ in
         port = lib.mkDefault 8899;
       };
       website.enable = lib.mkDefault true;
+      websurfx = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "surfx.${vars.my.domain}";
+      };
       whoogle = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "whoogle.${vars.my.domain}";

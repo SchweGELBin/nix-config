@@ -26,6 +26,7 @@ in
     ./uptimekuma.nix
     ./vaultwarden.nix
     ./wastebin.nix
+    ./websurfx.nix
     ./whoogle.nix
     ./www.nix
     ./zipline.nix
@@ -346,6 +347,13 @@ in
         };
       };
       website.enable = lib.mkEnableOption "Enable Website";
+      websurfx = {
+        enable = lib.mkEnableOption "Enable websurfx";
+        fqdn = lib.mkOption {
+          description = "websurfx Domain";
+          type = lib.types.str;
+        };
+      };
       whoogle = {
         enable = lib.mkEnableOption "Enable Whoogle";
         fqdn = lib.mkOption {
