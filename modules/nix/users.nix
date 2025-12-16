@@ -18,6 +18,7 @@ in
           "input"
           "networkmanager"
           "wheel"
+          "wireshark"
           "ydotool"
         ];
         initialPassword = "1234";
