@@ -14,6 +14,11 @@ in
 
   config = lib.mkIf enable {
     services = {
+      nginx.virtualHosts.${cfg.searxng.fqdn} = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/".proxyPass = "http://localhost:${toString cfg.searxng.port}";
+      };
       searx = {
         enable = true;
         environmentFile = secrets.searx_env.path;
@@ -22,11 +27,6 @@ in
           server.port = cfg.searxng.port;
           theme_args.simple_style = "black";
         };
-      };
-      nginx.virtualHosts.${cfg.searxng.fqdn} = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.searxng.port}";
       };
     };
     sops.secrets.searx_env.owner = "searx";
