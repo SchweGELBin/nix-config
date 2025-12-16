@@ -17,6 +17,7 @@ in
         cmatrix
         file
         ffmpeg
+        gdb
         imagemagick
         nur.catspeak
         lsof
