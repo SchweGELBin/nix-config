@@ -104,41 +104,37 @@ in
             ++ lib.optional cfg.extensions.stylus.enable stylus
             ++ lib.optional cfg.extensions.ublock-origin.enable ublock-origin;
           settings = {
-            "FirefoxColor@mozilla.com".settings = lib.mkIf cfg.extensions.firefox-color.enable {
-              firstRunDone = true;
-            };
-            "skipredirect@sblask".settings = lib.mkIf cfg.extensions.skip-redirect.enable {
-              blacklist = [
-                "/abp"
-                "/account"
-                "/adfs"
-                "/auth"
-                "/cookie"
-                "/download"
-                "/login"
-                "/logoff"
-                "/logon"
-                "/logout"
-                "/oauth"
-                "/openid"
-                "/pay"
-                "/preference"
-                "/profile"
-                "/register"
-                "/saml"
-                "/signin"
-                "/signoff"
-                "/signon"
-                "/signout"
-                "/signup"
-                "/sso"
-                "/subscribe"
-                "/unauthenticated"
-                "/verification"
-                "https://external-content.duckduckgo.com"
-                "https://web.archive.org/web"
-              ];
-            };
+            "FirefoxColor@mozilla.com".settings.firstRunDone = true;
+            "skipredirect@sblask".settings.blacklist = [
+              "/abp"
+              "/account"
+              "/adfs"
+              "/auth"
+              "/cookie"
+              "/download"
+              "/login"
+              "/logoff"
+              "/logon"
+              "/logout"
+              "/oauth"
+              "/openid"
+              "/pay"
+              "/preference"
+              "/profile"
+              "/register"
+              "/saml"
+              "/signin"
+              "/signoff"
+              "/signon"
+              "/signout"
+              "/signup"
+              "/sso"
+              "/subscribe"
+              "/unauthenticated"
+              "/verification"
+              "https://external-content.duckduckgo.com"
+              "https://web.archive.org/web"
+            ];
           };
         };
         id = 0;
