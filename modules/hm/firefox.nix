@@ -86,6 +86,10 @@ in
                       name = "HM Options";
                       url = "https://nix-community.github.io/home-manager/options.xhtml";
                     }
+                    {
+                      name = "Nixpkgs Tracker";
+                      url = "https://nixpkgs-tracker.ocfox.me";
+                    }
                   ];
                 }
               ];
