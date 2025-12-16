@@ -236,6 +236,11 @@ in
         port = lib.mkDefault 8899;
       };
       website.enable = lib.mkDefault true;
+      whoogle = {
+        enable = lib.mkDefault true;
+        fqdn = lib.mkDefault "whoogle.${vars.my.domain}";
+        port = lib.mkDefault 5000;
+      };
       zipline = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "zip.${vars.my.domain}";

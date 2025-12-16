@@ -26,6 +26,7 @@ in
     ./uptimekuma.nix
     ./vaultwarden.nix
     ./wastebin.nix
+    ./whoogle.nix
     ./www.nix
     ./zipline.nix
   ];
@@ -345,6 +346,17 @@ in
         };
       };
       website.enable = lib.mkEnableOption "Enable Website";
+      whoogle = {
+        enable = lib.mkEnableOption "Enable Whoogle";
+        fqdn = lib.mkOption {
+          description = "Whoogle Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Whoogle Port";
+          type = lib.types.port;
+        };
+      };
       zipline = {
         enable = lib.mkEnableOption "Enable Zipline";
         fqdn = lib.mkOption {
