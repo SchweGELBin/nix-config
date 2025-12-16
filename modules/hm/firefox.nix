@@ -70,7 +70,7 @@ in
                     }
                     {
                       name = "Home";
-                      url = "https://www.${vars.my.domain}";
+                      url = "https://${vars.my.domain}";
                     }
                   ];
                 }
@@ -80,10 +80,6 @@ in
                     {
                       name = "Archive";
                       url = "https://web.archive.org/save";
-                    }
-                    {
-                      name = "HM Options";
-                      url = "https://nix-community.github.io/home-manager/options.xhtml";
                     }
                     {
                       name = "Nixpkgs Tracker";
