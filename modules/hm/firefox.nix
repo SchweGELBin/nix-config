@@ -195,6 +195,11 @@ in
               icon = "${icons}/apps/distributor-logo-nixos.svg";
               urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
             };
+            "Noogle" = {
+              definedAliases = [ "@ng" ];
+              icon = "${icons}/apps/distributor-logo-nixos.svg";
+              urls = [ { template = "https://noogle.dev/q?term={searchTerms}"; } ];
+            };
             "PeerTube" = {
               definedAliases = [ "@pt" ];
               icon = "${icons}/actions/media-playback-playing.svg";
