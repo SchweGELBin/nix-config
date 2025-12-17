@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./account.nix
     ./alacritty.nix
     ./android-sdk.nix
     ./ava.nix
@@ -34,6 +35,7 @@
     ./zsh.nix
   ];
 
+  account.enable = lib.mkDefault false;
   alacritty.enable = lib.mkDefault false;
   android-sdk.enable = lib.mkDefault false;
   ava = {
