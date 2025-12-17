@@ -239,6 +239,8 @@ in
       websurfx = {
         enable = lib.mkDefault true;
         fqdn = lib.mkDefault "surfx.${vars.my.domain}";
+        redis-port = lib.mkDefault 4568;
+        port = lib.mkDefault 4567;
       };
       whoogle = {
         enable = lib.mkDefault true;
