@@ -19,6 +19,7 @@ in
       whoogle-search = {
         enable = true;
         extraEnv = {
+          WHOOGLE_CONFIG_COUNTRY = "US";
           WHOOGLE_CONFIG_SEARCH_LANGUAGE = "lang_en";
           WHOOGLE_CONFIG_STYLE = lib.mkIf config.sys.catppuccin.enable (
             lib.readFile (
