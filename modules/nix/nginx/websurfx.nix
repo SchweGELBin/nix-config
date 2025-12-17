@@ -11,11 +11,14 @@ in
         forceSSL = true;
         locations."/".proxyPass = "http://localhost:${toString cfg.websurfx.port}";
       };
-      websurfx = {
-        enable = true;
-        redis.port = cfg.websurfx.redis-port;
-        settings.port = cfg.websurfx.port;
-      };
+      /*
+        https://github.com/NixOS/nixpkgs/pull/471684
+        websurfx = {
+          enable = true;
+          redis.port = cfg.websurfx.redis-port;
+          settings.port = cfg.websurfx.port;
+        };
+      */
     };
   };
 }
