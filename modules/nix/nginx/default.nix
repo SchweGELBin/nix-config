@@ -348,9 +348,9 @@ in
       };
       website.enable = lib.mkEnableOption "Enable Website";
       websurfx = {
-        enable = lib.mkEnableOption "Enable websurfx";
+        enable = lib.mkEnableOption "Enable Websurfx";
         fqdn = lib.mkOption {
-          description = "websurfx Domain";
+          description = "Websurfx Domain";
           type = lib.types.str;
         };
       };
