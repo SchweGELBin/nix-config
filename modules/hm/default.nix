@@ -7,7 +7,6 @@
     ./ava.nix
     ./direnv.nix
     ./desktop.nix
-    ./devshells
     ./element.nix
     ./fastfetch.nix
     ./firefox.nix
@@ -44,10 +43,6 @@
     glava.enable = lib.mkDefault true;
   };
   desktop.enable = lib.mkDefault true;
-  devshells = {
-    enable = lib.mkDefault false;
-    bevy.enable = lib.mkDefault false;
-  };
   direnv.enable = lib.mkDefault false;
   element.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;

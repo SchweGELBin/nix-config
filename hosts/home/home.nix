@@ -5,7 +5,6 @@
   alacritty.enable = true;
   android-sdk.enable = true;
   ava.enable = true;
-  devshells.enable = true;
   direnv.enable = true;
   element.enable = true;
   firefox.enable = true;
