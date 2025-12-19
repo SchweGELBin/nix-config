@@ -25,13 +25,15 @@ in
     minecraft.enable = true;
     nginx = {
       enable = true;
-      collabora.enable = false;
-      immich.enable = false;
-      nextcloud.enable = false;
-      ollama.enable = false;
-      onlyoffice.enable = false;
-      piped.enable = false;
-      websurfx.enable = false;
+      coturn.enable = true;
+      element.enable = true;
+      forgejo.enable = true;
+      jellyfin.enable = true;
+      mail.enable = true;
+      matrix.enable = true;
+      radicale.enable = true;
+      searxng.enable = true;
+      wastebin.enable = true;
     };
     networking = {
       hostName = vars.user.hostname.server;

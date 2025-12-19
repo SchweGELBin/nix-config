@@ -106,12 +106,12 @@ in
       enable = lib.mkDefault false;
       domain = lib.mkDefault vars.my.domain;
       collabora = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "cool.${vars.my.domain}";
         port = lib.mkDefault 9980;
       };
       coturn = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "turn.${vars.my.domain}";
         port = lib.mkDefault 5349;
         port-alt = lib.mkDefault 5350;
@@ -119,42 +119,42 @@ in
         relay-min = lib.mkDefault 49500;
       };
       element = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "element.${vars.my.domain}";
       };
       filebrowser = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "files.${vars.my.domain}";
         port = lib.mkDefault 8181;
       };
       forgejo = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "git.${vars.my.domain}";
         mail = lib.mkDefault "forgejo@${vars.my.domain}";
         port = lib.mkDefault 3000;
         username = lib.mkDefault vars.user.name;
       };
       immich = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "immich.${vars.my.domain}";
         port = lib.mkDefault 2283;
       };
       invidious = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "iv.${vars.my.domain}";
         port = lib.mkDefault 3500;
       };
       jellyfin = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "jelly.${vars.my.domain}";
         port = lib.mkDefault 8096;
       };
       mail = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "mail.${vars.my.domain}";
       };
       matrix = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "matrix.${vars.my.domain}";
         port = lib.mkDefault 6167;
         signal = {
@@ -167,11 +167,11 @@ in
         };
       };
       nextcloud = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "next.${vars.my.domain}";
       };
       ollama = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         port = lib.mkDefault 11434;
         web = {
           enable = lib.mkDefault true;
@@ -181,37 +181,37 @@ in
         };
       };
       onlyoffice = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "office.${vars.my.domain}";
         port = lib.mkDefault 8000;
       };
       opencloud = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "cloud.${vars.my.domain}";
         port = lib.mkDefault 9200;
       };
       peertube = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "pt.${vars.my.domain}";
         mail = lib.mkDefault "peertube@${vars.my.domain}";
         port = lib.mkDefault 9000;
       };
       piped = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "pd.${vars.my.domain}";
       };
       radicale = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "dav.${vars.my.domain}";
         port = lib.mkDefault 5232;
       };
       searxng = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "searx.${vars.my.domain}";
         port = lib.mkDefault 8888;
       };
       thelounge = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         ergo = {
           enable = lib.mkDefault true;
           port = lib.mkDefault 6667;
@@ -220,35 +220,35 @@ in
         port = lib.mkDefault 6789;
       };
       uptimekuma = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "uptime.${vars.my.domain}";
         port = lib.mkDefault 3001;
       };
       vaultwarden = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "vault.${vars.my.domain}";
         mail = lib.mkDefault "vault@${vars.my.domain}";
         port = lib.mkDefault 8222;
       };
       wastebin = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "bin.${vars.my.domain}";
         port = lib.mkDefault 8899;
       };
       website.enable = lib.mkDefault true;
       websurfx = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "surfx.${vars.my.domain}";
         port = lib.mkDefault 4567;
         redis-port = lib.mkDefault 4568;
       };
       whoogle = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "whoogle.${vars.my.domain}";
         port = lib.mkDefault 5000;
       };
       zipline = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         fqdn = lib.mkDefault "zip.${vars.my.domain}";
         port = lib.mkDefault 3002;
       };
