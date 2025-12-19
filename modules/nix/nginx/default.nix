@@ -353,12 +353,12 @@ in
           description = "Websurfx Domain";
           type = lib.types.str;
         };
-        redis-port = lib.mkOption {
-          description = "Websurfx Redis Port";
-          type = lib.types.port;
-        };
         port = lib.mkOption {
           description = "Websurfx Port";
+          type = lib.types.port;
+        };
+        redis-port = lib.mkOption {
+          description = "Websurfx Redis Port";
           type = lib.types.port;
         };
       };
