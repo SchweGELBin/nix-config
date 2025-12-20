@@ -21,11 +21,16 @@ in
       };
       searx = {
         enable = true;
+        domain = cfg.searxng.fqdn;
         environmentFile = secrets.searx_env.path;
         redisCreateLocally = true;
         settings = {
-          server.port = cfg.searxng.port;
-          theme_args.simple_style = "black";
+          general.instance_name = "MiX SearXNG";
+          server = {
+            base_url = cfg.searxng.fqdn;
+            port = cfg.searxng.port;
+          };
+          ui.theme_args.simple_style = "black";
         };
       };
     };
