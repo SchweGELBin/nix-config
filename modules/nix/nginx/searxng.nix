@@ -27,7 +27,7 @@ in
         settings = {
           general.instance_name = "MiX SearXNG";
           server = {
-            base_url = "https://" + cfg.searxng.fqdn;
+            base_url = "https://${cfg.searxng.fqdn}";
             port = cfg.searxng.port;
           };
           ui.theme_args.simple_style = "black";
