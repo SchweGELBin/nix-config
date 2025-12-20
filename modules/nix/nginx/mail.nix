@@ -18,7 +18,6 @@ in
   config = lib.mkIf enable {
     mailserver = {
       enable = true;
-      certificateScheme = "acme-nginx";
       domains = [ cfg.domain ];
       fqdn = cfg.mail.fqdn;
       localDnsResolver = false;
@@ -32,6 +31,10 @@ in
         ${cfg.vaultwarden.mail}.hashedPasswordFile = secrets.vaultwarden_mailhash.path;
       };
       stateVersion = 3;
+      x509 = {
+        certificateFile = "/var/lib/acme/${cfg.mail.fqdn}/cert.pem";
+        privateKeyFile = "/var/lib/acme/${cfg.mail.fqdn}/key.pem";
+      };
     };
     sops.secrets = {
       mailhash.owner = "dovecot2";
