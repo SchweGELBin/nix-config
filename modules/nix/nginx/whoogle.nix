@@ -32,7 +32,7 @@ in
             )
           );
           WHOOGLE_CONFIG_THEME = "dark";
-          WHOOGLE_CONFIG_URL = cfg.whoogle.fqdn;
+          WHOOGLE_CONFIG_URL = "https://${cfg.whoogle.fqdn}";
         };
         port = cfg.whoogle.port;
       };
