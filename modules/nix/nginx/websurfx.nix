@@ -16,7 +16,20 @@ in
         websurfx = {
           enable = true;
           redis.port = cfg.websurfx.redis-port;
-          settings.port = cfg.websurfx.port;
+          settings = {
+            port = cfg.websurfx.port;
+            upstream_search_engines = {
+              DuckDuckGo = true;
+              Searx = false;
+              Brave = false;
+              Startpage = false;
+              LibreX = false;
+              Mojeek = true;
+              Bing = false;
+              Wikipedia = false;
+              Yahoo = false;
+            };
+          };
         };
       */
     };
