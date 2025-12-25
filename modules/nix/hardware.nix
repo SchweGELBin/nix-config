@@ -5,6 +5,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     hardware = {
+      bluetooth.enable = cfg.bluetooth.enable;
       graphics.enable = true;
       nvidia = lib.mkIf cfg.nvidia.enable {
         open = true;
@@ -30,6 +31,7 @@ in
   options = {
     sys.hardware = {
       enable = lib.mkEnableOption "Enable Hardware";
+      bluetooth.enable = lib.mkEnableOption "Enable Bluetooth";
       nvidia.enable = lib.mkEnableOption "Enable NVidia";
       printing.enable = lib.mkEnableOption "Enable Printing";
     };
