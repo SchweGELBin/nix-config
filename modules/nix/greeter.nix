@@ -7,8 +7,6 @@
 let
   cfg = config.sys.greeter;
   vars = import ../vars.nix;
-
-  wm = if (config.sys.pkgs.home.wm == "hyprland") then "Hyprland" else config.sys.pkgs.home.wm;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -16,7 +14,9 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd}/bin/agreety --cmd ${wm}";
+          command = "${pkgs.greetd}/bin/agreety --cmd ${
+            if (config.sys.pkgs.home.wm == "hyprland") then "start-hyprland" else config.sys.pkgs.home.wm
+          }";
           user = vars.user.name;
         };
       };
