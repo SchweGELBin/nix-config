@@ -28,6 +28,7 @@ in
         ffmpeg
         file
         gdb
+        gnumake
         imagemagick
         lsof
         mdcat
