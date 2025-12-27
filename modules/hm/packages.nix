@@ -7,6 +7,16 @@
 let
   cfg = config.hm-pkgs;
   vars = import ../vars.nix;
+
+  catppuccin = pkgs.catppuccin.override {
+    accent = vars.cat.accent;
+    variant = vars.cat.flavor;
+  };
+  fenix = pkgs.fenix.combine [
+    pkgs.fenix.latest.toolchain
+    pkgs.fenix.targets.aarch64-linux-android.latest.rust-std
+    pkgs.fenix.targets.wasm32-unknown-unknown.latest.rust-std
+  ];
 in
 {
   config = lib.mkIf cfg.enable {
@@ -15,15 +25,15 @@ in
       [
         apksigner
         cmatrix
-        file
         ffmpeg
+        file
         gdb
         imagemagick
-        nur.catspeak
         lsof
         mdcat
         neo-cowsay
         nix-tree
+        nur.catspeak
         pipes-rs
         pv
         pwgen
@@ -41,27 +51,19 @@ in
         audacity
         bitwarden-desktop
         blender
-        (catppuccin.override {
-          accent = vars.cat.accent;
-          variant = vars.cat.flavor;
-        })
+        catppuccin
         catppuccin-catwalk
         catppuccin-whiskers
         dolphin-emu
         easyeffects
         exiftool
-        (fenix.combine [
-          fenix.latest.toolchain
-          fenix.targets.aarch64-linux-android.latest.rust-std
-          fenix.targets.wasm32-unknown-unknown.latest.rust-std
-        ])
+        fenix
         fusee-nano
         gedit
         gimp3
         godot
         grim
         inkscape
-        nur.bible4tui
         kdePackages.kdenlive
         krita
         legendary-gl
@@ -71,9 +73,10 @@ in
         mari0
         melonDS
         nemo
-        nix-update
         nixpkgs-review
+        nix-update
         nodejs
+        nur.bible4tui
         pavucontrol
         pnpm
         prismlauncher
