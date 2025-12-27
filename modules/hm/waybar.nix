@@ -2,14 +2,6 @@
 let
   cfg = config.waybar;
   vars = import ../vars.nix;
-
-  wm =
-    if config.hypr.enable then
-      "hyprland"
-    else if config.niri.enable then
-      "niri"
-    else
-      "";
 in
 {
   config = lib.mkIf cfg.enable {
@@ -27,11 +19,11 @@ in
 
           modules-left = [
             "custom/logout"
-            "${wm}/workspaces"
+            "${config.hm-pkgs.home.wm}/workspaces"
             "tray"
             "custom/mpv"
           ];
-          modules-center = [ "${wm}/window" ];
+          modules-center = [ "${config.hm-pkgs.home.wm}/window" ];
           modules-right = [
             "cpu"
             "memory"
@@ -73,9 +65,7 @@ in
             separate-outputs = true;
           };
 
-          tray = {
-            spacing = 10;
-          };
+          tray.spacing = 10;
 
           clock = {
             timezone = "Europe/Berlin";
@@ -88,9 +78,7 @@ in
             tooltip = true;
           };
 
-          memory = {
-            format = "{}% ";
-          };
+          memory.format = "{}% ";
 
           temperature = {
             critical-threshold = 80;

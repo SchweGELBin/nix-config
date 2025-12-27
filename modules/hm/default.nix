@@ -64,7 +64,10 @@
   helix.enable = lib.mkDefault true;
   hm-pkgs = {
     enable = lib.mkDefault true;
-    home.enable = lib.mkDefault false;
+    home = {
+      enable = lib.mkDefault false;
+      wm = lib.mkDefault "hyprland";
+    };
     server.enable = lib.mkDefault false;
   };
   home.enable = lib.mkDefault true;
