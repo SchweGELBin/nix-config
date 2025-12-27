@@ -25,6 +25,7 @@ in
           ];
           modules-center = [ "${config.hm-pkgs.home.wm}/window" ];
           modules-right = [
+            "bluetooth"
             "cpu"
             "memory"
             "temperature"
@@ -66,6 +67,16 @@ in
           };
 
           tray.spacing = 10;
+
+          bluetooth = {
+            controller = "DualSense Wireless Controller";
+            format-connected = "󰊴";
+            format-off = "󰂲";
+            format-on = "󰂯";
+            format-no-controller = "󰊵";
+            on-click = "bluetooth-toggle";
+            on-click-right = "bluetoothctl disconnect";
+          };
 
           clock = {
             timezone = "Europe/Berlin";
@@ -133,7 +144,7 @@ in
         }
 
         /* Modules */
-        #clock, #cpu, #custom-logout, #custom-mpv, #memory, #pulseaudio, #temperature, #tray, #window, #workspaces {
+        #bluetooth, #clock, #cpu, #custom-logout, #custom-mpv, #memory, #pulseaudio, #temperature, #tray, #window, #workspaces {
             background: alpha(@base, 0.7);
             border: 2px solid @${vars.cat.accent};
             border-radius: 40px 25px;
