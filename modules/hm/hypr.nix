@@ -233,6 +233,13 @@ in
           shadow.color = "$surface0";
         };
 
+        device = [
+          {
+            name = "dualsense-wireless-controller-touchpad";
+            enabled = cfg.land.dualSenseTouchpad.enable;
+          }
+        ];
+
         dwindle = {
           preserve_split = true;
           pseudotile = true;
@@ -369,6 +376,7 @@ in
       idle.enable = lib.mkEnableOption "Enable hypridle";
       land = {
         enable = lib.mkEnableOption "Enable Hyprland";
+        dualSenseTouchpad.enable = lib.mkEnableOption "Enable DualSense Touchpad";
         forceBitdepth.enable = lib.mkEnableOption "Enable forcing monitor bitdepth";
         plugins = {
           enable = lib.mkEnableOption "Enable Hyprland Plugins";

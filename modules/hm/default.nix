@@ -76,6 +76,7 @@
     idle.enable = lib.mkDefault true;
     land = {
       enable = lib.mkDefault true;
+      dualSenseTouchpad.enable = lib.mkDefault false;
       forceBitdepth.enable = lib.mkDefault false;
       plugins = {
         enable = lib.mkDefault true;
