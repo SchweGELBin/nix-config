@@ -117,6 +117,14 @@ in
           systemctl restart wg-quick-wg.service
         esac
       '')
+
+      (pkgs.writeShellScriptBin "bluetooth-toggle" ''
+        if bluetoothctl show | grep "Powered: yes" -q; then
+          bluetoothctl power off
+        else
+          bluetoothctl power on
+        fi
+      '')
     ]
     ++ lib.optionals config.hypr.enable [
       (pkgs.writeShellScriptBin "screenshot" ''

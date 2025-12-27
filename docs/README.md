@@ -37,6 +37,7 @@ music-instance                  | Play music
 loopback                        | Toggle mic loopback
 userjs2nix [arkenfox/.../*]     | Echo user.js in nix format
 vpn [on/off/*]                  | Toggle VPN connection
+bluetooth-toggle                | Toggle Bluetooth Power
 ```
 Hyprland
 ```
