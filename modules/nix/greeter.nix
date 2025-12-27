@@ -15,7 +15,8 @@ in
       settings = {
         default_session = {
           command = "${pkgs.greetd}/bin/agreety --cmd ${
-            if (config.sys.pkgs.home.wm == "hyprland") then "start-hyprland" else config.sys.pkgs.home.wm
+            # Change to `start-hyprland` in next version
+            if (config.sys.pkgs.home.wm == "hyprland") then "Hyprland" else config.sys.pkgs.home.wm
           }";
           user = vars.user.name;
         };
