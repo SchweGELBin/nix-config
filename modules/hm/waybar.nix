@@ -33,41 +33,6 @@ in
             "clock"
           ];
 
-          "hyprland/workspaces" = {
-            all-outputs = true;
-            on-click = "activate";
-            on-scroll-up = "hyprctl dispatch workspace e+1";
-            on-scroll-down = "hyprctl dispatch workspace e-1";
-            format = "{icon}";
-            format-icons = {
-              "1" = "󰈹";
-              "2" = "";
-              "3" = "󰙯";
-              "4" = "";
-              "5" = "";
-              "6" = "";
-              "7" = "󱜠";
-              urgent = "";
-              focused = "";
-              default = "";
-            };
-          };
-
-          "hyprland/window" = {
-            max-length = 200;
-            rewrite = {
-              "" = "  I use Nix btw";
-              "cava" = "  I use Nix btw";
-              "Element(.*)" = "󰭹 $1";
-              "(.*) — Mozilla Firefox" = "󰈹  $1";
-              "(.*) - mpv" = "  $1";
-              "Vesktop" = "󰙯  Vesktop";
-            };
-            separate-outputs = true;
-          };
-
-          tray.spacing = 10;
-
           bluetooth = {
             controller = "DualSense Wireless Controller";
             format-connected = "󰊴";
@@ -89,17 +54,51 @@ in
             tooltip = true;
           };
 
-          memory.format = "{}% ";
-
-          temperature = {
-            critical-threshold = 80;
-            format = "{temperatureC}°C {icon}";
-            format-icons = [
-              ""
-              ""
-              ""
-            ];
+          "custom/logout" = {
+            format = "⏻";
+            on-click = "wlogout";
           };
+
+          "custom/mpv" = {
+            exec = "pactl list sink-inputs | grep \"media.name.*mpv\" | cut -c17- | rev | cut -c8- | rev";
+            format = "{}";
+            interval = 10;
+          };
+
+          "hyprland/window" = {
+            max-length = 200;
+            rewrite = {
+              "" = "  I use Nix btw";
+              "cava" = "  I use Nix btw";
+              "Element(.*)" = "󰭹 $1";
+              "(.*) — Mozilla Firefox" = "󰈹  $1";
+              "(.*) - mpv" = "  $1";
+              "Vesktop" = "󰙯  Vesktop";
+            };
+            separate-outputs = true;
+          };
+
+          "hyprland/workspaces" = {
+            all-outputs = true;
+            on-click = "activate";
+            on-scroll-up = "hyprctl dispatch workspace e+1";
+            on-scroll-down = "hyprctl dispatch workspace e-1";
+            format = "{icon}";
+            format-icons = {
+              "1" = "󰈹";
+              "2" = "";
+              "3" = "󰙯";
+              "4" = "";
+              "5" = "";
+              "6" = "";
+              "7" = "󱜠";
+              urgent = "";
+              focused = "";
+              default = "";
+            };
+          };
+
+          memory.format = "{}% ";
 
           pulseaudio = {
             scroll-step = 1;
@@ -115,16 +114,17 @@ in
             on-click = "pavucontrol";
           };
 
-          "custom/logout" = {
-            format = "⏻";
-            on-click = "wlogout";
+          temperature = {
+            critical-threshold = 80;
+            format = "{temperatureC}°C {icon}";
+            format-icons = [
+              ""
+              ""
+              ""
+            ];
           };
 
-          "custom/mpv" = {
-            exec = "pactl list sink-inputs | grep \"media.name.*mpv\" | cut -c17- | rev | cut -c8- | rev";
-            format = "{}";
-            interval = 10;
-          };
+          tray.spacing = 10;
         };
       };
       style = ''
