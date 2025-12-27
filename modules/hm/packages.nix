@@ -68,7 +68,7 @@ in
         krita
         legendary-gl
         libnotify
-        libreoffice-qt-fresh
+        libreoffice-fresh
         luanti
         mari0
         melonDS
