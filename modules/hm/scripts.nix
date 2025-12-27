@@ -11,23 +11,13 @@ in
 {
   config = lib.mkIf cfg.enable {
     home.packages = [
-      (pkgs.writeShellScriptBin "rebuild" ''
-        cd ${vars.user.config}
-        git add .
-        nixos-rebuild switch --flake ./#home
+      (pkgs.writeShellScriptBin "bluetooth-toggle" ''
+        if bluetoothctl show | grep "Powered: yes" -q; then
+          bluetoothctl power off
+        else
+          bluetoothctl power on
+        fi
       '')
-
-      (pkgs.writeShellScriptBin "update" ''
-        cd ${vars.user.config}
-        nix flake update
-      '')
-
-      (pkgs.writeShellScriptBin "server-rebuild" ''
-        cd ${vars.user.config}
-        git add .
-        nixos-rebuild switch --flake ./#server
-      '')
-
       (pkgs.writeShellScriptBin "config-reset" ''
         rm -rf "${vars.user.config}"
         mkdir -p "${vars.user.config}"
@@ -43,7 +33,13 @@ in
         esac
         chown -R ${vars.user.name} ${vars.user.config}
       '')
-
+      (pkgs.writeShellScriptBin "loopback" ''
+        if [[ $(pactl list | grep module-loopback) ]]; then
+          pactl unload-module module-loopback
+        else
+          pactl load-module module-loopback
+        fi
+      '')
       (pkgs.writeShellScriptBin "music" ''
         if [[ ! -z $(pgrep music-instance) || ! -z $(pgrep mpv) ]]; then
           pkill music-instance && pkill mpv
@@ -59,15 +55,20 @@ in
           mpv $line --no-video --slang=en
         done < "$input"
       '')
-
-      (pkgs.writeShellScriptBin "loopback" ''
-        if [[ $(pactl list | grep module-loopback) ]]; then
-          pactl unload-module module-loopback
-        else
-          pactl load-module module-loopback
-        fi
+      (pkgs.writeShellScriptBin "rebuild" ''
+        cd ${vars.user.config}
+        git add .
+        nixos-rebuild switch --flake ./#home
       '')
-
+      (pkgs.writeShellScriptBin "server-rebuild" ''
+        cd ${vars.user.config}
+        git add .
+        nixos-rebuild switch --flake ./#server
+      '')
+      (pkgs.writeShellScriptBin "update" ''
+        cd ${vars.user.config}
+        nix flake update
+      '')
       (pkgs.writeShellScriptBin "userjs2nix" ''
         if [ -z "$1" ]; then
           echo "Usage: $0 [arkenfox/Betterfox/Fastfox/Peskyfox/Securefox/Smoothfox or /path/to/user.js]"
@@ -104,7 +105,6 @@ in
         cat $tmpfile | grep "^user_pref(" | sort | sed -e 's/^user_pref(//g' -e 's/);.*/;/g' -e '/_user\.js\.parrot/d' -e 's/, / = /g'
         rm $tmpfile
       '')
-
       (pkgs.writeShellScriptBin "vpn" ''
         case $1 in
         on)
@@ -117,53 +117,8 @@ in
           systemctl restart wg-quick-wg.service
         esac
       '')
-
-      (pkgs.writeShellScriptBin "bluetooth-toggle" ''
-        if bluetoothctl show | grep "Powered: yes" -q; then
-          bluetoothctl power off
-        else
-          bluetoothctl power on
-        fi
-      '')
     ]
     ++ lib.optionals config.hypr.enable [
-      (pkgs.writeShellScriptBin "screenshot" ''
-        filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
-        scrDir="$HOME/Media/Pictures/Screenshots"
-        scrPath="$scrDir/$filename"
-
-        mkdir -p $scrDir
-
-        case $1 in
-        d) # Display
-          grim -o "$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')" $scrPath | wl-copy
-        ;;
-        w) # Window
-          echo "Window mode not working yet"
-        ;;
-        r) # Region
-          grim -g "$(slurp)" $scrPath | wl-copy
-        ;;
-        h) # Help
-          echo "Usage: $0 <option>"
-        	echo "d - Display"
-        	echo "w - Window"
-        	echo "r - Region"
-        	echo "h - Help"
-        ;;
-        esac
-
-        notify-send "Screenshot taken"
-      '')
-
-      (pkgs.writeShellScriptBin "binds" ''
-        mod1=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod1=" | cut -c 7-)")
-        mod2=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod2=" | cut -c 7-)")
-        mod3=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod3=" | cut -c 7-)")
-        cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," \
-        | sed "s|\$mod1|$mod1|g" | sed "s|\$mod2|$mod2|g" | sed "s|\$mod3|$mod3|g"
-      '')
-
       (pkgs.writeShellScriptBin "avabg" ''
         pkill cava
         pkill glava
@@ -173,7 +128,6 @@ in
           avabg-instance $1
         fi
       '')
-
       (pkgs.writeShellScriptBin "avabg-instance" ''
         c() { alacritty --class 'hyprbg' --config-file '${vars.user.home}/.config/alacritty/cava.toml' -e 'cava'; }
         gl() { glavabg-setup && glava; }
@@ -183,7 +137,13 @@ in
           *) c & gl;; # All
         esac
       '')
-
+      (pkgs.writeShellScriptBin "binds" ''
+        mod1=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod1=" | cut -c 7-)")
+        mod2=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod2=" | cut -c 7-)")
+        mod3=$(printf "%-5s" "$(cat .config/hypr/hyprland.conf | grep "\$mod3=" | cut -c 7-)")
+        cat ${vars.user.home}/.config/hypr/hyprland.conf | grep "bindd=" | cut -c 7- | tr -d "," \
+        | sed "s|\$mod1|$mod1|g" | sed "s|\$mod2|$mod2|g" | sed "s|\$mod3|$mod3|g"
+      '')
       (
         let
           palette = (lib.importJSON "${pkgs.catppuccin}/palette/palette.json").${vars.cat.flavor}.colors;
@@ -225,6 +185,34 @@ in
           fi
         ''
       )
+      (pkgs.writeShellScriptBin "screenshot" ''
+        filename="$(date '+%Y-%m-%d_%H-%M-%S').png"
+        scrDir="$HOME/Media/Pictures/Screenshots"
+        scrPath="$scrDir/$filename"
+
+        mkdir -p $scrDir
+
+        case $1 in
+        d) # Display
+          grim -o "$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')" $scrPath | wl-copy
+        ;;
+        w) # Window
+          echo "Window mode not working yet"
+        ;;
+        r) # Region
+          grim -g "$(slurp)" $scrPath | wl-copy
+        ;;
+        h) # Help
+          echo "Usage: $0 <option>"
+        	echo "d - Display"
+        	echo "w - Window"
+        	echo "r - Region"
+        	echo "h - Help"
+        ;;
+        esac
+
+        notify-send "Screenshot taken"
+      '')
     ];
   };
 

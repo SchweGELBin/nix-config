@@ -28,22 +28,22 @@ Theme                - Catppuccin Mocha Mauve
 ### Scripts
 General
 ```
-sudo rebuild                    | Rebuild Home system
-update                          | Update Home config
-sudo server-rebuild             | Rebuild Server system
-sudo config-reset [git/https/*] | Reset config
-music                           | Toogle music-instance
-music-instance                  | Play music
-loopback                        | Toggle mic loopback
-userjs2nix [arkenfox/.../*]     | Echo user.js in nix format
-vpn [on/off/*]                  | Toggle VPN connection
-bluetooth-toggle                | Toggle Bluetooth Power
+$ bluetooth-toggle            | Toggle Bluetooth Power
+# config-reset [git/https/*]  | Reset config
+$ loopback                    | Toggle mic loopback
+$ music                       | Toogle music-instance
+$ music-instance              | Play music
+# rebuild                     | Rebuild Home system
+# server-rebuild              | Rebuild Server system
+$ update                      | Update Home config
+$ userjs2nix [arkenfox/.../*] | Echo user.js in nix format
+$ vpn [on/off/*]              | Toggle VPN connection
 ```
 Hyprland
 ```
-screenshot [d/w/r/h]    | Take screenshot ([d]isplay/[w]indow/[r]egion/[h]elp)
-binds                   | Show Keybinds
-avabg [c/gl/*] [t]      | Start [c/gl/*]avabg-instance or [t]oggle it
-avabg-instance [c/gl/*] | Start [c/gl/*]ava background instance
-glavabg-setup [f]       | Replace glava config
+$ avabg [c/gl/*] [t]      | Start [c/gl/*]avabg-instance or [t]oggle it
+$ avabg-instance [c/gl/*] | Start [c/gl/*]ava background instance
+$ binds                   | Show Keybinds
+$ glavabg-setup [f]       | Replace glava config
+$ screenshot [d/w/r/h]    | Take screenshot ([d]isplay/[w]indow/[r]egion/[h]elp)
 ```
