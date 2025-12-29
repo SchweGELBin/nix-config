@@ -38,10 +38,18 @@ in
               ];
               source.github = [
                 {
-                  exclude = [ "kernel_milk_davinci" ];
+                  exclude = [
+                    "Arcticons"
+                    "kernel_milk_davinci"
+                    "lawnicons"
+                    "linux"
+                    "nikgapps-config"
+                    "nixpkgs"
+                    "NUR"
+                  ];
                   filter.excludeforks = !cfg.forks.enable;
                   issues = cfg.issues.enable;
-                  starred = cfg.starred.enable;
+                  starred = false;
                   user = vars.git.name;
                 }
               ];
@@ -60,7 +68,6 @@ in
       cron.enable = lib.mkEnableOption "Automate Backups";
       forks.enable = lib.mkEnableOption "Backup Forks";
       issues.enable = lib.mkEnableOption "Backup Issues";
-      starred.enable = lib.mkEnableOption "Backup Starred Repositories";
     };
   };
 }

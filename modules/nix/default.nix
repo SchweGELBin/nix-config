@@ -50,7 +50,6 @@ in
       cron.enable = lib.mkDefault false;
       forks.enable = lib.mkDefault false;
       issues.enable = lib.mkDefault false;
-      starred.enable = lib.mkDefault false;
     };
     greeter.enable = lib.mkDefault true;
     hardware = {
