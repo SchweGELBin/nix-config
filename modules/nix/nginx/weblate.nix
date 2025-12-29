@@ -24,11 +24,6 @@ in
           passwordFile = secrets.weblate_mail.path;
         };
       };
-      nginx.virtualHosts.${cfg.weblate.fqdn} = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.weblate.port}";
-      };
     };
     sops.secrets = {
       weblate_django.owner = "weblate";

@@ -356,10 +356,6 @@ in
           description = "Weblate Mail";
           type = lib.types.str;
         };
-        port = lib.mkOption {
-          description = "Weblate Port";
-          type = lib.types.port;
-        };
       };
       website.enable = lib.mkEnableOption "Enable Website";
       websurfx = {
