@@ -235,6 +235,12 @@ in
         fqdn = lib.mkDefault "bin.${vars.my.domain}";
         port = lib.mkDefault 8899;
       };
+      weblate = {
+        enable = lib.mkDefault false;
+        fqdn = lib.mkDefault "weblate.${vars.my.domain}";
+        mail = lib.mkDefault "weblate@${vars.my.domain}";
+        port = lib.mkDefault 1487;
+      };
       website.enable = lib.mkDefault true;
       websurfx = {
         enable = lib.mkDefault false;

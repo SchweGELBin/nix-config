@@ -26,6 +26,7 @@ in
     ./uptimekuma.nix
     ./vaultwarden.nix
     ./wastebin.nix
+    ./weblate.nix
     ./websurfx.nix
     ./whoogle.nix
     ./www.nix
@@ -66,7 +67,6 @@ in
           type = lib.types.port;
         };
       };
-
       coturn = {
         enable = lib.mkEnableOption "Enable Turn";
         fqdn = lib.mkOption {
@@ -343,6 +343,21 @@ in
         };
         port = lib.mkOption {
           description = "wastebin Port";
+          type = lib.types.port;
+        };
+      };
+      weblate = {
+        enable = lib.mkEnableOption "Enable Weblate";
+        fqdn = lib.mkOption {
+          description = "Weblate Domain";
+          type = lib.types.str;
+        };
+        mail = lib.mkOption {
+          description = "Weblate Mail";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "Weblate Port";
           type = lib.types.port;
         };
       };

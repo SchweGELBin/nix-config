@@ -29,6 +29,7 @@ in
         ${cfg.forgejo.mail}.hashedPasswordFile = secrets.forgejo_mailhash.path;
         ${cfg.peertube.mail}.hashedPasswordFile = secrets.peertube_mailhash.path;
         ${cfg.vaultwarden.mail}.hashedPasswordFile = secrets.vaultwarden_mailhash.path;
+        ${cfg.weblate.mail}.hashedPasswordFile = secrets.weblate_mailhash.path;
       };
       stateVersion = 3;
       x509 = {
@@ -41,6 +42,7 @@ in
       forgejo_mailhash.owner = "dovecot2";
       peertube_mailhash.owner = "dovecot2";
       vaultwarden_mailhash.owner = "dovecot2";
+      weblate_mailhash.owner = "dovecot2";
     };
   };
 }
