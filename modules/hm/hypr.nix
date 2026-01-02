@@ -333,13 +333,13 @@ in
         };
 
         windowrule = [
-          "fullscreen, idleinhibit focus, monitor 1, class:rocketleague.exe"
-          "fullscreen, idleinhibit focus, monitor 1, class:steam_app_965680"
-          "fullscreen, idleinhibit focus, monitor 1, class:UltimateChickenHorse.x86_64"
-          "fullscreen, monitor 1, title:Minecraft.*"
-          "monitor 0, class:hyprpg"
-          "monitor 1, title:hyprbg"
-          "prop noscreenshare 1, class:Bitwarden"
+          "match:class rocketleague.exe, fullscreen on, idle_inhibit focus, monitor 1"
+          "match:class steam_app_965680, fullscreen on, idle_inhibit focus, monitor 1"
+          "match:class UltimateChickenHorse.x86_64, fullscreen on, idle_inhibit focus, monitor 1"
+          "match:title Minecraft.*, fullscreen on, monitor 1"
+          "match:class hyprbg, monitor 0"
+          "match:title hyprbg, monitor 1"
+          "match:class Bitwarden, no_screen_share on"
         ];
 
         workspace = [
