@@ -332,30 +332,15 @@ in
 
         windowrule = [
           {
-            name = "Rocket League";
-            "match:class" = "rocketleague.exe";
-            fullscreen = true;
-            idle_inhibit = "focus";
-            monitor = 1;
+            name = "Bitwarden";
+            "match:class" = "Bitwarden";
+            no_screen_share = true;
           }
           {
             name = "Boomerang Fu";
             "match:class" = "steam_app_965680";
             fullscreen = true;
             idle_inhibit = "focus";
-            monitor = 1;
-          }
-          {
-            name = "Ultimate Chicken Horse";
-            "match:class" = "UltimateChickenHorse.x86_64";
-            fullscreen = true;
-            idle_inhibit = "focus";
-            monitor = 1;
-          }
-          {
-            name = "Minecraft";
-            "match:title" = "Minecraft.*";
-            fullscreen = true;
             monitor = 1;
           }
           {
@@ -369,9 +354,24 @@ in
             monitor = 1;
           }
           {
-            name = "Bitwarden";
-            "match:class" = "Bitwarden";
-            no_screen_share = true;
+            name = "Minecraft";
+            "match:title" = "Minecraft.*";
+            fullscreen = true;
+            monitor = 1;
+          }
+          {
+            name = "Rocket League";
+            "match:class" = "rocketleague.exe";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
+          }
+          {
+            name = "Ultimate Chicken Horse";
+            "match:class" = "UltimateChickenHorse.x86_64";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
           }
         ];
 
