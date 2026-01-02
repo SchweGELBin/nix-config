@@ -331,13 +331,48 @@ in
         };
 
         windowrule = [
-          "match:class rocketleague.exe, fullscreen on, idle_inhibit focus, monitor 1"
-          "match:class steam_app_965680, fullscreen on, idle_inhibit focus, monitor 1"
-          "match:class UltimateChickenHorse.x86_64, fullscreen on, idle_inhibit focus, monitor 1"
-          "match:title Minecraft.*, fullscreen on, monitor 1"
-          "match:class hyprbg, monitor 0"
-          "match:title hyprbg, monitor 1"
-          "match:class Bitwarden, no_screen_share on"
+          {
+            name = "Rocket League";
+            "match:class" = "rocketleague.exe";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
+          }
+          {
+            name = "Boomerang Fu";
+            "match:class" = "steam_app_965680";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
+          }
+          {
+            name = "Ultimate Chicken Horse";
+            "match:class" = "UltimateChickenHorse.x86_64";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
+          }
+          {
+            name = "Minecraft";
+            "match:title" = "Minecraft.*";
+            fullscreen = true;
+            monitor = 1;
+          }
+          {
+            name = "cava";
+            "match:class" = "hyprbg";
+            monitor = 0;
+          }
+          {
+            name = "glava";
+            "match:title" = "hyprbg";
+            monitor = 1;
+          }
+          {
+            name = "Bitwarden";
+            "match:class" = "Bitwarden";
+            no_screen_share = true;
+          }
         ];
 
         workspace = [
