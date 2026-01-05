@@ -68,16 +68,16 @@ in
       };
       hyprpaper = {
         enable = cfg.paper.enable;
-        settings = {
-          preload = [
-            monitors.first.wallp
-            monitors.second.wallp
-          ];
-          wallpaper = [
-            "${monitors.first.name},${monitors.first.wallp}"
-            "${monitors.second.name},${monitors.second.wallp}"
-          ];
-        };
+        settings.wallpaper = [
+          {
+            monitor = monitors.first.name;
+            path = monitors.first.wallp;
+          }
+          {
+            monitor = monitors.second.name;
+            path = monitors.second.wallp;
+          }
+        ];
       };
     };
 
