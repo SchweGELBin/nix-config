@@ -237,7 +237,7 @@ in
         };
         settings =
           lib.optionalAttrs cfg.harden.enable {
-            # arkenfox v140
+            # arkenfox v147
             "app.normandy.api_url" = "";
             "app.normandy.enabled" = false;
             "app.shield.optoutstudies.enabled" = false;
@@ -284,7 +284,8 @@ in
             "browser.uitour.enabled" = false;
             "browser.urlbar.addons.featureGate" = false;
             "browser.urlbar.amp.featureGate" = false;
-            "browser.urlbar.fakespot.featureGate" = false;
+            "browser.urlbar.importantDates.featureGate" = false;
+            "browser.urlbar.market.featureGate" = false;
             "browser.urlbar.mdn.featureGate" = false;
             "browser.urlbar.pocket.featureGate" = false;
             "browser.urlbar.quicksuggest.enabled" = false;
@@ -297,6 +298,7 @@ in
             "browser.urlbar.weather.featureGate" = false;
             "browser.urlbar.wikipedia.featureGate" = false;
             "browser.urlbar.yelp.featureGate" = false;
+            "browser.urlbar.yelpRealtime.featureGate" = false;
             "browser.xul.error_pages.expert_bad_cert" = true;
             "captivedetect.canonicalURL" = "";
             "datareporting.healthreport.uploadEnabled" = false;
@@ -337,6 +339,7 @@ in
             "pdfjs.disabled" = false;
             "pdfjs.enableScripting" = false;
             "permissions.manager.defaultsUrl" = "";
+            "privacy.antitracking.isolateContentScriptResources" = true;
             "privacy.clearHistory.browsingHistoryAndDownloads" = false;
             "privacy.clearHistory.cache" = true;
             "privacy.clearHistory.cookiesAndStorage" = false;
@@ -358,6 +361,8 @@ in
             "privacy.sanitize.sanitizeOnShutdown" = true;
             "privacy.sanitize.timeSpan" = 0;
             "privacy.spoof_english" = 1;
+            "privacy.trackingprotection.allow_list.baseline.enabled" = true;
+            "privacy.trackingprotection.allow_list.convenience.enabled" = true;
             "privacy.userContext.enabled" = true;
             "privacy.userContext.ui.enabled" = true;
             "privacy.window.maxInnerHeight" = 900;
@@ -365,14 +370,13 @@ in
             "security.cert_pinning.enforcement_level" = 2;
             "security.csp.reporting.enabled" = false;
             "security.dialog_enable_delay" = 1000;
-            "security.OCSP.enabled" = 1;
-            "security.OCSP.require" = true;
             "security.pki.crlite_mode" = 2;
             "security.remote_settings.crlite_filters.enabled" = true;
             "security.ssl.require_safe_negotiation" = true;
             "security.ssl.treat_unsafe_negotiation_as_broken" = true;
             "security.tls.enable_0rtt_data" = false;
             "security.tls.version.enable-deprecated" = false;
+            "security.webauthn.always_allow_direct_attestation" = false;
             "signon.autofillForms" = false;
             "signon.formlessCapture.enabled" = false;
             "toolkit.coverage.endpoint.base" = "";
