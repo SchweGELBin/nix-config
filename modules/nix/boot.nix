@@ -20,7 +20,7 @@ in
       loader = {
         efi.canTouchEfiVariables = false;
         grub = {
-          enable = true;
+          enable = cfg.grub.enable;
           configurationLimit = cfg.configs;
           device = "nodev";
           efiInstallAsRemovable = true;
@@ -41,6 +41,7 @@ in
         description = "Configuration Limit";
         type = lib.types.int;
       };
+      grub.enable = lib.mkEnableOption "Enable GRUB";
       modules = {
         ntsync.enable = lib.mkEnableOption "Enable NTSync";
         v4l2loopback.enable = lib.mkEnableOption "Enable v4l2loopback";

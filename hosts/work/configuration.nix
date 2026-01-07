@@ -11,6 +11,7 @@ in
 
   # Custom modules
   sys = {
+    boot.grub.enable = false;
     disko.enable = false;
     fonts.enable = false;
     greeter.enable = false;

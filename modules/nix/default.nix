@@ -33,6 +33,7 @@ in
     boot = {
       enable = lib.mkDefault true;
       configs = lib.mkDefault 2;
+      grub.enable = lib.mkDefault true;
       modules = {
         ntsync.enable = lib.mkDefault false;
         v4l2loopback.enable = lib.mkDefault false;
