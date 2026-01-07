@@ -68,16 +68,22 @@ in
       };
       hyprpaper = {
         enable = cfg.paper.enable;
-        settings.wallpaper = [
-          {
-            monitor = monitors.first.name;
-            path = monitors.first.wallp;
-          }
-          {
-            monitor = monitors.second.name;
-            path = monitors.second.wallp;
-          }
-        ];
+        settings = {
+          splash = false;
+          wallpaper = [
+            # Monitor by desc isn't supported yet.
+            {
+              #monitor = monitors.first.name;
+              monitor = "DP-2";
+              path = monitors.first.wallp;
+            }
+            {
+              #monitor = monitors.second.name;
+              monitor = "DP-3";
+              path = monitors.second.wallp;
+            }
+          ];
+        };
       };
     };
 
