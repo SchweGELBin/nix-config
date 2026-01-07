@@ -19,5 +19,6 @@ in
     security.enable = false;
     sound.enable = false;
     wireguard.enable = false;
+    wsl.enable = true;
   };
 }

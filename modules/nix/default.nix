@@ -26,6 +26,7 @@ in
     ./sound.nix
     ./users.nix
     ./wireguard.nix
+    ./wsl.nix
   ];
 
   sys = {
@@ -308,5 +309,6 @@ in
       mode = lib.mkDefault "client";
       port = lib.mkDefault 1096;
     };
+    wsl.enable = lib.mkDefault false;
   };
 }
