@@ -43,7 +43,7 @@
     glava.enable = lib.mkDefault true;
   };
   desktop.enable = lib.mkDefault true;
-  direnv.enable = lib.mkDefault false;
+  direnv.enable = lib.mkDefault true;
   element.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
   firefox = {
@@ -68,7 +68,9 @@
       enable = lib.mkDefault false;
       wm = lib.mkDefault "hyprland";
     };
+    phone.enable = lib.mkDefault false;
     server.enable = lib.mkDefault false;
+    work.enable = lib.mkDefault false;
   };
   home.enable = lib.mkDefault true;
   hypr = {

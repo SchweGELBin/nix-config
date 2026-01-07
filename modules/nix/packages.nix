@@ -17,7 +17,9 @@ in
         gcc
       ]
       ++ lib.optionals cfg.home.enable [ ]
-      ++ lib.optionals cfg.server.enable [ ];
+      ++ lib.optionals cfg.phone.enable [ ]
+      ++ lib.optionals cfg.server.enable [ ]
+      ++ lib.optionals cfg.work.enable [ ];
 
     programs = {
       java.enable = true;
@@ -45,7 +47,9 @@ in
       wireshark.enable = true;
       ydotool.enable = true;
     }
-    // lib.optionalAttrs cfg.server.enable { };
+    // lib.optionalAttrs cfg.phone.enable { }
+    // lib.optionalAttrs cfg.server.enable { }
+    // lib.optionalAttrs cfg.work.enable { };
 
     security = {
       polkit.enable = true;
@@ -70,7 +74,9 @@ in
           ];
         };
       };
+      phone.enable = lib.mkEnableOption "Enable System Phone Packages";
       server.enable = lib.mkEnableOption "Enable System Server Packages";
+      work.enable = lib.mkEnableOption "Enable System Work Packages";
     };
   };
 }

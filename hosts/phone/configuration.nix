@@ -12,22 +12,20 @@ in
   # Custom modules
   sys = {
     boot = {
-      configs = 32;
+      configs = 16;
       modules = {
         ntsync.enable = true;
         v4l2loopback.enable = true;
       };
       timeout = 3;
     };
-    disko.device = "/dev/nvme0n1";
-    hardware.nvidia.enable = true;
     networking.static = {
       enable = true;
       v4 = {
         enable = true;
-        ip = "192.168.0.123";
+        ip = "192.168.0.132";
       };
     };
-    pkgs.home.enable = true;
+    pkgs.phone.enable = true;
   };
 }

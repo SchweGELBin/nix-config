@@ -93,9 +93,11 @@ in
         wineWowPackages.stagingFull
         wl-clipboard
       ]
+      ++ lib.optionals cfg.phone.enable [ ]
       ++ lib.optionals cfg.server.enable [
         wireguard-tools
-      ];
+      ]
+      ++ lib.optionals cfg.work.enable [ ];
 
     programs = {
       bash.enable = true;
@@ -115,9 +117,11 @@ in
       retroarch.enable = true;
       wlogout.enable = true;
     }
+    // lib.optionalAttrs cfg.phone.enable { }
     // lib.optionalAttrs cfg.server.enable {
       htop.enable = true;
-    };
+    }
+    // lib.optionalAttrs cfg.work.enable { };
 
     services = lib.optionalAttrs cfg.home.enable {
       playerctld.enable = true;
@@ -137,7 +141,9 @@ in
           ];
         };
       };
+      phone.enable = lib.mkEnableOption "Enable HM Phone Packages";
       server.enable = lib.mkEnableOption "Enable HM Server Packages";
+      work.enable = lib.mkEnableOption "Enable HM Work Packages";
     };
   };
 }

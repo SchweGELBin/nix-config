@@ -46,6 +46,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur = {
       url = "github:SchweGELBin/nur-expressions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,21 +65,27 @@
   outputs =
     { nixpkgs, ... }@inputs:
     {
-      nixosConfigurations.home = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
+      nixosConfigurations = {
+        home = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/home/configuration.nix ];
         };
-        modules = [
-          ./hosts/home/configuration.nix
-        ];
-      };
-      nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
+        minimal = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/minimal/configuration.nix ];
         };
-        modules = [
-          ./hosts/server/configuration.nix
-        ];
+        phone = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/phone/configuration.nix ];
+        };
+        server = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/server/configuration.nix ];
+        };
+        work = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/work/configuration.nix ];
+        };
       };
     };
 }

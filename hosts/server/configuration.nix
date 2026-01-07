@@ -7,11 +7,7 @@ in
     ../../modules/nix
   ];
 
-  home-manager = {
-    users = {
-      ${vars.user.name} = import ./home.nix;
-    };
-  };
+  home-manager.users.${vars.user.name} = import ./home.nix;
 
   # Custom modules
   sys = {

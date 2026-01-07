@@ -55,7 +55,7 @@ in
     hardware = {
       enable = lib.mkDefault true;
       bluetooth.enable = lib.mkDefault true;
-      nvidia.enable = lib.mkDefault true;
+      nvidia.enable = lib.mkDefault false;
       printing.enable = lib.mkDefault true;
     };
     home-manager.enable = lib.mkDefault true;
@@ -270,7 +270,9 @@ in
         enable = lib.mkDefault false;
         wm = lib.mkDefault "hyprland";
       };
+      phone.enable = lib.mkDefault false;
       server.enable = lib.mkDefault false;
+      work.enable = lib.mkDefault false;
     };
     ryuldn = {
       enable = lib.mkDefault false;
