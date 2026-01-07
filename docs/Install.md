@@ -22,9 +22,8 @@
 ### Install NixOS
 - Create the necessary directories with `mkdir /mnt/etc`
 - Copy these configs to the drive with `mv nix-config /mnt/etc/nixos`
-- Install NixOS
-  1. HOME: `NIXOS_INSTALL_BOOTLOADER=1 nixos-install --root /mnt --flake /mnt/etc/nixos#home`
-  2. SERVER: `NIXOS_INSTALL_BOOTLOADER=1 nixos-install --root /mnt --flake /mnt/etc/nixos#server`
+- Install NixOS `NIXOS_INSTALL_BOOTLOADER=1 nixos-install --root /mnt --flake /mnt/etc/nixos#host`\
+Replace "host" with the actual hostname
 - (Some errors can be fixed by rerunning the last command)
 - Type in your preferred root password (twice)
 
@@ -40,5 +39,5 @@
 - Add your ssh keys
 - Setup sops/age
 - Clone the repo to the right spot
-  1. HOME `sudo config-reset git`
-  2. SERVER `sudo config-reset`
+  1. Using ssh: `sudo config-reset git`
+  2. Using https: `sudo config-reset`
