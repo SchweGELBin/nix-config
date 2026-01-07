@@ -16,6 +16,7 @@ in
     fonts.enable = false;
     greeter.enable = false;
     hardware.enable = false;
+    networking.dns.enable = false;
     pkgs.work.enable = true;
     security.enable = false;
     sound.enable = false;
