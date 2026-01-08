@@ -21,7 +21,7 @@ in
         markdown-oxide
         marksman
         nil
-        nixfmt-rfc-style
+        nixfmt
         taplo
       ];
       languages.language = [
