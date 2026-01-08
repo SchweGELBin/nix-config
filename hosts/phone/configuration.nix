@@ -19,11 +19,14 @@ in
       };
       timeout = 3;
     };
-    networking.static = {
-      enable = true;
-      v4 = {
+    networking = {
+      hostName = "phone";
+      static = {
         enable = true;
-        ip = "192.168.0.132";
+        v4 = {
+          enable = true;
+          ip = "192.168.0.132";
+        };
       };
     };
     pkgs.phone.enable = true;

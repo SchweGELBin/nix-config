@@ -16,7 +16,10 @@ in
     fonts.enable = false;
     greeter.enable = false;
     hardware.enable = false;
-    networking.dns.enable = false;
+    networking = {
+      dns.enable = false;
+      hostName = "work";
+    };
     pkgs.work.enable = true;
     security.enable = false;
     sound.enable = false;

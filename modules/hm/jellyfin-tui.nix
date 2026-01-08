@@ -21,7 +21,7 @@ in
         {
           servers = [
             {
-              name = vars.user.hostname.server;
+              name = "MiX";
               password_file = secrets.jellyfin.path;
               url = "https://jelly.${vars.my.domain}";
               username = "jelly";

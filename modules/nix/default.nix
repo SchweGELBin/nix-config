@@ -88,7 +88,7 @@ in
         google.enable = lib.mkDefault false;
         quad9.enable = lib.mkDefault true;
       };
-      hostName = lib.mkDefault vars.user.hostname.home;
+      hostName = lib.mkDefault "nix";
       interface = lib.mkDefault "eth0";
       nat.enable = lib.mkDefault false;
       static = {

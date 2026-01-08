@@ -21,11 +21,14 @@ in
     };
     disko.device = "/dev/nvme0n1";
     hardware.nvidia.enable = true;
-    networking.static = {
-      enable = true;
-      v4 = {
+    networking = {
+      hostName = "home";
+      static = {
         enable = true;
-        ip = "192.168.0.123";
+        v4 = {
+          enable = true;
+          ip = "192.168.0.123";
+        };
       };
     };
     pkgs.home.enable = true;

@@ -15,6 +15,7 @@ in
     fonts.enable = false;
     greeter.enable = false;
     hardware.enable = false;
+    networking.hostName = "minimal";
     security.enable = false;
     sound.enable = false;
     wireguard.enable = false;

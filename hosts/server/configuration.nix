@@ -32,7 +32,7 @@ in
       wastebin.enable = true;
     };
     networking = {
-      hostName = vars.user.hostname.server;
+      hostName = "server";
       nat.enable = true;
       static = {
         enable = true;
