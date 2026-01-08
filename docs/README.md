@@ -33,8 +33,7 @@ $ bluetooth-toggle            | Toggle Bluetooth Power
 $ loopback                    | Toggle mic loopback
 $ music                       | Toogle music-instance
 $ music-instance              | Play music
-# rebuild                     | Rebuild Home system
-# server-rebuild              | Rebuild Server system
+# rebuild [$option] [$host]   | Rebuild Home system
 $ update                      | Update Home config
 $ userjs2nix [arkenfox/.../*] | Echo user.js in nix format
 $ vpn [on/off/*]              | Toggle VPN connection

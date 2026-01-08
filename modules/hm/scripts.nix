@@ -56,14 +56,11 @@ in
         done < "$input"
       '')
       (pkgs.writeShellScriptBin "rebuild" ''
+        option="''${1:-switch}"
+        host="''${2:-$(hostname)}"
         cd ${vars.user.config}
         git add .
-        nixos-rebuild switch --flake ./#home
-      '')
-      (pkgs.writeShellScriptBin "server-rebuild" ''
-        cd ${vars.user.config}
-        git add .
-        nixos-rebuild switch --flake ./#server
+        nixos-rebuild $option --flake ./#$host
       '')
       (pkgs.writeShellScriptBin "update" ''
         cd ${vars.user.config}
