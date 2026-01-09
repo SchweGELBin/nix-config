@@ -42,7 +42,6 @@ in
       };
       overlays = [
         inputs.fenix.overlays.default
-        inputs.firefox-addons.overlays.default
       ]
       ++ lib.optional cfg.olmoverlay.enable (
         final: prev: {
