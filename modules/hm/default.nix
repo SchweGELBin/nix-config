@@ -48,7 +48,7 @@
   fastfetch.enable = lib.mkDefault true;
   firefox = {
     enable = lib.mkDefault false;
-    clean.enable = lib.mkDefault true;
+    clear.enable = lib.mkDefault true;
     extensions = {
       behave.enable = lib.mkDefault true;
       darkreader.enable = lib.mkDefault true;

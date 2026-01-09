@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -11,7 +12,19 @@ let
   icons = "${pkgs.papirus-icon-theme}/share/icons/Papirus/16x16";
 in
 {
+
+  imports = [ inputs.nur.homeModules.default ];
+
   config = lib.mkIf cfg.enable {
+    nur.firefox = {
+      enable = true;
+      extensions.defaultSettings.enable = true;
+      profile = vars.user.name;
+      settings = {
+        clear.enable = cfg.clear.enable;
+        harden.enable = cfg.harden.enable;
+      };
+    };
     programs.firefox = {
       enable = true;
       policies = {
@@ -102,39 +115,6 @@ in
             ++ lib.optional cfg.extensions.skip-redirect.enable skip-redirect
             ++ lib.optional cfg.extensions.stylus.enable stylus
             ++ lib.optional cfg.extensions.ublock-origin.enable ublock-origin;
-          settings = {
-            "FirefoxColor@mozilla.com".settings.firstRunDone = true;
-            "skipredirect@sblask".settings.blacklist = [
-              "/abp"
-              "/account"
-              "/adfs"
-              "/auth"
-              "/cookie"
-              "/download"
-              "/login"
-              "/logoff"
-              "/logon"
-              "/logout"
-              "/oauth"
-              "/openid"
-              "/pay"
-              "/preference"
-              "/profile"
-              "/register"
-              "/saml"
-              "/signin"
-              "/signoff"
-              "/signon"
-              "/signout"
-              "/signup"
-              "/sso"
-              "/subscribe"
-              "/unauthenticated"
-              "/verification"
-              "https://external-content.duckduckgo.com"
-              "https://web.archive.org/web"
-            ];
-          };
         };
         id = 0;
         search = {
@@ -235,194 +215,17 @@ in
           force = true;
           privateDefault = "ddg";
         };
-        settings =
-          lib.optionalAttrs cfg.harden.enable {
-            # arkenfox v147
-            "app.normandy.api_url" = "";
-            "app.normandy.enabled" = false;
-            "app.shield.optoutstudies.enabled" = false;
-            "breakpad.reportURL" = "";
-            "browser.aboutConfig.showWarning" = false;
-            "browser.cache.disk.enable" = false;
-            "browser.contentanalysis.default_result" = 0;
-            "browser.contentanalysis.enabled" = false;
-            "browser.contentblocking.category" = "strict";
-            "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
-            "browser.discovery.enabled" = false;
-            "browser.download.always_ask_before_handling_new_types" = true;
-            "browser.download.alwaysOpenPanel" = false;
-            "browser.download.manager.addToRecentDocs" = false;
-            "browser.download.start_downloads_in_tmp_dir" = true;
-            "browser.download.useDownloadDir" = false;
-            "browser.formfill.enable" = false;
-            "browser.helperApps.deleteTempFileOnExit" = true;
-            "browser.link.open_newwindow" = 3;
-            "browser.link.open_newwindow.restriction" = 0;
-            "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
-            "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
-            "browser.newtabpage.activity-stream.default.sites" = "";
-            "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-            "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
-            "browser.newtabpage.activity-stream.showSponsored" = false;
-            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "browser.newtabpage.activity-stream.telemetry" = false;
-            "browser.newtabpage.enabled" = false;
-            "browser.places.speculativeConnect.enabled" = false;
-            "browser.privatebrowsing.forceMediaMemoryCache" = true;
-            "browser.safebrowsing.downloads.remote.enabled" = false;
-            "browser.search.separatePrivateDefault" = true;
-            "browser.search.separatePrivateDefault.ui.enabled" = true;
-            "browser.search.suggest.enabled" = false;
-            "browser.sessionstore.privacy_level" = 2;
-            "browser.shell.shortcutFavicons" = false;
-            "browser.shopping.experience2023.enabled" = false;
-            "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
-            "browser.startup.homepage_override.mstone" = "ignore";
-            "browser.startup.page" = 0;
-            "browser.tabs.crashReporting.sendReport" = false;
-            "browser.tabs.searchclipboardfor.middleclick" = false;
-            "browser.uitour.enabled" = false;
-            "browser.urlbar.addons.featureGate" = false;
-            "browser.urlbar.amp.featureGate" = false;
-            "browser.urlbar.importantDates.featureGate" = false;
-            "browser.urlbar.market.featureGate" = false;
-            "browser.urlbar.mdn.featureGate" = false;
-            "browser.urlbar.pocket.featureGate" = false;
-            "browser.urlbar.quicksuggest.enabled" = false;
-            "browser.urlbar.showSearchTerms.enabled" = false;
-            "browser.urlbar.speculativeConnect.enabled" = false;
-            "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-            "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-            "browser.urlbar.suggest.searches" = false;
-            "browser.urlbar.trending.featureGate" = false;
-            "browser.urlbar.weather.featureGate" = false;
-            "browser.urlbar.wikipedia.featureGate" = false;
-            "browser.urlbar.yelp.featureGate" = false;
-            "browser.urlbar.yelpRealtime.featureGate" = false;
-            "browser.xul.error_pages.expert_bad_cert" = true;
-            "captivedetect.canonicalURL" = "";
-            "datareporting.healthreport.uploadEnabled" = false;
-            "datareporting.policy.dataSubmissionEnabled" = false;
-            "devtools.debugger.remote-enabled" = false;
-            "dom.disable_window_move_resize" = true;
-            "dom.security.https_only_mode_send_http_background_request" = false;
-            "dom.security.https_only_mode" = true;
-            "extensions.blocklist.enabled" = true;
-            "extensions.enabledScopes" = 5;
-            "extensions.getAddons.showPane" = false;
-            "extensions.htmlaboutaddons.recommendations.enabled" = false;
-            "extensions.postDownloadThirdPartyPrompt" = false;
-            "extensions.quarantinedDomains.enabled" = true;
-            "extensions.webcompat.enable_shims" = true;
-            "extensions.webcompat-reporter.enabled" = false;
-            "geo.provider.ms-windows-location" = false;
-            "geo.provider.use_corelocation" = false;
-            "geo.provider.use_geoclue" = false;
-            "media.memory_cache_max_size" = 65536;
-            "media.peerconnection.ice.default_address_only" = true;
-            "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
-            "network.auth.subresource-http-auth-allow" = 1;
-            "network.captive-portal-service.enabled" = false;
-            "network.connectivity-service.enabled" = false;
-            "network.dns.disablePrefetchFromHTTPS" = true;
-            "network.dns.disablePrefetch" = true;
-            "network.file.disable_unc_paths" = true;
-            "network.gio.supported-protocols" = "";
-            "network.http.referer.spoofSource" = false;
-            "network.http.referer.XOriginTrimmingPolicy" = 2;
-            "network.http.speculative-parallel-limit" = 0;
-            "network.IDN_show_punycode" = true;
-            "network.predictor.enabled" = false;
-            "network.predictor.enable-prefetch" = false;
-            "network.prefetch-next" = false;
-            "network.proxy.socks_remote_dns" = true;
-            "pdfjs.disabled" = false;
-            "pdfjs.enableScripting" = false;
-            "permissions.manager.defaultsUrl" = "";
-            "privacy.antitracking.isolateContentScriptResources" = true;
-            "privacy.clearHistory.browsingHistoryAndDownloads" = false;
-            "privacy.clearHistory.cache" = true;
-            "privacy.clearHistory.cookiesAndStorage" = false;
-            "privacy.clearHistory.formdata" = true;
-            "privacy.clearHistory.historyFormDataAndDownloads" = false;
-            "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = false;
-            "privacy.clearOnShutdown_v2.cache" = true;
-            "privacy.clearOnShutdown_v2.cookiesAndStorage" = true;
-            "privacy.clearOnShutdown_v2.downloads" = false;
-            "privacy.clearOnShutdown_v2.formdata" = true;
-            "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
-            "privacy.clearSiteData.browsingHistoryAndDownloads" = false;
-            "privacy.clearSiteData.cache" = true;
-            "privacy.clearSiteData.cookiesAndStorage" = false;
-            "privacy.clearSiteData.formdata" = true;
-            "privacy.clearSiteData.historyFormDataAndDownloads" = false;
-            "privacy.firstparty.isolate" = false;
-            "privacy.resistFingerprinting.block_mozAddonManager" = true;
-            "privacy.sanitize.sanitizeOnShutdown" = true;
-            "privacy.sanitize.timeSpan" = 0;
-            "privacy.spoof_english" = 1;
-            "privacy.trackingprotection.allow_list.baseline.enabled" = true;
-            "privacy.trackingprotection.allow_list.convenience.enabled" = true;
-            "privacy.userContext.enabled" = true;
-            "privacy.userContext.ui.enabled" = true;
-            "privacy.window.maxInnerHeight" = 900;
-            "privacy.window.maxInnerWidth" = 1600;
-            "security.cert_pinning.enforcement_level" = 2;
-            "security.csp.reporting.enabled" = false;
-            "security.dialog_enable_delay" = 1000;
-            "security.pki.crlite_mode" = 2;
-            "security.remote_settings.crlite_filters.enabled" = true;
-            "security.ssl.require_safe_negotiation" = true;
-            "security.ssl.treat_unsafe_negotiation_as_broken" = true;
-            "security.tls.enable_0rtt_data" = false;
-            "security.tls.version.enable-deprecated" = false;
-            "security.webauthn.always_allow_direct_attestation" = false;
-            "signon.autofillForms" = false;
-            "signon.formlessCapture.enabled" = false;
-            "toolkit.coverage.endpoint.base" = "";
-            "toolkit.coverage.opt-out" = true;
-            "toolkit.telemetry.archive.enabled" = false;
-            "toolkit.telemetry.bhrPing.enabled" = false;
-            "toolkit.telemetry.coverage.opt-out" = true;
-            "toolkit.telemetry.enabled" = false;
-            "toolkit.telemetry.firstShutdownPing.enabled" = false;
-            "toolkit.telemetry.newProfilePing.enabled" = false;
-            "toolkit.telemetry.server" = "data:,";
-            "toolkit.telemetry.shutdownPingSender.enabled" = false;
-            "toolkit.telemetry.unified" = false;
-            "toolkit.telemetry.updatePing.enabled" = false;
-            "toolkit.winRegisterApplicationRestart" = false;
-            "widget.non-native-theme.use-theme-accent" = false;
-          }
-          // lib.optionalAttrs cfg.clean.enable {
-            "privacy.clearHistory.browsingHistoryAndDownloads" = true;
-            "privacy.clearHistory.cache" = true;
-            "privacy.clearHistory.cookiesAndStorage" = true;
-            "privacy.clearHistory.formdata" = true;
-            "privacy.clearHistory.historyFormDataAndDownloads" = true;
-            "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
-            "privacy.clearOnShutdown_v2.cache" = true;
-            "privacy.clearOnShutdown_v2.cookiesAndStorage" = true;
-            "privacy.clearOnShutdown_v2.downloads" = true;
-            "privacy.clearOnShutdown_v2.formdata" = true;
-            "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = true;
-            "privacy.clearSiteData.browsingHistoryAndDownloads" = true;
-            "privacy.clearSiteData.cache" = true;
-            "privacy.clearSiteData.cookiesAndStorage" = true;
-            "privacy.clearSiteData.formdata" = true;
-            "privacy.clearSiteData.historyFormDataAndDownloads" = true;
-          }
-          // {
-            "browser.ml.enable" = false;
-            "browser.places.importBookmarksHTML" = true;
-            "clipboard.autocopy" = false;
-            "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-            "extensions.autoDisableScopes" = 0;
-            "font.name.serif.x-western" = "DejaVu Sans";
-            "layout.css.devPixelsPerPx" = 1.2;
-            "media.hardwaremediakeys.enabled" = false;
-            "middlemouse.paste" = false;
-          };
+        settings = {
+          "browser.ml.enable" = false;
+          "browser.places.importBookmarksHTML" = true;
+          "clipboard.autocopy" = false;
+          "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+          "extensions.autoDisableScopes" = 0;
+          "font.name.serif.x-western" = "DejaVu Sans";
+          "layout.css.devPixelsPerPx" = 1.2;
+          "media.hardwaremediakeys.enabled" = false;
+          "middlemouse.paste" = false;
+        };
       };
     };
   };
@@ -430,7 +233,7 @@ in
   options = {
     firefox = {
       enable = lib.mkEnableOption "Enable FireFox";
-      clean.enable = lib.mkEnableOption "Enable FireFox cleanup on close";
+      clear.enable = lib.mkEnableOption "Enable FireFox cleanup";
       extensions = {
         behave.enable = lib.mkEnableOption "Enable FireFox security extension: behave";
         darkreader.enable = lib.mkEnableOption "Enable FireFox style extension: darkreader";
