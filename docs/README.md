@@ -35,7 +35,6 @@ $ music                       | Toogle music-instance
 $ music-instance              | Play music
 # rebuild [$option] [$host]   | Rebuild system
 $ update                      | Update config
-$ userjs2nix [arkenfox/.../*] | Echo user.js in nix format
 $ vpn [on/off/*]              | Toggle VPN connection
 ```
 Hyprland

@@ -66,42 +66,6 @@ in
         cd ${vars.user.config}
         nix flake update
       '')
-      (pkgs.writeShellScriptBin "userjs2nix" ''
-        if [ -z "$1" ]; then
-          echo "Usage: $0 [arkenfox/Betterfox/Fastfox/Peskyfox/Securefox/Smoothfox or /path/to/user.js]"
-          exit 1
-        fi
-        tmpfile="/tmp/user-$(date +%s).js"
-        case "$1" in
-        arkenfox)
-          link="https://raw.githubusercontent.com/arkenfox/user.js/refs/heads/master/user.js"
-        ;;
-        Betterfox)
-          link="https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/user.js"
-        ;;
-        Fastfox)
-          link="https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Fastfox.js"
-        ;;
-        Peskyfox)
-          link="https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Peskyfox.js"
-        ;;
-        Securefox)
-          link="https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Securefox.js"
-        ;;
-        Smoothfox)
-          link="https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Smoothfox.js"
-        ;;
-        *)
-          cp $1 $tmpfile
-        ;;
-        esac
-        if [ -n "$link" ]; then wget -q $link -O $tmpfile; fi
-        version="$(cat $tmpfile | grep "version:" | grep -oE '[0-9]+')"
-        if [ -n "$version" ]; then version=" v$version"; fi
-        echo "# $1$version"
-        cat $tmpfile | grep "^user_pref(" | sort | sed -e 's/^user_pref(//g' -e 's/);.*/;/g' -e '/_user\.js\.parrot/d' -e 's/, / = /g'
-        rm $tmpfile
-      '')
       (pkgs.writeShellScriptBin "vpn" ''
         case $1 in
         on)
