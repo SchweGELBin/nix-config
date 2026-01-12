@@ -20,7 +20,9 @@ in
 
       cava.transparent = true;
       cursors.enable = cfg.catppuccin.cursors.enable;
-      firefox.profiles.${vars.user.name}.force = true;
+      firefox.profiles = lib.mkIf config.firefox.enable {
+        ${vars.user.name}.force = true;
+      };
       gtk.icon.enable = cfg.catppuccin.gtk.enable;
     };
 
