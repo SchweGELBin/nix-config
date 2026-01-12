@@ -24,7 +24,7 @@ in
           name = "Update Rocket League";
         };
         categories = [ "Game" ];
-        exec = "env DISPLAY= legendary launch Sugar";
+        exec = "legendary launch Sugar";
         icon = "${icons}/apps/rocket-league.svg";
         name = "Rocket League";
       };
