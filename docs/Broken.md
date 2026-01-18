@@ -4,3 +4,5 @@
 - olm: Should get replaced
 - ryuldn: Not merged yet
 - websurfx: Not merged yet
+- Firefox(Dark Reader): Unsigned Extension?
+- Hyprland Plugins
