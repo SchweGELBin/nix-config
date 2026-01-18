@@ -136,7 +136,8 @@
   thunderbird.enable = lib.mkDefault false;
   vesktop = {
     enable = lib.mkDefault false;
-    vencord.useSystem = lib.mkDefault true;
+    hardwareAcceleration.enable = lib.mkDefault true;
+    vencord.system.enable = lib.mkDefault true;
   };
   waybar.enable = lib.mkDefault false;
   yt-dlp.enable = lib.mkDefault true;

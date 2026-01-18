@@ -21,8 +21,8 @@ in
           arRPC = true;
           autoUpdate = false;
           autoUpdateNotification = false;
-          hardwareAcceleration = true;
-          hardwareVideoAcceleration = true;
+          hardwareAcceleration = cfg.hardwareAcceleration.enable;
+          hardwareVideoAcceleration = cfg.hardwareAcceleration.enable;
           transparent = false;
           plugins = {
             CustomRPC = {
@@ -43,7 +43,7 @@ in
             Settings.settingsLocation = "aboveNitro";
           };
         };
-        useSystem = true;
+        useSystem = cfg.vencord.system.enable;
       };
     };
   };
@@ -51,7 +51,8 @@ in
   options = {
     vesktop = {
       enable = lib.mkEnableOption "Enable Vesktop";
-      vencord.useSystem = lib.mkEnableOption "Enable System Vencord";
+      hardwareAcceleration.enable = lib.mkEnableOption "Enable Hardware Acceleration";
+      vencord.system.enable = lib.mkEnableOption "Enable System Vencord";
     };
   };
 }
