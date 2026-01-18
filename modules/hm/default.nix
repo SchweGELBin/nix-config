@@ -81,7 +81,7 @@
       dualSenseTouchpad.enable = lib.mkDefault false;
       forceBitdepth.enable = lib.mkDefault false;
       plugins = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
         borders-plus-plus.enable = lib.mkDefault false;
         csgo-vulkan-fix.enable = lib.mkDefault false;
         hyprbars.enable = lib.mkDefault false;
