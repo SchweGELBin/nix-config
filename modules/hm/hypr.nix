@@ -71,16 +71,12 @@ in
         settings = {
           splash = false;
           wallpaper = [
-            # Monitor by desc isn't supported yet.
-            # It will be in the next version: https://github.com/hyprwm/hyprpaper/commit/2953d963bec2ea63b4303e269b472524db46a121
             {
-              #monitor = monitors.first.name;
-              monitor = "DP-2";
+              monitor = monitors.first.name;
               path = monitors.first.wallp;
             }
             {
-              #monitor = monitors.second.name;
-              monitor = "DP-3";
+              monitor = monitors.second.name;
               path = monitors.second.wallp;
             }
           ];
