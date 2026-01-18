@@ -134,7 +134,10 @@
     gtk.enable = lib.mkDefault false;
   };
   thunderbird.enable = lib.mkDefault false;
-  vesktop.enable = lib.mkDefault false;
+  vesktop = {
+    enable = lib.mkDefault false;
+    vencord.useSystem = lib.mkDefault true;
+  };
   waybar.enable = lib.mkDefault false;
   yt-dlp.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
