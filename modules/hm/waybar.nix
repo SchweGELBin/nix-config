@@ -70,10 +70,11 @@ in
             rewrite = {
               "" = "  I use Nix btw";
               "cava" = "  I use Nix btw";
+              "hyprbg" = "  I use Nix btw";
               "Element(.*)" = "󰭹 $1";
+              "Vesktop" = "󰙯  Vesktop";
               "(.*) — Mozilla Firefox" = "󰈹  $1";
               "(.*) - mpv" = "  $1";
-              "Vesktop" = "󰙯  Vesktop";
             };
             separate-outputs = true;
           };
