@@ -65,7 +65,7 @@ in
         godot
         grim
         inkscape
-        kdePackages.kdenlive
+        #kdePackages.kdenlive
         krita
         legendary-gl
         libnotify
