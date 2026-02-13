@@ -72,7 +72,7 @@ in
         libreoffice-fresh
         luanti
         mari0
-        melonDS
+        melonds
         nemo
         nixpkgs-review
         nix-update
