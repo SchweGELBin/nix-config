@@ -48,6 +48,7 @@ in
       ]
       ++ lib.optionals cfg.home.enable [
         androidStudioPackages.dev
+        archipelago
         ardour
         audacity
         bitwarden-desktop
