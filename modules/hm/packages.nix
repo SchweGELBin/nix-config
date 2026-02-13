@@ -91,7 +91,7 @@ in
         theclicker
         wev
         winetricks
-        wineWowPackages.stagingFull
+        wineWow64Packages.stagingFull
         wl-clipboard
       ]
       ++ lib.optionals cfg.phone.enable [ ]
