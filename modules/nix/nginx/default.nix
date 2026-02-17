@@ -368,10 +368,6 @@ in
           description = "Websurfx Port";
           type = lib.types.port;
         };
-        redis-port = lib.mkOption {
-          description = "Websurfx Redis Port";
-          type = lib.types.port;
-        };
       };
       whoogle = {
         enable = lib.mkEnableOption "Enable Whoogle";

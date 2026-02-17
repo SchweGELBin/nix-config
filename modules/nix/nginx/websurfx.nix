@@ -15,7 +15,6 @@ in
         https://github.com/NixOS/nixpkgs/pull/471684
         websurfx = {
           enable = true;
-          redis.port = cfg.websurfx.redis-port;
           settings = {
             port = cfg.websurfx.port;
             upstream_search_engines = {
