@@ -370,6 +370,13 @@ in
             monitor = 1;
           }
           {
+            name = "Trackmania";
+            "match:title" = "Trackmania";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
+          }
+          {
             name = "Ultimate Chicken Horse";
             "match:class" = "UltimateChickenHorse.x86_64";
             fullscreen = true;
