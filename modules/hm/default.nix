@@ -105,7 +105,7 @@
   mpv.enable = lib.mkDefault true;
   music.enable = lib.mkDefault false;
   niri.enable = lib.mkDefault false;
-  retroarch.enable = lib.mkDefault true;
+  retroarch.enable = lib.mkDefault false;
   rofi = {
     enable = lib.mkDefault false;
     modes = {
