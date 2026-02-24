@@ -58,6 +58,7 @@ in
         catppuccin-whiskers
         dolphin-emu
         easyeffects
+        eden
         exiftool
         fenix
         fusee-nano
