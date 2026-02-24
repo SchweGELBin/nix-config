@@ -87,7 +87,7 @@ in
         qrencode
         ryubing
         slurp
-        supertux
+        #supertux
         supertuxkart
         theclicker
         wev
