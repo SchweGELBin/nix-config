@@ -91,7 +91,11 @@ in
                   name = "Other";
                   bookmarks = [
                     {
-                      name = "Archive";
+                      name = "Archive Code";
+                      url = "https://archive.softwareheritage.org/save";
+                    }
+                    {
+                      name = "Archive Web";
                       url = "https://web.archive.org/save";
                     }
                     {
