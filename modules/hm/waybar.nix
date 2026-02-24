@@ -1,7 +1,6 @@
 { config, lib, ... }:
 let
   cfg = config.waybar;
-  vars = import ../vars.nix;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -147,7 +146,7 @@ in
         /* Modules */
         #bluetooth, #clock, #cpu, #custom-logout, #custom-mpv, #memory, #pulseaudio, #temperature, #tray, #window, #workspaces {
             background: alpha(@base, 0.7);
-            border: 2px solid @${vars.cat.accent};
+            border: 2px solid @accent;
             border-radius: 40px 25px;
             margin: 0 2px;
             padding: 2px 12px;
