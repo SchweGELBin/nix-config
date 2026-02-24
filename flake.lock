@@ -261,11 +261,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1771954209,
-        "narHash": "sha256-WVKUXWJ+lcef1DgFae5ZFV8UuD+6tTKhObEzLY+arlk=",
+        "lastModified": 1771976756,
+        "narHash": "sha256-4L8US2r/eY2op4IVV5OYSbu8DroxT3qgw7EYkndH3+o=",
         "owner": "SchweGELBin",
         "repo": "nixpkgs",
-        "rev": "e5d56cdd89b819a464320dd23bc93eda9da9b446",
+        "rev": "51daf8e5e8da66d23ff90e93e31e8d4f38cda492",
         "type": "github"
       },
       "original": {
@@ -282,11 +282,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771959733,
-        "narHash": "sha256-Nx/3tDn09xjGvMawVC5L7nIi4xRpcaw4ha0z15ECqGc=",
+        "lastModified": 1771976072,
+        "narHash": "sha256-J/1KJkZAA9GNYsJje/YlSp4+e/BBgn9F53prQWkirso=",
         "owner": "SchweGELBin",
         "repo": "nur-expressions",
-        "rev": "315ab0872a9898292bc4e229f278c2cb60a4e458",
+        "rev": "4c32947e3d3939d3ef4917e610143eace6090790",
         "type": "github"
       },
       "original": {
