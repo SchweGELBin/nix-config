@@ -267,7 +267,7 @@ in
           border_size = 2;
           gaps_in = 4;
           gaps_out = 12;
-          layout = "master";
+          layout = cfg.land.layout;
         };
 
         input = {
@@ -421,6 +421,15 @@ in
         enable = lib.mkEnableOption "Enable Hyprland";
         dualSenseTouchpad.enable = lib.mkEnableOption "Enable DualSense Touchpad";
         forceBitdepth.enable = lib.mkEnableOption "Enable forcing monitor bitdepth";
+        layout = lib.mkOption {
+          description = "Hyprland layout to use";
+          type = lib.types.enum [
+            "dwindle"
+            "master"
+            "monocle"
+            "scrolling"
+          ];
+        };
         plugins = {
           enable = lib.mkEnableOption "Enable Hyprland Plugins";
           borders-plus-plus.enable = lib.mkEnableOption "Enable Hyprland Plugin: borders-plus-plus";

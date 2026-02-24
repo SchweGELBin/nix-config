@@ -80,6 +80,7 @@
       enable = lib.mkDefault true;
       dualSenseTouchpad.enable = lib.mkDefault false;
       forceBitdepth.enable = lib.mkDefault false;
+      layout = "master";
       plugins = {
         enable = lib.mkDefault true;
         borders-plus-plus.enable = lib.mkDefault false;
