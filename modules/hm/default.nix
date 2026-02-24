@@ -88,7 +88,6 @@
         hyprbars.enable = lib.mkDefault false;
         hyprexpo.enable = lib.mkDefault true;
         hyprfocus.enable = lib.mkDefault false;
-        hyprscrolling.enable = lib.mkDefault false;
         hyprtrails.enable = lib.mkDefault true;
         hyprwinwrap.enable = lib.mkDefault true;
         xtra-dispatchers.enable = lib.mkDefault false;

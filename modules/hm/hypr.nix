@@ -406,7 +406,6 @@ in
         ++ lib.optional cfg.land.plugins.hyprbars.enable hyprbars
         ++ lib.optional cfg.land.plugins.hyprexpo.enable hyprexpo
         ++ lib.optional cfg.land.plugins.hyprfocus.enable hyprfocus
-        ++ lib.optional cfg.land.plugins.hyprscrolling.enable hyprscrolling
         ++ lib.optional cfg.land.plugins.hyprtrails.enable hyprtrails
         ++ lib.optional cfg.land.plugins.hyprwinwrap.enable hyprwinwrap
         ++ lib.optional cfg.land.plugins.xtra-dispatchers.enable xtra-dispatchers;
@@ -437,7 +436,6 @@ in
           hyprbars.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprbars";
           hyprexpo.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprexpo";
           hyprfocus.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprfocus";
-          hyprscrolling.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprscrolling";
           hyprtrails.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprtrails";
           hyprwinwrap.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprwinwrap";
           xtra-dispatchers.enable = lib.mkEnableOption "Enable Hyprland Plugin: xtra-dispatchers";
