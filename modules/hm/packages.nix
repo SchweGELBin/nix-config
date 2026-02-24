@@ -87,8 +87,8 @@ in
         qrencode
         ryubing
         slurp
-        superTux
-        superTuxKart
+        supertux
+        supertuxkart
         theclicker
         wev
         winetricks
