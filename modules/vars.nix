@@ -20,7 +20,7 @@
   };
 
   keys = {
-    ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMtipw/kY5vjH1jeuXWXbmiAxPSSxpqjFx78AlVZ3/Tn";
+    ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIpcXGXgaNtsc3enpyEyfS5aJOy35ACEdksT2Xppjb07";
     wgc = "+nIuimwykjLu8JGyJw2U6vOFaeCkF4agedgfxX7Iizs=";
     wgs = "D2hzynxz2/P5GV8tusEniV26jBne2UnJyaReA5d4PHA=";
   };
