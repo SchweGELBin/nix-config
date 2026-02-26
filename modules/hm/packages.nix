@@ -33,6 +33,7 @@ in
         lsof
         mdcat
         neo-cowsay
+        net-tools
         nix-tree
         nur.catspeak
         pipes-rs
