@@ -41,8 +41,14 @@ in
         ];
     }
     // lib.optionalAttrs cfg.static.enable {
-      defaultGateway = lib.mkIf (gateway.v4 != "") gateway.v4;
-      defaultGateway6 = lib.mkIf (gateway.v6 != "") gateway.v6;
+      defaultGateway = lib.mkIf (gateway.v4 != "") {
+        address = gateway.v4;
+        interface = cfg.interface;
+      };
+      defaultGateway6 = lib.mkIf (gateway.v6 != "") {
+        address = gateway.v6;
+        interface = cfg.interface;
+      };
       interfaces.${cfg.interface} = {
         ipv4.addresses = lib.mkIf cfg.static.v4.enable [
           {
