@@ -24,7 +24,6 @@ in
       };
       networkmanager.enable = true;
       stevenblack.enable = true;
-      useDHCP = lib.mkDefault true;
     }
     // lib.optionalAttrs cfg.dns.enable {
       nameservers =
@@ -42,40 +41,22 @@ in
         ];
     }
     // lib.optionalAttrs cfg.static.enable {
-      defaultGateway = gateway.v4;
-      defaultGateway6 = lib.mkIf (gateway.v6 != "") {
-        address = gateway.v6;
-        interface = cfg.interface;
-      };
+      defaultGateway = lib.mkIf (gateway.v4 != "") gateway.v4;
+      defaultGateway6 = lib.mkIf (gateway.v6 != "") gateway.v6;
       interfaces.${cfg.interface} = {
-        ipv4 = {
-          addresses = lib.mkIf cfg.static.v4.enable [
-            {
-              address = cfg.static.v4.ip;
-              prefixLength = 24;
-            }
-          ];
-          routes = [
-            {
-              address = gateway.v4;
-              prefixLength = 32;
-            }
-          ];
-        };
-        ipv6 = {
-          addresses = lib.mkIf cfg.static.v6.enable [
-            {
-              address = cfg.static.v6.ip;
-              prefixLength = 64;
-            }
-          ];
-          routes = [
-            {
-              address = gateway.v6;
-              prefixLength = 128;
-            }
-          ];
-        };
+        ipv4.addresses = lib.mkIf cfg.static.v4.enable [
+          {
+            address = cfg.static.v4.ip;
+            prefixLength = 24;
+          }
+        ];
+        ipv6.addresses = lib.mkIf cfg.static.v6.enable [
+          {
+            address = cfg.static.v6.ip;
+            prefixLength = 64;
+          }
+        ];
+        useDHCP = true;
       };
     };
   };
