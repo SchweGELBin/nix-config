@@ -32,10 +32,7 @@ in
         ${cfg.weblate.mail}.hashedPasswordFile = secrets.weblate_mailhash.path;
       };
       stateVersion = 3;
-      x509 = {
-        certificateFile = "/var/lib/acme/${cfg.mail.fqdn}/cert.pem";
-        privateKeyFile = "/var/lib/acme/${cfg.mail.fqdn}/key.pem";
-      };
+      x509.useACMEHost = cfg.domain;
     };
     sops.secrets = {
       mailhash.owner = "dovecot2";
