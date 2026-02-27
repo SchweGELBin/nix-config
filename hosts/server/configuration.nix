@@ -36,14 +36,10 @@ in
       nat.enable = true;
       static = {
         enable = true;
-        mode = "hetzner";
+        mode = "oracle";
         v4 = {
           enable = true;
-          ip = "138.199.210.86";
-        };
-        v6 = {
-          enable = true;
-          ip = "2a01:4f8:1c1a:d504::1";
+          ip = "10.0.0.2";
         };
       };
     };
