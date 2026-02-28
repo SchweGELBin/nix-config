@@ -31,7 +31,7 @@ in
 
     services.minecraft-server = lib.mkIf cfg.server.enable {
       enable = true;
-      package = pkgs.papermcServers.papermc-1_21_10;
+      package = pkgs.papermcServers.papermc-1_21_11;
       declarative = true;
       eula = true;
       jvmOpts = lib.concatStringsSep " " ([ cfg.server.ram ] ++ cfg.server.extraJVM);
