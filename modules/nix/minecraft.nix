@@ -34,7 +34,7 @@ in
       package = pkgs.papermcServers.papermc-1_21_10;
       declarative = true;
       eula = true;
-      jvmOpts = cfg.server.ram;
+      jvmOpts = lib.concatStringsSep " " ([ cfg.server.ram ] ++ cfg.server.extraJVM);
       openFirewall = true;
       serverProperties = {
         difficulty = "hard";
@@ -72,6 +72,10 @@ in
       bot.enable = lib.mkEnableOption "Enable Minecraft Bot";
       server = {
         enable = lib.mkEnableOption "Enable Minecraft Server";
+        extraJVM = lib.mkOption {
+          description = "Minecraft extra JVM arguments";
+          type = with lib.types; listOf str;
+        };
         port = lib.mkOption {
           description = "Minecraft Server Port";
           type = lib.types.port;

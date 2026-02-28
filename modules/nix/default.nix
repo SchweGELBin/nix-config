@@ -68,6 +68,7 @@ in
       bot.enable = lib.mkDefault false;
       server = {
         enable = lib.mkDefault true;
+        extraJVM = [ "-XX:+UseZGC" ];
         port = lib.mkDefault 25565;
         ram = lib.mkDefault "-Xms8G -Xmx8G";
         rcon = {
