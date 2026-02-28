@@ -69,7 +69,7 @@ in
       server = {
         enable = lib.mkDefault true;
         port = lib.mkDefault 25565;
-        ram = lib.mkDefault "-Xms128M -Xmx2G";
+        ram = lib.mkDefault "-Xms8G -Xmx8G";
         rcon = {
           enable = lib.mkDefault false;
           port = lib.mkDefault 25566;
