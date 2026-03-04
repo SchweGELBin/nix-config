@@ -5,7 +5,10 @@ in
 {
   config = lib.mkIf cfg.enable {
     hardware = {
-      bluetooth.enable = cfg.bluetooth.enable;
+      bluetooth = {
+        enable = cfg.bluetooth.enable;
+        powerOnBoot = false;
+      };
       graphics.enable = true;
       nvidia = lib.mkIf cfg.nvidia.enable {
         open = true;
