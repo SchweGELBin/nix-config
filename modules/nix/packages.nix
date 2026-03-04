@@ -37,6 +37,7 @@ in
         xwayland.enable = true;
       };
       hyprlock.enable = (cfg.home.wm == "hyprland");
+      kdeconnect.enable = true;
       niri.enable = (cfg.home.wm == "niri");
       ssh = {
         enableAskPassword = false;
