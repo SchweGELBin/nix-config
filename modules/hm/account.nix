@@ -41,7 +41,7 @@ in
         realName = prettyName;
         signature = {
           showSignature = "append";
-          text = "- ${prettyName}\nHave a great day!";
+          text = "Have a great day!\n- ${prettyName}";
         };
         smtp = {
           host = "mail.${vars.my.domain}";
