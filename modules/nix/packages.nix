@@ -62,6 +62,10 @@ in
 
     services.openssh.enable = true;
 
+    virtualisation = lib.optionalAttrs cfg.home.enable {
+      waydroid.enable = true;
+    };
+
     xdg.portal.enable = cfg.home.enable;
   };
 
