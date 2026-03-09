@@ -42,7 +42,11 @@ in
         enable-rcon = cfg.server.rcon.enable;
         enforce-whitelist = true;
         force-gamemode = true;
-        max-players = 7;
+        max-players =
+          if cfg.server.whitelist.enable then
+            lib.length (lib.attrValues config.services.minecraft-server.whitelist)
+          else
+            7;
         motd = "MiX MC";
         op-permission-level = 2;
         "query.port" = cfg.server.port;
