@@ -46,15 +46,15 @@ in
           if cfg.server.whitelist.enable then
             lib.length (lib.attrValues config.services.minecraft-server.whitelist)
           else
-            7;
+            16;
         motd = "MiX MC";
         op-permission-level = 2;
         "query.port" = cfg.server.port;
         "rcon.password" = "V3ry S3cr3t P455w0rd";
         "rcon.port" = cfg.server.rcon.port;
         server-port = cfg.server.port;
-        simulation-distance = 6;
-        view-distance = 8;
+        simulation-distance = 12;
+        view-distance = 16;
         white-list = cfg.server.whitelist.enable;
       };
       whitelist = {
