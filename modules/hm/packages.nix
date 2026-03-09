@@ -87,6 +87,7 @@ in
         pulseaudio
         qrencode
         ryubing
+        scrcpy
         slurp
         #supertux
         supertuxkart
