@@ -11,7 +11,7 @@ in
   config = lib.mkIf cfg.enable {
     boot = {
       extraModprobeConfig = lib.optionalString cfg.modules.v4l2loopback.enable ''
-        options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+        options v4l2loopback exclusive_caps=1 devices=3 video_nr=1,2,3 card_label="OBS Cam,Handy Screen,Handy Cam"
       '';
       extraModulePackages =
         with config.boot.kernelPackages;
