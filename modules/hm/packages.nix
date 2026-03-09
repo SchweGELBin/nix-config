@@ -89,7 +89,7 @@ in
         ryubing
         scrcpy
         slurp
-        #supertux
+        supertux
         supertuxkart
         theclicker
         wev
