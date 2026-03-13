@@ -2,6 +2,7 @@
 
 - Impermanence
 - olm: Should get replaced
-- ryuldn: Not merged yet
-- websurfx: Not merged yet
 - Hyprland Plugins
+- ryuldn: [PR](https://github.com/NixOS/nixpkgs/pull/458646)
+- websurfx: [PR](https://github.com/NixOS/nixpkgs/pull/471684)
+- hytale-launcher: [PR](https://github.com/NixOS/nixpkgs/pull/479368)
