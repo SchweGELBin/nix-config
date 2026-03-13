@@ -81,7 +81,7 @@
       enable = lib.mkDefault true;
       dualSenseTouchpad.enable = lib.mkDefault false;
       forceBitdepth.enable = lib.mkDefault false;
-      layout = "master";
+      layout = "scrolling";
       plugins = {
         enable = lib.mkDefault false;
         borders-plus-plus.enable = lib.mkDefault false;
