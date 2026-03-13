@@ -38,7 +38,6 @@ in
       };
       hyprlock.enable = (cfg.home.wm == "hyprland");
       kdeconnect.enable = true;
-      niri.enable = (cfg.home.wm == "niri");
       ssh = {
         enableAskPassword = false;
         startAgent = (cfg.home.wm == "hyprland");
@@ -76,10 +75,7 @@ in
         enable = lib.mkEnableOption "Enable System Home Packages";
         wm = lib.mkOption {
           description = "Window Manager to use";
-          type = lib.types.enum [
-            "hyprland"
-            "niri"
-          ];
+          type = lib.types.enum [ "hyprland" ];
         };
       };
       phone.enable = lib.mkEnableOption "Enable System Phone Packages";

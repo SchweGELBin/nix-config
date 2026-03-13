@@ -138,10 +138,7 @@ in
         enable = lib.mkEnableOption "Enable HM Home Packages";
         wm = lib.mkOption {
           description = "Window Manager to use";
-          type = lib.types.enum [
-            "hyprland"
-            "niri"
-          ];
+          type = lib.types.enum [ "hyprland" ];
         };
       };
       phone.enable = lib.mkEnableOption "Enable HM Phone Packages";
