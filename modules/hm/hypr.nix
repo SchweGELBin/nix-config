@@ -210,6 +210,7 @@ in
           "$mod2  SHIFT,  left      ,  Fit column to end                             ,  layoutmsg             , fit toend"
           "$mod2       ,  right     ,  Increase column size                          ,  layoutmsg             , colresize +0.1"
           "$mod2       ,  F         ,  Normalize column sizes                        ,  layoutmsg             , fit visible"
+          "$mod2       ,  ALT_L     ,  Promote focused window                        ,  layoutmsg             , promote"
           "$mod2       ,  down      ,  Swap focused column with left one             ,  layoutmsg             , swapcol l"
           "$mod2       ,  up        ,  Swap focused column with right one            ,  layoutmsg             , swapcol r"
         ]
