@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./bluemap.nix
     ./collabora.nix
     ./coturn.nix
     ./element.nix
@@ -55,6 +56,13 @@ in
       domain = lib.mkOption {
         description = "Nginx Domain";
         type = lib.types.str;
+      };
+      bluemap = {
+        enable = lib.mkEnableOption "Enable BlueMap";
+        fqdn = lib.mkOption {
+          description = "BlueMap Domain";
+          type = lib.types.str;
+        };
       };
       collabora = {
         enable = lib.mkEnableOption "Enable Collabora Online";

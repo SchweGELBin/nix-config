@@ -108,6 +108,10 @@ in
     nginx = {
       enable = lib.mkDefault false;
       domain = lib.mkDefault vars.my.domain;
+      bluemap = {
+        enable = lib.mkDefault false;
+        fqdn = lib.mkDefault "mc.${vars.my.domain}";
+      };
       collabora = {
         enable = lib.mkDefault false;
         fqdn = lib.mkDefault "cool.${vars.my.domain}";

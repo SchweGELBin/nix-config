@@ -21,6 +21,7 @@ in
     minecraft.enable = true;
     nginx = {
       enable = true;
+      bluemap.enable = true;
       coturn.enable = true;
       element.enable = true;
       forgejo.enable = true;
