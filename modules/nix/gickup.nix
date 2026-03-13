@@ -20,7 +20,7 @@ in
         script =
           let
             configFile = (pkgs.formats.yaml { }).generate "gickup.yml" {
-              cron = if cfg.cron.enable then "0 4 * * 1" else "";
+              cron = if cfg.cron.enable then "0 4 * * *" else "";
               destination.gitea = [
                 {
                   createorg = true;
