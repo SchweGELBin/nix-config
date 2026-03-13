@@ -40,6 +40,7 @@ in
                 {
                   exclude = [
                     "Arcticons"
+                    "eden"
                     "kernel_milk_davinci"
                     "lawnicons"
                     "linux"
