@@ -69,6 +69,11 @@ in
       server = {
         enable = lib.mkDefault true;
         extraJVM = [ "-XX:+UseZGC" ];
+        plugins = {
+          enable = lib.mkDefault false;
+          bluemap.enable = lib.mkDefault false;
+          geyser.enable = lib.mkDefault false;
+        };
         port = lib.mkDefault 25565;
         ram = lib.mkDefault "-Xms8G -Xmx8G";
         rcon = {

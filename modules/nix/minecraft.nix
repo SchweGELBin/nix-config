@@ -35,7 +35,6 @@ in
       declarative = true;
       eula = true;
       jvmOpts = lib.concatStringsSep " " ([ cfg.server.ram ] ++ cfg.server.extraJVM);
-      openFirewall = true;
       serverProperties = {
         difficulty = "hard";
         enable-command-block = false;
@@ -68,6 +67,29 @@ in
     };
 
     sops.secrets.mixbot_env.owner = lib.mkIf cfg.bot.enable "mixbot";
+
+    systemd.services.minecraft-server = lib.mkIf (cfg.server.enable && cfg.server.plugins.enable) {
+      preStart =
+        let
+          bluemap = pkgs.fetchurl {
+            url = "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.16/bluemap-5.16-paper.jar";
+            hash = "sha256-eduusmBTLb1WYk+LzoqyL7yhWK5KKGCwT8zv+55Gdso=";
+          };
+          geyser = pkgs.fetchurl {
+            url = "https://download.geysermc.org/v2/projects/geyser/versions/2.9.4/builds/1097/downloads/spigot";
+            hash = "sha256-PSt+IRhn+SiJrxNSUJ/dQeKsqR4W/iP77zFeyOiMVSk=";
+          };
+        in
+        ''
+          if [ ! -d plugins ]; then mkdir plugins; fi
+        ''
+        + lib.optionalString cfg.server.plugins.bluemap.enable ''
+          ln -sf ${bluemap} plugins/bluemap.jar
+        ''
+        + lib.optionalString cfg.server.plugins.geyser.enable ''
+          ln -sf ${geyser} plugins/geyser.jar
+        '';
+    };
   };
 
   options = {
@@ -79,6 +101,11 @@ in
         extraJVM = lib.mkOption {
           description = "Minecraft extra JVM arguments";
           type = with lib.types; listOf str;
+        };
+        plugins = {
+          enable = lib.mkEnableOption "Enable Paper Plugins";
+          bluemap.enable = lib.mkEnableOption "Enable Paper Plugin: BlueMap";
+          geyser.enable = lib.mkEnableOption "Enable Paper Plugin: Geyser";
         };
         port = lib.mkOption {
           description = "Minecraft Server Port";
