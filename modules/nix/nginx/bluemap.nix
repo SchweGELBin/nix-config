@@ -24,6 +24,7 @@ in
           };
           overworld.world = mcworld;
         };
+        onCalendar = "*-*-* 05:30:00";
       };
       nginx.virtualHosts.${cfg.bluemap.fqdn} = {
         enableACME = true;
