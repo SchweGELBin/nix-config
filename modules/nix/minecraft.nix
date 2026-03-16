@@ -24,8 +24,9 @@ in
       package = pkgs.nur.mixbot;
       secretFile = secrets.mixbot_env.path;
       settings = {
+        accounts = "MiXBot,true";
         discord_id = toString vars.my.discordid;
-        online = true;
+        owner = "SchweGELBin";
       };
     };
 
