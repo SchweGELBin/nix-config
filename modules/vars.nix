@@ -54,6 +54,6 @@
     config = "/etc/nixos";
     home = "/home/michi";
     name = "michi";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 }
