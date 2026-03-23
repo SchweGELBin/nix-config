@@ -28,6 +28,8 @@ in
 
     gtk = lib.mkIf cfg.gtk.enable {
       enable = true;
+      colorScheme = "dark";
+      gtk4.theme = config.gtk.theme;
       iconTheme = lib.mkIf (!cfg.catppuccin.gtk.enable) {
         name = "Dracula";
         package = pkgs.dracula-icon-theme;
