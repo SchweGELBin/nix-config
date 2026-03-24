@@ -83,11 +83,10 @@ in
         53
         cfg.port
       ];
-      stevenblack.whitelistRegex = [ ".*localhost.*" ];
     };
 
     services.dnsmasq = {
-      enable = cfg.mode == "server";
+      #enable = cfg.mode == "server";
       settings.interface = interface;
     };
 
