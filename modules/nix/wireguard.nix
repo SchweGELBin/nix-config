@@ -21,10 +21,6 @@ in
 
   config = lib.mkIf cfg.enable {
     networking = {
-      firewall.allowedUDPPorts = [
-        53
-        cfg.port
-      ];
       nat.internalInterfaces = [ interface ];
       wg-quick.interfaces.${interface} =
         lib.optionalAttrs (cfg.mode == "client") {
@@ -81,6 +77,13 @@ in
           '';
           privateKeyFile = secrets.wgs.path;
         };
+    }
+    // lib.optionalAttrs (cfg.mode == "server") {
+      firewall.allowedUDPPorts = [
+        53
+        cfg.port
+      ];
+      stevenblack.whitelistRegex = [ ".*localhost.*" ];
     };
 
     services.dnsmasq = {
