@@ -33,11 +33,11 @@ in
       wastebin.enable = true;
     };
     networking = {
-      dhcp.enable = true;
       hostName = "server";
       nat.enable = true;
       static = {
         enable = true;
+        dhcp.enable = true;
         mode = "oracle";
         v4 = {
           enable = true;

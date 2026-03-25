@@ -85,7 +85,6 @@ in
     };
     networking = {
       enable = lib.mkDefault true;
-      dhcp.enable = lib.mkDefault false;
       dns = {
         enable = lib.mkDefault true;
         cloudflare = {
@@ -100,6 +99,7 @@ in
       nat.enable = lib.mkDefault false;
       static = {
         enable = lib.mkDefault false;
+        dhcp.enable = lib.mkDefault false;
         mode = lib.mkDefault "default";
         v4 = {
           enable = lib.mkDefault false;

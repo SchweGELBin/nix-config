@@ -24,7 +24,6 @@ in
       };
       networkmanager.enable = true;
       stevenblack.enable = true;
-      interfaces.${cfg.interface}.useDHCP = cfg.dhcp.enable;
     }
     // lib.optionalAttrs cfg.dns.enable {
       nameservers =
@@ -69,6 +68,7 @@ in
             prefixLength = 64;
           }
         ];
+        useDHCP = cfg.static.dhcp.enable;
       };
     };
   };
@@ -76,7 +76,6 @@ in
   options = {
     sys.networking = {
       enable = lib.mkEnableOption "Enable Networking";
-      dhcp.enable = lib.mkEnableOption "Enable DHCP";
       dns = {
         enable = lib.mkEnableOption "Enable Custom DNS";
         cloudflare = {
@@ -100,6 +99,7 @@ in
       nat.enable = lib.mkEnableOption "Enable NAT";
       static = {
         enable = lib.mkEnableOption "Enable Static IPs";
+        dhcp.enable = lib.mkEnableOption "Enable DHCP";
         mode = lib.mkOption {
           description = "Static Mode to use";
           type = lib.types.enum [
