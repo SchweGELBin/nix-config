@@ -29,6 +29,10 @@ in
           enable = true;
           ip = "192.168.0.123";
         };
+        v6 = {
+          enable = true;
+          ip = "fd00::123";
+        };
       };
     };
     pkgs.home.enable = true;

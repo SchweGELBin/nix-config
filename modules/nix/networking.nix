@@ -9,7 +9,7 @@ let
         "10.0.0.1"
       else
         "192.168.0.1";
-    v6 = if (cfg.static.mode == "hetzner") then "fe80::1" else "";
+    v6 = "fe80::1";
   };
 in
 {
@@ -30,14 +30,20 @@ in
         lib.optionals cfg.dns.cloudflare.enable [
           "1.1.1.${toString cfg.dns.cloudflare.flavor}"
           "1.0.0.${toString cfg.dns.cloudflare.flavor}"
+          "2606:4700:4700::111${toString cfg.dns.cloudflare.flavor}"
+          "2606:4700:4700::100${toString cfg.dns.cloudflare.flavor}"
         ]
         ++ lib.optionals cfg.dns.google.enable [
           "8.8.8.8"
           "8.4.4.8"
+          "2001:4860:4860::8888"
+          "2001:4860:4860::8448"
         ]
         ++ lib.optionals cfg.dns.quad9.enable [
           "9.9.9.9"
           "149.112.112.112"
+          "2620:fe::9"
+          "2620:fe::fe"
         ];
     }
     // lib.optionalAttrs cfg.static.enable {
@@ -62,7 +68,6 @@ in
             prefixLength = 64;
           }
         ];
-        useDHCP = true;
       };
     };
   };

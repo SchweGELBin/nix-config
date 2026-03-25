@@ -92,7 +92,7 @@ in
           flavor = lib.mkDefault 1;
         };
         google.enable = lib.mkDefault false;
-        quad9.enable = lib.mkDefault true;
+        quad9.enable = lib.mkDefault false;
       };
       hostName = lib.mkDefault "nix";
       interface = lib.mkDefault "eth0";
