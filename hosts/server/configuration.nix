@@ -33,6 +33,7 @@ in
       wastebin.enable = true;
     };
     networking = {
+      dhcp.enable = true;
       hostName = "server";
       nat.enable = true;
       static = {

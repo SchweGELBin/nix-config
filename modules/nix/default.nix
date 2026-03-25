@@ -85,6 +85,7 @@ in
     };
     networking = {
       enable = lib.mkDefault true;
+      dhcp.enable = lib.mkDefault false;
       dns = {
         enable = lib.mkDefault true;
         cloudflare = {

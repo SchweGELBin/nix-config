@@ -24,6 +24,7 @@ in
       };
       networkmanager.enable = true;
       stevenblack.enable = true;
+      interfaces.${cfg.interface}.useDHCP = cfg.dhcp.enable;
     }
     // lib.optionalAttrs cfg.dns.enable {
       nameservers =
@@ -75,6 +76,7 @@ in
   options = {
     sys.networking = {
       enable = lib.mkEnableOption "Enable Networking";
+      dhcp.enable = lib.mkEnableOption "Enable DHCP";
       dns = {
         enable = lib.mkEnableOption "Enable Custom DNS";
         cloudflare = {
