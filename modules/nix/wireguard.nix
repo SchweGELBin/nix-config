@@ -86,7 +86,7 @@ in
     };
 
     services.dnsmasq = {
-      #enable = cfg.mode == "server";
+      enable = cfg.mode == "server";
       settings.interface = interface;
     };
 

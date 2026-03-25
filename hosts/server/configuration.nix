@@ -33,6 +33,7 @@ in
       wastebin.enable = true;
     };
     networking = {
+      adblock.enable = false;
       hostName = "server";
       nat.enable = true;
       static = {

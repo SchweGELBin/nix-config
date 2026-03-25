@@ -85,6 +85,7 @@ in
     };
     networking = {
       enable = lib.mkDefault true;
+      adblock.enable = lib.mkDefault true;
       dns = {
         enable = lib.mkDefault true;
         cloudflare = {

@@ -23,7 +23,7 @@ in
         externalInterface = cfg.interface;
       };
       networkmanager.enable = true;
-      stevenblack.enable = true;
+      stevenblack.enable = cfg.adblock.enable;
     }
     // lib.optionalAttrs cfg.dns.enable {
       nameservers =
@@ -76,6 +76,7 @@ in
   options = {
     sys.networking = {
       enable = lib.mkEnableOption "Enable Networking";
+      adblock.enable = lib.mkEnableOption "Enable Ad Blocking";
       dns = {
         enable = lib.mkEnableOption "Enable Custom DNS";
         cloudflare = {
