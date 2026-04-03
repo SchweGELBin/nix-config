@@ -25,8 +25,8 @@ in
       wg-quick.interfaces.${interface} =
         lib.optionalAttrs (cfg.mode == "client") {
           address = [
-            "${wg.v4}.2/24"
-            "${wg.v6}::2/64"
+            "${wg.v4}.2/32"
+            "${wg.v6}::2/128"
           ];
           autostart = cfg.autostart.enable;
           dns = [
@@ -57,15 +57,15 @@ in
           peers = [
             {
               allowedIPs = [
-                "${wg.v4}.2/24"
-                "${wg.v6}::2/64"
+                "${wg.v4}.2/32"
+                "${wg.v6}::2/128"
               ];
               publicKey = vars.keys.wgc;
             }
             {
               allowedIPs = [
-                "${wg.v4}.3/24"
-                "${wg.v6}::3/64"
+                "${wg.v4}.3/32"
+                "${wg.v6}::3/128"
               ];
               publicKey = vars.keys.wgc2;
             }
