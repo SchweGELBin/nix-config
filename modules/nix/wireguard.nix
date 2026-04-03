@@ -15,6 +15,7 @@ let
     v6 = "fdc9:281f:04d7:9ee9";
   };
   interface = "wg";
+  external = config.sys.networking.interface;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -71,16 +72,16 @@ in
             }
           ];
           postUp = ''
-            ${pkgs.iptables}/bin/iptables -A FORWARD -i mix -j ACCEPT
-            ${pkgs.iptables}/bin/ip6tables -A FORWARD -i mix -j ACCEPT
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${wg.v4}.1/24 -o eth0 -j MASQUERADE
-            ${pkgs.iptables}/bin/ip6tables -t nat -A POSTROUTING -s ${wg.v6}::1/64 -o eth0 -j MASQUERADE
+            ${pkgs.iptables}/bin/iptables -A FORWARD -i ${interface} -j ACCEPT
+            ${pkgs.iptables}/bin/ip6tables -A FORWARD -i ${interface} -j ACCEPT
+            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${wg.v4}.1/24 -o ${external} -j MASQUERADE
+            ${pkgs.iptables}/bin/ip6tables -t nat -A POSTROUTING -s ${wg.v6}::1/64 -o ${external} -j MASQUERADE
           '';
           preDown = ''
-            ${pkgs.iptables}/bin/iptables -D FORWARD -i mix -j ACCEPT
-            ${pkgs.iptables}/bin/ip6tables -D FORWARD -i mix -j ACCEPT
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${wg.v4}.1/24 -o eth0 -j MASQUERADE
-            ${pkgs.iptables}/bin/ip6tables -t nat -D POSTROUTING -s ${wg.v6}::1/64 -o eth0 -j MASQUERADE
+            ${pkgs.iptables}/bin/iptables -D FORWARD -i ${interface} -j ACCEPT
+            ${pkgs.iptables}/bin/ip6tables -D FORWARD -i ${interface} -j ACCEPT
+            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${wg.v4}.1/24 -o ${external} -j MASQUERADE
+            ${pkgs.iptables}/bin/ip6tables -t nat -D POSTROUTING -s ${wg.v6}::1/64 -o ${external} -j MASQUERADE
           '';
           privateKeyFile = secrets.wgs.path;
         };
