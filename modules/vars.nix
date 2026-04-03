@@ -22,6 +22,7 @@
   keys = {
     ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIpcXGXgaNtsc3enpyEyfS5aJOy35ACEdksT2Xppjb07";
     wgc = "+nIuimwykjLu8JGyJw2U6vOFaeCkF4agedgfxX7Iizs=";
+    wgc2 = "FjlTCwK59t2Edf7BUtT0s7Jg2jmYxleYSGBFnGs5JAY=";
     wgs = "D2hzynxz2/P5GV8tusEniV26jBne2UnJyaReA5d4PHA=";
   };
 

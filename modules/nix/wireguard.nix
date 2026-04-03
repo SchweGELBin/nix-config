@@ -62,6 +62,13 @@ in
               ];
               publicKey = vars.keys.wgc;
             }
+            {
+              allowedIPs = [
+                "${wg.v4}.3/24"
+                "${wg.v6}::3/64"
+              ];
+              publicKey = vars.keys.wgc2;
+            }
           ];
           postUp = ''
             ${pkgs.iptables}/bin/iptables -A FORWARD -i mix -j ACCEPT
