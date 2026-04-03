@@ -18,10 +18,7 @@ in
   config = lib.mkIf enable {
     mailserver = {
       enable = true;
-      domains = [ cfg.domain ];
-      fqdn = cfg.mail.fqdn;
-      localDnsResolver = false;
-      loginAccounts = {
+      accounts = {
         "master@${cfg.domain}" = {
           aliases = [ "@${cfg.domain}" ];
           hashedPasswordFile = secrets.mailhash.path;
@@ -31,6 +28,9 @@ in
         ${cfg.vaultwarden.mail}.hashedPasswordFile = secrets.vaultwarden_mailhash.path;
         ${cfg.weblate.mail}.hashedPasswordFile = secrets.weblate_mailhash.path;
       };
+      domains = [ cfg.domain ];
+      fqdn = cfg.mail.fqdn;
+      localDnsResolver = false;
       stateVersion = 3;
       x509.useACMEHost = cfg.domain;
     };
