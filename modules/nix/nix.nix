@@ -74,7 +74,7 @@ in
       cuda.enable = lib.mkEnableOption "Enable CUDA";
       gc.enable = lib.mkEnableOption "Enable automatic garbage collection";
       overlays = {
-        catppuccin.enable = lib.mkEnableOption "Enable catppuccin overlay: Use set flavor and accent" // {
+        catppuccin.enable = lib.mkEnableOption "Enable Catppuccin overlay: Use set flavor and accent" // {
           default = true;
         };
         olm.enable = lib.mkEnableOption "Enable Olm overlay: Remove insecure warning" // {
