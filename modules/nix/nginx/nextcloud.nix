@@ -24,7 +24,7 @@ in
         database.createLocally = true;
         hostName = cfg.fqdn;
         https = true;
-        package = pkgs.nextcloud31;
+        package = pkgs.nextcloud33;
         settings = {
           default_phone_region = "DE";
           overwriteprotocol = "https";
