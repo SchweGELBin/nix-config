@@ -42,7 +42,7 @@
     cava.enable = lib.mkDefault true;
     glava.enable = lib.mkDefault true;
   };
-  desktop.enable = lib.mkDefault true;
+  desktop.enable = lib.mkDefault false;
   direnv.enable = lib.mkDefault true;
   element.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
