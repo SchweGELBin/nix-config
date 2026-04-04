@@ -25,7 +25,7 @@ in
           WHOOGLE_CONFIG_LANGUAGE = "lang_en";
           WHOOGLE_CONFIG_SEARCH_LANGUAGE = "lang_en";
           WHOOGLE_CONFIG_STYLE = lib.mkIf config.sys.catppuccin.enable (
-            lib.readFile ("${pkgs.catppuccin}/whoogle/${vars.cat.flavor}.css")
+            lib.readFile "${pkgs.catppuccin}/whoogle/${vars.cat.flavor}.css"
           );
           WHOOGLE_CONFIG_THEME = "dark";
           WHOOGLE_CONFIG_URL = "https://${cfg.fqdn}";
