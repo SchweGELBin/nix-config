@@ -43,6 +43,14 @@ in
       overlays = [
         inputs.fenix.overlays.default
       ]
+      ++ lib.optional cfg.overlays.catppuccin.enable (
+        final: prev: {
+          catppuccin = prev.catppuccin.override {
+            accent = vars.cat.accent;
+            variant = vars.cat.flavor;
+          };
+        }
+      )
       ++ lib.optional cfg.overlays.olm.enable (
         final: prev: {
           olm = prev.olm.overrideAttrs (previousAttrs: {
@@ -65,8 +73,13 @@ in
       enable = lib.mkEnableOption "Enable Nix";
       cuda.enable = lib.mkEnableOption "Enable CUDA";
       gc.enable = lib.mkEnableOption "Enable automatic garbage collection";
-      overlays.olm.enable = lib.mkEnableOption "Enable Olm overlay: Remove insecure warning" // {
-        default = true;
+      overlays = {
+        catppuccin.enable = lib.mkEnableOption "Enable catppuccin overlay: Use set flavor and accent" // {
+          default = true;
+        };
+        olm.enable = lib.mkEnableOption "Enable Olm overlay: Remove insecure warning" // {
+          default = true;
+        };
       };
     };
   };
