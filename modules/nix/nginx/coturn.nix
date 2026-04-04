@@ -40,7 +40,7 @@ in
         no-tcp-relay = true;
         realm = cfg.fqdn;
         secure-stun = true;
-        static-auth-secret-file = secrets.path;
+        static-auth-secret-file = secrets.coturn.path;
         tls-listening-port = cfg.port;
         use-auth-secret = true;
       };
