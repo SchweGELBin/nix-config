@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./bluemap.nix
-    ./collabora.nix
     ./coturn.nix
     ./element.nix
     ./filebrowser.nix
@@ -61,17 +60,6 @@ in
         fqdn = lib.mkOption {
           description = "BlueMap Domain";
           type = lib.types.str;
-        };
-      };
-      collabora = {
-        enable = lib.mkEnableOption "Enable Collabora Online";
-        fqdn = lib.mkOption {
-          description = "Collabora Domain";
-          type = lib.types.str;
-        };
-        port = lib.mkOption {
-          description = "Collabora Port";
-          type = lib.types.port;
         };
       };
       coturn = {

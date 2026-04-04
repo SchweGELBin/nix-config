@@ -119,11 +119,6 @@ in
         enable = lib.mkDefault false;
         fqdn = lib.mkDefault "mc.${vars.my.domain}";
       };
-      collabora = {
-        enable = lib.mkDefault false;
-        fqdn = lib.mkDefault "cool.${vars.my.domain}";
-        port = lib.mkDefault 9980;
-      };
       coturn = {
         enable = lib.mkDefault false;
         fqdn = lib.mkDefault "turn.${vars.my.domain}";
