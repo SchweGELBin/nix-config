@@ -85,6 +85,29 @@ in
           type = lib.types.port;
         };
       };
+      cryptpad = {
+        enable = lib.mkEnableOption "Enable CryptPad";
+        fqdn = lib.mkOption {
+          description = "CryptPad Domain";
+          type = lib.types.str;
+        };
+        fqdn-safe = lib.mkOption {
+          description = "CryptPad Safe Domain";
+          type = lib.types.str;
+        };
+        port = lib.mkOption {
+          description = "CryptPad Port";
+          type = lib.types.port;
+        };
+        port-safe = lib.mkOption {
+          description = "CryptPad Safe Port";
+          type = lib.types.port;
+        };
+        port-sock = lib.mkOption {
+          description = "CryptPad WebSocket Port";
+          type = lib.types.port;
+        };
+      };
       element = {
         enable = lib.mkEnableOption "Enable Element";
         fqdn = lib.mkOption {

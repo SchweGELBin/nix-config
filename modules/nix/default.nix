@@ -127,6 +127,14 @@ in
         relay-max = lib.mkDefault 50000;
         relay-min = lib.mkDefault 49500;
       };
+      cryptpad = {
+        enable = lib.mkDefault false;
+        fqdn = lib.mkDefault "office.${vars.my.domain}";
+        fqdn-safe = lib.mkDefault "office-safe.${vars.my.domain}";
+        port = lib.mkDefault 8000;
+        port-safe = lib.mkDefault 8001;
+        port-sock = lib.mkDefault 8002;
+      };
       element = {
         enable = lib.mkDefault false;
         fqdn = lib.mkDefault "element.${vars.my.domain}";
