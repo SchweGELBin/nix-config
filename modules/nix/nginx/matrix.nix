@@ -8,7 +8,7 @@ let
   nginx = config.sys.nginx;
   cfg = nginx.matrix;
   secrets = config.sops.secrets;
-  localaddress = "http://localhost:${toString cfg.matrix.port}";
+  localaddress = "http://localhost:${toString cfg.port}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
@@ -84,8 +84,8 @@ in
     };
     sops.secrets = {
       matrix_env.owner = "root";
-      mautrix-signal_env.owner = lib.mkIf cfg.matrix.signal.enable "mautrix-signal";
-      mautrix-whatsapp_env.owner = lib.mkIf cfg.matrix.whatsapp.enable "mautrix-whatsapp";
+      mautrix-signal_env.owner = lib.mkIf cfg.signal.enable "mautrix-signal";
+      mautrix-whatsapp_env.owner = lib.mkIf cfg.whatsapp.enable "mautrix-whatsapp";
     };
   };
 

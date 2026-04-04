@@ -57,7 +57,7 @@ in
     sys.nginx.coturn = {
       enable = lib.mkEnableOption "Enable Turn";
       fqdn = lib.mkOption {
-        default = "turn.${cfg.domain}";
+        default = "turn.${nginx.domain}";
         description = "Turn Domain";
         type = lib.types.str;
       };

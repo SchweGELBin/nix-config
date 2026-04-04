@@ -48,7 +48,7 @@ in
             password = "$2a$04$k74NXvQCcTIQXm1RvJ29suNStbD4.62fhqXvwBIsg.hou/lwjd4.u";
           };
           server = {
-            name = cfg.domain;
+            name = nginx.domain;
             listeners.":${toString cfg.ergo.port}" = { };
           };
         };
