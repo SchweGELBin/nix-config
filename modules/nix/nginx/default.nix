@@ -6,6 +6,7 @@ in
   imports = [
     ./bluemap.nix
     ./coturn.nix
+    ./cryptpad.nix
     ./element.nix
     ./filebrowser.nix
     ./forgejo.nix
