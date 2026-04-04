@@ -17,7 +17,6 @@ in
     ./matrix.nix
     ./nextcloud.nix
     ./ollama.nix
-    ./onlyoffice.nix
     ./opencloud.nix
     ./peertube.nix
     ./piped.nix
@@ -231,17 +230,6 @@ in
             description = "Ollama Web Port";
             type = lib.types.port;
           };
-        };
-      };
-      onlyoffice = {
-        enable = lib.mkEnableOption "Enable OnlyOffice";
-        fqdn = lib.mkOption {
-          description = "OnlyOffice Domain";
-          type = lib.types.str;
-        };
-        port = lib.mkOption {
-          description = "OnlyOffice Port";
-          type = lib.types.port;
         };
       };
       opencloud = {

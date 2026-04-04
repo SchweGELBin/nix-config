@@ -194,11 +194,6 @@ in
           port = lib.mkDefault 11435;
         };
       };
-      onlyoffice = {
-        enable = lib.mkDefault false;
-        fqdn = lib.mkDefault "office.${vars.my.domain}";
-        port = lib.mkDefault 8000;
-      };
       opencloud = {
         enable = lib.mkDefault false;
         fqdn = lib.mkDefault "cloud.${vars.my.domain}";
