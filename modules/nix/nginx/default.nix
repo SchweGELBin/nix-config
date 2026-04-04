@@ -27,9 +27,9 @@ in
     ./vaultwarden.nix
     ./wastebin.nix
     ./weblate.nix
+    ./website.nix
     ./websurfx.nix
     ./whoogle.nix
-    ./www.nix
     ./zipline.nix
   ];
 
@@ -365,7 +365,16 @@ in
           type = lib.types.str;
         };
       };
-      website.enable = lib.mkEnableOption "Enable Website";
+      website = {
+        enable = lib.mkEnableOption "Enable Website";
+        mode = lib.mkOption {
+          description = "Website Mode/Origin";
+          type = lib.types.enum [
+            "local"
+            "public"
+          ];
+        };
+      };
       websurfx = {
         enable = lib.mkEnableOption "Enable Websurfx";
         fqdn = lib.mkOption {

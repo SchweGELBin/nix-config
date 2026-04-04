@@ -31,6 +31,10 @@ in
       radicale.enable = true;
       searxng.enable = true;
       wastebin.enable = true;
+      website = {
+        enable = true;
+        mode = "public";
+      };
     };
     networking = {
       adblock.enable = false;

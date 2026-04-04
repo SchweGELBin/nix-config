@@ -252,7 +252,10 @@ in
         fqdn = lib.mkDefault "weblate.${vars.my.domain}";
         mail = lib.mkDefault "weblate@${vars.my.domain}";
       };
-      website.enable = lib.mkDefault true;
+      website = {
+        enable = lib.mkDefault false;
+        mode = lib.mkDefault "local";
+      };
       websurfx = {
         enable = lib.mkDefault false;
         fqdn = lib.mkDefault "surfx.${vars.my.domain}";
