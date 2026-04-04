@@ -6,14 +6,14 @@
   ...
 }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.nextcloud.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.nextcloud;
   secrets = config.sops.secrets;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
 
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
       nextcloud = {
         enable = true;
@@ -22,7 +22,7 @@ in
           dbtype = "pgsql";
         };
         database.createLocally = true;
-        hostName = cfg.nextcloud.fqdn;
+        hostName = cfg.fqdn;
         https = true;
         package = pkgs.nextcloud31;
         settings = {
@@ -30,11 +30,22 @@ in
           overwriteprotocol = "https";
         };
       };
-      nginx.virtualHosts.${cfg.nextcloud.fqdn} = {
+      nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
       };
     };
     sops.secrets.nextcloud.owner = "nextcloud";
+  };
+
+  options = {
+    sys.nginx.nextcloud = {
+      enable = lib.mkEnableOption "Enable Nextcloud";
+      fqdn = lib.mkOption {
+        default = "next.${nginx.domain}";
+        description = "Nextcloud Domain";
+        type = lib.types.str;
+      };
+    };
   };
 }

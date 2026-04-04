@@ -1,18 +1,19 @@
 { config, lib, ... }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.bluemap.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.bluemap;
+
   mcworld = config.services.minecraft-server.dataDir + "/world";
 in
 {
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
       bluemap = {
         enable = true;
         coreSettings.metrics = false;
         enableNginx = true;
         eula = true;
-        host = cfg.bluemap.fqdn;
+        host = cfg.fqdn;
         maps = {
           end = {
             sorting = 2;
@@ -26,9 +27,20 @@ in
         };
         onCalendar = "*-*-* 05:30:00";
       };
-      nginx.virtualHosts.${cfg.bluemap.fqdn} = {
+      nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
+      };
+    };
+  };
+
+  options = {
+    sys.nginx.bluemap = {
+      enable = lib.mkEnableOption "Enable BlueMap";
+      fqdn = lib.mkOption {
+        default = "mc.${nginx.domain}";
+        description = "BlueMap Domain";
+        type = lib.types.str;
       };
     };
   };

@@ -41,15 +41,19 @@ in
     sys.boot = {
       enable = lib.mkEnableOption "Enable Boot";
       configs = lib.mkOption {
+        default = 2;
         description = "Configuration Limit";
         type = lib.types.int;
       };
-      grub.enable = lib.mkEnableOption "Enable GRUB";
+      grub.enable = lib.mkEnableOption "Enable GRUB" // {
+        default = true;
+      };
       modules = {
         ntsync.enable = lib.mkEnableOption "Enable NTSync";
         v4l2loopback.enable = lib.mkEnableOption "Enable v4l2loopback";
       };
       timeout = lib.mkOption {
+        default = 0;
         description = "Bootloader Timeout";
         type = lib.types.int;
       };

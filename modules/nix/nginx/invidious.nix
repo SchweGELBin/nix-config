@@ -1,15 +1,31 @@
 { config, lib, ... }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.invidious.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.invidious;
 in
 {
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services.invidious = {
       enable = true;
-      domain = cfg.invidious.fqdn;
+      domain = cfg.fqdn;
       nginx.enable = true;
-      port = cfg.invidious.port;
+      port = cfg.port;
+    };
+  };
+
+  options = {
+    sys.nginx.invidious = {
+      enable = lib.mkEnableOption "Enable Invidious";
+      fqdn = lib.mkOption {
+        default = "iv.${nginx.domain}";
+        description = "Invidious Domain";
+        type = lib.types.str;
+      };
+      port = lib.mkOption {
+        default = 3500;
+        description = "Invidious Port";
+        type = lib.types.port;
+      };
     };
   };
 }

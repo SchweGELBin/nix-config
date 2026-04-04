@@ -34,9 +34,13 @@ in
   options = {
     sys.hardware = {
       enable = lib.mkEnableOption "Enable Hardware";
-      bluetooth.enable = lib.mkEnableOption "Enable Bluetooth";
+      bluetooth.enable = lib.mkEnableOption "Enable Bluetooth" // {
+        default = true;
+      };
       nvidia.enable = lib.mkEnableOption "Enable NVidia";
-      printing.enable = lib.mkEnableOption "Enable Printing";
+      printing.enable = lib.mkEnableOption "Enable Printing" // {
+        default = true;
+      };
     };
   };
 }

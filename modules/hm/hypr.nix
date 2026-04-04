@@ -429,12 +429,17 @@ in
   options = {
     hypr = {
       enable = lib.mkEnableOption "Enable Hypr*";
-      idle.enable = lib.mkEnableOption "Enable hypridle";
+      idle.enable = lib.mkEnableOption "Enable hypridle" // {
+        default = true;
+      };
       land = {
-        enable = lib.mkEnableOption "Enable Hyprland";
+        enable = lib.mkEnableOption "Enable Hyprland" // {
+          default = true;
+        };
         dualSenseTouchpad.enable = lib.mkEnableOption "Enable DualSense Touchpad";
         forceBitdepth.enable = lib.mkEnableOption "Enable forcing monitor bitdepth";
         layout = lib.mkOption {
+          default = "scrolling";
           description = "Hyprland layout to use";
           type = lib.types.enum [
             "dwindle"
@@ -448,16 +453,28 @@ in
           borders-plus-plus.enable = lib.mkEnableOption "Enable Hyprland Plugin: borders-plus-plus";
           csgo-vulkan-fix.enable = lib.mkEnableOption "Enable Hyprland Plugin: csgo-vulkan-fix";
           hyprbars.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprbars";
-          hyprexpo.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprexpo";
+          hyprexpo.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprexpo" // {
+            default = true;
+          };
           hyprfocus.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprfocus";
-          hyprtrails.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprtrails";
-          hyprwinwrap.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprwinwrap";
+          hyprtrails.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprtrails" // {
+            default = true;
+          };
+          hyprwinwrap.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprwinwrap" // {
+            default = true;
+          };
           xtra-dispatchers.enable = lib.mkEnableOption "Enable Hyprland Plugin: xtra-dispatchers";
         };
       };
-      lock.enable = lib.mkEnableOption "Enable hyprlock";
-      paper.enable = lib.mkEnableOption "Enable hyprpaper";
-      picker.enable = lib.mkEnableOption "Enable hyprpicker";
+      lock.enable = lib.mkEnableOption "Enable hyprlock" // {
+        default = true;
+      };
+      paper.enable = lib.mkEnableOption "Enable hyprpaper" // {
+        default = true;
+      };
+      picker.enable = lib.mkEnableOption "Enable hyprpicker" // {
+        default = true;
+      };
     };
   };
 }

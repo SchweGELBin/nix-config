@@ -76,12 +76,19 @@ in
   options = {
     sys.networking = {
       enable = lib.mkEnableOption "Enable Networking";
-      adblock.enable = lib.mkEnableOption "Enable Ad Blocking";
+      adblock.enable = lib.mkEnableOption "Enable Ad Blocking" // {
+        default = true;
+      };
       dns = {
-        enable = lib.mkEnableOption "Enable Custom DNS";
+        enable = lib.mkEnableOption "Enable Custom DNS" // {
+          default = true;
+        };
         cloudflare = {
-          enable = lib.mkEnableOption "Enable Cloudflare DNS";
+          enable = lib.mkEnableOption "Enable Cloudflare DNS" // {
+            default = true;
+          };
           flavor = lib.mkOption {
+            default = 1;
             description = "Cloudflare DNS Flavor";
             type = (lib.types.ints.between 1 3);
           };
@@ -90,10 +97,12 @@ in
         quad9.enable = lib.mkEnableOption "Enable Quad9 DNS";
       };
       hostName = lib.mkOption {
+        default = "nix";
         description = "Networking Host Name";
         type = lib.types.str;
       };
       interface = lib.mkOption {
+        default = "eth0";
         description = "Networking Interface";
         type = lib.types.str;
       };
@@ -102,6 +111,7 @@ in
         enable = lib.mkEnableOption "Enable Static IPs";
         dhcp.enable = lib.mkEnableOption "Enable DHCP";
         mode = lib.mkOption {
+          default = "default";
           description = "Static Mode to use";
           type = lib.types.enum [
             "default"
@@ -112,6 +122,7 @@ in
         v4 = {
           enable = lib.mkEnableOption "Enable Static IPv4";
           ip = lib.mkOption {
+            default = "w.x.y.z";
             description = "Global IPv4 address";
             type = lib.types.str;
           };
@@ -119,6 +130,7 @@ in
         v6 = {
           enable = lib.mkEnableOption "Enable Static IPv6";
           ip = lib.mkOption {
+            default = "wxyz::1";
             description = "Global IPv6 address";
             type = lib.types.str;
           };

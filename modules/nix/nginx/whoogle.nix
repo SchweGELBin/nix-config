@@ -5,16 +5,16 @@
   ...
 }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.whoogle.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.whoogle;
 in
 {
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
-      nginx.virtualHosts.${cfg.whoogle.fqdn} = {
+      nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.whoogle.port}";
+        locations."/".proxyPass = "http://localhost:${toString cfg.port}";
       };
       whoogle-search = {
         enable = true;
@@ -32,9 +32,25 @@ in
             )
           );
           WHOOGLE_CONFIG_THEME = "dark";
-          WHOOGLE_CONFIG_URL = "https://${cfg.whoogle.fqdn}";
+          WHOOGLE_CONFIG_URL = "https://${cfg.fqdn}";
         };
-        port = cfg.whoogle.port;
+        port = cfg.port;
+      };
+    };
+  };
+
+  options = {
+    sys.nginx.whoogle = {
+      enable = lib.mkEnableOption "Enable Whoogle";
+      fqdn = lib.mkOption {
+        default = "whoogle.${nginx.domain}";
+        description = "Whoogle Domain";
+        type = lib.types.str;
+      };
+      port = lib.mkOption {
+        default = 5000;
+        description = "Whoogle Port";
+        type = lib.types.port;
       };
     };
   };

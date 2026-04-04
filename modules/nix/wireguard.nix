@@ -112,6 +112,7 @@ in
       enable = lib.mkEnableOption "Enable Wireguard";
       autostart.enable = lib.mkEnableOption "Start Wireguard automatically";
       mode = lib.mkOption {
+        default = "client";
         description = "Wireguard Mode";
         type = lib.types.enum [
           "client"
@@ -119,6 +120,7 @@ in
         ];
       };
       port = lib.mkOption {
+        default = 1096;
         description = "Wireguard Port";
         type = lib.types.port;
       };

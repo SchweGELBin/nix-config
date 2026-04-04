@@ -5,8 +5,8 @@
   ...
 }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.ollama.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.ollama;
   secrets = config.sops.secrets;
 
   models = [
@@ -18,23 +18,23 @@ in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
 
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
       ollama = {
         enable = true;
         loadModels = models;
-        port = cfg.ollama.port;
+        port = cfg.port;
         user = "ollama";
       };
     }
-    // lib.optionalAttrs cfg.ollama.web.enable {
+    // lib.optionalAttrs cfg.web.enable {
       librechat = {
-        enable = cfg.ollama.web.mode == "librechat";
+        enable = cfg.web.mode == "librechat";
         credentialsFile = secrets.librechat_env.path;
         enableLocalDB = true;
         env = {
           ALLOW_REGISTRATION = true;
-          PORT = cfg.ollama.web.port;
+          PORT = cfg.web.port;
         };
         settings = {
           cache = true;
@@ -42,7 +42,7 @@ in
             {
               name = "Ollama";
               apiKey = "ollama";
-              baseURL = "http://localhost:${toString cfg.ollama.port}/v1/";
+              baseURL = "http://localhost:${toString cfg.port}/v1/";
               forcePrompt = false;
               modelDisplayLabel = "Ollama";
               models.default = models;
@@ -55,23 +55,58 @@ in
           version = "1.2.8";
         };
       };
-      nginx.virtualHosts.${cfg.ollama.web.fqdn} = {
+      nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.ollama.web.port}";
+        locations."/".proxyPass = "http://localhost:${toString cfg.web.port}";
       };
       open-webui = {
-        enable = cfg.ollama.web.mode == "open-webui";
-        port = cfg.ollama.web.port;
+        enable = cfg.web.mode == "open-webui";
+        port = cfg.web.port;
       };
       nextjs-ollama-llm-ui = {
-        enable = cfg.ollama.web.mode == "nextjs-ollama-llm-ui";
-        port = cfg.ollama.web.port;
+        enable = cfg.web.mode == "nextjs-ollama-llm-ui";
+        port = cfg.web.port;
       };
     };
     sops.secrets = {
       librechat_env.owner = "librechat";
       ollama_env.owner = "ollama";
+    };
+  };
+
+  options = {
+    sys.nginx.ollama = {
+      enable = lib.mkEnableOption "Enable Ollama";
+      fqdn = lib.mkOption {
+        default = "ai.${nginx.domain}";
+        description = "Ollama Web Domain";
+        type = lib.types.str;
+      };
+      port = lib.mkOption {
+        default = 11434;
+        description = "Ollama Port";
+        type = lib.types.port;
+      };
+      web = {
+        enable = lib.mkEnableOption "Enable Ollama Web" // {
+          default = true;
+        };
+        mode = lib.mkOption {
+          default = "librechat";
+          description = "Ollama Web Service";
+          type = lib.types.enum [
+            "librechat"
+            "nextjs-ollama-llm-ui"
+            "open-webui"
+          ];
+        };
+        port = lib.mkOption {
+          default = 11435;
+          description = "Ollama Web Port";
+          type = lib.types.port;
+        };
+      };
     };
   };
 }

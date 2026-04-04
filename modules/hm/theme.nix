@@ -57,7 +57,9 @@ in
     theme = {
       enable = lib.mkEnableOption "Enable Theme";
       catppuccin = {
-        enable = lib.mkEnableOption "Enable Catppuccin Theme";
+        enable = lib.mkEnableOption "Enable Catppuccin Theme" // {
+          default = true;
+        };
         cursors.enable = lib.mkEnableOption "Enable Catppuccin Cursor theme";
         gtk.enable = lib.mkEnableOption "Enable Catppuccin GTK theme";
       };

@@ -65,7 +65,9 @@ in
       enable = lib.mkEnableOption "Enable Nix";
       cuda.enable = lib.mkEnableOption "Enable CUDA";
       gc.enable = lib.mkEnableOption "Enable automatic garbage collection";
-      overlays.olm.enable = lib.mkEnableOption "Enable Olm overlay: Remove insecure warning";
+      overlays.olm.enable = lib.mkEnableOption "Enable Olm overlay: Remove insecure warning" // {
+        default = true;
+      };
     };
   };
 }

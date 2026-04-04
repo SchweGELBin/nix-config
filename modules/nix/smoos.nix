@@ -60,17 +60,25 @@ in
     sys.smoos = {
       enable = lib.mkEnableOption "Enable Super Mario Odyssey: Online Server";
       cs = {
-        enable = lib.mkEnableOption "Enable SMOOS-CS";
-        bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
+        enable = lib.mkEnableOption "Enable SMOOS-CS" // {
+          default = true;
+        };
+        bot.enable = lib.mkEnableOption "Enable SMOOS-Bot" // {
+          default = true;
+        };
         port = lib.mkOption {
+          default = 1027;
           description = "SMOOS-CS port";
           type = lib.types.port;
         };
       };
       rs = {
         enable = lib.mkEnableOption "Enable SMOOS-RS";
-        bot.enable = lib.mkEnableOption "Enable SMOOS-Bot";
+        bot.enable = lib.mkEnableOption "Enable SMOOS-Bot" // {
+          default = true;
+        };
         port = lib.mkOption {
+          default = 1028;
           description = "SMOOS-RS port";
           type = lib.types.port;
         };

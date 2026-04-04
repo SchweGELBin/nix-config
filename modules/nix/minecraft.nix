@@ -98,8 +98,11 @@ in
       enable = lib.mkEnableOption "Enable Minecraft";
       bot.enable = lib.mkEnableOption "Enable Minecraft Bot";
       server = {
-        enable = lib.mkEnableOption "Enable Minecraft Server";
+        enable = lib.mkEnableOption "Enable Minecraft Server" // {
+          default = true;
+        };
         extraJVM = lib.mkOption {
+          default = [ "-XX:+UseZGC" ];
           description = "Minecraft extra JVM arguments";
           type = with lib.types; listOf str;
         };
@@ -109,21 +112,26 @@ in
           geyser.enable = lib.mkEnableOption "Enable Paper Plugin: Geyser";
         };
         port = lib.mkOption {
+          default = 25565;
           description = "Minecraft Server Port";
           type = lib.types.port;
         };
         ram = lib.mkOption {
+          default = "-Xms8G -Xmx8G";
           description = "Minecraft RAM arguments";
           type = lib.types.str;
         };
         rcon = {
           enable = lib.mkEnableOption "Enable Minecraft Remote Control";
           port = lib.mkOption {
+            default = 25566;
             description = "Minecraft Remote Control Port";
             type = lib.types.port;
           };
         };
-        whitelist.enable = lib.mkEnableOption "Enable Minecraft Server Whitelist";
+        whitelist.enable = lib.mkEnableOption "Enable Minecraft Server Whitelist" // {
+          default = true;
+        };
       };
     };
   };

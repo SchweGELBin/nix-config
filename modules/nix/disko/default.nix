@@ -26,6 +26,7 @@ in
     sys.disko = {
       enable = lib.mkEnableOption "Enable Disko";
       device = lib.mkOption {
+        default = "/dev/sda";
         description = "Disko Device";
         type = lib.types.str;
       };

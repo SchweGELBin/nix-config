@@ -33,7 +33,9 @@ in
       enable = lib.mkEnableOption "Enable Rofi";
       modes = {
         combi.enable = lib.mkEnableOption "Enable Rofi combi";
-        drun.enable = lib.mkEnableOption "Enable Rofi drun";
+        drun.enable = lib.mkEnableOption "Enable Rofi drun" // {
+          default = true;
+        };
         filebrowser.enable = lib.mkEnableOption "Enable Rofi filebrowser";
         keys.enable = lib.mkEnableOption "Enable Rofi keys";
         recursivebrowser.enable = lib.mkEnableOption "Enable Rofi recursivebrowser";
@@ -42,8 +44,12 @@ in
         window.enable = lib.mkEnableOption "Enable Rofi window";
       };
       plugins = {
-        calc.enable = lib.mkEnableOption "Enable Rofi Calc";
-        emoji.enable = lib.mkEnableOption "Enable Rofi Emojis";
+        calc.enable = lib.mkEnableOption "Enable Rofi Calc" // {
+          default = true;
+        };
+        emoji.enable = lib.mkEnableOption "Enable Rofi Emojis" // {
+          default = true;
+        };
       };
     };
   };

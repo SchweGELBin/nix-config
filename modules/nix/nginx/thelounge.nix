@@ -1,13 +1,13 @@
 { config, lib, ... }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.thelounge.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.thelounge;
 in
 {
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
       ergochat = {
-        enable = cfg.thelounge.ergo.enable;
+        enable = cfg.ergo.enable;
         settings = {
           datastore = {
             autoupgrade = true;
@@ -49,14 +49,14 @@ in
           };
           server = {
             name = cfg.domain;
-            listeners.":${toString cfg.thelounge.ergo.port}" = { };
+            listeners.":${toString cfg.ergo.port}" = { };
           };
         };
       };
-      nginx.virtualHosts.${cfg.thelounge.fqdn} = {
+      nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.thelounge.port}";
+        locations."/".proxyPass = "http://localhost:${toString cfg.port}";
       };
       thelounge = {
         enable = true;
@@ -66,14 +66,40 @@ in
             join = "#general";
             name = "MiX IRC";
             nick = "gast%%%";
-            port = cfg.thelounge.ergo.port;
+            port = cfg.ergo.port;
             tls = false;
             username = "gast";
           };
           reverseProxy = true;
         };
-        port = cfg.thelounge.port;
+        port = cfg.port;
         public = true;
+      };
+    };
+  };
+
+  options = {
+    sys.nginx.thelounge = {
+      enable = lib.mkEnableOption "Enable The Lounge";
+      ergo = {
+        enable = lib.mkEnableOption "Enable Ergo" // {
+          default = true;
+        };
+        port = lib.mkOption {
+          default = 6667;
+          description = "Ergo Port";
+          type = lib.types.port;
+        };
+      };
+      fqdn = lib.mkOption {
+        default = "irc.${nginx.domain}";
+        description = "The Lounge Domain";
+        type = lib.types.str;
+      };
+      port = lib.mkOption {
+        default = 6789;
+        description = "The Lounge Port";
+        type = lib.types.port;
       };
     };
   };

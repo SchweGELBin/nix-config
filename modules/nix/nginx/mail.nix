@@ -5,8 +5,8 @@
   ...
 }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.mail.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.mail;
   secrets = config.sops.secrets;
 in
 {
@@ -15,24 +15,24 @@ in
     inputs.sops-nix.nixosModules.default
   ];
 
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     mailserver = {
       enable = true;
       accounts = {
-        "master@${cfg.domain}" = {
-          aliases = [ "@${cfg.domain}" ];
+        "master@${nginx.domain}" = {
+          aliases = [ "@${nginx.domain}" ];
           hashedPasswordFile = secrets.mailhash.path;
         };
-        ${cfg.forgejo.mail}.hashedPasswordFile = secrets.forgejo_mailhash.path;
-        ${cfg.peertube.mail}.hashedPasswordFile = secrets.peertube_mailhash.path;
-        ${cfg.vaultwarden.mail}.hashedPasswordFile = secrets.vaultwarden_mailhash.path;
-        ${cfg.weblate.mail}.hashedPasswordFile = secrets.weblate_mailhash.path;
+        ${nginx.forgejo.mail}.hashedPasswordFile = secrets.forgejo_mailhash.path;
+        ${nginx.peertube.mail}.hashedPasswordFile = secrets.peertube_mailhash.path;
+        ${nginx.vaultwarden.mail}.hashedPasswordFile = secrets.vaultwarden_mailhash.path;
+        ${nginx.weblate.mail}.hashedPasswordFile = secrets.weblate_mailhash.path;
       };
-      domains = [ cfg.domain ];
-      fqdn = cfg.mail.fqdn;
+      domains = [ nginx.domain ];
+      fqdn = cfg.fqdn;
       localDnsResolver = false;
       stateVersion = 3;
-      x509.useACMEHost = cfg.domain;
+      x509.useACMEHost = nginx.domain;
     };
     sops.secrets = {
       mailhash.owner = "dovecot2";
@@ -40,6 +40,17 @@ in
       peertube_mailhash.owner = "dovecot2";
       vaultwarden_mailhash.owner = "dovecot2";
       weblate_mailhash.owner = "dovecot2";
+    };
+  };
+
+  options = {
+    sys.nginx.mail = {
+      enable = lib.mkEnableOption "Enable Mail Server";
+      fqdn = lib.mkOption {
+        default = "mail.${nginx.domain}";
+        description = "Mail Server Domain";
+        type = lib.types.str;
+      };
     };
   };
 }

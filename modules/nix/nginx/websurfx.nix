@@ -1,20 +1,20 @@
 { config, lib, ... }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.websurfx.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.websurfx;
 in
 {
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
-      nginx.virtualHosts.${cfg.websurfx.fqdn} = {
+      nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
-        locations."/".proxyPass = "http://localhost:${toString cfg.websurfx.port}";
+        locations."/".proxyPass = "http://localhost:${toString cfg.port}";
       };
       websurfx = {
         enable = true;
         settings = {
-          port = cfg.websurfx.port;
+          port = cfg.port;
           upstream_search_engines = {
             DuckDuckGo = true;
             Searx = false;
@@ -27,6 +27,22 @@ in
             Yahoo = false;
           };
         };
+      };
+    };
+  };
+
+  options = {
+    sys.nginx.websurfx = {
+      enable = lib.mkEnableOption "Enable Websurfx";
+      fqdn = lib.mkOption {
+        default = "surfx.${nginx.domain}";
+        description = "Websurfx Domain";
+        type = lib.types.str;
+      };
+      port = lib.mkOption {
+        default = 4567;
+        description = "Websurfx Port";
+        type = lib.types.port;
       };
     };
   };

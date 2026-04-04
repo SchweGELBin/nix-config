@@ -6,16 +6,15 @@
   ...
 }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.matrix.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.matrix;
   secrets = config.sops.secrets;
-
   localaddress = "http://localhost:${toString cfg.matrix.port}";
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
 
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
       matrix-conduit = {
         enable = true;
@@ -24,24 +23,24 @@ in
           allow_registration = true;
           database_backend = "rocksdb";
           enable_lightning_bolt = false;
-          port = cfg.matrix.port;
-          server_name = cfg.domain;
+          port = cfg.port;
+          server_name = nginx.domain;
           turn_uris = [
-            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port}?transport=tcp"
-            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port}?transport=udp"
-            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port-alt}?transport=tcp"
-            "turn:${cfg.coturn.fqdn}:${toString cfg.coturn.port-alt}?transport=udp"
+            "turn:${nginx.coturn.fqdn}:${toString nginx.coturn.port}?transport=tcp"
+            "turn:${nginx.coturn.fqdn}:${toString nginx.coturn.port}?transport=udp"
+            "turn:${nginx.coturn.fqdn}:${toString nginx.coturn.port-alt}?transport=tcp"
+            "turn:${nginx.coturn.fqdn}:${toString nginx.coturn.port-alt}?transport=udp"
           ];
-          well_known_client = "https://${cfg.matrix.fqdn}";
-          well_known_server = cfg.matrix.fqdn;
+          well_known_client = "https://${cfg.fqdn}";
+          well_known_server = cfg.fqdn;
         };
       };
       mautrix-signal = {
-        enable = cfg.matrix.signal.enable;
+        enable = cfg.signal.enable;
         environmentFile = secrets.mautrix-signal_env.path;
         settings = {
-          appservice.port = cfg.matrix.signal.port;
-          bridge.permissions.${cfg.domain} = "user";
+          appservice.port = cfg.signal.port;
+          bridge.permissions.${nginx.domain} = "user";
           encryption = {
             allow = true;
             default = true;
@@ -50,16 +49,16 @@ in
           };
           homeserver = {
             address = localaddress;
-            domain = cfg.domain;
+            domain = nginx.domain;
           };
         };
       };
       mautrix-whatsapp = {
-        enable = cfg.matrix.whatsapp.enable;
+        enable = cfg.whatsapp.enable;
         environmentFile = secrets.mautrix-whatsapp_env.path;
         settings = {
-          appservice.port = cfg.matrix.whatsapp.port;
-          bridge.permissions.${cfg.domain} = "user";
+          appservice.port = cfg.whatsapp.port;
+          bridge.permissions.${nginx.domain} = "user";
           encryption = {
             allow = true;
             default = true;
@@ -68,16 +67,16 @@ in
           };
           homeserver = {
             address = localaddress;
-            domain = cfg.domain;
+            domain = nginx.domain;
           };
         };
       };
       nginx.virtualHosts = {
-        ${cfg.domain}.locations = {
+        ${nginx.domain}.locations = {
           "/.well-known/".proxyPass = localaddress;
           "/_matrix/".proxyPass = localaddress;
         };
-        ${cfg.matrix.fqdn} = {
+        ${cfg.fqdn} = {
           enableACME = true;
           forceSSL = true;
           locations."/".proxyPass = localaddress;
@@ -88,6 +87,42 @@ in
       matrix_env.owner = "root";
       mautrix-signal_env.owner = lib.mkIf cfg.matrix.signal.enable "mautrix-signal";
       mautrix-whatsapp_env.owner = lib.mkIf cfg.matrix.whatsapp.enable "mautrix-whatsapp";
+    };
+  };
+
+  options = {
+    sys.nginx.matrix = {
+      enable = lib.mkEnableOption "Enable Matrix";
+      fqdn = lib.mkOption {
+        default = "matrix.${nginx.domain}";
+        description = "Matrix Domain";
+        type = lib.types.str;
+      };
+      port = lib.mkOption {
+        default = 6167;
+        description = "Matrix Port";
+        type = lib.types.port;
+      };
+      signal = {
+        enable = lib.mkEnableOption "Enable Signal Bridge" // {
+          default = true;
+        };
+        port = lib.mkOption {
+          default = 29328;
+          description = "Signal Bridge Port";
+          type = lib.types.port;
+        };
+      };
+      whatsapp = {
+        enable = lib.mkEnableOption "Enable WhatsApp Bridge" // {
+          default = true;
+        };
+        port = lib.mkOption {
+          default = 29318;
+          description = "WhatsApp Bridge Port";
+          type = lib.types.port;
+        };
+      };
     };
   };
 }

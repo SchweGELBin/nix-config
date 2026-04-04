@@ -74,6 +74,7 @@ in
       home = {
         enable = lib.mkEnableOption "Enable System Home Packages";
         wm = lib.mkOption {
+          default = "hyprland";
           description = "Window Manager to use";
           type = lib.types.enum [ "hyprland" ];
         };

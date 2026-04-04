@@ -31,8 +31,12 @@ in
   options = {
     ava = {
       enable = lib.mkEnableOption "Enable Audio Visualizers";
-      cava.enable = lib.mkEnableOption "Enable Cava";
-      glava.enable = lib.mkEnableOption "Enable GLava";
+      cava.enable = lib.mkEnableOption "Enable Cava" // {
+        default = true;
+      };
+      glava.enable = lib.mkEnableOption "Enable GLava" // {
+        default = true;
+      };
     };
   };
 }

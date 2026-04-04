@@ -5,22 +5,22 @@
   ...
 }:
 let
-  cfg = config.sys.nginx;
-  enable = cfg.enable && cfg.weblate.enable;
+  nginx = config.sys.nginx;
+  cfg = nginx.weblate;
   secrets = config.sops.secrets;
 in
 {
   imports = [ inputs.sops-nix.nixosModules.default ];
 
-  config = lib.mkIf enable {
+  config = lib.mkIf (nginx.enable && cfg.enable) {
     services = {
       weblate = {
         enable = true;
         djangoSecretKeyFile = secrets.weblate_django.path;
-        localDomain = cfg.weblate.fqdn;
+        localDomain = cfg.fqdn;
         smtp = {
-          host = cfg.domain;
-          user = cfg.weblate.mail;
+          host = nginx.domain;
+          user = cfg.mail;
           passwordFile = secrets.weblate_mail.path;
         };
       };
@@ -28,6 +28,22 @@ in
     sops.secrets = {
       weblate_django.owner = "weblate";
       weblate_mail.owner = "weblate";
+    };
+  };
+
+  options = {
+    sys.nginx.weblate = {
+      enable = lib.mkEnableOption "Enable Weblate";
+      fqdn = lib.mkOption {
+        default = "weblate.${nginx.domain}";
+        description = "Weblate Domain";
+        type = lib.types.str;
+      };
+      mail = lib.mkOption {
+        default = "weblate@${nginx.domain}";
+        description = "Weblate Mail";
+        type = lib.types.str;
+      };
     };
   };
 }

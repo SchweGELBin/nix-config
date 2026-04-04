@@ -21,12 +21,14 @@ in
     sys.ryuldn = {
       enable = lib.mkEnableOption "Enable RyuLDN Multiplayer Server";
       port = lib.mkOption {
+        default = 30456;
         description = "RyuLDN port";
         type = lib.types.port;
       };
       web = {
         enable = lib.mkEnableOption "Enable RyuLDN Website";
         port = lib.mkOption {
+          default = 3700;
           description = "RyuLDN Website port";
           type = lib.types.port;
         };

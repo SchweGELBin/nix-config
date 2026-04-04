@@ -51,8 +51,12 @@ in
   options = {
     vesktop = {
       enable = lib.mkEnableOption "Enable Vesktop";
-      hardwareAcceleration.enable = lib.mkEnableOption "Enable Hardware Acceleration";
-      vencord.system.enable = lib.mkEnableOption "Enable System Vencord";
+      hardwareAcceleration.enable = lib.mkEnableOption "Enable Hardware Acceleration" // {
+        default = true;
+      };
+      vencord.system.enable = lib.mkEnableOption "Enable System Vencord" // {
+        default = true;
+      };
     };
   };
 }

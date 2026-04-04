@@ -237,17 +237,35 @@ in
   options = {
     firefox = {
       enable = lib.mkEnableOption "Enable FireFox";
-      clear.enable = lib.mkEnableOption "Enable FireFox cleanup";
-      extensions = {
-        behave.enable = lib.mkEnableOption "Enable FireFox security extension: behave";
-        darkreader.enable = lib.mkEnableOption "Enable FireFox style extension: darkreader";
-        firefox-color.enable = lib.mkEnableOption "Enable FireFox style extension: firefox-color";
-        redirector.enable = lib.mkEnableOption "Enable FireFox security extension: redirector";
-        skip-redirect.enable = lib.mkEnableOption "Enable FireFox security extension: skip-redirect";
-        stylus.enable = lib.mkEnableOption "Enable FireFox style extension: stylus";
-        ublock-origin.enable = lib.mkEnableOption "Enable FireFox security extension: ublock-origin";
+      clear.enable = lib.mkEnableOption "Enable FireFox cleanup" // {
+        default = true;
       };
-      harden.enable = lib.mkEnableOption "Enable FireFox hardened configurations";
+      extensions = {
+        behave.enable = lib.mkEnableOption "Enable FireFox security extension: behave" // {
+          default = true;
+        };
+        darkreader.enable = lib.mkEnableOption "Enable FireFox style extension: darkreader" // {
+          default = true;
+        };
+        firefox-color.enable = lib.mkEnableOption "Enable FireFox style extension: firefox-color" // {
+          default = true;
+        };
+        redirector.enable = lib.mkEnableOption "Enable FireFox security extension: redirector" // {
+          default = true;
+        };
+        skip-redirect.enable = lib.mkEnableOption "Enable FireFox security extension: skip-redirect" // {
+          default = true;
+        };
+        stylus.enable = lib.mkEnableOption "Enable FireFox style extension: stylus" // {
+          default = true;
+        };
+        ublock-origin.enable = lib.mkEnableOption "Enable FireFox security extension: ublock-origin" // {
+          default = true;
+        };
+      };
+      harden.enable = lib.mkEnableOption "Enable FireFox hardened configurations" // {
+        default = true;
+      };
     };
   };
 }
