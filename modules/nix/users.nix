@@ -16,6 +16,7 @@ in
         extraGroups = [
           "docker"
           "input"
+          "libvirtd"
           "networkmanager"
           "wheel"
           "wireshark"

@@ -47,6 +47,7 @@ in
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
         gamescopeSession.enable = true;
       };
+      virt-manager.enable = true;
       wireshark.enable = true;
       ydotool.enable = true;
     }
@@ -63,6 +64,7 @@ in
 
     virtualisation = lib.optionalAttrs cfg.home.enable {
       waydroid.enable = true;
+      libvirtd.enable = true;
     };
 
     xdg.portal.enable = cfg.home.enable;
