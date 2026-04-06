@@ -86,6 +86,7 @@ in
         prismlauncher
         pulseaudio
         qrencode
+        quickemu
         ryubing
         scrcpy
         slurp
