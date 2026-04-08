@@ -23,6 +23,7 @@ in
       users.${vars.user.name} = {
         directories = [
           ".android"
+          ".config"
           ".local/share"
           ".ssh"
           ".thunderbird"
@@ -33,7 +34,6 @@ in
           "Git"
           "Media"
         ];
-        files = ".config/sops/age/keys.txt";
       };
     };
   };
