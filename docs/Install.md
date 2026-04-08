@@ -22,7 +22,7 @@
 ### Install NixOS
 - Create the necessary directories with `mkdir /mnt/etc`
 - Copy these configs to the drive with `mv nix-config /mnt/etc/nixos`
-- Install NixOS `NIXOS_INSTALL_BOOTLOADER=1 nixos-install --root /mnt --flake /mnt/etc/nixos#host`\
+- Install NixOS `TMPDIR=/mnt/tmp NIXOS_INSTALL_BOOTLOADER=1 nixos-install --root /mnt --flake /mnt/etc/nixos#host`\
 Replace "host" with the actual hostname
 - (Some errors can be fixed by rerunning the last command)
 - Type in your preferred root password (twice)
