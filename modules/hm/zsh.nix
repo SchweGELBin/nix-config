@@ -25,7 +25,7 @@ in
       shellAliases = {
         cleanup = "nix-collect-garbage -d";
         icat = "kitten icat";
-        ipc = "curl -4 ifconfig.me && echo && curl -6 ifconfig.me && echo";
+        ipc = "echo \"$(curl -s4 ifconfig.me)\\n$(curl -s6 ifconfig.me)\"";
         ff = "fastfetch";
         git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
         git-ssh-rm = "ssh-add -D";
