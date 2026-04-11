@@ -1,5 +1,5 @@
 # nix-config
-My Nix configs
+SchweGELBin's Nix configs
 
 ## Configuration
 ```

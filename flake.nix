@@ -1,5 +1,5 @@
 {
-  description = "SchweGELBin's nix-config flake";
+  description = "SchweGELBin's Nix configs";
 
   inputs = {
     nixpkgs = {
