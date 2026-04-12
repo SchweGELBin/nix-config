@@ -24,6 +24,7 @@ in
         ${vars.user.name}.force = true;
       };
       gtk.icon.enable = cfg.catppuccin.gtk.enable;
+      hyprtoolkit.enable = true;
     };
 
     gtk = lib.mkIf cfg.gtk.enable {
