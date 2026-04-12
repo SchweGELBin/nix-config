@@ -11,8 +11,8 @@ in
         lfs.enable = true;
         maintenance.enable = true;
         signing = {
-          format = "ssh";
-          key = "${vars.user.home}/.ssh/github_signing-key";
+          format = "openpgp";
+          key = vars.keys.gpg;
           signByDefault = true;
         };
         settings = {

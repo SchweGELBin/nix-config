@@ -22,6 +22,7 @@ in
       ++ lib.optionals cfg.work.enable [ ];
 
     programs = {
+      gnupg.agent.enable = true;
       java.enable = true;
       nix-ld.enable = true;
       zsh.enable = true;

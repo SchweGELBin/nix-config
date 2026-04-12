@@ -6,7 +6,7 @@
   };
 
   git = {
-    email = "abramjannikmichael06@gmail.com";
+    email = "schwegelbin@gmail.com";
     name = "SchweGELBin";
   };
 
@@ -20,6 +20,7 @@
   };
 
   keys = {
+    gpg = "1FA41751015835B9C3998B33005268D8B1718161";
     ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIpcXGXgaNtsc3enpyEyfS5aJOy35ACEdksT2Xppjb07";
     wgc = "+nIuimwykjLu8JGyJw2U6vOFaeCkF4agedgfxX7Iizs=";
     wgc2 = "FjlTCwK59t2Edf7BUtT0s7Jg2jmYxleYSGBFnGs5JAY=";

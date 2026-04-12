@@ -27,7 +27,7 @@ in
         icat = "kitten icat";
         ipc = "echo \"$(curl -s4 ifconfig.me)\\n$(curl -s6 ifconfig.me)\"";
         ff = "fastfetch";
-        git-ssh-add = "ssh-add ${vars.user.home}/.ssh/github_authentication-key";
+        git-ssh-add = "ssh-add ${vars.user.home}/.ssh/git";
         git-ssh-rm = "ssh-add -D";
         nix-prefetch-unpack = "nix-prefetch-url --unpack";
         npm = "pnpm";
