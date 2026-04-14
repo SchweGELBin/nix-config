@@ -152,7 +152,7 @@ in
           "$mod1       ,  X         ,  Launch Easy Effects in background             ,  exec                  , easyeffects --hide-window"
           "$mod1       ,  backslash ,  Launch Emoji Picker                           ,  exec                  , rofi -show emoji"
           "$mod1       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
-          "$mod1       ,  escape    ,  Launch Logout Menu                            ,  exec                  , loginctl lock-session"
+          "$mod1       ,  escape    ,  Lock current Session                          ,  exec                  , loginctl lock-session"
           "$mod1       ,  backspace ,  Launch Resource Monitor                       ,  exec                  , kitty --hold btop"
           "$mod1       ,  Q         ,  Launch Terminal ($terminal)                   ,  exec                  , $terminal"
           "$mod1  SHIFT,  S         ,  Move current workspace to special workspace   ,  movetoworkspace       , special:magic"
