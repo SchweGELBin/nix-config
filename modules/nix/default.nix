@@ -6,7 +6,6 @@
     ./disko
     ./environment.nix
     ./fonts.nix
-    ./gickup.nix
     ./greeter.nix
     ./hardware.nix
     ./home-manager.nix
