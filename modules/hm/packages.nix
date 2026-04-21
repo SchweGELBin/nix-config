@@ -36,6 +36,7 @@ in
         net-tools
         nix-tree
         nur.catspeak
+        p7zip
         pipes-rs
         pv
         pwgen
