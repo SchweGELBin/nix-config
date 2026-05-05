@@ -59,7 +59,6 @@ in
         catppuccin-catwalk
         catppuccin-whiskers
         dolphin-emu
-        easyeffects
         eden
         exiftool
         fenix

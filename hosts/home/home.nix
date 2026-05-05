@@ -6,6 +6,7 @@
   android-sdk.enable = true;
   ava.enable = true;
   direnv.enable = true;
+  easyeffects.enable = true;
   element.enable = true;
   firefox.enable = true;
   hm-pkgs.home.enable = true;

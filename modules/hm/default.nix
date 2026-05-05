@@ -7,6 +7,7 @@
     ./ava.nix
     ./direnv.nix
     ./desktop.nix
+    ./easyeffects.nix
     ./element.nix
     ./fastfetch.nix
     ./firefox.nix

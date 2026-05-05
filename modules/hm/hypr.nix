@@ -149,7 +149,6 @@ in
           "$mod1       ,  KP_Enter  ,  Launch Calculator                             ,  exec                  , rofi -show calc"
           "$mod1       ,  K         ,  Launch Color Picker                           ,  exec                  , hyprpicker -f hex -a"
           "$mod1       ,  D         ,  Launch Discord client ($discord)              ,  exec                  , $discord"
-          "$mod1       ,  X         ,  Launch Easy Effects in background             ,  exec                  , easyeffects --hide-window"
           "$mod1       ,  backslash ,  Launch Emoji Picker                           ,  exec                  , rofi -show emoji"
           "$mod1       ,  E         ,  Launch File Manager ($filemanager)            ,  exec                  , $filemanager"
           "$mod1       ,  escape    ,  Lock current Session                          ,  exec                  , loginctl lock-session"
