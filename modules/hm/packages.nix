@@ -83,6 +83,7 @@ in
         nix-update
         nodejs
         nur.bible4tui
+        osu-lazer-bin
         pavucontrol
         pnpm
         prismlauncher
