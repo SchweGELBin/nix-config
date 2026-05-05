@@ -77,6 +77,7 @@ in
         luanti
         mari0
         melonds
+        mixxx
         nemo
         nixpkgs-review
         nix-update
