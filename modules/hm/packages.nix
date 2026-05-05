@@ -67,6 +67,7 @@ in
         gedit
         gimp3
         godot
+        grayjay
         grim
         inkscape
         kdePackages.kdenlive
