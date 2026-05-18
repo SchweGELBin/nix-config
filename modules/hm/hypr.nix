@@ -86,6 +86,7 @@ in
 
     wayland.windowManager.hyprland = {
       enable = cfg.land.enable;
+      configType = "hyprlang";
       settings = {
 
         "$alt" = "\$${vars.cat.alt}";
@@ -256,10 +257,7 @@ in
           }
         ];
 
-        dwindle = {
-          preserve_split = true;
-          pseudotile = true;
-        };
+        dwindle.preserve_split = true;
 
         ecosystem = {
           no_donation_nag = true;
