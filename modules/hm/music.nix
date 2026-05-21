@@ -4,9 +4,10 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.file."Media/Music/play.list".text = ''
-      https://www.youtube.com/playlist?list=PL0PCz_ViBzWbmK6qG9CnTdvv5LntT32PM
+    home.file."Music/play.list".text = ''
       https://www.youtube.com/playlist?list=PLHi2T2b45lpg_X7uHlNkk8kzycLvc1AAd
+      https://www.youtube.com/playlist?list=PL0avqZtjFMBiLUqXuJ3mvJBC-YxuGIAMe
+      https://www.youtube.com/playlist?list=PL0PCz_ViBzWbmK6qG9CnTdvv5LntT32PM
       https://www.youtube.com/playlist?list=PL37UZ2QfPUvz3k5mZNFZmjhLNTT-M5-Oa
     '';
   };
