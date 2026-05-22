@@ -17,6 +17,7 @@ in
     ./jellyfin.nix
     ./mail.nix
     ./matrix.nix
+    ./microbin.nix
     ./nextcloud.nix
     ./ollama.nix
     ./opencloud.nix

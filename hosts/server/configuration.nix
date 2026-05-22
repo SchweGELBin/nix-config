@@ -24,6 +24,7 @@ in
       jellyfin.enable = true;
       mail.enable = true;
       matrix.enable = true;
+      microbin.enable = true;
       radicale.enable = true;
       searxng.enable = true;
       wastebin.enable = true;
