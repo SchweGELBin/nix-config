@@ -30,7 +30,7 @@ in
         locations."/".proxyPass = "http://localhost:${toString cfg.port}";
       };
     };
-    sops.secrets.chhoto_env.owner = "chhoto-url";
+    sops.secrets.chhoto_env.owner = "root";
   };
 
   options = {
