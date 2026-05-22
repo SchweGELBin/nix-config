@@ -23,6 +23,7 @@ in
           MICROBIN_DISABLE_TELEMETRY = true;
           MICROBIN_ENABLE_BURN_AFTER = true;
           MICROBIN_ENABLE_READONLY = true;
+          MICROBIN_HASH_IDS = true;
           MICROBIN_HIDE_FOOTER = true;
           MICROBIN_PORT = cfg.port;
           MICROBIN_PRIVATE = true;
