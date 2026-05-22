@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./bluemap.nix
+    ./chhoto.nix
     ./coturn.nix
     ./cryptpad.nix
     ./element.nix
