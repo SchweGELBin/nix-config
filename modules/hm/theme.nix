@@ -18,12 +18,14 @@ in
       accent = vars.cat.accent;
       flavor = vars.cat.flavor;
 
+      autoEnable = true;
       cava.transparent = true;
       cursors.enable = cfg.catppuccin.cursors.enable;
       firefox.profiles = lib.mkIf config.firefox.enable {
         ${vars.user.name}.force = true;
       };
       gtk.icon.enable = cfg.catppuccin.gtk.enable;
+      hyprland.enable = false;
       hyprtoolkit.enable = true;
     };
 

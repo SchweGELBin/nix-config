@@ -344,6 +344,17 @@ in
           };
         };
 
+        source = [
+          (pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/catppuccin/hyprland/c388ac55563ddeea0afe9df79d4bfff0096b146b/themes/mocha.conf";
+            hash = "sha256-SxVNvZZjfuPA2yB9xA0EHHEnE9eIQJAFVBIUuDiSIxQ=";
+          })
+          (pkgs.writeText "hyprland-accent.conf" ''
+            $accent = ''$${vars.cat.accent}
+            $accentAlpha = ''$${vars.cat.accent}Alpha
+          '')
+        ];
+
         windowrule = [
           {
             name = "Bitwarden";

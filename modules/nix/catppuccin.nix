@@ -13,6 +13,7 @@ in
 
   config = lib.mkIf cfg.enable {
     catppuccin = {
+      autoEnable = true;
       enable = true;
       accent = vars.cat.accent;
       cache.enable = true;
