@@ -4,6 +4,6 @@
 - olm: Should get replaced
 - Hyprland Plugins
 - ryuldn: [PR](https://github.com/NixOS/nixpkgs/pull/458646)
-- hytale-launcher: [PR](https://github.com/NixOS/nixpkgs/pull/479368)
+- hytale-launcher: [PR](https://github.com/NixOS/nixpkgs/pull/479368) or [PR](https://github.com/NixOS/nixpkgs/pull/514526)
 - dnsmasq: Conflicts with StevenBlack's Hosts
 - bitwarden-desktop: Depends on Electron 39
