@@ -216,6 +216,8 @@ in
         ]
         ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) [
           "$mod1       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
+        ]
+        ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprwinwrap.enable) [
           "$mod1       ,  B         ,  Toggle *ava Background                        ,  exec                  , avabg b t"
         ];
 
@@ -244,7 +246,7 @@ in
 
         decoration = {
           active_opacity = 0.75;
-          blur.new_optimizations = !cfg.land.plugins.hyprexpo.enable;
+          blur.new_optimizations = !cfg.land.plugins.hyprwinwrap.enable;
           inactive_opacity = 0.9;
           rounding = 12;
           shadow.color = "$surface0";
@@ -270,7 +272,7 @@ in
         ++ lib.optional cfg.idle.enable "hypridle"
         ++ lib.optional cfg.paper.enable "hyprpaper"
         ++ lib.optional config.waybar.enable "waybar"
-        ++ lib.optional (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) "avabg";
+        ++ lib.optional (cfg.land.plugins.enable && cfg.land.plugins.hyprwinwrap.enable) "avabg";
 
         general = {
           "col.active_border" = "$accent $alt 45deg";
