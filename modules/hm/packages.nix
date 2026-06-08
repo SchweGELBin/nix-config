@@ -84,6 +84,7 @@ in
         nix-update
         nodejs
         nur.bible4tui
+        orca-slicer
         osu-lazer-bin
         pavucontrol
         pnpm
