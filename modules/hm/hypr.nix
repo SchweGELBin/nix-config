@@ -111,8 +111,7 @@ in
             "windows, 1, 7, window"
             "windowsOut, 1, 7, default, popin 80%"
             "workspaces, 1, 6, default"
-          ]
-          ++ lib.optional cfg.land.plugins.hyprfocus.enable "hyprfocusIn, 1, 2, focus";
+          ];
           bezier = [
             "focus, 0.25, 1, 0.5, 1"
             "linear, 0.0, 0.0, 1.0, 1.0"
@@ -213,12 +212,6 @@ in
           "$mod2       ,  ALT_L     ,  Promote focused window                        ,  layoutmsg             , promote"
           "$mod2       ,  down      ,  Swap focused column with left one             ,  layoutmsg             , swapcol l"
           "$mod2       ,  up        ,  Swap focused column with right one            ,  layoutmsg             , swapcol r"
-        ]
-        ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprexpo.enable) [
-          "$mod1       ,  grave     ,  Show Workspaces                               ,  hyprexpo:expo         , toggle"
-        ]
-        ++ lib.optionals (cfg.land.plugins.enable && cfg.land.plugins.hyprwinwrap.enable) [
-          "$mod1       ,  B         ,  Toggle *ava Background                        ,  exec                  , avabg b t"
         ];
 
         binddel = [
@@ -246,7 +239,6 @@ in
 
         decoration = {
           active_opacity = 0.75;
-          blur.new_optimizations = !cfg.land.plugins.hyprwinwrap.enable;
           inactive_opacity = 0.9;
           rounding = 12;
           shadow.color = "$surface0";
@@ -271,8 +263,7 @@ in
         ]
         ++ lib.optional cfg.idle.enable "hypridle"
         ++ lib.optional cfg.paper.enable "hyprpaper"
-        ++ lib.optional config.waybar.enable "waybar"
-        ++ lib.optional (cfg.land.plugins.enable && cfg.land.plugins.hyprwinwrap.enable) "avabg";
+        ++ lib.optional config.waybar.enable "waybar";
 
         general = {
           "col.active_border" = "$accent $alt 45deg";
@@ -330,21 +321,6 @@ in
             bitdepth = lib.strings.optionalString cfg.land.forceBitdepth.enable vars.monitors.second.bit;
           }
         ];
-
-        plugin = {
-          hyprexpo = {
-            columns = 3;
-            gap_size = 5;
-            bg_col = "$accent";
-            workspace_method = "first 1";
-          };
-          hyprfocus.mode = "slide";
-          hyprtrails.color = "$accent";
-          hyprwinwrap = {
-            class = "hyprbg";
-            title = "hyprbg";
-          };
-        };
 
         source = [
           (pkgs.fetchurl {
@@ -421,18 +397,6 @@ in
           "9, monitor:${monitors.first.name}"
         ];
       };
-    }
-    // lib.optionalAttrs cfg.land.plugins.enable {
-      plugins =
-        with pkgs.hyprlandPlugins;
-        lib.optional cfg.land.plugins.borders-plus-plus.enable borders-plus-plus
-        ++ lib.optional cfg.land.plugins.csgo-vulkan-fix.enable csgo-vulkan-fix
-        ++ lib.optional cfg.land.plugins.hyprbars.enable hyprbars
-        ++ lib.optional cfg.land.plugins.hyprexpo.enable hyprexpo
-        ++ lib.optional cfg.land.plugins.hyprfocus.enable hyprfocus
-        ++ lib.optional cfg.land.plugins.hyprtrails.enable hyprtrails
-        ++ lib.optional cfg.land.plugins.hyprwinwrap.enable hyprwinwrap
-        ++ lib.optional cfg.land.plugins.xtra-dispatchers.enable xtra-dispatchers;
     };
   };
 
@@ -457,23 +421,6 @@ in
             "monocle"
             "scrolling"
           ];
-        };
-        plugins = {
-          enable = lib.mkEnableOption "Enable Hyprland Plugins";
-          borders-plus-plus.enable = lib.mkEnableOption "Enable Hyprland Plugin: borders-plus-plus";
-          csgo-vulkan-fix.enable = lib.mkEnableOption "Enable Hyprland Plugin: csgo-vulkan-fix";
-          hyprbars.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprbars";
-          hyprexpo.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprexpo" // {
-            default = true;
-          };
-          hyprfocus.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprfocus";
-          hyprtrails.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprtrails" // {
-            default = true;
-          };
-          hyprwinwrap.enable = lib.mkEnableOption "Enable Hyprland Plugin: hyprwinwrap" // {
-            default = true;
-          };
-          xtra-dispatchers.enable = lib.mkEnableOption "Enable Hyprland Plugin: xtra-dispatchers";
         };
       };
       lock.enable = lib.mkEnableOption "Enable hyprlock" // {
