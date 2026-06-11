@@ -370,6 +370,13 @@ in
             monitor = 1;
           }
           {
+            name = "Super Mario 64 Coop Deluxe";
+            "match:class" = "sm64coopdx";
+            fullscreen = true;
+            idle_inhibit = "focus";
+            monitor = 1;
+          }
+          {
             name = "Trackmania";
             "match:title" = "Trackmania";
             fullscreen = true;
