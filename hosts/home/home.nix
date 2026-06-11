@@ -5,6 +5,7 @@
   alacritty.enable = true;
   android-sdk.enable = true;
   ava.enable = true;
+  desktop.enable = true;
   direnv.enable = true;
   easyeffects.enable = true;
   element.enable = true;
