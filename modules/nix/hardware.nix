@@ -12,7 +12,7 @@ in
       graphics.enable = true;
       nvidia = lib.mkIf cfg.nvidia.enable {
         open = true;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
+        package = config.boot.kernelPackages.nvidiaPackages.bleeding_edge;
       };
     };
 
