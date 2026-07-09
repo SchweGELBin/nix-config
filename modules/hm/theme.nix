@@ -44,6 +44,7 @@ in
     };
 
     home.pointerCursor = {
+      enable = true;
       name = lib.mkIf (!cfg.catppuccin.cursors.enable) "Bibata-Modern-Ice";
       package = lib.mkIf (!cfg.catppuccin.cursors.enable) pkgs.bibata-cursors;
       size = vars.theme.cursor.size;
