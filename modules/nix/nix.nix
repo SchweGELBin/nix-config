@@ -39,7 +39,10 @@ in
         android_sdk.accept_license = true;
         cudaSupport = cfg.cuda.enable;
         nvidia.acceptLicense = true;
-        permittedInsecurePackages = [ "electron-39.8.10" ]; # Dependency of Bitwarden Desktop
+        permittedInsecurePackages = [
+          "electron-39.8.10" # Dependency of Bitwarden Desktop
+          "electron-40.10.5" # Dependency of Vesktop
+        ];
       };
       overlays = [
         inputs.fenix.overlays.default
