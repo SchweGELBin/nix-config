@@ -68,6 +68,7 @@ in
         godot
         grayjay
         grim
+        heroic
         inkscape
         kdePackages.kdenlive
         krita
