@@ -53,7 +53,7 @@ in
             before_sleep_cmd = "loginctl lock-session";
             lock_cmd = "pgrep hyprlock || hyprlock";
           };
-          listener = [
+          listener = lib.optionals cfg.idle.timeout.enable [
             {
               on-timeout = "loginctl lock-session";
               timeout = 300;
@@ -369,7 +369,12 @@ in
   options = {
     hypr = {
       enable = lib.mkEnableOption "Enable Hypr*";
-      idle.enable = lib.mkEnableOption "Enable hypridle";
+      idle = {
+        enable = lib.mkEnableOption "Enable hypridle" // {
+          default = true;
+        };
+        timeout.enable = lib.mkEnableOption "Enable automatic lock after timeout";
+      };
       land = {
         enable = lib.mkEnableOption "Enable Hyprland" // {
           default = true;
