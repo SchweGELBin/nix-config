@@ -340,13 +340,6 @@ in
             no_screen_share = true;
           }
           {
-            name = "Boomerang Fu";
-            "match:class" = "steam_app_965680";
-            fullscreen = true;
-            idle_inhibit = "focus";
-            monitor = 1;
-          }
-          {
             name = "cava";
             "match:class" = "hyprbg";
             monitor = 0;
@@ -354,40 +347,6 @@ in
           {
             name = "glava";
             "match:title" = "hyprbg";
-            monitor = 1;
-          }
-          {
-            name = "Minecraft";
-            "match:title" = "Minecraft.*";
-            fullscreen = true;
-            monitor = 1;
-          }
-          {
-            name = "Rocket League";
-            "match:class" = "rocketleague.exe";
-            fullscreen = true;
-            idle_inhibit = "focus";
-            monitor = 1;
-          }
-          {
-            name = "Super Mario 64 Coop Deluxe";
-            "match:class" = "sm64coopdx";
-            fullscreen = true;
-            idle_inhibit = "focus";
-            monitor = 1;
-          }
-          {
-            name = "Trackmania";
-            "match:title" = "Trackmania";
-            fullscreen = true;
-            idle_inhibit = "focus";
-            monitor = 1;
-          }
-          {
-            name = "Ultimate Chicken Horse";
-            "match:class" = "UltimateChickenHorse.x86_64";
-            fullscreen = true;
-            idle_inhibit = "focus";
             monitor = 1;
           }
         ];
@@ -410,9 +369,7 @@ in
   options = {
     hypr = {
       enable = lib.mkEnableOption "Enable Hypr*";
-      idle.enable = lib.mkEnableOption "Enable hypridle" // {
-        default = true;
-      };
+      idle.enable = lib.mkEnableOption "Enable hypridle";
       land = {
         enable = lib.mkEnableOption "Enable Hyprland" // {
           default = true;
