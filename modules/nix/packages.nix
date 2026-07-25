@@ -28,6 +28,7 @@ in
       zsh.enable = true;
     }
     // lib.optionalAttrs cfg.home.enable {
+      appimage.enable = true;
       gamemode.enable = true;
       ghidra = {
         enable = true;
@@ -61,7 +62,12 @@ in
       rtkit.enable = true;
     };
 
-    services.openssh.enable = true;
+    services = {
+      openssh.enable = true;
+    }
+    // lib.optionalAttrs cfg.home.enable {
+      flatpak.enable = true;
+    };
 
     virtualisation = lib.optionalAttrs cfg.home.enable {
       waydroid.enable = true;
