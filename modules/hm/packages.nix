@@ -89,6 +89,7 @@ in
         osu-lazer-bin
         pavucontrol
         pnpm
+        poptracker
         prismlauncher
         pulseaudio
         qrencode
