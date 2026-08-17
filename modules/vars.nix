@@ -22,9 +22,9 @@
   keys = {
     gpg = "1FA41751015835B9C3998B33005268D8B1718161";
     ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIpcXGXgaNtsc3enpyEyfS5aJOy35ACEdksT2Xppjb07";
-    wgc = "+nIuimwykjLu8JGyJw2U6vOFaeCkF4agedgfxX7Iizs=";
-    wgc2 = "FjlTCwK59t2Edf7BUtT0s7Jg2jmYxleYSGBFnGs5JAY=";
-    wgs = "D2hzynxz2/P5GV8tusEniV26jBne2UnJyaReA5d4PHA=";
+    wgc = "ZJgCSd2LXqZwLrTVXs/KlTJw68yitxGQuOp7Q8qKyFY=";
+    wgc2 = "cISNL/g/FM9Ci7VYY9gPgR0CTVRj2Bot4eGsCUnstCw=";
+    wgs = "GXdX6z0NwGQsYjWDEj8pJV20ldFBQ4yIFsblp2s8lhc=";
   };
 
   monitors = {
