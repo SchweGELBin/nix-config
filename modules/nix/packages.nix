@@ -69,10 +69,14 @@ in
       flatpak.enable = true;
     };
 
-    virtualisation = lib.optionalAttrs cfg.home.enable {
-      waydroid.enable = true;
-      libvirtd.enable = true;
-    };
+    virtualisation =
+      lib.optionalAttrs cfg.home.enable {
+        waydroid.enable = true;
+        libvirtd.enable = true;
+      }
+      // lib.optionalAttrs cfg.server.enable {
+        podman.enable = true;
+      };
 
     xdg.portal.enable = cfg.home.enable;
   };
