@@ -46,6 +46,16 @@ in
           session.COOKIE_SECURE = true;
         };
       };
+      gitea-actions-runner = {
+        package = pkgs.forgejo-runner;
+        instances.mix = {
+          enable = true;
+          labels = [ "debian-latest:docker://debian:stable-slim" ];
+          name = "mix";
+          tokenFile = secrets.forgejo_runner;
+          url = "https://${cfg.fqdn}";
+        };
+      };
       nginx.virtualHosts.${cfg.fqdn} = {
         enableACME = true;
         forceSSL = true;
@@ -55,6 +65,7 @@ in
     sops.secrets = {
       forgejo.owner = "forgejo";
       forgejo_mail.owner = "forgejo";
+      forgejo_runner.owner = "forgejo";
     };
     systemd.services.forgejo.preStart = ''
       ${lib.getExe config.services.forgejo.package} admin user create \
