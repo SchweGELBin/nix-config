@@ -40,6 +40,7 @@ in
             HTTP_PORT = cfg.port;
             KEY_FILE = "/var/lib/acme/${cfg.fqdn}/key.pem";
             ROOT_URL = "https://${cfg.fqdn}";
+            SSH_PORT = lib.head config.services.openssh.ports;
           };
           service.REGISTER_EMAIL_CONFIRM = true;
           session.COOKIE_SECURE = true;
