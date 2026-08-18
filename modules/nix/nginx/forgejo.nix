@@ -46,13 +46,13 @@ in
           session.COOKIE_SECURE = true;
         };
       };
-      gitea-actions-runner = {
+      gitea-actions-runner = lib.mkIf cfg.runner.enable {
         package = pkgs.forgejo-runner;
         instances.mix = {
           enable = true;
           labels = [ "debian-latest:docker://debian:stable-slim" ];
           name = "mix";
-          tokenFile = secrets.forgejo_runner;
+          tokenFile = secrets.forgejo-runner_env.path;
           url = "https://${cfg.fqdn}";
         };
       };
@@ -65,7 +65,7 @@ in
     sops.secrets = {
       forgejo.owner = "forgejo";
       forgejo_mail.owner = "forgejo";
-      forgejo_runner.owner = "forgejo";
+      forgejo-runner_env.owner = "forgejo";
     };
     systemd.services.forgejo.preStart = ''
       ${lib.getExe config.services.forgejo.package} admin user create \
@@ -92,6 +92,9 @@ in
         default = 3000;
         description = "Forgejo Port";
         type = lib.types.port;
+      };
+      runner.enable = lib.mkEnableOption "Enable Forgejo Runner" // {
+        default = true;
       };
       username = lib.mkOption {
         default = vars.user.name;
