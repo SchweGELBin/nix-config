@@ -93,9 +93,7 @@ in
         description = "Forgejo Port";
         type = lib.types.port;
       };
-      runner.enable = lib.mkEnableOption "Enable Forgejo Runner" // {
-        default = true;
-      };
+      runner.enable = lib.mkEnableOption "Enable Forgejo Runner";
       username = lib.mkOption {
         default = vars.user.name;
         description = "Forgejo Admin Username";
