@@ -74,7 +74,7 @@ in
         krita
         legendary-gl
         libnotify
-        libreoffice-fresh
+        libreoffice
         luanti
         mari0
         melonds
