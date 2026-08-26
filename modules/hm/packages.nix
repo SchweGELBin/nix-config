@@ -100,6 +100,7 @@ in
         supertux
         supertuxkart
         theclicker
+        tiled
         wev
         winetricks
         wineWow64Packages.stagingFull
