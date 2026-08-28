@@ -67,6 +67,7 @@ in
     }
     // lib.optionalAttrs cfg.home.enable {
       flatpak.enable = true;
+      guix.enable = true;
     };
 
     virtualisation =
