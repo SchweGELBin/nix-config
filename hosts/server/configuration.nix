@@ -27,6 +27,7 @@ in
       microbin.enable = true;
       radicale.enable = true;
       searxng.enable = true;
+      thelounge.enable = true;
       wastebin.enable = true;
       website = {
         enable = true;
