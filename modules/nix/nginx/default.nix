@@ -22,6 +22,7 @@ in
     ./opencloud.nix
     ./peertube.nix
     ./piped.nix
+    ./prosody.nix
     ./radicale.nix
     ./searxng.nix
     ./thelounge.nix
