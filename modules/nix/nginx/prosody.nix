@@ -21,6 +21,12 @@ in
           enableACME = true;
           forceSSL = true;
         };
+        podConfig = {
+          description = "MiX XMPP";
+          info = "Welcome everyone to Michi's XMPP Server.";
+          xmppdescription = "MiX XMPP";
+          xmppdomain = nginx.domain;
+        };
         port = cfg.movim.port;
       };
       prosody = {
