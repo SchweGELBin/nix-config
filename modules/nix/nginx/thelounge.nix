@@ -77,8 +77,10 @@ in
             tls = false;
             username = "gast";
           };
+          leaveMessage = "Goodbye, have a great day!";
           lockNetwork = true;
           reverseProxy = true;
+          theme = "morning";
         };
         port = cfg.port;
         public = true;
