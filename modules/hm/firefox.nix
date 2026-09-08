@@ -220,6 +220,7 @@ in
           privateDefault = "ddg";
         };
         settings = {
+          "browser.ai.control.default" = "blocked";
           "browser.ml.enable" = false;
           "browser.places.importBookmarksHTML" = true;
           "clipboard.autocopy" = false;
