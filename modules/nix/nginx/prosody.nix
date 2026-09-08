@@ -5,6 +5,14 @@ let
 in
 {
   config = lib.mkIf (nginx.enable && cfg.enable) {
+    networking.firewall.allowedTCPPorts = [
+      5000 # File Transfer Proxy
+      5222 # Client Connections
+      5223 # Client Direct TLS
+      5269 # Server-To-Server Connections
+      5281 # HTTPS
+    ];
+    security.acme.certs.${nginx.domain}.reloadServices = [ "prosody" ];
     services = {
       movim = {
         enable = cfg.movim.enable;
@@ -22,24 +30,27 @@ in
         disco_items = [
           {
             description = "HTTP Upload";
-            url = "uploads.${cfg.fqdn}";
+            url = config.services.prosody.httpFileShare.domain;
           }
         ];
         extraModules = lib.optional cfg.turn.enable "turn_external";
         httpFileShare = {
-          domain = "uploads.${cfg.fqdn}";
+          domain = "upload.${cfg.fqdn}";
         };
         httpPorts = [ cfg.port ];
-        httpsPorts = lib.mkForce [ ];
         muc = [
           {
-            domain = "muc.${cfg.fqdn}";
+            domain = "room.${cfg.fqdn}";
             name = "MiX Chatrooms";
           }
         ];
-        virtualHosts.localhost = {
+        ssl = {
+          cert = "/var/lib/acme/${nginx.domain}/cert.pem";
+          key = "/var/lib/acme/${nginx.domain}/key.pem";
+        };
+        virtualHosts.${nginx.domain} = {
           enabled = true;
-          domain = "localhost";
+          domain = nginx.domain;
           extraConfig = lib.optionalString cfg.turn.enable ''
             turn_external_host = "${nginx.coturn.fqdn}";
             turn_external_secret = "V3ry S3cr3t P455w0rt";
@@ -48,6 +59,7 @@ in
         xmppComplianceSuite = true;
       };
     };
+    users.users.prosody.extraGroups = [ "nginx" ];
   };
 
   options = {
@@ -63,7 +75,7 @@ in
           default = true;
         };
         port = lib.mkOption {
-          default = 5281;
+          default = 5279;
           description = "Movim Port";
           type = lib.types.port;
         };
