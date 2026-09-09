@@ -53,6 +53,7 @@ in
         DisplayMenuBar = "never";
         DontCheckDefaultBrowser = true;
         DownloadDirectory = "\${home}/Downloads";
+        IPProtectionAvailable = false;
         NoDefaultBookmarks = false;
         OfferToSaveLogins = false;
         OverrideFirstRunPage = "";
