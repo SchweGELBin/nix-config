@@ -6,7 +6,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.mangohud = {
       enable = true;
-      enableSessionWide = true;
+      enableSessionWide = cfg.autoEnable;
       settingsPerApplication = {
         ".easyeffects-wrapped".no_display = true;
         mpv.no_display = true;
@@ -16,6 +16,9 @@ in
   };
 
   options = {
-    mangohud.enable = lib.mkEnableOption "Enable MangoHud";
+    mangohud = {
+      enable = lib.mkEnableOption "Enable MangoHud";
+      autoEnable = lib.mkEnableOption "Enable MangoHud on all supported windows";
+    };
   };
 }
