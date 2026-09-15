@@ -72,7 +72,10 @@ in
 
     virtualisation =
       lib.optionalAttrs cfg.home.enable {
-        waydroid.enable = true;
+        waydroid = {
+          enable = true;
+          package = pkgs.waydroid-nftables;
+        };
         libvirtd.enable = true;
       }
       // lib.optionalAttrs cfg.server.enable {
