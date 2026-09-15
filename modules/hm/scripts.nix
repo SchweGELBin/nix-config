@@ -78,6 +78,14 @@ in
           systemctl restart wg-quick-wg.service
         esac
       '')
+      (pkgs.writeShellScriptBin "waydroid-setup-sw" ''
+        sudo rm -rf ${vars.user.home}/.local/share/waydroid /var/lib/waydroid/*
+        sudo waydroid init
+        echo "ro.hardware.gralloc=default
+        ro.hardware.egl=swiftshader" | sudo tee -a /var/lib/waydroid/waydroid.cfg
+        sudo waydroid upgrade -o
+        waydroid session stop
+      '')
     ]
     ++ lib.optionals config.hypr.enable [
       (pkgs.writeShellScriptBin "avabg" ''
