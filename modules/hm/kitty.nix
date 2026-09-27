@@ -8,6 +8,7 @@ in
       enable = true;
       settings = {
         font_size = "13.0";
+        remember_window_size = false;
       };
     };
   };
