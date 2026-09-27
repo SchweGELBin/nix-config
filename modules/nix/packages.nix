@@ -76,7 +76,10 @@ in
           enable = true;
           package = pkgs.waydroid-nftables;
         };
-        libvirtd.enable = true;
+        libvirtd = {
+          enable = true;
+          qemu.swtpm.enable = true;
+        };
       }
       // lib.optionalAttrs cfg.server.enable {
         podman.enable = true;
