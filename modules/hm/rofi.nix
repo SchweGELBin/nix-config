@@ -11,7 +11,10 @@ in
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      modes =
+      plugins =
+        with pkgs;
+        lib.optional cfg.plugins.calc.enable rofi-calc ++ lib.optional cfg.plugins.emoji.enable rofi-emoji;
+      settings.modes =
         lib.optional cfg.modes.combi.enable "combi"
         ++ lib.optional cfg.modes.drun.enable "drun"
         ++ lib.optional cfg.modes.filebrowser.enable "filebrowser"
@@ -22,9 +25,6 @@ in
         ++ lib.optional cfg.modes.window.enable "window"
         ++ lib.optional cfg.plugins.calc.enable "calc"
         ++ lib.optional cfg.plugins.emoji.enable "emoji";
-      plugins =
-        with pkgs;
-        lib.optional cfg.plugins.calc.enable rofi-calc ++ lib.optional cfg.plugins.emoji.enable rofi-emoji;
     };
   };
 
