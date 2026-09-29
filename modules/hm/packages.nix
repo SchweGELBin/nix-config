@@ -62,6 +62,7 @@ in
         eden
         exiftool
         fenix
+        freecad
         fusee-nano
         gedit
         gimp3
@@ -71,6 +72,7 @@ in
         heroic
         inkscape
         kdePackages.kdenlive
+        kicad
         krita
         legendary-gl
         libnotify
